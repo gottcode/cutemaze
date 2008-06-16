@@ -1,0 +1,13 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+	<file alias="preview0.png">0.png</file>
+	<file alias="preview1.png">1.png</file>
+	<file alias="preview2.png">2.png</file>
+	<file alias="preview3.png">3.png</file>
+	<file alias="preview4.png">4.png</file>
+	<file alias="preview5.png">5.png</file>
+	<file alias="preview6.png">6.png</file>
+	<file alias="preview7.png">7.png</file>
+	<file alias="preview8.png">8.png</file>
+</qresource>
+</RCC>

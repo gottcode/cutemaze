@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=CuteMaze
+Exec=cutemaze
+Icon=cutemaze
+Terminal=false
+Type=Application
+Categories=Qt;Game;

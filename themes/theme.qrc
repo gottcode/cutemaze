@@ -1,0 +1,29 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+	<file alias="games/cutemaze/Mouse/background.svg">mouse/background.svg</file>
+	<file alias="games/cutemaze/Mouse/corner0.svg">mouse/corner0.svg</file>
+	<file alias="games/cutemaze/Mouse/corner1.svg">mouse/corner1.svg</file>
+	<file alias="games/cutemaze/Mouse/corner2.svg">mouse/corner2.svg</file>
+	<file alias="games/cutemaze/Mouse/corner3.svg">mouse/corner3.svg</file>
+	<file alias="games/cutemaze/Mouse/corner4.svg">mouse/corner4.svg</file>
+	<file alias="games/cutemaze/Mouse/flag.svg">mouse/flag.svg</file>
+	<file alias="games/cutemaze/Mouse/marker.svg">mouse/marker.svg</file>
+	<file alias="games/cutemaze/Mouse/player.svg">mouse/player.svg</file>
+	<file alias="games/cutemaze/Mouse/start.svg">mouse/start.svg</file>
+	<file alias="games/cutemaze/Mouse/target.svg">mouse/target.svg</file>
+	<file alias="games/cutemaze/Mouse/wall.svg">mouse/wall.svg</file>
+
+	<file alias="games/cutemaze/Penguin/background.svg">penguin/background.svg</file>
+	<file alias="games/cutemaze/Penguin/corner0.svg">penguin/corner0.svg</file>
+	<file alias="games/cutemaze/Penguin/corner1.svg">penguin/corner1.svg</file>
+	<file alias="games/cutemaze/Penguin/corner2.svg">penguin/corner2.svg</file>
+	<file alias="games/cutemaze/Penguin/corner3.svg">penguin/corner3.svg</file>
+	<file alias="games/cutemaze/Penguin/corner4.svg">penguin/corner4.svg</file>
+	<file alias="games/cutemaze/Penguin/flag.svg">penguin/flag.svg</file>
+	<file alias="games/cutemaze/Penguin/marker.svg">penguin/marker.svg</file>
+	<file alias="games/cutemaze/Penguin/player.svg">penguin/player.svg</file>
+	<file alias="games/cutemaze/Penguin/start.svg">penguin/start.svg</file>
+	<file alias="games/cutemaze/Penguin/target.svg">penguin/target.svg</file>
+	<file alias="games/cutemaze/Penguin/wall.svg">penguin/wall.svg</file>
+</qresource>
+</RCC>
