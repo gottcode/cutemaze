@@ -44,8 +44,6 @@ Board::Board(QMainWindow* parent)
 	m_total_targets(3),
 	m_maze(0),
 	m_show_path(true),
-	m_show_time(true),
-	m_show_steps(true),
 	m_smooth_movement(true),
 	m_col_delta(0),
 	m_row_delta(0),
@@ -62,9 +60,19 @@ Board::Board(QMainWindow* parent)
 	m_move_animation->setUpdateInterval(25);
 	connect(m_move_animation, SIGNAL(frameChanged(int)), this, SLOT(repaint()));
 
-	// Create status message
-	m_status_message = new QLabel;
-	parent->statusBar()->addPermanentWidget(m_status_message);
+	// Create status messages
+	m_status_time_message = new QLabel;
+	m_status_time_message->setContentsMargins(10, 0, 10, 0);
+	parent->statusBar()->addPermanentWidget(m_status_time_message);
+
+	m_status_steps_message = new QLabel;
+	m_status_steps_message->setContentsMargins(10, 0, 10, 0);
+	parent->statusBar()->addPermanentWidget(m_status_steps_message);
+
+	m_status_remain_message = new QLabel;
+	m_status_remain_message->setContentsMargins(10, 0, 10, 0);
+	parent->statusBar()->addPermanentWidget(m_status_remain_message);
+
 	m_status_timer = new QTimer(this);
 	m_status_timer->setInterval(1000);
 	connect(m_status_timer, SIGNAL(timeout()), this, SLOT(updateStatusMessage()));
@@ -138,6 +146,7 @@ void Board::newGame()
 	// Show
 	update();
 	updateStatusMessage();
+	m_status_remain_message->setVisible(true);
 
 	m_paused = false;
 	emit pauseAvailable(true);
@@ -148,7 +157,9 @@ void Board::newGame()
 
 void Board::loadGame()
 {
-	m_status_message->clear();
+	m_status_time_message->clear();
+	m_status_steps_message->clear();
+	m_status_remain_message->clear();
 
 	QSettings settings;
 
@@ -187,6 +198,7 @@ void Board::loadGame()
 	// Show
 	update();
 	updateStatusMessage();
+	m_status_remain_message->setVisible(true);
 
 	// Should not happen, but handle a finished game
 	if (m_targets.isEmpty()) {
@@ -235,9 +247,9 @@ void Board::loadSettings()
 	QSettings settings;
 
 	// Load gameplay settings
+	m_status_steps_message->setVisible(settings.value("Show Steps", true).toBool());
+	m_status_time_message->setVisible(settings.value("Show Time", true).toBool());
 	m_show_path = settings.value("Show Path", true).toBool();
-	m_show_steps = settings.value("Show Steps", true).toBool();
-	m_show_time = settings.value("Show Time", true).toBool();
 	m_smooth_movement = settings.value("Smooth Movement", true).toBool();
 
 	// Load player controls
@@ -387,22 +399,12 @@ void Board::updateStatusMessage()
 		return;
 	}
 
-	QString time;
-	if (m_show_time) {
-		QTime t(0, 0, 0);
-		t = t.addMSecs(m_player_time.elapsed() + m_player_total_time);
-		time = t.toString("hh:mm:ss");
-	}
+	QTime t(0, 0, 0);
+	t = t.addMSecs(m_player_time.elapsed() + m_player_total_time);
 
-	if (m_show_steps && m_show_time) {
-		m_status_message->setText(tr("%1 elapsed, %2 steps taken, %3 of %4 targets remaining") .arg(time) .arg(m_player_steps) .arg(m_targets.size()) .arg(m_total_targets));
-	} else if (m_show_steps) {
-		m_status_message->setText(tr("%1 steps taken, %2 of %3 targets remaining") .arg(m_player_steps) .arg(m_targets.size()) .arg(m_total_targets));
-	} else if (m_show_time) {
-		m_status_message->setText(tr("%1 elapsed, %2 of %3 targets remaining") .arg(time) .arg(m_targets.size()) .arg(m_total_targets));
-	} else {
-		m_status_message->setText(tr("%1 of %2 targets remaining") .arg(m_targets.size()) .arg(m_total_targets));
-	}
+	m_status_time_message->setText(tr("%1 elapsed") .arg(t.toString("hh:mm:ss")));
+	m_status_steps_message->setText(tr("%1 steps taken") .arg(m_player_steps));
+	m_status_remain_message->setText(tr("%1 of %2 targets remain") .arg(m_targets.size()) .arg(m_total_targets));
 }
 
 // ============================================================================
@@ -507,23 +509,6 @@ void Board::finish()
 	// Show congratulations
 	m_status_timer->stop();
 	update();
-
-	QString time;
-	if (m_show_time) {
-		QTime t(0, 0, 0);
-		t = t.addSecs(seconds);
-		time = t.toString("hh:mm:ss");
-	}
-
-	if (m_show_steps && m_show_time) {
-		m_status_message->setText(tr("%1 elapsed, %2 steps taken") .arg(time) .arg(m_player_steps));
-	} else if (m_show_steps) {
-		m_status_message->setText(tr("%1 steps taken") .arg(m_player_steps));
-	} else if (m_show_time) {
-		m_status_message->setText(tr("%1 elapsed") .arg(time));
-	} else {
-		m_status_message->setText(tr("Success!"));
-	}
 
 	// Add high score
 	emit finished(m_player_steps, seconds, algorithm, size);

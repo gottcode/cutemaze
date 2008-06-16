@@ -44,7 +44,7 @@ win32 {
 
 unix: !macx {
 	isEmpty(PREFIX) {
-		PREFIX = /usr
+		PREFIX = /usr/local
 	}
 
 	binary.path = $$PREFIX/bin/
@@ -54,7 +54,7 @@ unix: !macx {
 	icon.files = icons/cutemaze.png
 
 	desktop.path = $$PREFIX/share/applications/
-	desktop.files = cutemaze.desktop
+	desktop.files = icons/cutemaze.desktop
 
 	INSTALLS += binary icon desktop
 }

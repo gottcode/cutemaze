@@ -72,13 +72,12 @@ private:
 	Maze* m_maze;
 	QPoint m_start;
 	QList<QPoint> m_targets;
-	QLabel* m_status_message;
+	QLabel* m_status_time_message;
+	QLabel* m_status_steps_message;
+	QLabel* m_status_remain_message;
 	QTimer* m_status_timer;
 
 	bool m_show_path;
-	bool m_show_time;
-	bool m_show_steps;
-
 	bool m_smooth_movement;
 	int m_col_delta;
 	int m_row_delta;

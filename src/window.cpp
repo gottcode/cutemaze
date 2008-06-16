@@ -286,7 +286,7 @@ Window::Window()
 #else
 	initMenuBar();
 #endif
-	m_pause_action->setShortcut(Qt::Key_P);
+	m_pause_action->setShortcut(tr("P"));
 	m_pause_action->setCheckable(true);
 	connect(m_pause_action, SIGNAL(toggled(bool)), m_board, SLOT(pauseGame(bool)));
 	connect(m_board, SIGNAL(pauseAvailable(bool)), m_pause_action, SLOT(setEnabled(bool)));
@@ -348,9 +348,9 @@ void Window::closeEvent(QCloseEvent* event)
 void Window::initMenuBar()
 {
 	QMenu* game_menu = menuBar()->addMenu(tr("Game"));
-	game_menu->addAction(tr("New Game"), m_board, SLOT(newGame()), tr("Ctrl+N"));
-	m_pause_action = game_menu->addAction(tr("Pause Game"));
-	game_menu->addAction(tr("High Scores"), m_scores, SLOT(show()), tr("Ctrl+H"));
+	game_menu->addAction(tr("New"), m_board, SLOT(newGame()), tr("Ctrl+N"));
+	m_pause_action = game_menu->addAction(tr("Pause"));
+	game_menu->addAction(tr("Scores"), m_scores, SLOT(show()));
 	game_menu->addAction(tr("Settings"), m_settings, SLOT(show()));
 	game_menu->addAction(tr("Quit"), this, SLOT(close()), tr("Ctrl+Q"));
 }
@@ -380,10 +380,8 @@ void Window::initToolBar()
 	action = toolbar->addAction(icons.at(0), tr("New"), m_board, SLOT(newGame()));
 	action->setShortcut(tr("Ctrl+N"));
 	m_pause_action = toolbar->addAction(icons.at(1), tr("Pause"));
-	action = toolbar->addAction(icons.at(2), tr("Scores"), m_scores, SLOT(show()));
-	action->setShortcut(tr("Ctrl+H"));
-	action = toolbar->addAction(icons.at(3), tr("Settings"), m_settings, SLOT(show()));
-	action->setShortcut(tr("Ctrl+S"));
+	toolbar->addAction(icons.at(2), tr("Scores"), m_scores, SLOT(show()));
+	toolbar->addAction(icons.at(3), tr("Settings"), m_settings, SLOT(show()));
 	action = toolbar->addAction(icons.at(4), tr("Quit"), this, SLOT(close()));
 	action->setShortcut(tr("Ctrl+Q"));
 	addToolBar(toolbar);

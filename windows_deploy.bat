@@ -1,5 +1,4 @@
 MKDIR CuteMaze
-STRIP release\CuteMaze.exe
 COPY release\CuteMaze.exe CuteMaze
 COPY %QTDIR%\bin\mingwm10.dll CuteMaze
 COPY %QTDIR%\bin\QtCore4.dll CuteMaze
