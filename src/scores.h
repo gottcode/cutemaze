@@ -21,8 +21,19 @@
 #define SCORES_H
 
 #include <QDialog>
+#include <QTreeWidget>
 class QComboBox;
 class QStackedWidget;
+
+class ScoreBoard : public QTreeWidget
+{
+	Q_OBJECT
+public:
+	ScoreBoard(QWidget* parent = 0);
+
+	void updateItems();
+};
+
 
 class Scores : public QDialog
 {

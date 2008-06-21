@@ -28,7 +28,6 @@
 #include <QScrollBar>
 #include <QSettings>
 #include <QStackedWidget>
-#include <QTreeWidget>
 #include <QVBoxLayout>
 
 #if defined(Q_OS_UNIX)
@@ -104,14 +103,7 @@ bool Score::operator<(const QTreeWidgetItem& other) const
 }
 
 // ============================================================================
-
-class ScoreBoard : public QTreeWidget
-{
-public:
-	ScoreBoard(QWidget* parent = 0);
-
-	void updateItems();
-};
+}
 
 // ============================================================================
 
@@ -141,9 +133,6 @@ void ScoreBoard::updateItems()
 		w += columnWidth(i);
 	}
 	setMinimumSize(w, header()->height() + sizeHintForRow(0) * 10 + frameWidth() * 2);
-}
-
-// ============================================================================
 }
 
 // ============================================================================
@@ -183,7 +172,7 @@ void Scores::addScore(int steps, int seconds, int algorithm, int size)
 	int pos = m_sizes->findText(QString::number(size));
 	if (pos != -1) {
 		// Access already loaded one
-		board = dynamic_cast<ScoreBoard*>(m_lists->widget(pos));
+		board = qobject_cast<ScoreBoard*>(m_lists->widget(pos));
 		if (board == 0) {
 			return;
 		}
@@ -246,8 +235,12 @@ void Scores::addScore(int steps, int seconds, int algorithm, int size)
 		}
 	}
 #endif
-	bool ok;
+	bool ok = true;
+#if !defined(QTOPIA_PHONE)
 	name = QInputDialog::getText(parentWidget(), tr("Congratulations!"), tr("Your score has made the top ten.\nPlease enter your name:"), QLineEdit::Normal, name, &ok);
+#else
+	name = "root";
+#endif
 	if (!ok || name.isEmpty()) {
 		return;
 	}

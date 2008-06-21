@@ -29,7 +29,7 @@ class QAction;
 class Window : public QMainWindow
 {
 public:
-	Window();
+	Window(QWidget *parent = 0, Qt::WindowFlags wf = 0);
 
 	virtual bool eventFilter(QObject* watched, QEvent* event);
 
@@ -37,8 +37,7 @@ protected:
 	virtual void closeEvent(QCloseEvent* event);
 
 private:
-	void initMenuBar();
-	void initToolBar();
+	void initActions();
 
 	Board* m_board;
 	Scores* m_scores;

@@ -7,6 +7,10 @@ macx {
 	CONFIG += x86 ppc
 }
 
+qws {
+	qtopia_project(qtopia app)
+}
+
 MOC_DIR = build
 OBJECTS_DIR = build
 RCC_DIR = build
@@ -47,14 +51,20 @@ unix: !macx {
 		PREFIX = /usr/local
 	}
 
-	binary.path = $$PREFIX/bin/
-	binary.files = cutemaze
-
-	icon.path = $$PREFIX/share/icons/hicolor/48x48/apps
 	icon.files = icons/cutemaze.png
-
-	desktop.path = $$PREFIX/share/applications/
 	desktop.files = icons/cutemaze.desktop
 
-	INSTALLS += binary icon desktop
+	qws {
+		target.path = /bin/
+		icon.path = /pics/cutemaze
+		icon.hint = pics
+		desktop.path =	/apps/Games
+		desktop.hint = desktop
+	} else {
+		target.path = $$PREFIX/bin/
+		icon.path = $$PREFIX/share/icons/hicolor/48x48/apps
+		desktop.path = $$PREFIX/share/applications/
+	}
+
+	INSTALLS += target icon desktop
 }

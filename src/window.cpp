@@ -28,15 +28,22 @@
 #include <QEvent>
 #include <QIcon>
 #include <QList>
-#include <QMenuBar>
 #include <QPair>
 #include <QProcess>
 #include <QSettings>
 #include <QString>
 #include <QTimer>
+
+#if defined(QTOPIA_PHONE)
+#include <QSoftMenuBar>
+#include <QMenu>
+#else
+#include <QMenuBar>
+#endif
+
+#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC) && !defined(QTOPIA_PHONE)
 #include <QToolBar>
 
-#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
 namespace {
 // ============================================================================
 
@@ -260,8 +267,9 @@ QList<QIcon> findNativeIcons(const QList<QPair<QString, QString> >& lookup)
 
 // ============================================================================
 
-Window::Window()
-:	m_pause_count(0),
+Window::Window(QWidget *parent, Qt::WindowFlags wf)
+:	QMainWindow(parent, wf),
+	m_pause_count(0),
 	m_was_paused(false),
 	m_pause_available(true)
 {
@@ -281,12 +289,10 @@ Window::Window()
 	m_scores->installEventFilter(this);
 
 	// Create actions
-#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
-	initToolBar();
-#else
-	initMenuBar();
-#endif
+	initActions();
+#if !defined(QTOPIA_PHONE)
 	m_pause_action->setShortcut(tr("P"));
+#endif
 	m_pause_action->setCheckable(true);
 	connect(m_pause_action, SIGNAL(toggled(bool)), m_board, SLOT(pauseGame(bool)));
 	connect(m_board, SIGNAL(pauseAvailable(bool)), m_pause_action, SLOT(setEnabled(bool)));
@@ -294,7 +300,9 @@ Window::Window()
 
 	// Setup window
 	setWindowTitle(tr("CuteMaze"));
+#if !defined(QTOPIA_PHONE)
 	resize(QSettings().value("Size", QSize(448, 448)).toSize());
+#endif
 
 	// Create auto-save timer
 	QTimer *timer = new QTimer(this);
@@ -345,21 +353,16 @@ void Window::closeEvent(QCloseEvent* event)
 
 // ============================================================================
 
-void Window::initMenuBar()
+void Window::initActions()
 {
-	QMenu* game_menu = menuBar()->addMenu(tr("Game"));
-	game_menu->addAction(tr("New"), m_board, SLOT(newGame()), tr("Ctrl+N"));
-	m_pause_action = game_menu->addAction(tr("Pause"));
-	game_menu->addAction(tr("Scores"), m_scores, SLOT(show()));
+#if defined(QTOPIA_PHONE)
+	QMenu* game_menu = QSoftMenuBar::menuFor(this);
+
 	game_menu->addAction(tr("Settings"), m_settings, SLOT(show()));
-	game_menu->addAction(tr("Quit"), this, SLOT(close()), tr("Ctrl+Q"));
-}
-
-// ============================================================================
-
-void Window::initToolBar()
-{
-#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
+	game_menu->addAction(tr("High Scores"), m_scores, SLOT(show()));
+	m_pause_action = game_menu->addAction(tr("Pause Game"));
+	game_menu->addAction(tr("New Game"), m_board, SLOT(newGame()));
+#elif defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
 	// Fetch icons for toolbar
 	QList<QIcon> icons = findNativeIcons(
 		QList<QPair<QString, QString> >()
@@ -386,6 +389,14 @@ void Window::initToolBar()
 	action->setShortcut(tr("Ctrl+Q"));
 	addToolBar(toolbar);
 	setContextMenuPolicy(Qt::NoContextMenu);
+#else
+	QMenu* game_menu = menuBar()->addMenu(tr("Game"));
+
+	game_menu->addAction(tr("New"), m_board, SLOT(newGame()), tr("Ctrl+N"));
+	m_pause_action = game_menu->addAction(tr("Pause"));
+	game_menu->addAction(tr("Scores"), m_scores, SLOT(show()));
+	game_menu->addAction(tr("Settings"), m_settings, SLOT(show()));
+	game_menu->addAction(tr("Quit"), this, SLOT(close()), tr("Ctrl+Q"));
 #endif
 }
 

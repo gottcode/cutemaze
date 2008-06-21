@@ -52,7 +52,9 @@ Board::Board(QMainWindow* parent)
 	m_player_total_time(0)
 {
 	connect(qApp, SIGNAL(focusChanged(QWidget*, QWidget*)), this, SLOT(focusChanged()));
+#if !defined(QTOPIA_PHONE)
 	setMinimumSize(448, 448);
+#endif
 
 	m_move_animation = new QTimeLine(100, this);
 	m_move_animation->setFrameRange(0, 3);
@@ -63,15 +65,18 @@ Board::Board(QMainWindow* parent)
 	// Create status messages
 	m_status_time_message = new QLabel;
 	m_status_time_message->setContentsMargins(10, 0, 10, 0);
-	parent->statusBar()->addPermanentWidget(m_status_time_message);
 
 	m_status_steps_message = new QLabel;
 	m_status_steps_message->setContentsMargins(10, 0, 10, 0);
-	parent->statusBar()->addPermanentWidget(m_status_steps_message);
 
 	m_status_remain_message = new QLabel;
 	m_status_remain_message->setContentsMargins(10, 0, 10, 0);
+
+#if !defined(QTOPIA_PHONE)
+	parent->statusBar()->addPermanentWidget(m_status_time_message);
+	parent->statusBar()->addPermanentWidget(m_status_steps_message);
 	parent->statusBar()->addPermanentWidget(m_status_remain_message);
+#endif
 
 	m_status_timer = new QTimer(this);
 	m_status_timer->setInterval(1000);
@@ -146,7 +151,9 @@ void Board::newGame()
 	// Show
 	update();
 	updateStatusMessage();
+#if !defined(QTOPIA_PHONE)
 	m_status_remain_message->setVisible(true);
+#endif
 
 	m_paused = false;
 	emit pauseAvailable(true);
@@ -198,7 +205,9 @@ void Board::loadGame()
 	// Show
 	update();
 	updateStatusMessage();
+#if !defined(QTOPIA_PHONE)
 	m_status_remain_message->setVisible(true);
+#endif
 
 	// Should not happen, but handle a finished game
 	if (m_targets.isEmpty()) {
@@ -247,8 +256,10 @@ void Board::loadSettings()
 	QSettings settings;
 
 	// Load gameplay settings
+#if !defined(QTOPIA_PHONE)
 	m_status_steps_message->setVisible(settings.value("Show Steps", true).toBool());
 	m_status_time_message->setVisible(settings.value("Show Time", true).toBool());
+#endif
 	m_show_path = settings.value("Show Path", true).toBool();
 	m_smooth_movement = settings.value("Smooth Movement", true).toBool();
 

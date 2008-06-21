@@ -25,7 +25,9 @@
 #include <QComboBox>
 #include <QDialogButtonBox>
 #include <QDir>
+#if !defined(QTOPIA_PHONE)
 #include <QFileDialog>
+#endif
 #include <QGridLayout>
 #include <QHBoxLayout>
 #include <QKeyEvent>
@@ -257,17 +259,21 @@ Settings::Settings(QWidget* parent)
 	m_theme = new Theme;
 
 	QTabWidget* tabs = new QTabWidget(this);
+#if !defined(QTOPIA_PHONE)
 	QDialogButtonBox* buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, Qt::Horizontal, this);
 	connect(buttons, SIGNAL(accepted()), this, SLOT(accept()));
 	connect(buttons, SIGNAL(rejected()), this, SLOT(reject()));
+#endif
 
 	QVBoxLayout* layout = new QVBoxLayout(this);
 	layout->setMargin(10);
 	layout->setSpacing(18);
 	layout->addWidget(tabs);
+#if !defined(QTOPIA_PHONE)
 	layout->addWidget(buttons);
 
 	resize(minimumSize());
+#endif
 
 
 	// Create Gameplay tab
@@ -278,6 +284,10 @@ Settings::Settings(QWidget* parent)
 	m_gameplay_steps = new QCheckBox(tr("Show number of steps taken"), gameplay_tab);
 	m_gameplay_time = new QCheckBox(tr("Show elapsed time"), gameplay_tab);
 	m_gameplay_smooth = new QCheckBox(tr("Smooth movement"), gameplay_tab);
+#if defined(QTOPIA_PHONE)
+	m_gameplay_steps->hide();
+	m_gameplay_time->hide();
+#endif
 
 	QGridLayout* gameplay_layout = new QGridLayout(gameplay_tab);
 	gameplay_layout->setSpacing(6);
@@ -332,6 +342,7 @@ Settings::Settings(QWidget* parent)
 
 
 	// Create Controls tab
+#if !defined(QTOPIA_PHONE)
 	QWidget* controls_tab = new QWidget;
 	tabs->addTab(controls_tab, tr("Controls"));
 
@@ -357,6 +368,7 @@ Settings::Settings(QWidget* parent)
 	controls_layout->addWidget(controls[3], 4, 2);
 	controls_layout->addWidget(new QLabel(tr("Toggle Flag"), controls_tab), 5, 1, Qt::AlignRight | Qt::AlignVCenter);
 	controls_layout->addWidget(controls[4], 5, 2);
+#endif
 
 
 	// Create Themes tab
@@ -368,6 +380,7 @@ Settings::Settings(QWidget* parent)
 
 	m_themes_preview = new QLabel(themes_tab);
 
+#if !defined(QTOPIA_PHONE)
 	QPushButton* add_button = new QPushButton(tr("Add Theme"), themes_tab);
 	add_button->setEnabled(!supportedArchiveFormats().isEmpty());
 	connect(add_button, SIGNAL(clicked()), this, SLOT(addTheme()));
@@ -388,6 +401,11 @@ Settings::Settings(QWidget* parent)
 	QVBoxLayout* themes_layout = new QVBoxLayout(themes_tab);
 	themes_layout->addLayout(themes_preview_layout);
 	themes_layout->addLayout(themes_button_layout);
+#else
+	QHBoxLayout* themes_layout = new QHBoxLayout(themes_tab);
+	themes_layout->addWidget(m_themes_selector);
+	themes_layout->addWidget(m_themes_preview);
+#endif
 
 
 	// Load current settings
@@ -455,7 +473,9 @@ void Settings::themeSelected(const QString& theme)
 	if (!theme.isEmpty()) {
 		m_theme->load(theme);
 		generatePreview();
+#if !defined(QTOPIA_PHONE)
 		m_themes_remove_button->setEnabled(QFileInfo(homeDataPath() + "/" + theme).exists());
+#endif
 	}
 }
 
@@ -464,8 +484,12 @@ void Settings::themeSelected(const QString& theme)
 void Settings::addTheme()
 {
 	// Select theme archive
+#if !defined(QTOPIA_PHONE)
 	QString filters = tr("Archives (%1)").arg(supportedArchiveFormats());
 	QString file = QFileDialog::getOpenFileName(this, tr("Select Theme Archive"), QDir::homePath(), filters);
+#else
+	QString file;
+#endif
 	if (file.isEmpty()) {
 		return;
 	}
@@ -569,11 +593,13 @@ void Settings::loadSettings()
 	m_mazes_targets->setValue(settings.value("New/Targets", 3).toInt());
 	m_mazes_size->setValue(settings.value("New/Size", 50).toInt());
 
+#if !defined(QTOPIA_PHONE)
 	// Read control button settings from disk
 	foreach (ControlButton* button, controls) {
 		button->key = settings.value("Controls/" + button->objectName().mid(8), button->default_key).toUInt();
 		button->setText(QKeySequence(button->key).toString());
 	}
+#endif
 
 	// Read theme from disk
 	QStringList themes = m_theme->available();
