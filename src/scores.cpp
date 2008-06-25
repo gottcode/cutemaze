@@ -142,8 +142,10 @@ Scores::Scores(QWidget* parent)
 {
 	setWindowTitle(tr("CuteMaze Scores"));
 
+#if !defined(QTOPIA_PHONE)
 	QDialogButtonBox* buttons = new QDialogButtonBox(QDialogButtonBox::Close, Qt::Horizontal, this);
 	connect(buttons, SIGNAL(rejected()), this, SLOT(reject()));
+#endif
 
 	m_sizes = new QComboBox(this);
 
@@ -157,8 +159,10 @@ Scores::Scores(QWidget* parent)
 	QVBoxLayout* layout = new QVBoxLayout(this);
 	layout->addLayout(section_layout);
 	layout->addWidget(m_lists);
+#if !defined(QTOPIA_PHONE)
 	layout->addSpacing(12);
 	layout->addWidget(buttons);
+#endif
 
 	read();
 }
