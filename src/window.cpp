@@ -35,6 +35,7 @@
 #include <QTimer>
 
 #if defined(QTOPIA_PHONE)
+#include <QApplication>
 #include <QSoftMenuBar>
 #include <QMenu>
 #else
@@ -277,6 +278,9 @@ Window::Window(QWidget *parent, Qt::WindowFlags wf)
 	m_board = new Board(this);
 	setCentralWidget(m_board);
 	m_board->setFocus();
+#if defined(QTOPIA_PHONE)
+	connect(qApp, SIGNAL(aboutToQuit()), m_board, SLOT(saveGame()));
+#endif
 
 	// Create settings window
 	m_settings = new Settings(this);
@@ -358,6 +362,7 @@ void Window::initActions()
 #if defined(QTOPIA_PHONE)
 	QMenu* game_menu = QSoftMenuBar::menuFor(this);
 
+	game_menu->addAction(tr("Quit Game"), qApp, SLOT(quit()));
 	game_menu->addAction(tr("Settings"), m_settings, SLOT(show()));
 	game_menu->addAction(tr("High Scores"), m_scores, SLOT(show()));
 	m_pause_action = game_menu->addAction(tr("Pause Game"));
