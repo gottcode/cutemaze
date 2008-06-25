@@ -342,7 +342,6 @@ Settings::Settings(QWidget* parent)
 
 
 	// Create Controls tab
-#if !defined(QTOPIA_PHONE)
 	QWidget* controls_tab = new QWidget;
 	tabs->addTab(controls_tab, tr("Controls"));
 
@@ -368,7 +367,6 @@ Settings::Settings(QWidget* parent)
 	controls_layout->addWidget(controls[3], 4, 2);
 	controls_layout->addWidget(new QLabel(tr("Toggle Flag"), controls_tab), 5, 1, Qt::AlignRight | Qt::AlignVCenter);
 	controls_layout->addWidget(controls[4], 5, 2);
-#endif
 
 
 	// Create Themes tab
@@ -593,13 +591,11 @@ void Settings::loadSettings()
 	m_mazes_targets->setValue(settings.value("New/Targets", 3).toInt());
 	m_mazes_size->setValue(settings.value("New/Size", 50).toInt());
 
-#if !defined(QTOPIA_PHONE)
 	// Read control button settings from disk
 	foreach (ControlButton* button, controls) {
 		button->key = settings.value("Controls/" + button->objectName().mid(8), button->default_key).toUInt();
 		button->setText(QKeySequence(button->key).toString());
 	}
-#endif
 
 	// Read theme from disk
 	QStringList themes = m_theme->available();
