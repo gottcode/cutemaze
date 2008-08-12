@@ -55,53 +55,60 @@ bool less(const QString& s1, const QString& s2)
 
 // ============================================================================
 
-// Copied from src/gui/styles/qplastiquestyle.cpp in Qt 4.3.4
-// Copyright (C) 1992-2008 Trolltech ASA.
-QString kdeHome()
-{
-	QString home = QString::fromLocal8Bit(qgetenv("KDEHOME"));
-	if (home.isEmpty())
-		home = QDir::homePath() + QLatin1String("/.kde");
-	return home;
-}
-
-// ============================================================================
-
-QString kdeDir()
-{
-	QString dir = QString::fromLocal8Bit(qgetenv("KDEDIR"));
-	if (dir.isEmpty()) {
-		QProcess kdeconfig;
-		kdeconfig.start(QLatin1String("kde-config --prefix"));
-		if (kdeconfig.waitForFinished())
-			dir = QLatin1String(kdeconfig.readLine().trimmed());
-		if (dir.isEmpty())
-			dir = QLatin1String("/usr");
-	}
-	return dir;
-}
-
-// ============================================================================
-
 QStringList findLocations()
 {
+	// Add XDG icon directories
 	QString xdg;
 	xdg = getenv("$XDG_DATA_HOME");
 	if (xdg.isEmpty()) {
-		xdg = QDir::homePath() + "/.local/share/";
+		xdg = QDir::homePath() + "/.local/share";
 	}
 	QStringList locations = xdg.split(":");
 	xdg = getenv("$XDG_DATA_DIRS");
 	if (xdg.isEmpty()) {
-		xdg = "/usr/local/share/:/usr/share/";
+		xdg = "/usr/local/share:/usr/share";
 	}
 	locations += xdg.split(":");
 	for (int i = 0; i < locations.size(); ++i) {
 		locations[i] += "/icons/";
 	}
-	locations.prepend(kdeDir() + "/share/icons/");
-	locations.prepend(kdeHome() + "/share/icons/");
+
+	// Add KDE icon directories
+	if (getenv("KDE_FULL_SESSION")) {
+		QString prefix;
+		QString process = getenv("KDE_SESSION_VERSION") == QLatin1String("4") ? "kde4-config" : "kde-config";
+		QProcess kdeconfig;
+		kdeconfig.start(process + " --prefix");
+		if (kdeconfig.waitForFinished()) {
+			prefix = QLatin1String(kdeconfig.readLine().trimmed());
+		}
+		if (prefix.isEmpty()) {
+			prefix = QDir::homePath() + QLatin1String("/.kde");
+		}
+		locations.prepend(prefix + "/share/icons/");
+
+		kdeconfig.start(process + " --localprefix");
+		if (kdeconfig.waitForFinished()) {
+			prefix = QLatin1String(kdeconfig.readLine().trimmed());
+		}
+		if (prefix.isEmpty()) {
+			prefix = QLatin1String("/usr");
+		}
+		locations.prepend(prefix + "/share/icons/");
+	}
+
+	// Add legacy home icon directory
 	locations.prepend(QDir::homePath() + "/.icons/");
+
+	// Remove duplicated directories
+	int pos;
+	for (int i = 0; i < locations.count(); ++i) {
+		const QString& value = locations.at(i);
+		while ((pos = locations.indexOf(value, i + 1)) != -1) {
+			locations.removeAt(pos);
+		}
+	}
+
 	return locations;
 }
 
@@ -139,9 +146,9 @@ QStringList findParentThemes(const QString& theme, const QStringList& locations)
 
 // ============================================================================
 
-bool findIcons(const QString& theme_path, QList<QPair<QString, int> >& icons, const QList<QPair<QString, QString> >& icon_names, int& found_icons, const QString& size)
+bool findIcons(const QString& theme_path, QStringList& icons, QStringList& icon_names, int& found_icons, const QString& size)
 {
-	int count = icons.count();
+	int count = icon_names.count();
 
 	// Find list of sizes
 	QStringList sizes = QDir(theme_path).entryList(QDir::Dirs | QDir::NoDotAndDotDot);
@@ -156,48 +163,39 @@ bool findIcons(const QString& theme_path, QList<QPair<QString, int> >& icons, co
 
 	// Search through sizes for icons
 	QFileInfo info;
-	QString path, subpath;
-	QStringList dirs;
+	QString path, subpath, dir;
+	QStringList dirs, child_dirs;
 	foreach (const QString& size, sizes) {
 		path = theme_path + "/" + size;
 		dirs = QDir(path).entryList(QDir::Dirs | QDir::NoDotAndDotDot);
 
 		// Check each subdirectory of size
-		foreach (const QString& dir, dirs) {
+		for (int i = 0; i < dirs.count(); ++i) {
+			dir = dirs.at(i);
 			subpath = path + "/" + dir;
-			for (int i = 0; i < count; ++i) {
-				QPair<QString, int>& icon = icons[i];
-				if (icon.second == 2) {
+			for (int j = 0; j < count; ++j) {
+				QString& lookup = icon_names[j];
+				if (lookup.isEmpty()) {
 					continue;
 				}
-				const QPair<QString, QString>& lookup = icon_names.at(i);
 
-				// Check for first choice
-				if (icon.second < 2) {
-					info.setFile(subpath + "/" + lookup.first);
-					if (info.exists() && !info.isDir()) {
-						icon.first = info.canonicalFilePath();
-						if (icon.second == 0) {
-							found_icons++;
-						}
-						icon.second = 2;
-					}
-				}
-
-				// Check for second choice
-				if (icon.second < 1) {
-					info.setFile(subpath + "/" + lookup.second);
-					if (info.exists() && !info.isDir()) {
-						icon.first = info.canonicalFilePath();
-						found_icons++;
-						icon.second = 1;
-					}
+				info.setFile(subpath + "/" + lookup);
+				if (info.exists() && !info.isDir()) {
+					icons[j] = info.canonicalFilePath();
+					lookup.clear();
+					found_icons++;
 				}
 			}
 
 			// Done if the icons are found
 			if (found_icons == count) {
 				return true;
+			}
+
+			// Append any child directories
+			child_dirs = QDir(subpath).entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+			foreach (const QString& child, child_dirs) {
+				dirs.append(dir + "/" + child);
 			}
 		}
 	}
@@ -206,29 +204,38 @@ bool findIcons(const QString& theme_path, QList<QPair<QString, int> >& icons, co
 
 // ============================================================================
 
-QList<QIcon> findNativeIcons(const QList<QPair<QString, QString> >& lookup)
+QList<QIcon> findNativeIcons(int& actual_size)
 {
-	QList<QPair<QString, int> > icons;
-	for (int i = 0; i < lookup.count(); ++i) {
-		icons.append(qMakePair(QString(), 0));
-	}
-	int found_icons = 0;
-
 	// Find native theme
+	QStringList lookup;
 	QString theme = QSettings().value("Icon Theme").toString();
 	QString size = QSettings().value("Icon Size", "22x22").toString();
+	actual_size = size.section("x", 0, 0).toInt();
 	if (theme.isEmpty()) {
 		if (getenv("KDE_FULL_SESSION")) {
 			size = "22x22";
+			actual_size = 22;
 
-			// Copied from src/gui/styles/qplastiquestyle.cpp in Qt 4.3.4
+			QString default_theme;
+			if (getenv("KDE_SESSION_VERSION") == QLatin1String("4")) {
+				default_theme = "oxygen";
+				lookup = QStringList() << "document-new.png" << "media-playback-pause.png" << "games-highscores.png" << "configure.png" << "application-exit.png";
+			} else {
+				default_theme = "crystalsvg";
+				lookup = QStringList() << "filenew.png" << "player_pause.png" << "spreadsheet.png" << "configure.png" << "exit.png";
+			}
+
+			// Modified from src/gui/styles/qplastiquestyle.cpp in Qt 4.3.4
 			// Copyright (C) 1992-2008 Trolltech ASA.
 			QProcess kreadconfig;
-			kreadconfig.start(QLatin1String("kreadconfig --file kdeglobals --group Icons --key Theme --default crystalsvg"));
+			kreadconfig.start(QString("kreadconfig --group Icons --key Theme --default %1").arg(default_theme));
 			if (kreadconfig.waitForFinished())
 				theme = QLatin1String(kreadconfig.readLine().trimmed());
 		} else {
 			size = "24x24";
+			actual_size = 24;
+
+			lookup = QStringList() << "document-new.png" << "player_pause.png" << "stock_scores.png" << "preferences-system.png" << "application-exit.png";
 
 			// Copied from src/gui/styles/qcleanlooksstyle.cpp in Qt 4.3.4
 			// Copyright (C) 1992-2008 Trolltech ASA.
@@ -242,8 +249,13 @@ QList<QIcon> findNativeIcons(const QList<QPair<QString, QString> >& lookup)
 	}
 
 	// Lookup icons
+	QStringList icons;
+	for (int i = 0; i < lookup.count(); ++i) {
+		icons.append("");
+	}
 	QStringList locations = findLocations();
 	QStringList themes = findParentThemes(theme, locations);
+	int found_icons = 0;
 	foreach (QString current, themes) {
 		foreach (QString location, locations) {
 			if (findIcons(location + current, icons, lookup, found_icons, size)) {
@@ -255,9 +267,8 @@ QList<QIcon> findNativeIcons(const QList<QPair<QString, QString> >& lookup)
 	// Return list of icons
 	done:
 	QList<QIcon> result;
-	int count = icons.count();
-	for (int i = 0; i < count; ++i) {
-		result.append(QIcon(icons.at(i).first));
+	foreach (QString icon, icons) {
+		result.append(QIcon(icon));
 	}
 	return result;
 }
@@ -369,19 +380,13 @@ void Window::initActions()
 	game_menu->addAction(tr("New Game"), m_board, SLOT(newGame()));
 #elif defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
 	// Fetch icons for toolbar
-	QList<QIcon> icons = findNativeIcons(
-		QList<QPair<QString, QString> >()
-		<< qMakePair(QString("document-new.png"), QString("filenew.png"))
-		<< qMakePair(QString("player_pause.png"), QString())
-		<< qMakePair(QString("spreadsheet.png"), QString())
-		<< qMakePair(QString("configure.png"), QString("document-properties.png"))
-		<< qMakePair(QString("application-exit.png"), QString("exit.png"))
-	);
-	Q_ASSERT(icons.count() == 5);
+	int actual_size = 0;
+	QList<QIcon> icons = findNativeIcons(actual_size);
 
 	// Create toolbar
 	QAction* action;
 	QToolBar* toolbar = new QToolBar(this);
+	toolbar->setIconSize(QSize(actual_size,actual_size));
 	toolbar->setFloatable(false);
 	toolbar->setMovable(false);
 	toolbar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
