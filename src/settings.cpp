@@ -271,8 +271,6 @@ Settings::Settings(QWidget* parent)
 	layout->addWidget(tabs);
 #if !defined(QTOPIA_PHONE)
 	layout->addWidget(buttons);
-
-	resize(minimumSize());
 #endif
 
 
@@ -405,6 +403,12 @@ Settings::Settings(QWidget* parent)
 	themes_layout->addWidget(m_themes_preview);
 #endif
 
+
+	// Set dialog's size
+#if !defined(QTOPIA_PHONE)
+	adjustSize();
+	setMinimumSize(size());
+#endif
 
 	// Load current settings
 	loadSettings();

@@ -1,4 +1,5 @@
 2008-08-12 Graeme Gott <graeme@gottcode.org>
+	* FIXED: Settings dialog was inaccessible in KDE.
 	* Load correct icons in GNOME 2, KDE 3, and KDE 4.
 
 2008-06-17 Graeme Gott <graeme@gottcode.org>
