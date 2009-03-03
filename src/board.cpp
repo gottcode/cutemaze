@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007-2008 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007-2009 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,6 +33,7 @@
 #include <QTimeLine>
 #include <QTimer>
 
+#include <algorithm>
 #include <ctime>
 
 // ============================================================================
@@ -128,13 +129,10 @@ void Board::newGame()
 	// Set values for new game
 	QSettings settings;
 	settings.remove("Current");
-	settings.setValue("Current/Seed", seed);
-	m_total_targets = settings.value("New/Targets", 3).toInt();
-	m_total_targets = m_total_targets > 0 ? m_total_targets : 1;
-	m_total_targets = m_total_targets < 100 ? m_total_targets : 99;
-	settings.setValue("Current/Targets", m_total_targets);
-	settings.setValue("Current/Size", settings.value("New/Size", 50).toInt());
 	settings.setValue("Current/Algorithm", settings.value("New/Algorithm", 4).toInt());
+	settings.setValue("Current/Seed", seed);
+	settings.setValue("Current/Size", settings.value("New/Size", 20).toInt());
+	settings.setValue("Current/Targets", settings.value("New/Targets", 3).toInt());
 	m_player_angle = 360;
 	m_player_steps = 0;
 
@@ -171,9 +169,6 @@ void Board::loadGame()
 	QSettings settings;
 
 	// Load maze
-	m_total_targets = settings.value("Current/Targets", 3).toInt();
-	m_total_targets = m_total_targets > 0 ? m_total_targets : 1;
-	m_total_targets = m_total_targets < 100 ? m_total_targets : 99;
 	generate(settings.value("Current/Seed").toUInt());
 	if (!m_maze->load()) {
 		QMessageBox::warning(this, tr("CuteMaze"), tr("Unable to load previous game. A new game will be started."));
@@ -422,16 +417,15 @@ void Board::updateStatusMessage()
 
 void Board::generate(unsigned int seed)
 {
-	int columns = QSettings().value("Current/Size", 50).toInt();
-	columns = columns > 9 ? columns : 10;
-	columns = columns < 100 ? columns : 99;
-	int rows = columns;
+	QSettings settings;
+	int size = qBound(10, settings.value("Current/Size").toInt(), 100);
+	m_total_targets = qBound(1, settings.value("Current/Targets").toInt(), 100);
 
 	// Create new maze
 	m_targets.clear();
 	srand(seed);
 	delete m_maze;
-	switch (QSettings().value("Current/Algorithm", 4).toInt()) {
+	switch (QSettings().value("Current/Algorithm").toInt()) {
 	case 0:
 		m_maze = new HuntAndKillMaze;
 		break;
@@ -461,40 +455,18 @@ void Board::generate(unsigned int seed)
 		m_maze = new StackMaze;
 		break;
 	}
-	m_maze->generate(columns, rows);
+	m_maze->generate(size, size);
 
-	// Add player
-	m_player.setX(rand() % (columns - 1));
-	m_player.setY(rand() % (rows - 1));
-	m_start = m_player;
-
-	// Add targets
+	// Add player and targets
 	QList<QPoint> locations;
-	if (columns * rows > m_total_targets * 2) {
-		locations.append(m_start);
-		QPoint target;
-		for (int i = 0; i < m_total_targets; ++i) {
-			do {
-				target.setX(rand() % (columns - 1));
-				target.setY(rand() % (rows - 1));
-			} while (locations.contains(target));
-			locations.append(target);
-			m_targets.append(target);
-		}
-	// Handle if targets cover half or more of the maze
-	} else {
-		for (int c = 0; c < columns; ++c) {
-			for (int r = 0; r < rows; ++r) {
-				locations.append(QPoint(c, r));
-			}
-		}
-		locations.removeAll(m_player);
-		int pos;
-		for (int i = 0; i < m_total_targets; ++i) {
-			pos = rand() % locations.size();
-			m_targets.append(locations.takeAt(pos));
+	for (int y = 0; y < size; ++y) {
+		for (int x = 0; x < size; ++x) {
+			locations.append(QPoint(x,y));
 		}
 	}
+	std::random_shuffle(locations.begin(), locations.end());
+	m_player = m_start = locations.first();
+	m_targets = locations.mid(1, m_total_targets);
 }
 
 // ============================================================================

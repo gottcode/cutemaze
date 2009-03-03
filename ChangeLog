@@ -1,3 +1,6 @@
+2009-03-03 Graeme Gott <graeme@gottcode.org>
+	* Rewrite algorithm for placing targets.
+
 2008-08-12 Graeme Gott <graeme@gottcode.org>
 	* Tag version 1.0.2.
 	* FIXED: Settings dialog was inaccessible in KDE.
