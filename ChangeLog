@@ -1,4 +1,5 @@
 2009-03-03 Graeme Gott <graeme@gottcode.org>
+	* Use one SVG file per theme.
 	* Always pause game when focus is lost.
 	* Rewrite algorithm for placing targets.
 

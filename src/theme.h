@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007-2008 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007-2009 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -53,14 +53,11 @@ public:
 	void drawWall(QPainter& painter, int column, int row, bool vertical = false) const;
 
 private:
-	void cache(QSvgRenderer* svg, QPixmap& pixmap, const QRect& bounds, int angle = 0) const;
+	void cache(const QString& element, QPixmap& pixmap, const QRect& bounds, int angle = 0) const;
 	QString findFile(const QString& theme, const QString& file) const;
 
 	QStringList m_locations;
-	QSvgRenderer* m_svg[TotalElements];
-	QSvgRenderer* m_svg_rotated[TotalRotatedElements];
-	QSvgRenderer* m_svg_corner[5];
-	QSvgRenderer* m_svg_wall;
+	QSvgRenderer* m_renderer;
 	QPixmap m_pixmap[TotalElements];
 	QPixmap m_pixmap_rotated[TotalRotatedElements][4];
 	QPixmap m_pixmap_corner[15];

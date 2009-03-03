@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007-2008 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007-2009 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -35,7 +35,6 @@
 #include <QListWidget>
 #include <QMessageBox>
 #include <QPainter>
-#include <QProcess>
 #include <QPushButton>
 #include <QSettings>
 #include <QSpinBox>
@@ -59,70 +58,6 @@ QString homeDataPath()
 	QString path = QDir::homePath() + "/Application Data/GottCode/CuteMaze";
 #endif
 	return path;
-}
-
-// ============================================================================
-
-QString supportedArchiveFormats()
-{
-	static QString filters;
-
-	if (filters.isEmpty()) {
-		// Create list of commands
-		QMap<QString, bool> commands;
-		commands.insert("tar", false);
-		commands.insert("gunzip", false);
-		commands.insert("bunzip2", false);
-		commands.insert("uncompress", false);
-		commands.insert("unzip", false);
-
-		// Search PATH for commands
-		QString path = getenv("PATH");
-#if defined(Q_OS_UNIX)
-		QStringList dirs = path.split(":");
-#elif defined(Q_OS_WIN32)
-		QStringList dirs = path.split(";");
-#endif
-		QDir dir;
-		foreach (QString string, dirs) {
-			dir.setPath(string);
-			QMutableMapIterator<QString, bool> i(commands);
-			while (i.hasNext()) {
-				i.next();
-				if (i.value() == false) {
-#if defined(Q_OS_UNIX)
-					if (dir.exists(i.key()))
-						i.setValue(true);
-#elif defined(Q_OS_WIN32)
-					if (dir.exists(i.key() + ".exe"))
-						i.setValue(true);
-#endif
-				}
-			}
-		}
-
-		// Detect archive formats
-		QStringList formats;
-		if (commands["tar"]) {
-			if (commands["gunzip"]) {
-				formats += "*.tgz";
-				formats += "*.tar.gz";
-			}
-			if (commands["bunzip2"]) {
-				formats += "*.tar.bz2";
-			}
-			if (commands["uncompress"]) {
-				formats += "*.tar.Z";
-			}
-			formats += "*.tar";
-		}
-		if (commands["unzip"]) {
-			formats += "*.zip";
-		}
-		filters = formats.join(" ");
-	}
-
-	return filters;
 }
 
 // ============================================================================
@@ -378,7 +313,6 @@ Settings::Settings(QWidget* parent)
 
 #if !defined(QTOPIA_PHONE)
 	QPushButton* add_button = new QPushButton(tr("Add Theme"), themes_tab);
-	add_button->setEnabled(!supportedArchiveFormats().isEmpty());
 	connect(add_button, SIGNAL(clicked()), this, SLOT(addTheme()));
 	m_themes_remove_button = new QPushButton(tr("Remove Theme"), themes_tab);
 	connect(m_themes_remove_button, SIGNAL(clicked()), this, SLOT(removeTheme()));
@@ -476,7 +410,7 @@ void Settings::themeSelected(const QString& theme)
 		m_theme->load(theme);
 		generatePreview();
 #if !defined(QTOPIA_PHONE)
-		m_themes_remove_button->setEnabled(QFileInfo(homeDataPath() + "/" + theme).exists());
+		m_themes_remove_button->setEnabled(QFileInfo(homeDataPath() + "/" + theme + ".svg").exists());
 #endif
 	}
 }
@@ -485,45 +419,30 @@ void Settings::themeSelected(const QString& theme)
 
 void Settings::addTheme()
 {
-	// Select theme archive
+	// Select theme file
 #if !defined(QTOPIA_PHONE)
-	QString filters = tr("Archives (%1)").arg(supportedArchiveFormats());
-	QString file = QFileDialog::getOpenFileName(this, tr("Select Theme Archive"), QDir::homePath(), filters);
+	QString path = QFileDialog::getOpenFileName(this, tr("Select Theme File"), QDir::homePath(), QString("*.svg"));
 #else
-	QString file;
+	QString path;
 #endif
-	if (file.isEmpty()) {
+	if (path.isEmpty()) {
 		return;
 	}
 
 	// Create data folder if necessary
-	QString path = homeDataPath();
-	if (!QFileInfo(path).exists()) {
+	QString dirpath = homeDataPath();
+	if (!QFileInfo(dirpath).exists()) {
 		QDir dir = QDir::home();
-		if (!dir.mkpath(path)) {
-			QMessageBox::warning(this, tr("Error"), tr("Unable to install theme.\n\nUnable to create data folder."), QMessageBox::Ok);
+		if (!dir.mkpath(dirpath)) {
+			QMessageBox::warning(this, tr("Error"), tr("Unable to create data folder."), QMessageBox::Ok);
 			return;
 		}
 	}
 
-	// Extract files
-	QProcess extract;
-	extract.setWorkingDirectory(path);
-	QString cmd;
-	if (file.endsWith(".tar.gz", Qt::CaseInsensitive) || file.endsWith(".tgz", Qt::CaseInsensitive)) {
-		cmd = "tar -xzf %1";
-	} else if (file.endsWith(".tar.bz2", Qt::CaseInsensitive)) {
-		cmd = "tar -xjf %1";
-	} else if (file.endsWith(".tar.Z", Qt::CaseInsensitive)) {
-		cmd = "tar -xZf %1";
-	} else if (file.endsWith(".tar", Qt::CaseInsensitive)) {
-		cmd = "tar -xf %1";
-	} else if (file.endsWith(".zip", Qt::CaseInsensitive)) {
-		cmd = "unzip %1";
-	}
-	extract.start(QString(cmd).arg(file));
-	if (!extract.waitForFinished(-1)) {
-		QMessageBox::warning(this, tr("Error"), tr("Unable to install theme.\n\nError while extracting archive."), QMessageBox::Ok);
+	// Copy theme file
+	QFileInfo file(path);
+	if (!QFile::copy(path, dirpath + "/" + file.fileName())) {
+		QMessageBox::warning(this, tr("Error"), tr("Unable to copy theme file."), QMessageBox::Ok);
 		return;
 	}
 
@@ -546,32 +465,27 @@ void Settings::removeTheme()
 	if (!m_themes_selector->currentItem()) {
 		return;
 	}
-	QString path = homeDataPath() + "/" + m_themes_selector->currentItem()->text();
-	if (!QFileInfo(path).exists()) {
+	QString dirpath = homeDataPath();
+	QString file = m_themes_selector->currentItem()->text() + ".svg";
+	if (!QFileInfo(dirpath + "/" + file).exists()) {
 		return;
 	}
 
-	if (QMessageBox::warning(this, tr("Remove Theme"), tr("Are you sure you want to remove the selected theme?\n\nThis will delete the files installed by this theme."), QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::Yes) {
-		// Delete theme files
-		QDir dir(path);
-		QStringList files = dir.entryList(QDir::Files);
-		foreach (QString file, files) {
-			if (dir.remove(file) == false) {
-				QMessageBox::warning(this, tr("Error"), tr("Unable to remove the theme.\n\nUnable to delete %1").arg(file), QMessageBox::Ok);
-				return;
-			}
-		}
-
-		// Delete theme folder
-		if (QDir::home().rmdir(path) == false) {
-			QMessageBox::warning(this, tr("Error"), tr("Unable to remove the theme.\n\nUnable to delete the theme folder."), QMessageBox::Ok);
+	if (QMessageBox::warning(this, tr("Remove Theme"), tr("Remove the selected theme?\nThis will delete the theme file."), QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::Yes) {
+		// Delete theme file
+		QDir dir(dirpath);
+		if (dir.remove(file) == false) {
+			QMessageBox::warning(this, tr("Error"), tr("Unable to delete the theme file."), QMessageBox::Ok);
 			return;
 		}
 
 		// Delete theme from list
-		delete m_themes_selector->currentItem();
+		if (!m_theme->available().contains(m_themes_selector->currentItem()->text())) {
+			delete m_themes_selector->currentItem();
+		}
 
-		// Force change to next theme in lest
+		// Force change to next theme in list
+		themeSelected(m_themes_selector->currentItem()->text());
 		QSettings().setValue("Theme", m_themes_selector->currentItem()->text());
 		emit settingsChanged();
 	}

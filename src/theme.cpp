@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007-2008 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007-2009 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -62,16 +62,7 @@ CornerType corners[15] = {
 Theme::Theme()
 :	m_unit(32)
 {
-	for (int i = 0; i < TotalElements; ++i) {
-		m_svg[i] = new QSvgRenderer;
-	}
-	for (int i = 0; i < TotalRotatedElements; ++i) {
-		m_svg_rotated[i] = new QSvgRenderer;
-	}
-	for (int i = 0; i < 5; ++i) {
-		m_svg_corner[i] = new QSvgRenderer;
-	}
-	m_svg_wall = new QSvgRenderer;
+	m_renderer = new QSvgRenderer;
 
 	// Load theme locations
 #if defined(Q_OS_MAC)
@@ -105,35 +96,29 @@ Theme::Theme()
 
 Theme::~Theme()
 {
-	for (int i = 0; i < TotalElements; ++i) {
-		delete m_svg[i];
-	}
-	for (int i = 0; i < TotalRotatedElements; ++i) {
-		delete m_svg_rotated[i];
-	}
-	for (int i = 0; i < 5; ++i) {
-		delete m_svg_corner[i];
-	}
-	delete m_svg_wall;
+	delete m_renderer;
 }
 
 // ============================================================================
 
 QStringList Theme::available() const
 {
-	QSet<QString> dirs;
-	dirs.insert("Mouse");
-	dirs.insert("Penguin");
-
-	QDir dir;
+	QSet<QString> files;
+	QDir dir(QString(), "*.svg");
 	foreach (const QString& path, m_locations) {
 		if (dir.cd(path)) {
-			dirs += dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot).toSet();
+			files += dir.entryList(QDir::Files).toSet();
 		}
 	}
 
-	QStringList list = QStringList::fromSet(dirs);
+	QStringList list = QStringList::fromSet(files);
+	int count = list.count();
+	for (int i = 0; i < count; ++i) {
+		QString& theme = list[i];
+		theme.remove(theme.length() - 4, 4);
+	}
 	list.sort();
+
 	return list;
 }
 
@@ -141,25 +126,18 @@ QStringList Theme::available() const
 
 void Theme::load(const QString& name)
 {
-	QIcon icon(findFile(name, "player.svg"));
-	qApp->setWindowIcon(icon);
-	foreach (QWidget* window, qApp->topLevelWidgets()) {
-		if (qobject_cast<QMainWindow*>(window)) {
-			window->setWindowIcon(icon);
+	QString theme = name;
+
+	QFileInfo info;
+	foreach (const QString& location, m_locations) {
+		info.setFile(location + "/" + name + ".svg");
+		if (info.exists()) {
+			theme = info.canonicalFilePath();
+			break;
 		}
 	}
 
-	m_svg[Background]->load(findFile(name, "background.svg"));
-	m_svg[Flag]->load(findFile(name, "flag.svg"));
-	m_svg[Start]->load(findFile(name, "start.svg"));
-	m_svg[Target]->load(findFile(name, "target.svg"));
-	m_svg_rotated[Marker]->load(findFile(name, "marker.svg"));
-	m_svg_rotated[Player]->load(findFile(name, "player.svg"));
-	for (int i = 0; i < 5; ++i) {
-		m_svg_corner[i]->load(findFile(name, QString("corner%1.svg").arg(i)));
-	}
-	m_svg_wall->load(findFile(name, "wall.svg"));
-
+	m_renderer->load(theme);
 	scale(m_unit);
 }
 
@@ -171,26 +149,26 @@ void Theme::scale(int unit)
 	m_unit = unit;
 
 	QRect bounds(0, 0, unit * 2, unit * 2);
-	cache(m_svg[Flag], m_pixmap[Flag], bounds);
-	cache(m_svg[Start], m_pixmap[Start], bounds);
-	cache(m_svg[Target], m_pixmap[Target], bounds);
+	cache("flag", m_pixmap[Flag], bounds);
+	cache("start", m_pixmap[Start], bounds);
+	cache("target", m_pixmap[Target], bounds);
 	for (int i = 0; i < 4; ++i) {
-		cache(m_svg_rotated[Marker], m_pixmap_rotated[Marker][i], bounds, i * 90);
-		cache(m_svg_rotated[Player], m_pixmap_rotated[Player][i], bounds, i * 90);
+		cache("marker", m_pixmap_rotated[Marker][i], bounds, i * 90);
+		cache("player", m_pixmap_rotated[Player][i], bounds, i * 90);
 	}
 
 	bounds.setSize(QSize(unit, unit));
 	for (int i = 0; i < 15; ++i) {
 		const CornerType& corner = corners[i];
-		cache(m_svg_corner[corner.renderer], m_pixmap_corner[i], bounds, corner.transform * 90);
+		cache(QString("corner%1").arg(corner.renderer), m_pixmap_corner[i], bounds, corner.transform * 90);
 	}
 
 	bounds.setSize(QSize(unit * 2, unit));
-	cache(m_svg_wall, m_pixmap_wall[0], bounds);
-	cache(m_svg_wall, m_pixmap_wall[1], bounds, 90);
+	cache("wall", m_pixmap_wall[0], bounds);
+	cache("wall", m_pixmap_wall[1], bounds, 90);
 
 	bounds.setSize(QSize(unit * 3, unit * 3));
-	cache(m_svg[Background], m_pixmap[Background], bounds);
+	cache("background", m_pixmap[Background], bounds);
 }
 
 // ============================================================================
@@ -208,8 +186,9 @@ void Theme::draw(QPainter& painter, int column, int row, enum RotatedElement ele
 	Q_ASSERT(element != TotalRotatedElements);
 	Q_ASSERT(angle == 90 || angle == 180 || angle == 270 || angle == 360);
 	angle /= 90;
-	if (angle == 4)
+	if (angle == 4) {
 		angle = 0;
+	}
  	painter.drawPixmap(column * 3 * m_unit, row * 3 * m_unit, m_pixmap_rotated[element][angle]);
 }
 
@@ -235,12 +214,12 @@ void Theme::drawWall(QPainter& painter, int column, int row, bool vertical) cons
 
 // ============================================================================
 
-void Theme::cache(QSvgRenderer* svg, QPixmap& pixmap, const QRect& bounds, int angle) const
+void Theme::cache(const QString& element, QPixmap& pixmap, const QRect& bounds, int angle) const
 {
 	pixmap = QPixmap(bounds.size());
 	pixmap.fill(QColor(255, 255, 255, 0));
 	QPainter painter(&pixmap);
-	svg->render(&painter, bounds);
+	m_renderer->render(&painter, element, bounds);
 
 	// Handle rotated images
 	if (angle) {
@@ -248,20 +227,6 @@ void Theme::cache(QSvgRenderer* svg, QPixmap& pixmap, const QRect& bounds, int a
 		painter.end();
 		pixmap = pixmap.transformed(QTransform().rotate(angle), Qt::SmoothTransformation);
 	}
-}
-
-// ============================================================================
-
-QString Theme::findFile(const QString& theme, const QString& file) const
-{
-	QFileInfo info;
-	foreach (const QString& location, m_locations) {
-		info.setFile(location + "/" + theme, file);
-		if (info.exists()) {
-			return info.canonicalFilePath();
-		}
-	}
-	return file;
 }
 
 // ============================================================================
