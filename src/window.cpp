@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007-2008 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007-2009 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,6 @@
 
 #include <QAction>
 #include <QDir>
-#include <QEvent>
 #include <QIcon>
 #include <QList>
 #include <QPair>
@@ -280,11 +279,7 @@ QList<QIcon> findNativeIcons(int& actual_size)
 // ============================================================================
 
 Window::Window(QWidget *parent, Qt::WindowFlags wf)
-:	QMainWindow(parent, wf),
-	m_pause_count(0),
-	m_was_paused(false),
-	m_pause_available(true)
-{
+:	QMainWindow(parent, wf) {
 	// Create game object
 	m_board = new Board(this);
 	setCentralWidget(m_board);
@@ -296,12 +291,10 @@ Window::Window(QWidget *parent, Qt::WindowFlags wf)
 	// Create settings window
 	m_settings = new Settings(this);
 	connect(m_settings, SIGNAL(settingsChanged()), m_board, SLOT(loadSettings()));
-	m_settings->installEventFilter(this);
 
 	// Create scores window
 	m_scores = new Scores(this);
 	connect(m_board, SIGNAL(finished(int, int, int, int)), m_scores, SLOT(addScore(int, int, int, int)));
-	m_scores->installEventFilter(this);
 
 	// Create actions
 	initActions();
@@ -323,38 +316,6 @@ Window::Window(QWidget *parent, Qt::WindowFlags wf)
 	QTimer *timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), m_board, SLOT(saveGame()));
 	timer->start(300000);
-}
-
-// ============================================================================
-
-bool Window::eventFilter(QObject* watched, QEvent* event)
-{
-	if (watched == m_settings || watched == m_scores) {
-		// Pause game when a dialog is shown
-		if (event->type() == QEvent::Show) {
-			m_pause_count++;
-			if (m_pause_count == 1) {
-				m_pause_available = m_pause_action->isEnabled();
-				if (m_pause_available) {
-					m_was_paused = m_pause_action->isChecked();
-				} else {
-					m_was_paused = true;
-				}
-			}
-			if (m_pause_action->isEnabled()) {
-				m_pause_action->setChecked(true);
-			}
-		// Unpause game when all dialogs are hidden
-		} else if (event->type() == QEvent::Hide) {
-			m_pause_count--;
-			if ( m_pause_count == 0 && ( !m_was_paused || (!m_pause_available && m_pause_action->isEnabled()) ) ) {
-				m_pause_action->setChecked(false);
-			}
-		}
-		return false;
-	} else {
-		return QMainWindow::eventFilter(watched, event);
-	}
 }
 
 // ============================================================================

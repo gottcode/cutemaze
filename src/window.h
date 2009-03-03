@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007-2008 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007-2009 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,8 +31,6 @@ class Window : public QMainWindow
 public:
 	Window(QWidget *parent = 0, Qt::WindowFlags wf = 0);
 
-	virtual bool eventFilter(QObject* watched, QEvent* event);
-
 protected:
 	virtual void closeEvent(QCloseEvent* event);
 
@@ -43,9 +41,6 @@ private:
 	Scores* m_scores;
 	Settings* m_settings;
 	QAction* m_pause_action;
-	int m_pause_count;
-	bool m_was_paused;
-	bool m_pause_available;
 };
 
 #endif // WINDOW_H

@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007-2008 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007-2009 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -49,12 +49,12 @@ public slots:
 	void loadSettings();
 
 protected:
+	virtual void focusOutEvent(QFocusEvent* event);
 	virtual void keyPressEvent(QKeyEvent* event);
 	virtual void paintEvent(QPaintEvent*);
 	virtual void resizeEvent(QResizeEvent*);
 
 private slots:
-	void focusChanged();
 	void updateStatusMessage();
 
 private:

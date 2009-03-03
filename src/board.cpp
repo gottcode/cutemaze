@@ -22,7 +22,6 @@
 #include "maze.h"
 #include "theme.h"
 
-#include <QApplication>
 #include <QKeyEvent>
 #include <QLabel>
 #include <QMainWindow>
@@ -52,7 +51,6 @@ Board::Board(QMainWindow* parent)
 	m_player_steps(0),
 	m_player_total_time(0)
 {
-	connect(qApp, SIGNAL(focusChanged(QWidget*, QWidget*)), this, SLOT(focusChanged()));
 #if !defined(QTOPIA_PHONE)
 	setMinimumSize(448, 448);
 #endif
@@ -111,10 +109,8 @@ void Board::newGame()
 {
 	// Prompt user
 	if (!m_done) {
-		bool paused = m_paused;
 		emit pauseChecked(true);
 		if (QMessageBox::question(this, tr("CuteMaze"), tr("Abort current game?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::No) {
-			emit pauseChecked(paused);
 			return;
 		}
 	}
@@ -390,9 +386,9 @@ void Board::resizeEvent(QResizeEvent*)
 
 // ============================================================================
 
-void Board::focusChanged()
+void Board::focusOutEvent(QFocusEvent* event)
 {
-	if (!m_done && !qApp->activeWindow()) {
+	if (!m_done) {
 		emit pauseChecked(true);
 	}
 }
