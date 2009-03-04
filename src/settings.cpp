@@ -238,8 +238,11 @@ Settings::Settings(QWidget* parent)
 	QWidget* mazes_tab = new QWidget;
 	tabs->addTab(mazes_tab, tr("Mazes"));
 
+	m_mazes_preview = new QLabel(mazes_tab);
+
 	m_mazes_algorithm = new QComboBox(mazes_tab);
 	m_mazes_algorithm->setInsertPolicy(QComboBox::InsertAlphabetically);
+	connect(m_mazes_algorithm, SIGNAL(currentIndexChanged(int)), this, SLOT(algorithmSelected(int)));
 	m_mazes_algorithm->addItem(tr("Hunt and Kill"), 0);
 	m_mazes_algorithm->addItem(tr("Kruskal"), 1);
 	m_mazes_algorithm->addItem(tr("Prim"), 2);
@@ -249,9 +252,6 @@ Settings::Settings(QWidget* parent)
 	m_mazes_algorithm->addItem(tr("Stack 3"), 6);
 	m_mazes_algorithm->addItem(tr("Stack 4"), 7);
 	m_mazes_algorithm->addItem(tr("Stack 5"), 8);
-	connect(m_mazes_algorithm, SIGNAL(currentIndexChanged(int)), this, SLOT(algorithmSelected(int)));
-
-	m_mazes_preview = new QLabel(mazes_tab);
 
 	m_mazes_targets = new QSpinBox(mazes_tab);
 	m_mazes_targets->setRange(1, 99);
