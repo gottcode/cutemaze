@@ -75,13 +75,13 @@ Theme::Theme()
 	if (xdg.isEmpty()) {
 		xdg = QDir::homePath() + "/.local/share/";
 	}
-	m_locations = xdg.split(":");
+	m_locations = xdg.split(':');
 	xdg = getenv("$XDG_DATA_DIRS");
 	if (xdg.isEmpty()) {
 		xdg = "/usr/local/share/:/usr/share/";
 	}
-	m_locations += xdg.split(":");
-	m_locations += ":";
+	m_locations += xdg.split(':');
+	m_locations += QString(':');
 	for (int i = 0; i < m_locations.size(); ++i) {
 		m_locations[i] += "/games/cutemaze";
 	}
@@ -130,7 +130,7 @@ void Theme::load(const QString& name)
 
 	QFileInfo info;
 	foreach (const QString& location, m_locations) {
-		info.setFile(location + "/" + name + ".svg");
+		info.setFile(location + '/' + name + ".svg");
 		if (info.exists()) {
 			theme = info.canonicalFilePath();
 			break;

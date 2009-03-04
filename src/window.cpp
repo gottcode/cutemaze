@@ -62,12 +62,12 @@ QStringList findLocations()
 	if (xdg.isEmpty()) {
 		xdg = QDir::homePath() + "/.local/share";
 	}
-	QStringList locations = xdg.split(":");
+	QStringList locations = xdg.split(':');
 	xdg = getenv("$XDG_DATA_DIRS");
 	if (xdg.isEmpty()) {
 		xdg = "/usr/local/share:/usr/share";
 	}
-	locations += xdg.split(":");
+	locations += xdg.split(':');
 	for (int i = 0; i < locations.size(); ++i) {
 		locations[i] += "/icons/";
 	}
@@ -120,8 +120,8 @@ QStringList findParentThemes(const QString& theme, const QStringList& locations)
 	QStringList inherits;
 	for (int i = 0; i < themes.count(); ++i) {
 		foreach (const QString& dir, locations) {
-			if (QFileInfo(dir + "/" + themes[i] + "/index.theme").exists()) {
-				file = dir + "/" + themes[i] + "/index.theme";
+			if (QFileInfo(dir + '/' + themes[i] + "/index.theme").exists()) {
+				file = dir + '/' + themes[i] + "/index.theme";
 				break;
 			}
 		}
@@ -165,20 +165,20 @@ bool findIcons(const QString& theme_path, QStringList& icons, QStringList& icon_
 	QString path, subpath, dir;
 	QStringList dirs, child_dirs;
 	foreach (const QString& size, sizes) {
-		path = theme_path + "/" + size;
+		path = theme_path + '/' + size;
 		dirs = QDir(path).entryList(QDir::Dirs | QDir::NoDotAndDotDot);
 
 		// Check each subdirectory of size
 		for (int i = 0; i < dirs.count(); ++i) {
 			dir = dirs.at(i);
-			subpath = path + "/" + dir;
+			subpath = path + '/' + dir;
 			for (int j = 0; j < count; ++j) {
 				QString& lookup = icon_names[j];
 				if (lookup.isEmpty()) {
 					continue;
 				}
 
-				info.setFile(subpath + "/" + lookup);
+				info.setFile(subpath + '/' + lookup);
 				if (info.exists() && !info.isDir()) {
 					icons[j] = info.canonicalFilePath();
 					lookup.clear();
@@ -194,7 +194,7 @@ bool findIcons(const QString& theme_path, QStringList& icons, QStringList& icon_
 			// Append any child directories
 			child_dirs = QDir(subpath).entryList(QDir::Dirs | QDir::NoDotAndDotDot);
 			foreach (const QString& child, child_dirs) {
-				dirs.append(dir + "/" + child);
+				dirs.append(dir + '/' + child);
 			}
 		}
 	}
@@ -209,7 +209,7 @@ QList<QIcon> findNativeIcons(int& actual_size)
 	QStringList lookup;
 	QString theme = QSettings().value("Icon Theme").toString();
 	QString size = QSettings().value("Icon Size", "22x22").toString();
-	actual_size = size.section("x", 0, 0).toInt();
+	actual_size = size.section('x', 0, 0).toInt();
 	if (theme.isEmpty()) {
 		if (getenv("KDE_FULL_SESSION")) {
 			size = "22x22";

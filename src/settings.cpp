@@ -410,7 +410,7 @@ void Settings::themeSelected(const QString& theme)
 		m_theme->load(theme);
 		generatePreview();
 #if !defined(QTOPIA_PHONE)
-		m_themes_remove_button->setEnabled(QFileInfo(homeDataPath() + "/" + theme + ".svg").exists());
+		m_themes_remove_button->setEnabled(QFileInfo(homeDataPath() + '/' + theme + ".svg").exists());
 #endif
 	}
 }
@@ -441,7 +441,7 @@ void Settings::addTheme()
 
 	// Copy theme file
 	QFileInfo file(path);
-	if (!QFile::copy(path, dirpath + "/" + file.fileName())) {
+	if (!QFile::copy(path, dirpath + '/' + file.fileName())) {
 		QMessageBox::warning(this, tr("Sorry"), tr("Unable to copy theme file."));
 		return;
 	}
@@ -467,7 +467,7 @@ void Settings::removeTheme()
 	}
 	QString dirpath = homeDataPath();
 	QString file = m_themes_selector->currentItem()->text() + ".svg";
-	if (!QFileInfo(dirpath + "/" + file).exists()) {
+	if (!QFileInfo(dirpath + '/' + file).exists()) {
 		return;
 	}
 
