@@ -624,7 +624,7 @@ void Board::renderMaze(int frame)
 	}
 
 	// Draw targets
-	foreach (QPoint target, m_targets) {
+	foreach (const QPoint& target, m_targets) {
 		if (view.contains(target)) {
 			m_theme->draw(painter, target.x() - column, target.y() - row, Theme::Target);
 		}

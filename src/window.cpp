@@ -119,7 +119,7 @@ QStringList findParentThemes(const QString& theme, const QStringList& locations)
 	QString file;
 	QStringList inherits;
 	for (int i = 0; i < themes.count(); ++i) {
-		foreach (QString dir, locations) {
+		foreach (const QString& dir, locations) {
 			if (QFileInfo(dir + "/" + themes[i] + "/index.theme").exists()) {
 				file = dir + "/" + themes[i] + "/index.theme";
 				break;
@@ -132,7 +132,7 @@ QStringList findParentThemes(const QString& theme, const QStringList& locations)
 		}
 		QSettings ini(file, QSettings::IniFormat);
 		inherits = ini.value("Icon Theme/Inherits").toStringList();
-		foreach (QString parent, inherits) {
+		foreach (const QString& parent, inherits) {
 			if (parent == "hicolor" || themes.contains(parent)) {
 				continue;
 			}
@@ -255,8 +255,8 @@ QList<QIcon> findNativeIcons(int& actual_size)
 	QStringList locations = findLocations();
 	QStringList themes = findParentThemes(theme, locations);
 	int found_icons = 0;
-	foreach (QString current, themes) {
-		foreach (QString location, locations) {
+	foreach (const QString& current, themes) {
+		foreach (const QString& location, locations) {
 			if (findIcons(location + current, icons, lookup, found_icons, size)) {
 				goto done;
 			}
@@ -266,7 +266,7 @@ QList<QIcon> findNativeIcons(int& actual_size)
 	// Return list of icons
 	done:
 	QList<QIcon> result;
-	foreach (QString icon, icons) {
+	foreach (const QString& icon, icons) {
 		result.append(QIcon(icon));
 	}
 	return result;

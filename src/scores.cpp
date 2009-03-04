@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2008 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2008-2009 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -280,7 +280,7 @@ void Scores::read()
 
 	QSettings settings;
 	settings.beginGroup("Scores");
-	foreach (QString key, settings.childKeys()) {
+	foreach (const QString& key, settings.childKeys()) {
 		if (key.toInt() == 0) {
 			continue;
 		}
@@ -290,7 +290,7 @@ void Scores::read()
 		m_lists->addWidget(board);
 
 		QStringList data = settings.value(key).toStringList();
-		foreach (QString s, data) {
+		foreach (const QString& s, data) {
 			values = s.split(':');
 			if (values.size() != 4) {
 				continue;
