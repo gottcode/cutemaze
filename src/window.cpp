@@ -278,8 +278,8 @@ QList<QIcon> findNativeIcons(int& actual_size)
 
 // ============================================================================
 
-Window::Window(QWidget *parent, Qt::WindowFlags wf)
-:	QMainWindow(parent, wf) {
+Window::Window()
+{
 	// Create game object
 	m_board = new Board(this);
 	setCentralWidget(m_board);

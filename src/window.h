@@ -29,7 +29,7 @@ class QAction;
 class Window : public QMainWindow
 {
 public:
-	Window(QWidget *parent = 0, Qt::WindowFlags wf = 0);
+	Window();
 
 protected:
 	virtual void closeEvent(QCloseEvent* event);

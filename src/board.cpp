@@ -386,7 +386,7 @@ void Board::resizeEvent(QResizeEvent*)
 
 // ============================================================================
 
-void Board::focusOutEvent(QFocusEvent* event)
+void Board::focusOutEvent(QFocusEvent*)
 {
 	if (!m_done) {
 		emit pauseChecked(true);
