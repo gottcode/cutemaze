@@ -335,8 +335,8 @@ void Window::initActions()
 	QMenu* game_menu = QSoftMenuBar::menuFor(this);
 
 	game_menu->addAction(tr("Quit Game"), qApp, SLOT(quit()));
-	game_menu->addAction(tr("Settings"), m_settings, SLOT(show()));
-	game_menu->addAction(tr("High Scores"), m_scores, SLOT(show()));
+	game_menu->addAction(tr("Settings"), m_settings, SLOT(exec()));
+	game_menu->addAction(tr("High Scores"), m_scores, SLOT(exec()));
 	m_pause_action = game_menu->addAction(tr("Pause Game"));
 	game_menu->addAction(tr("New Game"), m_board, SLOT(newGame()));
 #elif defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
@@ -354,8 +354,8 @@ void Window::initActions()
 	action = toolbar->addAction(icons.at(0), tr("New"), m_board, SLOT(newGame()));
 	action->setShortcut(tr("Ctrl+N"));
 	m_pause_action = toolbar->addAction(icons.at(1), tr("Pause"));
-	toolbar->addAction(icons.at(2), tr("Scores"), m_scores, SLOT(show()));
-	toolbar->addAction(icons.at(3), tr("Settings"), m_settings, SLOT(show()));
+	toolbar->addAction(icons.at(2), tr("Scores"), m_scores, SLOT(exec()));
+	toolbar->addAction(icons.at(3), tr("Settings"), m_settings, SLOT(exec()));
 	action = toolbar->addAction(icons.at(4), tr("Quit"), this, SLOT(close()));
 	action->setShortcut(tr("Ctrl+Q"));
 	addToolBar(toolbar);
@@ -365,8 +365,8 @@ void Window::initActions()
 
 	game_menu->addAction(tr("New"), m_board, SLOT(newGame()), tr("Ctrl+N"));
 	m_pause_action = game_menu->addAction(tr("Pause"));
-	game_menu->addAction(tr("Scores"), m_scores, SLOT(show()));
-	game_menu->addAction(tr("Settings"), m_settings, SLOT(show()));
+	game_menu->addAction(tr("Scores"), m_scores, SLOT(exec()));
+	game_menu->addAction(tr("Settings"), m_settings, SLOT(exec()));
 	game_menu->addAction(tr("Quit"), this, SLOT(close()), tr("Ctrl+Q"));
 #endif
 }

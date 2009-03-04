@@ -110,7 +110,7 @@ void Board::newGame()
 	// Prompt user
 	if (!m_done) {
 		emit pauseChecked(true);
-		if (QMessageBox::question(this, tr("CuteMaze"), tr("Abort current game?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::No) {
+		if (QMessageBox::question(this, tr("Question"), tr("Abort current game?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::No) {
 			return;
 		}
 	}
@@ -167,7 +167,7 @@ void Board::loadGame()
 	// Load maze
 	generate(settings.value("Current/Seed").toUInt());
 	if (!m_maze->load()) {
-		QMessageBox::warning(this, tr("CuteMaze"), tr("Unable to load previous game. A new game will be started."));
+		QMessageBox::warning(this, tr("Sorry"), tr("Unable to load previous game. A new game will be started."));
 		m_done = true;
 		return newGame();
 	}

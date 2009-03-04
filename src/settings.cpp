@@ -434,7 +434,7 @@ void Settings::addTheme()
 	if (!QFileInfo(dirpath).exists()) {
 		QDir dir = QDir::home();
 		if (!dir.mkpath(dirpath)) {
-			QMessageBox::warning(this, tr("Error"), tr("Unable to create data folder."), QMessageBox::Ok);
+			QMessageBox::warning(this, tr("Sorry"), tr("Unable to create data folder."));
 			return;
 		}
 	}
@@ -442,7 +442,7 @@ void Settings::addTheme()
 	// Copy theme file
 	QFileInfo file(path);
 	if (!QFile::copy(path, dirpath + "/" + file.fileName())) {
-		QMessageBox::warning(this, tr("Error"), tr("Unable to copy theme file."), QMessageBox::Ok);
+		QMessageBox::warning(this, tr("Sorry"), tr("Unable to copy theme file."));
 		return;
 	}
 
@@ -471,11 +471,11 @@ void Settings::removeTheme()
 		return;
 	}
 
-	if (QMessageBox::warning(this, tr("Remove Theme"), tr("Remove the selected theme?\nThis will delete the theme file."), QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::Yes) {
+	if (QMessageBox::question(this, tr("Question"), tr("Remove the selected theme?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::Yes) {
 		// Delete theme file
 		QDir dir(dirpath);
 		if (dir.remove(file) == false) {
-			QMessageBox::warning(this, tr("Error"), tr("Unable to delete the theme file."), QMessageBox::Ok);
+			QMessageBox::warning(this, tr("Sorry"), tr("Unable to remove the selected theme."));
 			return;
 		}
 
