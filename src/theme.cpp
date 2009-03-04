@@ -71,12 +71,12 @@ Theme::Theme()
 	m_locations.append(":/games/cutemaze");
 #elif defined(Q_OS_UNIX)
 	QString xdg;
-	xdg = getenv("$XDG_DATA_HOME");
+	xdg = qgetenv("$XDG_DATA_HOME");
 	if (xdg.isEmpty()) {
 		xdg = QDir::homePath() + "/.local/share/";
 	}
 	m_locations = xdg.split(':');
-	xdg = getenv("$XDG_DATA_DIRS");
+	xdg = qgetenv("$XDG_DATA_DIRS");
 	if (xdg.isEmpty()) {
 		xdg = "/usr/local/share/:/usr/share/";
 	}

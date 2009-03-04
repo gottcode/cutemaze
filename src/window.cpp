@@ -58,12 +58,12 @@ QStringList findLocations()
 {
 	// Add XDG icon directories
 	QString xdg;
-	xdg = getenv("$XDG_DATA_HOME");
+	xdg = qgetenv("$XDG_DATA_HOME");
 	if (xdg.isEmpty()) {
 		xdg = QDir::homePath() + "/.local/share";
 	}
 	QStringList locations = xdg.split(':');
-	xdg = getenv("$XDG_DATA_DIRS");
+	xdg = qgetenv("$XDG_DATA_DIRS");
 	if (xdg.isEmpty()) {
 		xdg = "/usr/local/share:/usr/share";
 	}
@@ -73,9 +73,9 @@ QStringList findLocations()
 	}
 
 	// Add KDE icon directories
-	if (getenv("KDE_FULL_SESSION")) {
+	if (!qgetenv("KDE_FULL_SESSION").isEmpty()) {
 		QString prefix;
-		QString process = getenv("KDE_SESSION_VERSION") == QLatin1String("4") ? "kde4-config" : "kde-config";
+		QString process = qgetenv("KDE_SESSION_VERSION") == "4" ? "kde4-config" : "kde-config";
 		QProcess kdeconfig;
 		kdeconfig.start(process + " --prefix");
 		if (kdeconfig.waitForFinished()) {
@@ -211,12 +211,12 @@ QList<QIcon> findNativeIcons(int& actual_size)
 	QString size = QSettings().value("Icon Size", "22x22").toString();
 	actual_size = size.section('x', 0, 0).toInt();
 	if (theme.isEmpty()) {
-		if (getenv("KDE_FULL_SESSION")) {
+		if (!qgetenv("KDE_FULL_SESSION").isEmpty()) {
 			size = "22x22";
 			actual_size = 22;
 
 			QString default_theme;
-			if (getenv("KDE_SESSION_VERSION") == QLatin1String("4")) {
+			if (qgetenv("KDE_SESSION_VERSION") == "4") {
 				default_theme = "oxygen";
 				lookup = QStringList() << "document-new.png" << "media-playback-pause.png" << "games-highscores.png" << "configure.png" << "application-exit.png";
 			} else {

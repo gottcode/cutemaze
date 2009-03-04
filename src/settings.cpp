@@ -49,7 +49,7 @@ QString homeDataPath()
 #if defined(Q_OS_MAC)
 	QString path = QDir::homePath() + "/Library/Application Support/GottCode/CuteMaze";
 #elif defined(Q_OS_UNIX)
-	QString path = getenv("XDG_DATA_HOME");
+	QString path = qgetenv("XDG_DATA_HOME");
 	if (path.isEmpty()) {
 		path = QDir::homePath() + "/.local/share";
 	}
