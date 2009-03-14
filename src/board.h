@@ -27,6 +27,7 @@ class QMainWindow;
 class QTimeLine;
 class QTimer;
 class Maze;
+class Solver;
 class Theme;
 
 class Board : public QWidget
@@ -46,6 +47,7 @@ public slots:
 	void loadGame();
 	void saveGame();
 	void pauseGame(bool paused);
+	void hint();
 	void loadSettings();
 
 protected:
@@ -72,6 +74,7 @@ private:
 	Maze* m_maze;
 	QPoint m_start;
 	QList<QPoint> m_targets;
+	Solver* m_solver;
 	QLabel* m_status_time_message;
 	QLabel* m_status_steps_message;
 	QLabel* m_status_remain_message;
@@ -97,6 +100,8 @@ private:
 	unsigned int m_controls_left;
 	unsigned int m_controls_right;
 	unsigned int m_controls_flag;
+	QPoint m_hint;
+	int m_hint_angle;
 };
 
 #endif // BOARD_H

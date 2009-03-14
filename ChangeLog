@@ -1,3 +1,10 @@
+2009-03-14 Graeme Gott <graeme@gottcode.org>
+	* Add hint support to board class.
+	* Add solver class.
+
+2009-03-07 Graeme Gott <graeme@gottcode.org>
+	* Add path class.
+
 2009-03-03 Graeme Gott <graeme@gottcode.org>
 	* Improve dialog text.
 	* Use one SVG file per theme.

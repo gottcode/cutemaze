@@ -153,6 +153,7 @@ void Theme::scale(int unit)
 	cache("start", m_pixmap[Start], bounds);
 	cache("target", m_pixmap[Target], bounds);
 	for (int i = 0; i < 4; ++i) {
+		cache("hint", m_pixmap_rotated[Hint][i], bounds, i * 90);
 		cache("marker", m_pixmap_rotated[Marker][i], bounds, i * 90);
 		cache("player", m_pixmap_rotated[Player][i], bounds, i * 90);
 	}

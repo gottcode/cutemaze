@@ -43,6 +43,7 @@ public:
 		TotalElements
 	};
 	enum RotatedElement {
+		Hint,
 		Marker,
 		Player,
 		TotalRotatedElements

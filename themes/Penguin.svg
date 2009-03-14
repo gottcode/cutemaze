@@ -4,7 +4,7 @@
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
    version="1.0"
-   width="750"
+   width="826"
    height="96"
    id="svg2">
   <defs
@@ -254,5 +254,20 @@
          id="rect2944"
          style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0" />
     </g>
+  </g>
+  <g
+     transform="translate(762,32)"
+     id="hint">
+    <rect
+       width="64"
+       height="64"
+       x="0"
+       y="0"
+       id="rect2446"
+       style="fill:#000000;fill-opacity:0;stroke:none;stroke-opacity:1" />
+    <path
+       d="M 32,40 L 40,56 L 24,56 L 32,40 z"
+       id="path2448"
+       style="fill:#ff0000;fill-opacity:1;stroke:#800000;stroke-width:2;stroke-linecap:square;stroke-linejoin:bevel;marker-start:none;marker-mid:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   </g>
 </svg>

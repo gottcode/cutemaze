@@ -20,6 +20,7 @@
 #include "board.h"
 
 #include "maze.h"
+#include "solver.h"
 #include "theme.h"
 
 #include <QKeyEvent>
@@ -43,13 +44,16 @@ Board::Board(QMainWindow* parent)
 	m_paused(false),
 	m_total_targets(3),
 	m_maze(0),
+	m_solver(0),
 	m_show_path(true),
 	m_smooth_movement(true),
 	m_col_delta(0),
 	m_row_delta(0),
 	m_player_angle(360),
 	m_player_steps(0),
-	m_player_total_time(0)
+	m_player_total_time(0),
+	m_hint(-1, -1),
+	m_hint_angle(0)
 {
 #if !defined(QTOPIA_PHONE)
 	setMinimumSize(448, 448);
@@ -100,6 +104,7 @@ Board::Board(QMainWindow* parent)
 Board::~Board()
 {
 	delete m_maze;
+	delete m_solver;
 	delete m_theme;
 }
 
@@ -188,7 +193,8 @@ void Board::loadGame()
 	// Remove any targets with matching movement
 	for (int i = 0; i < m_targets.size(); ++i) {
 		if (m_maze->cell(m_targets[i].x(), m_targets[i].y()).pathMarker() || m_player == m_targets[i]) {
-			m_targets.takeAt(i);
+			QPoint target = m_targets.takeAt(i);
+			m_solver->removeTarget(target);
 			--i;
 		}
 	}
@@ -238,6 +244,26 @@ void Board::pauseGame(bool paused)
 		updateStatusMessage();
 	}
 	update();
+}
+
+// ============================================================================
+
+void Board::hint()
+{
+	if (!m_done) {
+		m_hint = m_solver->hint(m_player);
+		if (m_hint.x() < m_player.x()) {
+			m_hint_angle = 270;
+		} else if (m_hint.x() > m_player.x()) {
+			m_hint_angle = 90;
+		} else if (m_hint.y() < m_player.y()) {
+			m_hint_angle = 360;
+		} else {
+			m_hint_angle = 180;
+		}
+		m_hint = m_hint - m_player + QPoint(3,3);
+		update();
+	}
 }
 
 // ============================================================================
@@ -326,6 +352,7 @@ void Board::keyPressEvent(QKeyEvent* event)
 		if (m_smooth_movement) {
 			m_move_animation->start();
 		}
+		m_hint = QPoint(-1, -1);
 
 		// Add path marker
 		if (m_maze->cell(position.x(), position.y()).pathMarker() == 0) {
@@ -342,7 +369,8 @@ void Board::keyPressEvent(QKeyEvent* event)
 	// Check for collisions with targets
 	for (int i = 0; i < m_targets.size(); ++i) {
 		if (m_player == m_targets.at(i)) {
-			m_targets.takeAt(i);
+			QPoint target = m_targets.takeAt(i);
+			m_solver->removeTarget(target);
 			--i;
 		}
 	}
@@ -463,6 +491,11 @@ void Board::generate(unsigned int seed)
 	std::random_shuffle(locations.begin(), locations.end());
 	m_player = m_start = locations.first();
 	m_targets = locations.mid(1, m_total_targets);
+
+	// Find solutions
+	delete m_solver;
+	m_solver = new Solver(m_maze, m_start, m_targets);
+	m_hint = QPoint(-1, -1);
 }
 
 // ============================================================================
@@ -631,6 +664,29 @@ void Board::renderMaze(int frame)
 	}
 
 	painter.restore();
+
+	// Draw hint
+	if (m_hint.x() != -1) {
+		painter.save();
+		switch (m_hint_angle) {
+		case 90:
+			painter.translate(-m_unit, 0);
+			break;
+		case 180:
+			painter.translate(0, -m_unit);
+			break;
+		case 270:
+			painter.translate(m_unit, 0);
+			break;
+		case 360:
+			painter.translate(0, m_unit);
+			break;
+		default:
+			break;
+		};
+		m_theme->draw(painter, m_hint.x(), m_hint.y(), Theme::Hint, m_hint_angle);
+		painter.restore();
+	}
 
 	// Draw player
 	m_theme->draw(painter, 3, 3, Theme::Player, m_player_angle);

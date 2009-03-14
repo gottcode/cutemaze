@@ -24,8 +24,10 @@ unix: !macx {
 HEADERS = src/board.h \
 	src/cell.h \
 	src/maze.h \
+	src/path.h \
 	src/scores.h \
 	src/settings.h \
+	src/solver.h \
 	src/theme.h \
 	src/window.h
 
@@ -33,8 +35,10 @@ SOURCES = src/board.cpp \
 	src/cell.cpp \
 	src/main.cpp \
 	src/maze.cpp \
+	src/path.cpp \
 	src/scores.cpp \
 	src/settings.cpp \
+	src/solver.cpp \
 	src/theme.cpp \
 	src/window.cpp
 
