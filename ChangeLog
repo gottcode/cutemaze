@@ -1,3 +1,7 @@
+2009-03-15 Graeme Gott <graeme@gottcode.org>
+	* Use menubar and toolbar on all platforms.
+	* Embed Oxygen icons.
+
 2009-03-14 Graeme Gott <graeme@gottcode.org>
 	* Add hint support to board class.
 	* Add solver class.

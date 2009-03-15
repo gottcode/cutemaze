@@ -28,11 +28,15 @@ class QAction;
 
 class Window : public QMainWindow
 {
+	Q_OBJECT
 public:
 	Window();
 
 protected:
 	virtual void closeEvent(QCloseEvent* event);
+
+private slots:
+	void about();
 
 private:
 	void initActions();
@@ -41,6 +45,7 @@ private:
 	Scores* m_scores;
 	Settings* m_settings;
 	QAction* m_pause_action;
+	QAction* m_hint_action;
 };
 
 #endif // WINDOW_H

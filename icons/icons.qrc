@@ -1,0 +1,19 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+	<file>cutemaze.png</file>
+
+	<file>16x16/application-exit.png</file>
+	<file>16x16/document-new.png</file>
+	<file>16x16/games-config-options.png</file>
+	<file>16x16/games-highscores.png</file>
+	<file>16x16/games-hint.png</file>
+	<file>16x16/media-playback-pause.png</file>
+
+	<file>22x22/application-exit.png</file>
+	<file>22x22/document-new.png</file>
+	<file>22x22/games-config-options.png</file>
+	<file>22x22/games-highscores.png</file>
+	<file>22x22/games-hint.png</file>
+	<file>22x22/media-playback-pause.png</file>
+</qresource>
+</RCC>

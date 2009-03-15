@@ -42,7 +42,7 @@ SOURCES = src/board.cpp \
 	src/theme.cpp \
 	src/window.cpp
 
-RESOURCES = themes/theme.qrc preview/preview.qrc
+RESOURCES = icons/icons.qrc themes/theme.qrc preview/preview.qrc
 macx {
 	ICON = icons/cutemaze.icns
 }
