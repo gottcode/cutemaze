@@ -21,19 +21,7 @@
 #define SCORES_H
 
 #include <QDialog>
-#include <QTreeWidget>
-class QComboBox;
-class QStackedWidget;
-
-class ScoreBoard : public QTreeWidget
-{
-	Q_OBJECT
-public:
-	ScoreBoard(QWidget* parent = 0);
-
-	void updateItems();
-};
-
+class QTreeWidget;
 
 class Scores : public QDialog
 {
@@ -46,9 +34,9 @@ public slots:
 
 private:
 	void read();
+	void updateItems();
 
-	QComboBox* m_sizes;
-	QStackedWidget* m_lists;
+	QTreeWidget* m_board;
 };
 
 #endif // SCORES_H

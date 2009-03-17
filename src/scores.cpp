@@ -19,15 +19,13 @@
 
 #include "scores.h"
 
-#include <QComboBox>
 #include <QDialogButtonBox>
-#include <QHBoxLayout>
 #include <QHeaderView>
 #include <QInputDialog>
 #include <QLabel>
 #include <QScrollBar>
 #include <QSettings>
-#include <QStackedWidget>
+#include <QTreeWidget>
 #include <QVBoxLayout>
 
 #if defined(Q_OS_UNIX)
@@ -46,29 +44,31 @@ namespace {
 class Score : public QTreeWidgetItem
 {
 public:
-	Score(int seconds, int steps, int algorithm);
-
-	virtual bool operator<(const QTreeWidgetItem& other) const;
+	Score(int seconds, int steps, int algorithm, int size);
 };
 
 // ============================================================================
 
-Score::Score(int seconds, int steps, int algorithm)
-:	QTreeWidgetItem(1001)
+Score::Score(int seconds, int steps, int algorithm, int size)
+:	QTreeWidgetItem(QTreeWidgetItem::UserType + 1)
 {
-	setData(1, Qt::UserRole, QString::number(seconds));
-	setText(2, QString::number(steps));
-	setData(3, Qt::UserRole, QString::number(algorithm));
+	setText(1, QString::number(seconds ? ((steps * size) / seconds) : (steps * size)));
+	setData(2, Qt::UserRole, QString::number(seconds));
+	setText(3, QString::number(steps));
+	setData(4, Qt::UserRole, QString::number(algorithm));
+	setText(5, QString::number(size));
 
 	setTextAlignment(1, Qt::AlignRight | Qt::AlignVCenter);
 	setTextAlignment(2, Qt::AlignRight | Qt::AlignVCenter);
-	setTextAlignment(3, Qt::AlignCenter | Qt::AlignVCenter);
+	setTextAlignment(3, Qt::AlignRight | Qt::AlignVCenter);
+	setTextAlignment(4, Qt::AlignCenter | Qt::AlignVCenter);
+	setTextAlignment(5, Qt::AlignRight | Qt::AlignVCenter);
 
 	int minutes = seconds / 60;
 	seconds -= (minutes * 60);
 	int hours = seconds / 3600;
 	seconds -= (hours * 3600);
-	setText(1, QString("%1:%2:%3") .arg(hours, 2, 10, QLatin1Char('0')) .arg(minutes, 2, 10, QLatin1Char('0')) .arg(seconds, 2, 10, QLatin1Char('0')) );
+	setText(2, QString("%1:%2:%3") .arg(hours, 2, 10, QLatin1Char('0')) .arg(minutes, 2, 10, QLatin1Char('0')) .arg(seconds, 2, 10, QLatin1Char('0')) );
 
 	static QStringList algorithms = QStringList()
 		<< QLabel::tr("Hunt and Kill")
@@ -82,57 +82,10 @@ Score::Score(int seconds, int steps, int algorithm)
 		<< QLabel::tr("Stack 5");
 	Q_ASSERT(algorithm > -1);
 	Q_ASSERT(algorithm < algorithms.size());
-	setText(3, algorithms.at(algorithm));
+	setText(4, algorithms.at(algorithm));
 }
 
 // ============================================================================
-
-bool Score::operator<(const QTreeWidgetItem& other) const
-{
-	if (other.type() == type()) {
-		int seconds = data(1, Qt::UserRole).toInt();
-		int other_seconds = other.data(1, Qt::UserRole).toInt();
-		if (seconds == other_seconds) {
-			return text(2).toInt() < other.text(2).toInt();
-		} else {
-			return seconds < other_seconds;
-		}
-	} else {
-		return QTreeWidgetItem::operator<(other);
-	}
-}
-
-// ============================================================================
-}
-
-// ============================================================================
-
-ScoreBoard::ScoreBoard(QWidget* parent)
-:	QTreeWidget(parent)
-{
-	setRootIsDecorated(false);
-	setColumnCount(4);
-	setHeaderLabels(QStringList() << tr("Name") << tr("Time") << tr("Steps") << tr("Algorithm"));
-	header()->setStretchLastSection(false);
-	header()->setResizeMode(QHeaderView::ResizeToContents);
-}
-
-// ============================================================================
-
-void ScoreBoard::updateItems()
-{
-	// Sort items
-	sortItems(1, Qt::AscendingOrder);
-	while (topLevelItemCount() > 10) {
-		takeTopLevelItem(10);
-	}
-
-	// Update minimum width
-	int w = (frameWidth() * 2) + verticalScrollBar()->sizeHint().width();
-	for (int i = 0; i < 4; ++i) {
-		w += columnWidth(i);
-	}
-	setMinimumSize(w, header()->height() + sizeHintForRow(0) * 10 + frameWidth() * 2);
 }
 
 // ============================================================================
@@ -142,25 +95,23 @@ Scores::Scores(QWidget* parent)
 {
 	setWindowTitle(tr("CuteMaze Scores"));
 
-#if !defined(QTOPIA_PHONE)
-	QDialogButtonBox* buttons = new QDialogButtonBox(QDialogButtonBox::Close, Qt::Horizontal, this);
-	connect(buttons, SIGNAL(rejected()), this, SLOT(reject()));
-#endif
-
-	m_sizes = new QComboBox(this);
-
-	QHBoxLayout* section_layout = new QHBoxLayout;
-	section_layout->addWidget(new QLabel(tr("<b>Size:</b>"), this));
-	section_layout->addWidget(m_sizes, 1);
-
-	m_lists = new QStackedWidget(this);
-	connect(m_sizes, SIGNAL(activated(int)), m_lists, SLOT(setCurrentIndex(int)));
-
 	QVBoxLayout* layout = new QVBoxLayout(this);
-	layout->addLayout(section_layout);
-	layout->addWidget(m_lists);
+
+	m_board = new QTreeWidget(this);
+	m_board->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+	m_board->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+	m_board->setRootIsDecorated(false);
+	m_board->setColumnCount(5);
+	m_board->setHeaderLabels(QStringList() << tr("Name") << tr("Score") << tr("Time") << tr("Steps") << tr("Algorithm") << tr("Size"));
+	m_board->header()->setStretchLastSection(false);
+	m_board->header()->setResizeMode(QHeaderView::ResizeToContents);
+	layout->addWidget(m_board);
+
 #if !defined(QTOPIA_PHONE)
 	layout->addSpacing(12);
+
+	QDialogButtonBox* buttons = new QDialogButtonBox(QDialogButtonBox::Close, Qt::Horizontal, this);
+	connect(buttons, SIGNAL(rejected()), this, SLOT(reject()));
 	layout->addWidget(buttons);
 #endif
 
@@ -171,55 +122,17 @@ Scores::Scores(QWidget* parent)
 
 void Scores::addScore(int steps, int seconds, int algorithm, int size)
 {
-	// Find high score board
-	ScoreBoard* board;
-	int pos = m_sizes->findText(QString::number(size));
-	if (pos != -1) {
-		// Access already loaded one
-		board = qobject_cast<ScoreBoard*>(m_lists->widget(pos));
-		if (board == 0) {
-			return;
-		}
-	} else {
-		// Create new one
-		board = new ScoreBoard(this);
-		int count = m_sizes->count();
-		for (pos = 0; pos < count; ++pos) {
-			if (size < m_sizes->itemText(pos).toInt()) {
-				break;
-			}
-		}
-		m_sizes->insertItem(pos, QString::number(size));
-		m_lists->insertWidget(pos, board);
-	}
-
 	// Check if it is a high score
-	int count = board->topLevelItemCount();
+	int value = seconds ? ((steps * size) / seconds) : (steps * size);
+	int count = m_board->topLevelItemCount();
 	Q_ASSERT(count < 11);
-	if (count == 10) {
-		bool success = false;
-		QTreeWidgetItem* item;
-		int item_seconds;
-		for (int i = 0; i < count; ++i) {
-			item = board->topLevelItem(i);
-			item_seconds = item->data(1, Qt::UserRole).toInt();
-			if ( seconds < item_seconds ||
-				(seconds == item_seconds && steps < item->text(2).toInt()) ) {
-				success = true;
-				break;
-			}
-		}
-		if (!success) {
-			return;
-		}
+	if (count == 10 && value < m_board->topLevelItem(count - 1)->text(1).toInt()) {
+		return;
 	}
-
-	// Switch to appropriate high score board
-	m_sizes->setCurrentIndex(pos);
-	m_lists->setCurrentWidget(board);
 
 	// Get player's name
 	QString name;
+#if !defined(QTOPIA_PHONE)
 #if defined(Q_OS_UNIX)
 	{
 		passwd* pws = getpwuid(geteuid());
@@ -240,32 +153,31 @@ void Scores::addScore(int steps, int seconds, int algorithm, int size)
 	}
 #endif
 	bool ok = true;
-#if !defined(QTOPIA_PHONE)
 	name = QInputDialog::getText(parentWidget(), tr("Congratulations!"), tr("Your score has made the top ten.\nPlease enter your name:"), QLineEdit::Normal, name, &ok);
-#else
-	name = "root";
-#endif
 	if (!ok || name.isEmpty()) {
 		return;
 	}
+#else
+	name = "root";
+#endif
 
 	// Create score
-	QTreeWidgetItem* score = new Score(seconds, steps, algorithm);
+	QTreeWidgetItem* score = new Score(seconds, steps, algorithm, size);
 	score->setText(0, name);
-	board->addTopLevelItem(score);
-	board->clearSelection();
+	m_board->addTopLevelItem(score);
+	m_board->clearSelection();
 	score->setSelected(true);
-	board->updateItems();
+	updateItems();
 
 	// Save items
 	QStringList values;
 	QTreeWidgetItem* item;
-	count = board->topLevelItemCount();
+	count = m_board->topLevelItemCount();
 	for (int i = 0; i < count; ++i) {
-		item = board->topLevelItem(i);
-		values += QString("%1:%2:%3:%4") .arg(item->text(0)) .arg(item->data(1, Qt::UserRole).toInt()) .arg(item->text(2)) .arg(item->data(3, Qt::UserRole).toInt());
+		item = m_board->topLevelItem(i);
+		values += QString("%1:%2:%3:%4:%5") .arg(item->text(0)) .arg(item->data(2, Qt::UserRole).toInt()) .arg(item->text(3)) .arg(item->data(4, Qt::UserRole).toInt()) .arg(item->text(5).toInt());
 	}
-	QSettings().setValue("Scores/" + QString::number(size), values);
+	QSettings().setValue("Scores", values);
 
 	show();
 }
@@ -274,33 +186,36 @@ void Scores::addScore(int steps, int seconds, int algorithm, int size)
 
 void Scores::read()
 {
-	QStringList values;
-	ScoreBoard* board;
-	Score* score;
-
-	QSettings settings;
-	settings.beginGroup("Scores");
-	foreach (const QString& key, settings.childKeys()) {
-		if (key.toInt() == 0) {
+	QStringList data = QSettings().value("Scores").toStringList();
+	foreach (const QString& s, data) {
+		QStringList values = s.split(':');
+		if (values.size() != 5) {
 			continue;
 		}
-		m_sizes->addItem(key);
-
-		board = new ScoreBoard(this);
-		m_lists->addWidget(board);
-
-		QStringList data = settings.value(key).toStringList();
-		foreach (const QString& s, data) {
-			values = s.split(':');
-			if (values.size() != 4) {
-				continue;
-			}
-			score = new Score(values[1].toInt(), values[2].toInt(), values[3].toInt());
-			score->setText(0, values[0]);
-			board->addTopLevelItem(score);
-		}
-		board->updateItems();
+		Score* score = new Score(values[1].toInt(), values[2].toInt(), values[3].toInt(), values[4].toInt());
+		score->setText(0, values[0]);
+		m_board->addTopLevelItem(score);
 	}
+	updateItems();
+}
+
+// ============================================================================
+
+void Scores::updateItems()
+{
+	// Sort items
+	m_board->sortItems(1, Qt::DescendingOrder);
+	while (m_board->topLevelItemCount() > 10) {
+		m_board->takeTopLevelItem(10);
+	}
+
+	// Find minimum size
+	int frame = m_board->frameWidth() * 2;
+	int width = frame;
+	for (int i = 0; i < 6; ++i) {
+		width += m_board->columnWidth(i);
+	}
+	m_board->setMinimumSize(width, frame + m_board->header()->height() + m_board->sizeHintForRow(0) * 10);
 }
 
 // ============================================================================
