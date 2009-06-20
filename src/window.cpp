@@ -35,6 +35,7 @@
 #include <QSettings>
 #include <QString>
 #include <QTimer>
+#include <QWheelEvent>
 
 #if defined(QTOPIA_PHONE)
 #include <QSoftMenuBar>
@@ -96,6 +97,18 @@ void Window::closeEvent(QCloseEvent* event)
 
 // ============================================================================
 
+void Window::wheelEvent(QWheelEvent* event)
+{
+	if (event->delta() > 0) {
+		m_board->zoomIn();
+	} else {
+		m_board->zoomOut();
+	}
+	QMainWindow::wheelEvent(event);
+}
+
+// ============================================================================
+
 void Window::initActions()
 {
 #if defined(QTOPIA_PHONE)
@@ -142,6 +155,18 @@ void Window::initActions()
 	quit_icon.addPixmap(QPixmap(":/16x16/application-exit.png"));
 	game_menu->addAction(quit_icon, tr("Quit"), this, SLOT(close()), tr("Ctrl+Q"));
 
+	QMenu* view_menu = menuBar()->addMenu(tr("View"));
+
+	QIcon zoom_in_icon(QPixmap(":/22x22/zoom-in.png"));
+	zoom_in_icon.addPixmap(QPixmap(":/16x16/zoom-in.png"));
+	QAction* zoom_in_action = view_menu->addAction(zoom_in_icon, tr("Zoom In"), m_board, SLOT(zoomIn()), tr("Ctrl++"));
+	connect(m_board, SIGNAL(zoomInAvailable(bool)), zoom_in_action, SLOT(setEnabled(bool)));
+
+	QIcon zoom_out_icon(QPixmap(":/22x22/zoom-out.png"));
+	zoom_out_icon.addPixmap(QPixmap(":/16x16/zoom-out.png"));
+	QAction* zoom_out_action = view_menu->addAction(zoom_out_icon, tr("Zoom Out"), m_board, SLOT(zoomOut()), tr("Ctrl+-"));
+	connect(m_board, SIGNAL(zoomOutAvailable(bool)), zoom_out_action, SLOT(setEnabled(bool)));
+
 	QMenu* help_menu = menuBar()->addMenu(tr("Help"));
 	help_menu->addAction(tr("About"), this, SLOT(about()));
 	help_menu->addAction(tr("About &Qt"), qApp, SLOT(aboutQt()));
@@ -155,6 +180,9 @@ void Window::initActions()
 	toolbar->addAction(new_action);
 	toolbar->addAction(m_pause_action);
 	toolbar->addAction(m_hint_action);
+	toolbar->addSeparator();
+	toolbar->addAction(zoom_in_action);
+	toolbar->addAction(zoom_out_action);
 	addToolBar(toolbar);
 	setContextMenuPolicy(Qt::NoContextMenu);
 #endif

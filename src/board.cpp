@@ -49,6 +49,9 @@ Board::Board(QMainWindow* parent)
 	m_smooth_movement(true),
 	m_col_delta(0),
 	m_row_delta(0),
+	m_zoom(5),
+	m_max_zoom(5),
+	m_zoom_size(14),
 	m_player_angle(360),
 	m_player_steps(0),
 	m_player_total_time(0),
@@ -88,6 +91,8 @@ Board::Board(QMainWindow* parent)
 	// Setup theme support
 	m_theme = new Theme;
 
+	loadSettings();
+
 	// Start or load game
 	if (QSettings().contains("Current/Seed")) {
 		loadGame();
@@ -95,8 +100,6 @@ Board::Board(QMainWindow* parent)
 		m_done = true;
 		newGame();
 	}
-
-	loadSettings();
 }
 
 // ============================================================================
@@ -261,7 +264,30 @@ void Board::hint()
 		} else {
 			m_hint_angle = 180;
 		}
-		m_hint = m_hint - m_player + QPoint(3,3);
+		int pos = (m_zoom / 2) + 1;
+		m_hint = m_hint - m_player + QPoint(pos, pos);
+		update();
+	}
+}
+
+// ============================================================================
+
+void Board::zoomIn()
+{
+	if (m_zoom > 5) {
+		m_zoom -= 2;
+		scale();
+		update();
+	}
+}
+
+// ============================================================================
+
+void Board::zoomOut()
+{
+	if (m_zoom < m_max_zoom) {
+		m_zoom += 2;
+		scale();
 		update();
 	}
 }
@@ -271,6 +297,13 @@ void Board::hint()
 void Board::loadSettings()
 {
 	QSettings settings;
+
+	// Load zoom
+	m_zoom = QSettings().value("Zoom", 5).toInt();
+	if ((m_zoom % 2) == 0) {
+		m_zoom--;
+	}
+	m_zoom = qMax(m_zoom, 5);
 
 	// Load gameplay settings
 #if !defined(QTOPIA_PHONE)
@@ -405,11 +438,7 @@ void Board::paintEvent(QPaintEvent*)
 
 void Board::resizeEvent(QResizeEvent*)
 {
-	int size = qMin(width(), height());
-	size -= (size % 14);
-	float scale = static_cast<float>(size) / 448.0f;
-	m_unit = scale * 32;
-	m_theme->scale(m_unit);
+	scale();
 }
 
 // ============================================================================
@@ -439,11 +468,29 @@ void Board::updateStatusMessage()
 
 // ============================================================================
 
+void Board::scale()
+{
+	m_zoom_size = (m_zoom * 3) - 1;
+	m_unit = qMin(width(), height()) / m_zoom_size;
+	m_theme->scale(m_unit);
+	emit zoomOutAvailable(m_zoom < m_max_zoom);
+	emit zoomInAvailable(m_zoom > 5);
+	QSettings().setValue("Zoom", m_zoom);
+}
+
+// ============================================================================
+
 void Board::generate(unsigned int seed)
 {
 	QSettings settings;
 	int size = qBound(10, settings.value("Current/Size").toInt(), 100);
 	m_total_targets = qBound(1, settings.value("Current/Targets").toInt(), 100);
+	m_max_zoom = size / 2;
+	if ((m_max_zoom % 2) == 0) {
+		m_max_zoom--;
+	}
+	m_zoom = qMin(m_zoom, m_max_zoom);
+	scale();
 
 	// Create new maze
 	m_targets.clear();
@@ -530,8 +577,11 @@ void Board::finish()
 
 void Board::renderMaze(int frame)
 {
-	int column = m_player.x() - m_col_delta - 3;
-	int row = m_player.y() - m_row_delta - 3;
+	int pos = (m_zoom / 2) + 1;
+	int full_view = m_zoom + 3;
+
+	int column = m_player.x() - m_col_delta - pos;
+	int row = m_player.y() - m_row_delta - pos;
 	int columns = m_maze->columns();
 	int rows = m_maze->rows();
 
@@ -544,7 +594,7 @@ void Board::renderMaze(int frame)
 
 	// Create painter
 	QPainter painter(this);
-	int size = m_unit * 14;
+	int size = m_unit * m_zoom_size;
 	painter.setClipRect((width() - size) >> 1, (height() - size) >> 1, size, size);
 	painter.translate((width() - size) >> 1, (height() - size) >> 1);
 	painter.translate(-3 * m_unit, -3 * m_unit);
@@ -558,35 +608,35 @@ void Board::renderMaze(int frame)
 	painter.translate(delta * m_col_delta, delta * m_row_delta);
 
 	// Draw background
-	for (int r = 0; r < 8; ++r) {
-		for (int c = 0; c < 8; ++c) {
+	for (int r = 0; r < full_view; ++r) {
+		for (int c = 0; c < full_view; ++c) {
 			m_theme->draw(painter, c, r, Theme::Background);
 		}
 	}
 
 	// Initialize corners
-	unsigned char corners[8][8];
-	for (int r = 0; r < 8; ++r) {
-		for (int c = 0; c < 8; ++c) {
+	unsigned char corners[full_view][full_view];
+	for (int r = 0; r < full_view; ++r) {
+		for (int c = 0; c < full_view; ++c) {
 			corners[c][r] = 0;
 		}
 	}
 
 	// Setup columns
 	int column_start = 0;
-	int column_count = 7;
+	int column_count = m_zoom + 2;
 	if (column < 1) {
 		column_start = abs(column);
-	} else if (column + 6 >= columns) {
+	} else if ((column + m_zoom + 1) >= columns) {
 		column_count = columns - column;
 	}
 
 	// Setup rows
 	int row_start = 0;
-	int row_count = 7;
+	int row_count = m_zoom + 2;
 	if (row < 1) {
 		row_start = abs(row);
-	} else if (row + 6 >= rows) {
+	} else if ((row + m_zoom + 1) >= rows) {
 		row_count = rows - row;
 	}
 
@@ -641,8 +691,8 @@ void Board::renderMaze(int frame)
 	}
 
 	// Draw corners
-	for (int r = 0; r < 8; ++r) {
-		for (int c = 0; c < 8; ++c) {
+	for (int r = 0; r < full_view; ++r) {
+		for (int c = 0; c < full_view; ++c) {
 			unsigned char walls = corners[c][r];
 			if (walls) {
 				m_theme->drawCorner(painter, c, r, walls);
@@ -651,7 +701,7 @@ void Board::renderMaze(int frame)
 	}
 
 	// Draw start
-	QRect view(column, row, 7, 7);
+	QRect view(column, row, m_zoom + 2, m_zoom + 2);
 	if (view.contains(m_start)) {
 		m_theme->draw(painter, m_start.x() - column, m_start.y() - row, Theme::Start);
 	}
@@ -689,7 +739,7 @@ void Board::renderMaze(int frame)
 	}
 
 	// Draw player
-	m_theme->draw(painter, 3, 3, Theme::Player, m_player_angle);
+	m_theme->draw(painter, pos, pos, Theme::Player, m_player_angle);
 }
 
 // ============================================================================
@@ -746,7 +796,7 @@ void Board::renderPause()
 {
 	// Create painter
 	QPainter painter(this);
-	int size = m_unit * 14;
+	int size = m_unit * m_zoom_size;
 	painter.translate((width() - size) >> 1, (height() - size) >> 1);
 	painter.fillRect(0, 0, size, size, Qt::white);
 
@@ -760,7 +810,7 @@ void Board::renderText(QPainter* painter, const QString& message) const
 {
 	painter->setFont(QFont("Sans", 24));
 	QRect rect = painter->fontMetrics().boundingRect(message);
-	int size = (m_unit * 14) >> 1;
+	int size = (m_unit * m_zoom_size) >> 1;
 	int x1 = size - ((rect.width() + rect.height()) >> 1);
 	int y1 = size - rect.height();
 	painter->setPen(Qt::NoPen);

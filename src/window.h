@@ -34,6 +34,7 @@ public:
 
 protected:
 	virtual void closeEvent(QCloseEvent* event);
+	virtual void wheelEvent(QWheelEvent* event);
 
 private slots:
 	void about();

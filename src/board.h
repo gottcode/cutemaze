@@ -40,6 +40,8 @@ public:
 signals:
 	void pauseChecked(bool checked);
 	void pauseAvailable(bool run);
+	void zoomInAvailable(bool available);
+	void zoomOutAvailable(bool available);
 	void finished(int seconds, int steps, int algorithm, int size);
 
 public slots:
@@ -48,6 +50,8 @@ public slots:
 	void saveGame();
 	void pauseGame(bool paused);
 	void hint();
+	void zoomIn();
+	void zoomOut();
 	void loadSettings();
 
 protected:
@@ -60,6 +64,7 @@ private slots:
 	void updateStatusMessage();
 
 private:
+	void scale();
 	void generate(unsigned int seed);
 	void finish();
 	void renderMaze(int frame);
@@ -88,6 +93,9 @@ private:
 
 	Theme* m_theme;
 	int m_unit;
+	int m_zoom;
+	int m_max_zoom;
+	int m_zoom_size;
 
 	// Player
 	QPoint m_player;
