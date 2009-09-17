@@ -38,6 +38,7 @@ public:
 	~Board();
 
 signals:
+	void hintAvailable(bool available);
 	void pauseChecked(bool checked);
 	void pauseAvailable(bool run);
 	void zoomInAvailable(bool available);

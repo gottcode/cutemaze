@@ -1,4 +1,5 @@
 2009-09-17 Graeme Gott <graeme@gottcode.org>
+	* FIXED: Player could always request hint.
 	* Improve rendering code.
 
 2009-06-20 Graeme Gott <graeme@gottcode.org>

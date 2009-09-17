@@ -71,8 +71,8 @@ Window::Window()
 	m_pause_action->setCheckable(true);
 	connect(m_pause_action, SIGNAL(toggled(bool)), m_board, SLOT(pauseGame(bool)));
 	connect(m_board, SIGNAL(pauseAvailable(bool)), m_pause_action, SLOT(setEnabled(bool)));
-	connect(m_board, SIGNAL(pauseAvailable(bool)), m_hint_action, SLOT(setEnabled(bool)));
 	connect(m_board, SIGNAL(pauseChecked(bool)), m_pause_action, SLOT(setChecked(bool)));
+	connect(m_board, SIGNAL(hintAvailable(bool)), m_hint_action, SLOT(setEnabled(bool)));
 
 	// Setup window
 	setWindowTitle(tr("CuteMaze"));
@@ -116,7 +116,7 @@ void Window::initActions()
 
 	game_menu->addAction(tr("Quit Game"), qApp, SLOT(quit()));
 	game_menu->addAction(tr("Settings"), m_settings, SLOT(exec()));
-	game_menu->addAction(tr("Hint"), m_board, SLOT(hint()));
+	m_hint_action = game_menu->addAction(tr("Hint"), m_board, SLOT(hint()));
 	game_menu->addAction(tr("High Scores"), m_scores, SLOT(exec()));
 	m_pause_action = game_menu->addAction(tr("Pause Game"));
 	game_menu->addAction(tr("New Game"), m_board, SLOT(newGame()));

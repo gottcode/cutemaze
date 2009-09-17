@@ -160,6 +160,7 @@ void Board::newGame()
 
 	m_paused = false;
 	emit pauseAvailable(true);
+	emit hintAvailable(true);
 	emit pauseChecked(false);
 }
 
@@ -248,27 +249,30 @@ void Board::pauseGame(bool paused)
 		updateStatusMessage();
 	}
 	update();
+	emit hintAvailable(!m_paused);
 }
 
 // ============================================================================
 
 void Board::hint()
 {
-	if (!m_done) {
-		m_hint = m_solver->hint(m_player);
-		if (m_hint.x() < m_player.x()) {
-			m_hint_angle = 270;
-		} else if (m_hint.x() > m_player.x()) {
-			m_hint_angle = 90;
-		} else if (m_hint.y() < m_player.y()) {
-			m_hint_angle = 360;
-		} else {
-			m_hint_angle = 180;
-		}
-		int pos = (m_zoom / 2) + 1;
-		m_hint = m_hint - m_player + QPoint(pos, pos);
-		update();
+	if (m_done || m_paused || (m_smooth_movement && m_move_animation->state() == QTimeLine::Running)) {
+		return;
 	}
+
+	m_hint = m_solver->hint(m_player);
+	if (m_hint.x() < m_player.x()) {
+		m_hint_angle = 270;
+	} else if (m_hint.x() > m_player.x()) {
+		m_hint_angle = 90;
+	} else if (m_hint.y() < m_player.y()) {
+		m_hint_angle = 360;
+	} else {
+		m_hint_angle = 180;
+	}
+	int pos = (m_zoom / 2) + 1;
+	m_hint = m_hint - m_player + QPoint(pos, pos);
+	update();
 }
 
 // ============================================================================
@@ -552,6 +556,7 @@ void Board::generate(unsigned int seed)
 
 void Board::finish()
 {
+	emit hintAvailable(false);
 	emit pauseAvailable(false);
 	m_move_animation->stop();
 	m_move_animation->setCurrentTime(m_move_animation->duration());
