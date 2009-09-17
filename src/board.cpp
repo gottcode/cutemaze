@@ -464,9 +464,7 @@ void Board::updateStatusMessage()
 		return;
 	}
 
-	QTime t(0, 0, 0);
-	t = t.addMSecs(m_player_time.elapsed() + m_player_total_time);
-
+	QTime t = QTime(0, 0, 0).addMSecs(m_player_time.elapsed() + m_player_total_time);
 	m_status_time_message->setText(tr("%1 elapsed") .arg(t.toString("hh:mm:ss")));
 	m_status_steps_message->setText(tr("%1 steps taken") .arg(m_player_steps));
 	m_status_remain_message->setText(tr("%1 of %2 targets remain") .arg(m_targets.size()) .arg(m_total_targets));

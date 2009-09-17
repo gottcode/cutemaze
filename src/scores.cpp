@@ -25,6 +25,7 @@
 #include <QLabel>
 #include <QScrollBar>
 #include <QSettings>
+#include <QTime>
 #include <QTreeWidget>
 #include <QVBoxLayout>
 
@@ -53,6 +54,7 @@ Score::Score(int seconds, int steps, int algorithm, int size)
 :	QTreeWidgetItem(QTreeWidgetItem::UserType + 1)
 {
 	setText(1, QString::number(seconds ? ((steps * size) / seconds) : (steps * size)));
+	setText(2, QTime(0, 0, 0).addSecs(seconds).toString("hh:mm:ss"));
 	setData(2, Qt::UserRole, QString::number(seconds));
 	setText(3, QString::number(steps));
 	setData(4, Qt::UserRole, QString::number(algorithm));
@@ -63,12 +65,6 @@ Score::Score(int seconds, int steps, int algorithm, int size)
 	setTextAlignment(3, Qt::AlignRight | Qt::AlignVCenter);
 	setTextAlignment(4, Qt::AlignCenter | Qt::AlignVCenter);
 	setTextAlignment(5, Qt::AlignRight | Qt::AlignVCenter);
-
-	int minutes = seconds / 60;
-	seconds -= (minutes * 60);
-	int hours = seconds / 3600;
-	seconds -= (hours * 3600);
-	setText(2, QString("%1:%2:%3") .arg(hours, 2, 10, QLatin1Char('0')) .arg(minutes, 2, 10, QLatin1Char('0')) .arg(seconds, 2, 10, QLatin1Char('0')) );
 
 	static QStringList algorithms = QStringList()
 		<< QLabel::tr("Hunt and Kill")
