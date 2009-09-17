@@ -50,6 +50,7 @@ public:
 	};
 	void draw(QPainter& painter, int column, int row, enum Element element) const;
 	void draw(QPainter& painter, int column, int row, enum RotatedElement element, int angle) const;
+	void drawBackground(QPainter& painter) const;
 	void drawCorner(QPainter& painter, int column, int row, unsigned char walls) const;
 	void drawWall(QPainter& painter, int column, int row, bool vertical = false) const;
 

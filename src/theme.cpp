@@ -195,6 +195,13 @@ void Theme::draw(QPainter& painter, int column, int row, enum RotatedElement ele
 
 // ============================================================================
 
+void Theme::drawBackground(QPainter& painter) const
+{
+	painter.fillRect(0, 0, painter.device()->width(), painter.device()->height(), m_pixmap[Background]);
+}
+
+// ============================================================================
+
 void Theme::drawCorner(QPainter& painter, int column, int row, unsigned char walls) const
 {
 	Q_ASSERT(walls > 0);

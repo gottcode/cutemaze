@@ -49,6 +49,7 @@ Board::Board(QMainWindow* parent)
 	m_smooth_movement(true),
 	m_col_delta(0),
 	m_row_delta(0),
+	m_unit(32),
 	m_zoom(5),
 	m_max_zoom(5),
 	m_zoom_size(14),
@@ -322,6 +323,7 @@ void Board::loadSettings()
 
 	// Load theme
 	m_theme->load(settings.value("Theme", "Mouse").toString());
+	renderBackground();
 
 	// Show
 	update();
@@ -425,7 +427,7 @@ void Board::paintEvent(QPaintEvent*)
 {
 	if (!m_paused) {
 		if (!m_done) {
-			renderMaze(m_move_animation->currentFrame());
+			renderMaze();
 		} else {
 			renderDone();
 		}
@@ -473,6 +475,7 @@ void Board::scale()
 	m_zoom_size = (m_zoom * 3) - 1;
 	m_unit = qMin(width(), height()) / m_zoom_size;
 	m_theme->scale(m_unit);
+	renderBackground();
 	emit zoomOutAvailable(m_zoom < m_max_zoom);
 	emit zoomInAvailable(m_zoom > 5);
 	QSettings().setValue("Zoom", m_zoom);
@@ -575,22 +578,31 @@ void Board::finish()
 
 // ============================================================================
 
-void Board::renderMaze(int frame)
+void Board::renderBackground()
 {
-	int pos = (m_zoom / 2) + 1;
-	int full_view = m_zoom + 3;
+	int size = (m_zoom_size + 6) * m_unit;
+	m_back = QPixmap(size, size);
+	QPainter painter(&m_back);
+	m_theme->drawBackground(painter);
+}
 
+// ============================================================================
+
+void Board::renderMaze()
+{
+	int frame = m_smooth_movement ? m_move_animation->currentFrame() : 3;
+	Q_ASSERT(frame > -1);
+	Q_ASSERT(frame < 5);
+
+	int pos = (m_zoom / 2) + 1;
 	int column = m_player.x() - m_col_delta - pos;
 	int row = m_player.y() - m_row_delta - pos;
 	int columns = m_maze->columns();
 	int rows = m_maze->rows();
-
 	Q_ASSERT(m_player.x() > -1);
 	Q_ASSERT(m_player.x() < columns);
 	Q_ASSERT(m_player.y() > -1);
 	Q_ASSERT(m_player.y() < rows);
-	Q_ASSERT(frame > -1);
-	Q_ASSERT(frame < 5);
 
 	// Create painter
 	QPainter painter(this);
@@ -602,19 +614,13 @@ void Board::renderMaze(int frame)
 	// Shift by frame amount
 	painter.save();
 	int delta = frame * -m_unit;
-	if (!m_smooth_movement) {
-		delta = -3 * m_unit;
-	}
 	painter.translate(delta * m_col_delta, delta * m_row_delta);
 
 	// Draw background
-	for (int r = 0; r < full_view; ++r) {
-		for (int c = 0; c < full_view; ++c) {
-			m_theme->draw(painter, c, r, Theme::Background);
-		}
-	}
+	painter.drawPixmap(0, 0, m_back);
 
 	// Initialize corners
+	int full_view = m_zoom + 3;
 	unsigned char corners[full_view][full_view];
 	for (int r = 0; r < full_view; ++r) {
 		for (int c = 0; c < full_view; ++c) {

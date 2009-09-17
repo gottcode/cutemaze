@@ -67,7 +67,8 @@ private:
 	void scale();
 	void generate(unsigned int seed);
 	void finish();
-	void renderMaze(int frame);
+	void renderBackground();
+	void renderMaze();
 	void renderDone();
 	void renderPause();
 	void renderText(QPainter* painter, const QString& message) const;
@@ -92,6 +93,7 @@ private:
 	QTimeLine* m_move_animation;
 
 	Theme* m_theme;
+	QPixmap m_back;
 	int m_unit;
 	int m_zoom;
 	int m_max_zoom;
