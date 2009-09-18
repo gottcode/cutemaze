@@ -46,6 +46,11 @@ class Score : public QTreeWidgetItem
 {
 public:
 	Score(int seconds, int steps, int algorithm, int size);
+
+	bool operator<(const QTreeWidgetItem& other) const
+	{
+		return data(1, Qt::UserRole).toInt() < other.data(1, Qt::UserRole).toInt();
+	}
 };
 
 // ============================================================================
@@ -53,7 +58,9 @@ public:
 Score::Score(int seconds, int steps, int algorithm, int size)
 :	QTreeWidgetItem(QTreeWidgetItem::UserType + 1)
 {
-	setText(1, QString::number(seconds ? ((steps * size) / seconds) : (steps * size)));
+	int score = seconds ? ((steps * size) / seconds) : (steps * size);
+	setText(1, QString::number(score));
+	setData(1, Qt::UserRole, score);
 	setText(2, QTime(0, 0, 0).addSecs(seconds).toString("hh:mm:ss"));
 	setData(2, Qt::UserRole, QString::number(seconds));
 	setText(3, QString::number(steps));
