@@ -2,22 +2,24 @@
 <qresource>
 	<file>cutemaze.png</file>
 
-	<file>16x16/application-exit.png</file>
-	<file>16x16/document-new.png</file>
-	<file>16x16/games-config-options.png</file>
-	<file>16x16/games-highscores.png</file>
-	<file>16x16/games-hint.png</file>
-	<file>16x16/media-playback-pause.png</file>
-	<file>16x16/zoom-in.png</file>
-	<file>16x16/zoom-out.png</file>
+	<file>oxygen/16x16/application-exit.png</file>
+	<file>oxygen/16x16/document-new.png</file>
+	<file>oxygen/16x16/games-config-options.png</file>
+	<file>oxygen/16x16/games-highscores.png</file>
+	<file>oxygen/16x16/games-hint.png</file>
+	<file>oxygen/16x16/help-about.png</file>
+	<file>oxygen/16x16/media-playback-pause.png</file>
+	<file>oxygen/16x16/zoom-in.png</file>
+	<file>oxygen/16x16/zoom-out.png</file>
 
-	<file>22x22/application-exit.png</file>
-	<file>22x22/document-new.png</file>
-	<file>22x22/games-config-options.png</file>
-	<file>22x22/games-highscores.png</file>
-	<file>22x22/games-hint.png</file>
-	<file>22x22/media-playback-pause.png</file>
-	<file>22x22/zoom-in.png</file>
-	<file>22x22/zoom-out.png</file>
+	<file>oxygen/22x22/application-exit.png</file>
+	<file>oxygen/22x22/document-new.png</file>
+	<file>oxygen/22x22/games-config-options.png</file>
+	<file>oxygen/22x22/games-highscores.png</file>
+	<file>oxygen/22x22/games-hint.png</file>
+	<file>oxygen/22x22/help-about.png</file>
+	<file>oxygen/22x22/media-playback-pause.png</file>
+	<file>oxygen/22x22/zoom-in.png</file>
+	<file>oxygen/22x22/zoom-out.png</file>
 </qresource>
 </RCC>
