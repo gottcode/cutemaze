@@ -767,8 +767,9 @@ void Board::renderDone()
 	int w = columns * cell_width + 1;
 	int h = rows * cell_width + 1;
 
-	// Create pixmap
+	// Create painter
 	QPainter painter(this);
+	painter.save();
 	painter.translate((width() - w) >> 1, (height() - h) >> 1);
 	painter.fillRect(0, 0, w, h, Qt::white);
 
@@ -796,6 +797,7 @@ void Board::renderDone()
 	painter.drawLine(columns * cell_width, 0, columns * cell_width, rows * cell_width);
 
 	// Draw congratulations
+	painter.restore();
 	renderText(&painter, tr("Success"));
 }
 
@@ -803,13 +805,16 @@ void Board::renderDone()
 
 void Board::renderPause()
 {
+	int size = m_unit * m_zoom_size;
+
 	// Create painter
 	QPainter painter(this);
-	int size = m_unit * m_zoom_size;
+	painter.save();
 	painter.translate((width() - size) >> 1, (height() - size) >> 1);
 	painter.fillRect(0, 0, size, size, Qt::white);
 
 	// Draw message
+	painter.restore();
 	renderText(&painter, tr("Paused"));
 }
 
@@ -817,18 +822,29 @@ void Board::renderPause()
 
 void Board::renderText(QPainter* painter, const QString& message) const
 {
-	painter->setFont(QFont("Sans", 24));
-	QRect rect = painter->fontMetrics().boundingRect(message);
-	int size = (m_unit * m_zoom_size) >> 1;
-	int x1 = size - ((rect.width() + rect.height()) >> 1);
-	int y1 = size - rect.height();
+	// Find message size
+	QFont f = font();
+	f.setPointSize(24);
+	QFontMetrics metrics(f);
+	int width = metrics.width(message);
+	int height = metrics.height();
+
+	painter->save();
+	painter->translate(rect().center() - QRect(0, 0, width + height, height * 2).center());
+
+	// Draw black background
 	painter->setPen(Qt::NoPen);
 	painter->setBrush(QColor(0, 0, 0, 200));
 	painter->setRenderHint(QPainter::Antialiasing, true);
-	painter->drawRoundRect(x1, y1, rect.width() + rect.height(), rect.height() * 2, 10);
+	painter->drawRoundedRect(0, 0, width + height, height * 2, 10, 10);
+
+	// Draw message
+	painter->setFont(f);
 	painter->setPen(Qt::white);
 	painter->setRenderHint(QPainter::TextAntialiasing, true);
-	painter->drawText((rect.height() >> 1) + x1, ((rect.height() * 5) >> 2) + y1, message);
+	painter->drawText(height / 2, height / 2 + metrics.ascent(), message);
+
+	painter->restore();
 }
 
 // ============================================================================
