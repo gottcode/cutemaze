@@ -1,3 +1,6 @@
+2009-09-18 Graeme Gott <graeme@gottcode.org>
+	* Save and restore window position.
+
 2009-09-17 Graeme Gott <graeme@gottcode.org>
 	* FIXED: Player could always request hint.
 	* Improve rendering code.

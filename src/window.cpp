@@ -77,7 +77,7 @@ Window::Window()
 	// Setup window
 	setWindowTitle(tr("CuteMaze"));
 #if !defined(QTOPIA_PHONE)
-	resize(QSettings().value("Size", QSize(448, 448)).toSize());
+	restoreGeometry(QSettings().value("Geometry").toByteArray());
 #endif
 
 	// Create auto-save timer
@@ -90,7 +90,7 @@ Window::Window()
 
 void Window::closeEvent(QCloseEvent* event)
 {
-	QSettings().setValue("Size", size());
+	QSettings().setValue("Geometry", saveGeometry());
 	m_board->saveGame();
 	QMainWindow::closeEvent(event);
 }
