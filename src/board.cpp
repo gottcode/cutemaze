@@ -130,6 +130,7 @@ void Board::newGame()
 	settings.setValue("Current/Seed", seed);
 	settings.setValue("Current/Size", settings.value("New/Size", 20).toInt());
 	settings.setValue("Current/Targets", settings.value("New/Targets", 3).toInt());
+	settings.setValue("Current/Version", 2);
 	m_player_angle = 360;
 	m_player_steps = 0;
 
@@ -167,8 +168,12 @@ void Board::loadGame()
 	QSettings settings;
 
 	// Load maze
-	generate(settings.value("Current/Seed").toUInt());
-	if (!m_maze->load()) {
+	bool success = false;
+	if (settings.value("Current/Version").toInt() == 2) {
+		generate(settings.value("Current/Seed").toUInt());
+		success = m_maze->load();
+	}
+	if (!success) {
 		QMessageBox::warning(this, tr("Sorry"), tr("Unable to load previous game. A new game will be started."));
 		m_done = true;
 		return newGame();
