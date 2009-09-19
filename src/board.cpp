@@ -449,15 +449,6 @@ void Board::resizeEvent(QResizeEvent*)
 
 // ============================================================================
 
-void Board::focusOutEvent(QFocusEvent*)
-{
-	if (!m_done) {
-		emit pauseChecked(true);
-	}
-}
-
-// ============================================================================
-
 void Board::updateStatusMessage()
 {
 	if (m_done || m_paused) {

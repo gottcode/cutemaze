@@ -56,7 +56,6 @@ public slots:
 	void loadSettings();
 
 protected:
-	virtual void focusOutEvent(QFocusEvent* event);
 	virtual void keyPressEvent(QKeyEvent* event);
 	virtual void paintEvent(QPaintEvent*);
 	virtual void resizeEvent(QResizeEvent*);
