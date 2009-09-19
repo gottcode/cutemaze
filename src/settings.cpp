@@ -28,11 +28,10 @@
 #if !defined(QTOPIA_PHONE)
 #include <QFileDialog>
 #endif
-#include <QGridLayout>
+#include <QFormLayout>
 #include <QHBoxLayout>
 #include <QKeyEvent>
 #include <QLabel>
-#include <QListWidget>
 #include <QMessageBox>
 #include <QPainter>
 #include <QPushButton>
@@ -221,16 +220,11 @@ Settings::Settings(QWidget* parent)
 	m_gameplay_time->hide();
 #endif
 
-	QGridLayout* gameplay_layout = new QGridLayout(gameplay_tab);
-	gameplay_layout->setSpacing(6);
-	gameplay_layout->setRowStretch(0, 1);
-	gameplay_layout->setRowStretch(5, 1);
-	gameplay_layout->setColumnStretch(0, 1);
-	gameplay_layout->setColumnStretch(2, 1);
-	gameplay_layout->addWidget(m_gameplay_path, 1, 1);
-	gameplay_layout->addWidget(m_gameplay_steps, 2, 1);
-	gameplay_layout->addWidget(m_gameplay_time, 3, 1);
-	gameplay_layout->addWidget(m_gameplay_smooth, 4, 1);
+	QFormLayout* gameplay_layout = new QFormLayout(gameplay_tab);
+	gameplay_layout->addRow(m_gameplay_path);
+	gameplay_layout->addRow(m_gameplay_steps);
+	gameplay_layout->addRow(m_gameplay_time);
+	gameplay_layout->addRow(m_gameplay_smooth);
 
 
 	// Create Controls tab
@@ -243,65 +237,41 @@ Settings::Settings(QWidget* parent)
 	controls.append(new ControlButton("Right", Qt::Key_Right, this));
 	controls.append(new ControlButton("Flag", Qt::Key_Space, this));
 
-	QGridLayout * controls_layout = new QGridLayout(controls_tab);
-	controls_layout->setSpacing(6);
-	controls_layout->setRowStretch(0, 1);
-	controls_layout->setRowStretch(6, 1);
-	controls_layout->setColumnStretch(0, 1);
-	controls_layout->setColumnStretch(3, 1);
-	controls_layout->addWidget(new QLabel(tr("Move Up"), controls_tab), 1, 1, Qt::AlignRight | Qt::AlignVCenter);
-	controls_layout->addWidget(controls[0], 1, 2);
-	controls_layout->addWidget(new QLabel(tr("Move Down"), controls_tab), 2, 1, Qt::AlignRight | Qt::AlignVCenter);
-	controls_layout->addWidget(controls[1], 2, 2);
-	controls_layout->addWidget(new QLabel(tr("Move Left"), controls_tab), 3, 1, Qt::AlignRight | Qt::AlignVCenter);
-	controls_layout->addWidget(controls[2], 3, 2);
-	controls_layout->addWidget(new QLabel(tr("Move Right"), controls_tab), 4, 1, Qt::AlignRight | Qt::AlignVCenter);
-	controls_layout->addWidget(controls[3], 4, 2);
-	controls_layout->addWidget(new QLabel(tr("Toggle Flag"), controls_tab), 5, 1, Qt::AlignRight | Qt::AlignVCenter);
-	controls_layout->addWidget(controls[4], 5, 2);
+	QFormLayout * controls_layout = new QFormLayout(controls_tab);
+	controls_layout->addRow(tr("Move Up:"), controls[0]);
+	controls_layout->addRow(tr("Move Down:"), controls[1]);
+	controls_layout->addRow(tr("Move Left:"), controls[2]);
+	controls_layout->addRow(tr("Move Right:"), controls[3]);
+	controls_layout->addRow(tr("Toggle Flag:"), controls[4]);
 
 
 	// Create Themes tab
 	QWidget* themes_tab = new QWidget;
 	tabs->addTab(themes_tab, tr("Themes"));
 
-	m_themes_selector = new QListWidget(themes_tab);
-	connect(m_themes_selector, SIGNAL(currentTextChanged(const QString&)), this, SLOT(themeSelected(const QString&)));
-
 	m_themes_preview = new QLabel(themes_tab);
 
+	m_themes_selector = new QComboBox(themes_tab);
+	connect(m_themes_selector, SIGNAL(currentIndexChanged(const QString&)), this, SLOT(themeSelected(const QString&)));
+
+	QHBoxLayout* themes_selector_layout = new QHBoxLayout;
+	themes_selector_layout->setMargin(0);
+	themes_selector_layout->addWidget(m_themes_selector, 1);
+
 #if !defined(QTOPIA_PHONE)
-	QPushButton* add_button = new QPushButton(tr("Add Theme"), themes_tab);
+	QPushButton* add_button = new QPushButton(tr("Add"), themes_tab);
 	connect(add_button, SIGNAL(clicked()), this, SLOT(addTheme()));
-	m_themes_remove_button = new QPushButton(tr("Remove Theme"), themes_tab);
+	m_themes_remove_button = new QPushButton(tr("Remove"), themes_tab);
 	connect(m_themes_remove_button, SIGNAL(clicked()), this, SLOT(removeTheme()));
 
-	QHBoxLayout* themes_preview_layout = new QHBoxLayout;
-	themes_preview_layout->setMargin(0);
-	themes_preview_layout->setSpacing(6);
-	themes_preview_layout->addWidget(m_themes_selector);
-	themes_preview_layout->addWidget(m_themes_preview);
-
-	QHBoxLayout* themes_button_layout = new QHBoxLayout;
-	themes_button_layout->setMargin(0);
-	themes_button_layout->addWidget(add_button);
-	themes_button_layout->addWidget(m_themes_remove_button);
+	themes_selector_layout->addWidget(add_button, 0);
+	themes_selector_layout->addWidget(m_themes_remove_button, 0);
+#endif
 
 	QVBoxLayout* themes_layout = new QVBoxLayout(themes_tab);
-	themes_layout->addLayout(themes_preview_layout);
-	themes_layout->addLayout(themes_button_layout);
-#else
-	QHBoxLayout* themes_layout = new QHBoxLayout(themes_tab);
-	themes_layout->addWidget(m_themes_selector);
-	themes_layout->addWidget(m_themes_preview);
-#endif
+	themes_layout->addWidget(m_themes_preview, 1, Qt::AlignCenter);
+	themes_layout->addLayout(themes_selector_layout);
 
-
-	// Set dialog's size
-#if !defined(QTOPIA_PHONE)
-	adjustSize();
-	setMinimumSize(size());
-#endif
 
 	// Load current settings
 	loadSettings();
@@ -311,6 +281,7 @@ Settings::Settings(QWidget* parent)
 
 Settings::~Settings()
 {
+	controls.clear();
 	delete m_theme;
 }
 
@@ -332,19 +303,11 @@ void Settings::accept()
 	}
 
 	// Write theme to disk
-	settings.setValue("Theme", m_themes_selector->currentItem()->text());
+	settings.setValue("Theme", m_themes_selector->currentText());
 
 	emit settingsChanged();
 
 	QDialog::accept();
-}
-
-// ============================================================================
-
-void Settings::reject()
-{
-	loadSettings();
-	QDialog::reject();
 }
 
 // ============================================================================
@@ -393,13 +356,13 @@ void Settings::addTheme()
 
 	// Add theme to list
 	QStringList themes = m_theme->available();
-	int theme = themes.indexOf(m_themes_selector->currentItem()->text());
+	int theme = themes.indexOf(m_themes_selector->currentText());
 	if (theme == -1) {
 		theme = themes.indexOf("Mouse");
 	}
 	m_themes_selector->clear();
 	m_themes_selector->addItems(themes);
-	m_themes_selector->setCurrentRow(theme);
+	m_themes_selector->setCurrentIndex(theme);
 }
 
 // ============================================================================
@@ -407,11 +370,11 @@ void Settings::addTheme()
 void Settings::removeTheme()
 {
 	// Find theme
-	if (!m_themes_selector->currentItem()) {
+	if (m_themes_selector->currentIndex() == -1) {
 		return;
 	}
 	QString dirpath = homeDataPath();
-	QString file = m_themes_selector->currentItem()->text() + ".svg";
+	QString file = m_themes_selector->currentText() + ".svg";
 	if (!QFileInfo(dirpath + '/' + file).exists()) {
 		return;
 	}
@@ -425,13 +388,13 @@ void Settings::removeTheme()
 		}
 
 		// Delete theme from list
-		if (!m_theme->available().contains(m_themes_selector->currentItem()->text())) {
-			delete m_themes_selector->currentItem();
+		if (!m_theme->available().contains(m_themes_selector->currentText())) {
+			m_themes_selector->removeItem(m_themes_selector->currentIndex());
 		}
 
 		// Force change to next theme in list
-		themeSelected(m_themes_selector->currentItem()->text());
-		QSettings().setValue("Theme", m_themes_selector->currentItem()->text());
+		themeSelected(m_themes_selector->currentText());
+		QSettings().setValue("Theme", m_themes_selector->currentText());
 		emit settingsChanged();
 	}
 }
@@ -462,7 +425,7 @@ void Settings::loadSettings()
 	}
 	m_themes_selector->clear();
 	m_themes_selector->addItems(themes);
-	m_themes_selector->setCurrentRow(theme);
+	m_themes_selector->setCurrentIndex(theme);
 }
 
 // ============================================================================

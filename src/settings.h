@@ -24,7 +24,6 @@
 class QCheckBox;
 class QComboBox;
 class QLabel;
-class QListWidget;
 class QPushButton;
 class Theme;
 
@@ -40,7 +39,6 @@ signals:
 
 public slots:
 	virtual void accept();
-	virtual void reject();
 
 private slots:
 	void themeSelected(const QString& theme);
@@ -56,7 +54,7 @@ private:
 	QCheckBox* m_gameplay_time;
 	QCheckBox* m_gameplay_smooth;
 
-	QListWidget* m_themes_selector;
+	QComboBox* m_themes_selector;
 	QLabel* m_themes_preview;
 	QPushButton* m_themes_remove_button;
 	Theme* m_theme;

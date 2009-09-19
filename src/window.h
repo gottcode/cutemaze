@@ -23,7 +23,6 @@
 #include <QMainWindow>
 class Board;
 class Scores;
-class Settings;
 class QAction;
 
 class Window : public QMainWindow
@@ -40,13 +39,13 @@ protected:
 private slots:
 	void about();
 	void newGame();
+	void showSettings();
 
 private:
 	void initActions();
 
 	Board* m_board;
 	Scores* m_scores;
-	Settings* m_settings;
 	QAction* m_pause_action;
 	QAction* m_hint_action;
 };

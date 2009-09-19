@@ -69,10 +69,6 @@ Window::Window()
 	connect(qApp, SIGNAL(aboutToQuit()), m_board, SLOT(saveGame()));
 #endif
 
-	// Create settings window
-	m_settings = new Settings(this);
-	connect(m_settings, SIGNAL(settingsChanged()), m_board, SLOT(loadSettings()));
-
 	// Create scores window
 	m_scores = new Scores(this);
 	connect(m_board, SIGNAL(finished(int, int, int, int)), m_scores, SLOT(addScore(int, int, int, int)));
@@ -136,7 +132,7 @@ void Window::initActions()
 	QMenu* game_menu = QSoftMenuBar::menuFor(this);
 
 	game_menu->addAction(tr("Quit Game"), qApp, SLOT(quit()));
-	game_menu->addAction(tr("Settings"), m_settings, SLOT(exec()));
+	game_menu->addAction(tr("Settings"), this, SLOT(showSettings()));
 	m_hint_action = game_menu->addAction(tr("Hint"), m_board, SLOT(hint()));
 	game_menu->addAction(tr("High Scores"), m_scores, SLOT(exec()));
 	m_pause_action = game_menu->addAction(tr("Pause Game"));
@@ -155,7 +151,7 @@ void Window::initActions()
 	game_menu->addSeparator();
 	game_menu->addAction(fetchIcon("games-highscores"), tr("High Scores"), m_scores, SLOT(exec()));
 	game_menu->addSeparator();
-	game_menu->addAction(fetchIcon("games-config-options"), tr("Settings"), m_settings, SLOT(exec()));
+	game_menu->addAction(fetchIcon("games-config-options"), tr("Settings"), this, SLOT(showSettings()));
 	game_menu->addSeparator();
 	game_menu->addAction(fetchIcon("application-exit"), tr("Quit"), this, SLOT(close()), tr("Ctrl+Q"));
 
@@ -208,6 +204,15 @@ void Window::newGame()
 	if (dialog.exec() == QDialog::Accepted) {
 		m_board->newGame();
 	}
+}
+
+// ============================================================================
+
+void Window::showSettings()
+{
+	Settings settings(this);
+	connect(&settings, SIGNAL(settingsChanged()), m_board, SLOT(loadSettings()));
+	settings.exec();
 }
 
 // ============================================================================
