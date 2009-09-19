@@ -116,14 +116,6 @@ Board::~Board()
 
 void Board::newGame()
 {
-	// Prompt user
-	if (!m_done) {
-		emit pauseChecked(true);
-		if (QMessageBox::question(this, tr("Question"), tr("Abort current game?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::No) {
-			return;
-		}
-	}
-
 	// Stop tracking time
 	m_status_timer->stop();
 

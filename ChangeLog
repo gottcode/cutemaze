@@ -1,3 +1,6 @@
+2009-09-19 Graeme Gott <graeme@gottcode.org>
+	* Add new game dialog.
+
 2009-09-18 Graeme Gott <graeme@gottcode.org>
 	* Make pause behavior consistent across platforms.
 	* FIXED: Scores were not sorted correctly.

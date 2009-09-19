@@ -37,7 +37,6 @@
 #include <QPainter>
 #include <QPushButton>
 #include <QSettings>
-#include <QSpinBox>
 #include <QTabWidget>
 #include <QVBoxLayout>
 
@@ -234,46 +233,6 @@ Settings::Settings(QWidget* parent)
 	gameplay_layout->addWidget(m_gameplay_smooth, 4, 1);
 
 
-	// Create Mazes tab
-	QWidget* mazes_tab = new QWidget;
-	tabs->addTab(mazes_tab, tr("Mazes"));
-
-	m_mazes_preview = new QLabel(mazes_tab);
-
-	m_mazes_algorithm = new QComboBox(mazes_tab);
-	m_mazes_algorithm->setInsertPolicy(QComboBox::InsertAlphabetically);
-	connect(m_mazes_algorithm, SIGNAL(currentIndexChanged(int)), this, SLOT(algorithmSelected(int)));
-	m_mazes_algorithm->addItem(tr("Hunt and Kill"), 0);
-	m_mazes_algorithm->addItem(tr("Kruskal"), 1);
-	m_mazes_algorithm->addItem(tr("Prim"), 2);
-	m_mazes_algorithm->addItem(tr("Recursive Backtracker"), 3);
-	m_mazes_algorithm->addItem(tr("Stack"), 4);
-	m_mazes_algorithm->addItem(tr("Stack 2"), 5);
-	m_mazes_algorithm->addItem(tr("Stack 3"), 6);
-	m_mazes_algorithm->addItem(tr("Stack 4"), 7);
-	m_mazes_algorithm->addItem(tr("Stack 5"), 8);
-
-	m_mazes_targets = new QSpinBox(mazes_tab);
-	m_mazes_targets->setRange(1, 99);
-
-	m_mazes_size = new QSpinBox(mazes_tab);
-	m_mazes_size->setRange(10, 99);
-
-	QGridLayout* mazes_layout = new QGridLayout(mazes_tab);
-	mazes_layout->setSpacing(6);
-	mazes_layout->setRowStretch(0, 1);
-	mazes_layout->setRowStretch(5, 1);
-	mazes_layout->setColumnStretch(0, 1);
-	mazes_layout->setColumnStretch(3, 1);
-	mazes_layout->addWidget(m_mazes_preview, 1, 2);
-	mazes_layout->addWidget(new QLabel(tr("Algorithm"), mazes_tab), 2, 1, Qt::AlignRight | Qt::AlignVCenter);
-	mazes_layout->addWidget(m_mazes_algorithm, 2, 2);
-	mazes_layout->addWidget(new QLabel(tr("Targets"), mazes_tab), 3, 1, Qt::AlignRight | Qt::AlignVCenter);
-	mazes_layout->addWidget(m_mazes_targets, 3, 2);
-	mazes_layout->addWidget(new QLabel(tr("Size"), mazes_tab), 4, 1, Qt::AlignRight | Qt::AlignVCenter);
-	mazes_layout->addWidget(m_mazes_size, 4, 2);
-
-
 	// Create Controls tab
 	QWidget* controls_tab = new QWidget;
 	tabs->addTab(controls_tab, tr("Controls"));
@@ -367,11 +326,6 @@ void Settings::accept()
 	settings.setValue("Show Time", m_gameplay_time->isChecked());
 	settings.setValue("Smooth Movement", m_gameplay_smooth->isChecked());
 
-	// Write new maze settings to disk
-	settings.setValue("New/Algorithm", m_mazes_algorithm->itemData(m_mazes_algorithm->currentIndex()));
-	settings.setValue("New/Targets", m_mazes_targets->value());
-	settings.setValue("New/Size", m_mazes_size->value());
-
 	// Write control button settings to disk
 	foreach (ControlButton* button, controls) {
 		settings.setValue("Controls/" + button->objectName().mid(8), button->key);
@@ -391,15 +345,6 @@ void Settings::reject()
 {
 	loadSettings();
 	QDialog::reject();
-}
-
-// ============================================================================
-
-void Settings::algorithmSelected(int index)
-{
-	if (index != -1) {
-		m_mazes_preview->setPixmap( QString(":/preview%1.png").arg( m_mazes_algorithm->itemData(index).toInt()) );
-	}
 }
 
 // ============================================================================
@@ -502,12 +447,6 @@ void Settings::loadSettings()
 	m_gameplay_steps->setChecked(settings.value("Show Steps", true).toBool());
 	m_gameplay_time->setChecked(settings.value("Show Time", true).toBool());
 	m_gameplay_smooth->setChecked(settings.value("Smooth Movement", true).toBool());
-
-	// Read new maze settings from disk
-	int algorithm = settings.value("New/Algorithm", 4).toInt();
-	m_mazes_algorithm->setCurrentIndex(m_mazes_algorithm->findData(algorithm));
-	m_mazes_targets->setValue(settings.value("New/Targets", 3).toInt());
-	m_mazes_size->setValue(settings.value("New/Size", 50).toInt());
 
 	// Read control button settings from disk
 	foreach (ControlButton* button, controls) {

@@ -17,38 +17,31 @@
  *
  ***********************************************************************/
 
-#ifndef WINDOW_H
-#define WINDOW_H
+#ifndef NEW_GAME_DIALOG_H
+#define NEW_GAME_DIALOG_H
 
-#include <QMainWindow>
-class Board;
-class Scores;
-class Settings;
-class QAction;
+#include <QDialog>
+class QComboBox;
+class QLabel;
+class QSpinBox;
 
-class Window : public QMainWindow
+class NewGameDialog : public QDialog
 {
 	Q_OBJECT
 public:
-	Window();
+	NewGameDialog(QWidget* parent = 0);
 
-protected:
-	virtual void closeEvent(QCloseEvent* event);
-	virtual bool event(QEvent* event);
-	virtual void wheelEvent(QWheelEvent* event);
+public slots:
+	virtual void accept();
 
 private slots:
-	void about();
-	void newGame();
+	void algorithmSelected(int index);
 
 private:
-	void initActions();
-
-	Board* m_board;
-	Scores* m_scores;
-	Settings* m_settings;
-	QAction* m_pause_action;
-	QAction* m_hint_action;
+	QLabel* m_mazes_preview;
+	QComboBox* m_mazes_algorithm;
+	QSpinBox* m_mazes_targets;
+	QSpinBox* m_mazes_size;
 };
 
-#endif // WINDOW_H
+#endif // NEW_GAME_DIALOG_H

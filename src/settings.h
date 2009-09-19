@@ -21,13 +21,11 @@
 #define SETTINGS_H
 
 #include <QDialog>
-#include <QList>
 class QCheckBox;
 class QComboBox;
 class QLabel;
 class QListWidget;
 class QPushButton;
-class QSpinBox;
 class Theme;
 
 class Settings : public QDialog
@@ -43,7 +41,8 @@ signals:
 public slots:
 	virtual void accept();
 	virtual void reject();
-	void algorithmSelected(int index);
+
+private slots:
 	void themeSelected(const QString& theme);
 	void addTheme();
 	void removeTheme();
@@ -56,11 +55,6 @@ private:
 	QCheckBox* m_gameplay_steps;
 	QCheckBox* m_gameplay_time;
 	QCheckBox* m_gameplay_smooth;
-
-	QLabel* m_mazes_preview;
-	QComboBox* m_mazes_algorithm;
-	QSpinBox* m_mazes_targets;
-	QSpinBox* m_mazes_size;
 
 	QListWidget* m_themes_selector;
 	QLabel* m_themes_preview;

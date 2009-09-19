@@ -24,6 +24,7 @@ unix: !macx {
 HEADERS = src/board.h \
 	src/cell.h \
 	src/maze.h \
+	src/new_game_dialog.h \
 	src/path.h \
 	src/scores.h \
 	src/settings.h \
@@ -35,6 +36,7 @@ SOURCES = src/board.cpp \
 	src/cell.cpp \
 	src/main.cpp \
 	src/maze.cpp \
+	src/new_game_dialog.cpp \
 	src/path.cpp \
 	src/scores.cpp \
 	src/settings.cpp \

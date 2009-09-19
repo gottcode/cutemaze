@@ -20,6 +20,7 @@
 #include "window.h"
 
 #include "board.h"
+#include "new_game_dialog.h"
 #include "scores.h"
 #include "settings.h"
 
@@ -139,7 +140,7 @@ void Window::initActions()
 	m_hint_action = game_menu->addAction(tr("Hint"), m_board, SLOT(hint()));
 	game_menu->addAction(tr("High Scores"), m_scores, SLOT(exec()));
 	m_pause_action = game_menu->addAction(tr("Pause Game"));
-	game_menu->addAction(tr("New Game"), m_board, SLOT(newGame()));
+	game_menu->addAction(tr("New Game"), this, SLOT(newGame()));
 #else
 	// Create menubar
 #if defined(Q_OS_MAC)
@@ -147,7 +148,7 @@ void Window::initActions()
 #endif
 
 	QMenu* game_menu = menuBar()->addMenu(tr("Game"));
-	QAction* new_action = game_menu->addAction(fetchIcon("document-new"), tr("New"), m_board, SLOT(newGame()), tr("Ctrl+N"));
+	QAction* new_action = game_menu->addAction(fetchIcon("document-new"), tr("New"), this, SLOT(newGame()), tr("Ctrl+N"));
 	m_pause_action = game_menu->addAction(fetchIcon("media-playback-pause"), tr("Pause"));
 	m_pause_action->setShortcut(tr("P"));
 	m_hint_action = game_menu->addAction(fetchIcon("games-hint"), tr("Hint"), m_board, SLOT(hint()), tr("H"));
@@ -197,6 +198,16 @@ void Window::about()
 		"<p><center>Icons are from the <a href=\"http://www.oxygen-icons.org/\">Oxygen</a> theme<br/>"
 		"<small>Used under the <a href=\"http://www.gnu.org/licenses/lgpl.html\">LGPL 3</a> license</small></center></p>"
 	));
+}
+
+// ============================================================================
+
+void Window::newGame()
+{
+	NewGameDialog dialog(this);
+	if (dialog.exec() == QDialog::Accepted) {
+		m_board->newGame();
+	}
 }
 
 // ============================================================================
