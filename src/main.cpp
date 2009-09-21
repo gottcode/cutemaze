@@ -33,6 +33,7 @@ int main(int argc, char** argv)
 {
 	QApplication app(argc, argv);
 	app.setApplicationName("CuteMaze");
+	app.setApplicationVersion("1.1.0");
 	app.setOrganizationDomain("gottcode.org");
 	app.setOrganizationName("GottCode");
 

@@ -186,14 +186,14 @@ void Window::initActions()
 
 void Window::about()
 {
-	QMessageBox::about(this, tr("About CuteMaze"), tr(
-		"<p><center><big><b>CuteMaze 1.0.2</b></big><br/>"
+	QMessageBox::about(this, tr("About"), tr(
+		"<p><center><big><b>%1 %2</b></big><br/>"
 		"A top-down maze game<br/>"
 		"<small>Copyright &copy; 2007-2009 Graeme Gott</small><br/>"
 		"<small>Released under the <a href=\"http://www.gnu.org/licenses/gpl.html\">GPL 3</a> license</small></center></p>"
 		"<p><center>Icons are from the <a href=\"http://www.oxygen-icons.org/\">Oxygen</a> theme<br/>"
 		"<small>Used under the <a href=\"http://www.gnu.org/licenses/lgpl.html\">LGPL 3</a> license</small></center></p>"
-	));
+	).arg(QCoreApplication::applicationName()).arg(QCoreApplication::applicationVersion()));
 }
 
 // ============================================================================
