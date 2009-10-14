@@ -23,6 +23,7 @@
 
 #include <QCheckBox>
 #include <QComboBox>
+#include <QDesktopServices>
 #include <QDialogButtonBox>
 #include <QDir>
 #if !defined(QTOPIA_PHONE)
@@ -54,6 +55,8 @@ QString homeDataPath()
 	path += "/games/cutemaze";
 #elif defined(Q_OS_WIN32)
 	QString path = QDir::homePath() + "/Application Data/GottCode/CuteMaze";
+#else
+	QString path = QDesktopServices::storageLocation(QDesktopSettings::Data) + "/CuteMaze";
 #endif
 	return path;
 }

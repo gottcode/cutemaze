@@ -20,6 +20,7 @@
 #include "theme.h"
 
 #include <QApplication>
+#include <QDesktopServices>
 #include <QDir>
 #include <QFileInfo>
 #include <QIcon>
@@ -89,6 +90,9 @@ Theme::Theme()
 	m_locations.append(QDir::homePath() + "/Application Data/GottCode/CuteMaze");
 	m_locations.append(QCoreApplication::applicationDirPath() + "/Themes");
 	m_locations.append(":/games/cutemaze");
+#else
+	m_locations.append(QDesktopSettings::storageLocation(QDesktopServices::Data) + "/CuteMaze");
+	m_locations.append(":/games/cutemaze");
 #endif
 }
 
@@ -104,7 +108,7 @@ Theme::~Theme()
 QStringList Theme::available() const
 {
 	QSet<QString> files;
-	QDir dir(QString(), "*.svg");
+	QDir dir("", "*.svg");
 	foreach (const QString& path, m_locations) {
 		if (dir.cd(path)) {
 			files += dir.entryList(QDir::Files).toSet();
