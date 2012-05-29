@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007-2009 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007, 2008, 2009, 2012 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,12 +34,6 @@ NewGameDialog::NewGameDialog(QWidget* parent)
 {
 	setWindowTitle(tr("New Game"));
 
-#if !defined(QTOPIA_PHONE)
-	QDialogButtonBox* buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, Qt::Horizontal, this);
-	connect(buttons, SIGNAL(accepted()), this, SLOT(accept()));
-	connect(buttons, SIGNAL(rejected()), this, SLOT(reject()));
-#endif
-
 	// Create widgets
 	m_mazes_preview = new QLabel(this);
 
@@ -62,6 +56,10 @@ NewGameDialog::NewGameDialog(QWidget* parent)
 	m_mazes_size = new QSpinBox(this);
 	m_mazes_size->setRange(10, 99);
 
+	QDialogButtonBox* buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, Qt::Horizontal, this);
+	connect(buttons, SIGNAL(accepted()), this, SLOT(accept()));
+	connect(buttons, SIGNAL(rejected()), this, SLOT(reject()));
+
 	// Load settings
 	QSettings settings;
 	int algorithm = settings.value("New/Algorithm", 4).toInt();
@@ -78,9 +76,7 @@ NewGameDialog::NewGameDialog(QWidget* parent)
 
 	QVBoxLayout* layout = new QVBoxLayout(this);
 	layout->addLayout(contents_layout);
-#if !defined(QTOPIA_PHONE)
 	layout->addWidget(buttons);
-#endif
 }
 
 // ============================================================================

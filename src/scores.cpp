@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2008-2009 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2008, 2009, 2012 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -110,13 +110,11 @@ Scores::Scores(QWidget* parent)
 	m_board->header()->setResizeMode(QHeaderView::ResizeToContents);
 	layout->addWidget(m_board);
 
-#if !defined(QTOPIA_PHONE)
 	layout->addSpacing(12);
 
 	QDialogButtonBox* buttons = new QDialogButtonBox(QDialogButtonBox::Close, Qt::Horizontal, this);
 	connect(buttons, SIGNAL(rejected()), this, SLOT(reject()));
 	layout->addWidget(buttons);
-#endif
 
 	read();
 }
@@ -135,7 +133,6 @@ void Scores::addScore(int steps, int seconds, int algorithm, int size)
 
 	// Get player's name
 	QString name;
-#if !defined(QTOPIA_PHONE)
 #if defined(Q_OS_UNIX)
 	{
 		passwd* pws = getpwuid(geteuid());
@@ -160,9 +157,6 @@ void Scores::addScore(int steps, int seconds, int algorithm, int size)
 	if (!ok || name.isEmpty()) {
 		return;
 	}
-#else
-	name = "root";
-#endif
 
 	// Create score
 	QTreeWidgetItem* score = new Score(seconds, steps, algorithm, size);

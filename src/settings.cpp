@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007-2009 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007, 2008, 2009, 2012 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,9 +26,7 @@
 #include <QDesktopServices>
 #include <QDialogButtonBox>
 #include <QDir>
-#if !defined(QTOPIA_PHONE)
 #include <QFileDialog>
-#endif
 #include <QFormLayout>
 #include <QHBoxLayout>
 #include <QKeyEvent>
@@ -195,19 +193,15 @@ Settings::Settings(QWidget* parent)
 	m_theme = new Theme;
 
 	QTabWidget* tabs = new QTabWidget(this);
-#if !defined(QTOPIA_PHONE)
 	QDialogButtonBox* buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, Qt::Horizontal, this);
 	connect(buttons, SIGNAL(accepted()), this, SLOT(accept()));
 	connect(buttons, SIGNAL(rejected()), this, SLOT(reject()));
-#endif
 
 	QVBoxLayout* layout = new QVBoxLayout(this);
 	layout->setMargin(10);
 	layout->setSpacing(18);
 	layout->addWidget(tabs);
-#if !defined(QTOPIA_PHONE)
 	layout->addWidget(buttons);
-#endif
 
 
 	// Create Gameplay tab
@@ -218,10 +212,8 @@ Settings::Settings(QWidget* parent)
 	m_gameplay_steps = new QCheckBox(tr("Show number of steps taken"), gameplay_tab);
 	m_gameplay_time = new QCheckBox(tr("Show elapsed time"), gameplay_tab);
 	m_gameplay_smooth = new QCheckBox(tr("Smooth movement"), gameplay_tab);
-#if defined(QTOPIA_PHONE)
 	m_gameplay_steps->hide();
 	m_gameplay_time->hide();
-#endif
 
 	QFormLayout* gameplay_layout = new QFormLayout(gameplay_tab);
 	gameplay_layout->addRow(m_gameplay_path);
@@ -261,7 +253,6 @@ Settings::Settings(QWidget* parent)
 	themes_selector_layout->setMargin(0);
 	themes_selector_layout->addWidget(m_themes_selector, 1);
 
-#if !defined(QTOPIA_PHONE)
 	QPushButton* add_button = new QPushButton(tr("Add"), themes_tab);
 	connect(add_button, SIGNAL(clicked()), this, SLOT(addTheme()));
 	m_themes_remove_button = new QPushButton(tr("Remove"), themes_tab);
@@ -269,7 +260,6 @@ Settings::Settings(QWidget* parent)
 
 	themes_selector_layout->addWidget(add_button, 0);
 	themes_selector_layout->addWidget(m_themes_remove_button, 0);
-#endif
 
 	QVBoxLayout* themes_layout = new QVBoxLayout(themes_tab);
 	themes_layout->addWidget(m_themes_preview, 1, Qt::AlignCenter);
@@ -320,9 +310,7 @@ void Settings::themeSelected(const QString& theme)
 	if (!theme.isEmpty()) {
 		m_theme->load(theme);
 		generatePreview();
-#if !defined(QTOPIA_PHONE)
 		m_themes_remove_button->setEnabled(QFileInfo(homeDataPath() + '/' + theme + ".svg").exists());
-#endif
 	}
 }
 
@@ -331,11 +319,7 @@ void Settings::themeSelected(const QString& theme)
 void Settings::addTheme()
 {
 	// Select theme file
-#if !defined(QTOPIA_PHONE)
 	QString path = QFileDialog::getOpenFileName(this, tr("Select Theme File"), QDir::homePath(), QString("*.svg"));
-#else
-	QString path;
-#endif
 	if (path.isEmpty()) {
 		return;
 	}

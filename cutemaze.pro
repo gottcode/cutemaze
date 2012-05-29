@@ -1,14 +1,8 @@
 TEMPLATE = app
 QT += svg
-CONFIG += warn_on release
+CONFIG += warn_on
 macx {
-	# Uncomment the following line to compile on PowerPC Macs
-	# QMAKE_MAC_SDK = /Developer/SDKs/MacOSX10.4u.sdk
-	CONFIG += x86 ppc
-}
-
-qws {
-	qtopia_project(qtopia app)
+	CONFIG += x86_64
 }
 
 MOC_DIR = build
@@ -62,21 +56,17 @@ unix: !macx {
 	isEmpty(PREFIX) {
 		PREFIX = /usr/local
 	}
+	isEmpty(BINDIR) {
+		BINDIR = bin
+	}
+
+	target.path = $$PREFIX/$$BINDIR/
 
 	icon.files = icons/cutemaze.png
-	desktop.files = icons/cutemaze.desktop
+	icon.path = $$PREFIX/share/icons/hicolor/48x48/apps
 
-	qws {
-		target.path = /bin/
-		icon.path = /pics/cutemaze
-		icon.hint = pics
-		desktop.path =	/apps/Games
-		desktop.hint = desktop
-	} else {
-		target.path = $$PREFIX/bin/
-		icon.path = $$PREFIX/share/icons/hicolor/48x48/apps
-		desktop.path = $$PREFIX/share/applications/
-	}
+	desktop.files = icons/cutemaze.desktop
+	desktop.path = $$PREFIX/share/applications/
 
 	INSTALLS += target icon desktop
 }

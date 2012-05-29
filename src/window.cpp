@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007-2009 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007, 2008, 2009, 2012 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,20 +30,15 @@
 #include <QIcon>
 #include <QList>
 #include <QMenu>
+#include <QMenuBar>
 #include <QMessageBox>
 #include <QPair>
 #include <QProcess>
 #include <QSettings>
 #include <QString>
 #include <QTimer>
-#include <QWheelEvent>
-
-#if defined(QTOPIA_PHONE)
-#include <QSoftMenuBar>
-#else
-#include <QMenuBar>
 #include <QToolBar>
-#endif
+#include <QWheelEvent>
 
 // ============================================================================
 
@@ -65,9 +60,6 @@ Window::Window()
 	m_board = new Board(this);
 	setCentralWidget(m_board);
 	m_board->setFocus();
-#if defined(QTOPIA_PHONE)
-	connect(qApp, SIGNAL(aboutToQuit()), m_board, SLOT(saveGame()));
-#endif
 
 	// Create scores window
 	m_scores = new Scores(this);
@@ -83,9 +75,7 @@ Window::Window()
 
 	// Setup window
 	setWindowTitle(tr("CuteMaze"));
-#if !defined(QTOPIA_PHONE)
 	restoreGeometry(QSettings().value("Geometry").toByteArray());
-#endif
 
 	// Create auto-save timer
 	QTimer *timer = new QTimer(this);
@@ -128,16 +118,6 @@ void Window::wheelEvent(QWheelEvent* event)
 
 void Window::initActions()
 {
-#if defined(QTOPIA_PHONE)
-	QMenu* game_menu = QSoftMenuBar::menuFor(this);
-
-	game_menu->addAction(tr("Quit Game"), qApp, SLOT(quit()));
-	game_menu->addAction(tr("Settings"), this, SLOT(showSettings()));
-	m_hint_action = game_menu->addAction(tr("Hint"), m_board, SLOT(hint()));
-	game_menu->addAction(tr("High Scores"), m_scores, SLOT(exec()));
-	m_pause_action = game_menu->addAction(tr("Pause Game"));
-	game_menu->addAction(tr("New Game"), this, SLOT(newGame()));
-#else
 	// Create menubar
 #if defined(Q_OS_MAC)
 	qApp->setAttribute(Qt::AA_DontShowIconsInMenus);
@@ -179,7 +159,6 @@ void Window::initActions()
 	toolbar->addAction(zoom_out_action);
 	addToolBar(toolbar);
 	setContextMenuPolicy(Qt::NoContextMenu);
-#endif
 }
 
 // ============================================================================
