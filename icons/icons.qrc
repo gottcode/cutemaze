@@ -9,6 +9,7 @@
 	<file>oxygen/16x16/games-hint.png</file>
 	<file>oxygen/16x16/help-about.png</file>
 	<file>oxygen/16x16/media-playback-pause.png</file>
+	<file>oxygen/16x16/preferences-desktop-locale.png</file>
 	<file>oxygen/16x16/zoom-in.png</file>
 	<file>oxygen/16x16/zoom-out.png</file>
 
@@ -19,6 +20,7 @@
 	<file>oxygen/22x22/games-hint.png</file>
 	<file>oxygen/22x22/help-about.png</file>
 	<file>oxygen/22x22/media-playback-pause.png</file>
+	<file>oxygen/22x22/preferences-desktop-locale.png</file>
 	<file>oxygen/22x22/zoom-in.png</file>
 	<file>oxygen/22x22/zoom-out.png</file>
 </qresource>

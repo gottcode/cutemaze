@@ -23,6 +23,7 @@ unix: !macx {
 
 HEADERS = src/board.h \
 	src/cell.h \
+	src/locale_dialog.h \
 	src/maze.h \
 	src/new_game_dialog.h \
 	src/path.h \
@@ -34,6 +35,7 @@ HEADERS = src/board.h \
 
 SOURCES = src/board.cpp \
 	src/cell.cpp \
+	src/locale_dialog.cpp \
 	src/main.cpp \
 	src/maze.cpp \
 	src/new_game_dialog.cpp \
@@ -43,6 +45,8 @@ SOURCES = src/board.cpp \
 	src/solver.cpp \
 	src/theme.cpp \
 	src/window.cpp
+
+TRANSLATIONS = translations/cutemaze_en.ts
 
 RESOURCES = icons/icons.qrc themes/theme.qrc preview/preview.qrc
 macx {
@@ -68,5 +72,8 @@ unix: !macx {
 	desktop.files = icons/cutemaze.desktop
 	desktop.path = $$PREFIX/share/applications/
 
-	INSTALLS += target icon desktop
+	qm.files = translations/*.qm
+	qm.path = $$PREFIX/share/cutemaze/translations
+
+	INSTALLS += target icon desktop qm
 }

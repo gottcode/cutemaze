@@ -20,6 +20,7 @@
 #include "window.h"
 
 #include "board.h"
+#include "locale_dialog.h"
 #include "new_game_dialog.h"
 #include "scores.h"
 #include "settings.h"
@@ -46,7 +47,7 @@ static QIcon fetchIcon(const QString& name)
 {
 	QIcon icon(QString(":/oxygen/22x22/%1.png").arg(name));
 	icon.addFile(QString(":/oxygen/16x16/%1.png").arg(name));
-	return icon;
+	return QIcon::fromTheme(name, icon);
 }
 
 // ============================================================================
@@ -123,26 +124,28 @@ void Window::initActions()
 	qApp->setAttribute(Qt::AA_DontShowIconsInMenus);
 #endif
 
-	QMenu* game_menu = menuBar()->addMenu(tr("Game"));
-	QAction* new_action = game_menu->addAction(fetchIcon("document-new"), tr("New"), this, SLOT(newGame()), tr("Ctrl+N"));
-	m_pause_action = game_menu->addAction(fetchIcon("media-playback-pause"), tr("Pause"));
+	QMenu* game_menu = menuBar()->addMenu(tr("&Game"));
+	QAction* new_action = game_menu->addAction(fetchIcon("document-new"), tr("&New"), this, SLOT(newGame()), tr("Ctrl+N"));
+	m_pause_action = game_menu->addAction(fetchIcon("media-playback-pause"), tr("&Pause"));
 	m_pause_action->setShortcut(tr("P"));
-	m_hint_action = game_menu->addAction(fetchIcon("games-hint"), tr("Hint"), m_board, SLOT(hint()), tr("H"));
+	m_hint_action = game_menu->addAction(fetchIcon("games-hint"), tr("&Hint"), m_board, SLOT(hint()), tr("H"));
 	game_menu->addSeparator();
-	game_menu->addAction(fetchIcon("games-highscores"), tr("High Scores"), m_scores, SLOT(exec()));
+	game_menu->addAction(fetchIcon("games-highscores"), tr("High &Scores"), m_scores, SLOT(exec()));
 	game_menu->addSeparator();
-	game_menu->addAction(fetchIcon("games-config-options"), tr("Settings"), this, SLOT(showSettings()));
-	game_menu->addSeparator();
-	game_menu->addAction(fetchIcon("application-exit"), tr("Quit"), this, SLOT(close()), tr("Ctrl+Q"));
+	game_menu->addAction(fetchIcon("application-exit"), tr("&Quit"), this, SLOT(close()), tr("Ctrl+Q"));
 
 	QMenu* view_menu = menuBar()->addMenu(tr("View"));
-	QAction* zoom_in_action = view_menu->addAction(fetchIcon("zoom-in"), tr("Zoom In"), m_board, SLOT(zoomIn()), tr("Ctrl++"));
+	QAction* zoom_in_action = view_menu->addAction(fetchIcon("zoom-in"), tr("Zoom &In"), m_board, SLOT(zoomIn()), tr("Ctrl++"));
 	connect(m_board, SIGNAL(zoomInAvailable(bool)), zoom_in_action, SLOT(setEnabled(bool)));
-	QAction* zoom_out_action = view_menu->addAction(fetchIcon("zoom-out"), tr("Zoom Out"), m_board, SLOT(zoomOut()), tr("Ctrl+-"));
+	QAction* zoom_out_action = view_menu->addAction(fetchIcon("zoom-out"), tr("Zoom &Out"), m_board, SLOT(zoomOut()), tr("Ctrl+-"));
 	connect(m_board, SIGNAL(zoomOutAvailable(bool)), zoom_out_action, SLOT(setEnabled(bool)));
 
-	QMenu* help_menu = menuBar()->addMenu(tr("Help"));
-	help_menu->addAction(fetchIcon("help-about"), tr("About"), this, SLOT(about()));
+	QMenu* settings_menu = menuBar()->addMenu(tr("&Settings"));
+	settings_menu->addAction(fetchIcon("preferences-desktop-locale"), tr("Application &Language..."), this, SLOT(setLocale()));
+	settings_menu->addAction(fetchIcon("games-config-options"), tr("&Preferences..."), this, SLOT(showSettings()));
+
+	QMenu* help_menu = menuBar()->addMenu(tr("&Help"));
+	help_menu->addAction(fetchIcon("help-about"), tr("&About"), this, SLOT(about()));
 	help_menu->addAction(QIcon(":/trolltech/qmessagebox/images/qtlogo-64.png"), tr("About &Qt"), qApp, SLOT(aboutQt()));
 
 	// Create toolbar
@@ -166,13 +169,13 @@ void Window::initActions()
 void Window::about()
 {
 	QMessageBox::about(this, tr("About"), tr(
-		"<p><center><big><b>%1 %2</b></big><br/>"
+		"<p><center><big><b>CuteMaze %1</b></big><br/>"
 		"A top-down maze game<br/>"
-		"<small>Copyright &copy; 2007-2009 Graeme Gott</small><br/>"
+		"<small>Copyright &copy; 2007-%2 Graeme Gott</small><br/>"
 		"<small>Released under the <a href=\"http://www.gnu.org/licenses/gpl.html\">GPL 3</a> license</small></center></p>"
 		"<p><center>Icons are from the <a href=\"http://www.oxygen-icons.org/\">Oxygen</a> theme<br/>"
 		"<small>Used under the <a href=\"http://www.gnu.org/licenses/lgpl.html\">LGPL 3</a> license</small></center></p>"
-	).arg(QCoreApplication::applicationName()).arg(QCoreApplication::applicationVersion()));
+	).arg(QCoreApplication::applicationVersion()).arg("2012"));
 }
 
 // ============================================================================
@@ -192,6 +195,14 @@ void Window::showSettings()
 	Settings settings(this);
 	connect(&settings, SIGNAL(settingsChanged()), m_board, SLOT(loadSettings()));
 	settings.exec();
+}
+
+// ============================================================================
+
+void Window::setLocale()
+{
+	LocaleDialog dialog;
+	dialog.exec();
 }
 
 // ============================================================================
