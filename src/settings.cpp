@@ -212,8 +212,6 @@ Settings::Settings(QWidget* parent)
 	m_gameplay_steps = new QCheckBox(tr("Show number of steps taken"), gameplay_tab);
 	m_gameplay_time = new QCheckBox(tr("Show elapsed time"), gameplay_tab);
 	m_gameplay_smooth = new QCheckBox(tr("Smooth movement"), gameplay_tab);
-	m_gameplay_steps->hide();
-	m_gameplay_time->hide();
 
 	QFormLayout* gameplay_layout = new QFormLayout(gameplay_tab);
 	gameplay_layout->addRow(m_gameplay_path);
