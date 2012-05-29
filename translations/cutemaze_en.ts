@@ -394,6 +394,7 @@ Please enter your name:</source>
     <name>Window</name>
     <message>
         <location filename="../src/window.cpp" line="78"/>
+        <location filename="../src/window.cpp" line="172"/>
         <source>CuteMaze</source>
         <translation type="unfinished"></translation>
     </message>
@@ -508,8 +509,28 @@ Please enter your name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="171"/>
-        <source>&lt;p&gt;&lt;center&gt;&lt;big&gt;&lt;b&gt;CuteMaze %1&lt;/b&gt;&lt;/big&gt;&lt;br/&gt;A top-down maze game&lt;br/&gt;&lt;small&gt;Copyright &amp;copy; 2007-%2 Graeme Gott&lt;/small&gt;&lt;br/&gt;&lt;small&gt;Released under the &lt;a href=&quot;http://www.gnu.org/licenses/gpl.html&quot;&gt;GPL 3&lt;/a&gt; license&lt;/small&gt;&lt;/center&gt;&lt;/p&gt;&lt;p&gt;&lt;center&gt;Icons are from the &lt;a href=&quot;http://www.oxygen-icons.org/&quot;&gt;Oxygen&lt;/a&gt; theme&lt;br/&gt;&lt;small&gt;Used under the &lt;a href=&quot;http://www.gnu.org/licenses/lgpl.html&quot;&gt;LGPL 3&lt;/a&gt; license&lt;/small&gt;&lt;/center&gt;&lt;/p&gt;</source>
+        <location filename="../src/window.cpp" line="173"/>
+        <source>A top-down maze game</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/window.cpp" line="174"/>
+        <source>Copyright &amp;copy; 2007-%1 Graeme Gott</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/window.cpp" line="175"/>
+        <source>Released under the &lt;a href=%1&gt;GPL 3&lt;/a&gt; license</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/window.cpp" line="176"/>
+        <source>Icons are from the &lt;a href=%1&gt;Oxygen&lt;/a&gt; theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/window.cpp" line="177"/>
+        <source>Used under the &lt;a href=%1&gt;LGPL 3&lt;/a&gt; license</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

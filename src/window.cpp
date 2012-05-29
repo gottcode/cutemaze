@@ -168,14 +168,14 @@ void Window::initActions()
 
 void Window::about()
 {
-	QMessageBox::about(this, tr("About"), tr(
-		"<p><center><big><b>CuteMaze %1</b></big><br/>"
-		"A top-down maze game<br/>"
-		"<small>Copyright &copy; 2007-%2 Graeme Gott</small><br/>"
-		"<small>Released under the <a href=\"http://www.gnu.org/licenses/gpl.html\">GPL 3</a> license</small></center></p>"
-		"<p><center>Icons are from the <a href=\"http://www.oxygen-icons.org/\">Oxygen</a> theme<br/>"
-		"<small>Used under the <a href=\"http://www.gnu.org/licenses/lgpl.html\">LGPL 3</a> license</small></center></p>"
-	).arg(QCoreApplication::applicationVersion()).arg("2012"));
+	QMessageBox::about(this, tr("About"), QString("<p><center><big><b>%1 %2</b></big><br/>%3<br/><small>%4<br/>%5</small></center></p><p><center>%6<br/><small>%7</small></center></p>")
+		.arg(tr("CuteMaze"), QCoreApplication::applicationVersion(),
+			tr("A top-down maze game"),
+			tr("Copyright &copy; 2007-%1 Graeme Gott").arg("2012"),
+			tr("Released under the <a href=%1>GPL 3</a> license").arg("\"http://www.gnu.org/licenses/gpl.html\""),
+			tr("Icons are from the <a href=%1>Oxygen</a> theme").arg("\"http://www.oxygen-icons.org/\""),
+			tr("Used under the <a href=%1>LGPL 3</a> license").arg("\"http://www.gnu.org/licenses/lgpl.html\""))
+	);
 }
 
 // ============================================================================
