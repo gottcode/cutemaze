@@ -47,7 +47,9 @@ SOURCES = src/board.cpp \
 	src/window.cpp
 
 TRANSLATIONS = translations/cutemaze_en.ts \
-	translations/cutemaze_fr.ts
+	translations/cutemaze_fr.ts \
+	translations/cutemaze_he.ts \
+	translations/cutemaze_ro.ts
 
 RESOURCES = icons/icons.qrc themes/theme.qrc preview/preview.qrc
 macx {
