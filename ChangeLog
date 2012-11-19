@@ -1,3 +1,6 @@
+2012-11-19 Graeme Gott <graeme@gottcode.org>
+	* Move data to DataLocation of QDesktopServices.
+
 2012-11-18 Graeme Gott <graeme@gottcode.org>
 	* Sync translations with Transifex.
 

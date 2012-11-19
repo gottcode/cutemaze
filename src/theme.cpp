@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007-2009 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007, 2008, 2009, 2012 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -69,7 +69,6 @@ Theme::Theme()
 #if defined(Q_OS_MAC)
 	m_locations.append(QDir::homePath() + "/Library/Application Support/GottCode/CuteMaze");
 	m_locations.append("/Library/Application Support/GottCode/CuteMaze");
-	m_locations.append(":/games/cutemaze");
 #elif defined(Q_OS_UNIX)
 	QString xdg;
 	xdg = qgetenv("$XDG_DATA_HOME");
@@ -89,11 +88,10 @@ Theme::Theme()
 #elif defined(Q_OS_WIN32)
 	m_locations.append(QDir::homePath() + "/Application Data/GottCode/CuteMaze");
 	m_locations.append(QCoreApplication::applicationDirPath() + "/Themes");
-	m_locations.append(":/games/cutemaze");
 #else
-	m_locations.append(QDesktopSettings::storageLocation(QDesktopServices::Data) + "/CuteMaze");
-	m_locations.append(":/games/cutemaze");
+	m_locations.append(QDesktopServices::storageLocation(QDesktopServices::DataLocation));
 #endif
+	m_locations.append(":/games/cutemaze");
 }
 
 // ============================================================================
@@ -194,7 +192,7 @@ void Theme::draw(QPainter& painter, int column, int row, enum RotatedElement ele
 	if (angle == 4) {
 		angle = 0;
 	}
- 	painter.drawPixmap(column * 3 * m_unit, row * 3 * m_unit, m_pixmap_rotated[element][angle]);
+	painter.drawPixmap(column * 3 * m_unit, row * 3 * m_unit, m_pixmap_rotated[element][angle]);
 }
 
 // ============================================================================

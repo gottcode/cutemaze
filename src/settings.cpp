@@ -54,7 +54,7 @@ QString homeDataPath()
 #elif defined(Q_OS_WIN32)
 	QString path = QDir::homePath() + "/Application Data/GottCode/CuteMaze";
 #else
-	QString path = QDesktopServices::storageLocation(QDesktopSettings::Data) + "/CuteMaze";
+	QString path = QDesktopServices::storageLocation(QDesktopServices::DataLocation);
 #endif
 	return path;
 }
