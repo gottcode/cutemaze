@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007-2008 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007, 2008, 2012 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@
 
 #include "maze.h"
 
+#include <QDataStream>
 #include <QSettings>
 
 namespace {

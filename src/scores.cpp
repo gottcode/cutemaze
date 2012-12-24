@@ -107,7 +107,11 @@ Scores::Scores(QWidget* parent)
 	m_board->setColumnCount(5);
 	m_board->setHeaderLabels(QStringList() << tr("Name") << tr("Score") << tr("Time") << tr("Steps") << tr("Algorithm") << tr("Size"));
 	m_board->header()->setStretchLastSection(false);
+#if (QT_VERSION >= QT_VERSION_CHECK(5,0,0))
+	m_board->header()->setSectionResizeMode(QHeaderView::ResizeToContents);
+#else
 	m_board->header()->setResizeMode(QHeaderView::ResizeToContents);
+#endif
 	layout->addWidget(m_board);
 
 	layout->addSpacing(12);

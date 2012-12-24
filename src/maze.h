@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007-2008 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007, 2008, 2012 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,6 +23,7 @@
 #include "cell.h"
 
 #include <QList>
+#include <QLinkedList>
 #include <QPoint>
 #include <QVector>
 
@@ -74,7 +75,7 @@ private:
 	virtual void generate();
 
 	typedef QList<QPoint> Set;
-	QList<Set> m_sets;
+	QLinkedList<Set> m_sets;
 	QVector< QVector<Set*> > m_set_ids;
 };
 
