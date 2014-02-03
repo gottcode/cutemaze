@@ -1,5 +1,5 @@
-lessThan(QT_VERSION, 4.4) {
-	error("FocusWriter requires Qt 4.4 or greater")
+lessThan(QT_VERSION, 4.6) {
+	error("FocusWriter requires Qt 4.6 or greater")
 }
 
 TEMPLATE = app
