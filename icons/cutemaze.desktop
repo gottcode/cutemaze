@@ -1,6 +1,22 @@
 [Desktop Entry]
 Name=CuteMaze
+Name[de]=CuteMaze
+Name[es]=CuteMaze
+Name[he]=CuteMaze
+Name[pl]=CuteMaze
+Name[pt_BR]=CuteMaze
+Name[ro]=CuteMaze
+Name[ru]=CuteMaze
+Name[tr]=CuteMaze
 GenericName=Simple Maze Game
+GenericName[de]=Ein einfaches Labyrinth-Spiel
+GenericName[es]=Juego de laberinto sencillo
+GenericName[he]=משחק מבוך פשוט
+GenericName[pl]=Prosta gra labiryntu
+GenericName[pt_BR]=Um jogo simples de labirinto
+GenericName[ro]=Simplu joc labirint
+GenericName[ru]=Простая игра-лабиринт
+GenericName[tr]=Basit Labirent Oyunu
 Exec=cutemaze
 Icon=cutemaze
 Terminal=false

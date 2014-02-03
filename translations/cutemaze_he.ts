@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="he">
+<TS version="2.1" language="he">
 <context>
     <name>Board</name>
     <message>
@@ -44,12 +44,12 @@
     <message>
         <location filename="../src/settings.cpp" line="119"/>
         <source>Shift</source>
-        <translation>Shift</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="123"/>
         <source>Ctrl</source>
-        <translation>Ctrl</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="126"/>
@@ -59,17 +59,17 @@
     <message>
         <location filename="../src/settings.cpp" line="129"/>
         <source>Alt</source>
-        <translation>Alt</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="134"/>
         <source>Super</source>
-        <translation>Super</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="136"/>
         <source>Windows</source>
-        <translation>Windows</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="141"/>
@@ -100,12 +100,12 @@
         <translation>&lt;שפת מערכת&gt;</translation>
     </message>
     <message>
-        <location filename="../src/locale_dialog.cpp" line="181"/>
+        <location filename="../src/locale_dialog.cpp" line="183"/>
         <source>Note</source>
         <translation>הערה</translation>
     </message>
     <message>
-        <location filename="../src/locale_dialog.cpp" line="181"/>
+        <location filename="../src/locale_dialog.cpp" line="183"/>
         <source>Please restart this application for the change in language to take effect.</source>
         <translation>נא לאתחל את יישום זה כדי להחיל את השינוי בשפה.</translation>
     </message>
@@ -208,22 +208,22 @@
     <message>
         <location filename="../src/scores.cpp" line="82"/>
         <source>Stack 2</source>
-        <translation>Stack 2</translation>
+        <translation>מחסנית 2</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="83"/>
         <source>Stack 3</source>
-        <translation> 3</translation>
+        <translation>מחסנית 3</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="84"/>
         <source>Stack 4</source>
-        <translation>Stack 4</translation>
+        <translation>מחסנית 4</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="85"/>
         <source>Stack 5</source>
-        <translation> 5</translation>
+        <translation>מחסנית 5</translation>
     </message>
 </context>
 <context>
@@ -264,12 +264,12 @@
         <translation>גודל</translation>
     </message>
     <message>
-        <location filename="../src/scores.cpp" line="156"/>
+        <location filename="../src/scores.cpp" line="160"/>
         <source>Congratulations!</source>
         <translation>ברכותיי!</translation>
     </message>
     <message>
-        <location filename="../src/scores.cpp" line="156"/>
+        <location filename="../src/scores.cpp" line="160"/>
         <source>Your score has made the top ten.
 Please enter your name:</source>
         <translation>ניקודך צלח אל העשירון העליון.
@@ -291,17 +291,17 @@ Please enter your name:</source>
     <message>
         <location filename="../src/settings.cpp" line="211"/>
         <source>Show where you&apos;ve been</source>
-        <translation>הצגת היכן היית</translation>
+        <translation>הצג היכן היית</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="212"/>
         <source>Show number of steps taken</source>
-        <translation>הצגת מספר צעדים שנלקחו</translation>
+        <translation>הצג מספר צעדים שנלקחו</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="213"/>
         <source>Show elapsed time</source>
-        <translation>הצגת זמן שחלף</translation>
+        <translation>הצג זמן שחלף</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="214"/>
@@ -356,7 +356,7 @@ Please enter your name:</source>
     <message>
         <location filename="../src/settings.cpp" line="320"/>
         <source>Select Theme File</source>
-        <translation>בחירת קובץ מוטיב</translation>
+        <translation>בחר קובץ מוטיב</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="330"/>
@@ -383,7 +383,7 @@ Please enter your name:</source>
     <message>
         <location filename="../src/settings.cpp" line="367"/>
         <source>Remove the selected theme?</source>
-        <translation>הסרת קובץ המוטיב הנבחר?</translation>
+        <translation>להסיר קובץ המוטיב הנבחר?</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="371"/>
@@ -397,27 +397,27 @@ Please enter your name:</source>
         <location filename="../src/window.cpp" line="78"/>
         <location filename="../src/window.cpp" line="172"/>
         <source>CuteMaze</source>
-        <translation>CuteMaze</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="128"/>
         <source>Ctrl+N</source>
-        <translation>Ctrl+N</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="130"/>
         <source>P</source>
-        <translation>P</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="131"/>
         <source>H</source>
-        <translation>H</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="135"/>
         <source>Ctrl+Q</source>
-        <translation>Ctrl+Q</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="137"/>
@@ -427,12 +427,12 @@ Please enter your name:</source>
     <message>
         <location filename="../src/window.cpp" line="138"/>
         <source>Ctrl++</source>
-        <translation>Ctrl++</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="140"/>
         <source>Ctrl+-</source>
-        <translation>Ctrl+-</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="171"/>
@@ -457,7 +457,7 @@ Please enter your name:</source>
     <message>
         <location filename="../src/window.cpp" line="129"/>
         <source>&amp;Pause</source>
-        <translation>ה&amp;שהיה</translation>
+        <translation>ה&amp;שהה</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="131"/>
@@ -517,7 +517,7 @@ Please enter your name:</source>
     <message>
         <location filename="../src/window.cpp" line="174"/>
         <source>Copyright &amp;copy; 2007-%1 Graeme Gott</source>
-        <translation>Copyright &amp;copy; 2007-%1 Graeme Gott</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="175"/>

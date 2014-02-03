@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ro">
+<TS version="2.1" language="pt_BR">
 <context>
     <name>Board</name>
     <message>
         <location filename="../src/board.cpp" line="170"/>
         <source>Sorry</source>
-        <translation>Scuze</translation>
+        <translation>Desculpe</translation>
     </message>
     <message>
         <location filename="../src/board.cpp" line="170"/>
         <source>Unable to load previous game. A new game will be started.</source>
-        <translation>Nu s-a putut încărca jocul precedent. Un joc nou va fi pornit.</translation>
+        <translation>Não foi possível carregar o jogo anterior. Um novo jogo será iniciado.</translation>
     </message>
     <message>
         <location filename="../src/board.cpp" line="445"/>
         <source>%1 elapsed</source>
-        <translation>%1 scurs</translation>
+        <translation>%1 transcorrido(s)</translation>
     </message>
     <message>
         <location filename="../src/board.cpp" line="446"/>
         <source>%1 steps taken</source>
-        <translation>%1 mutări făcute</translation>
+        <translation>%1 passo(s) dado(s)</translation>
     </message>
     <message>
         <location filename="../src/board.cpp" line="447"/>
         <source>%1 of %2 targets remain</source>
-        <translation>%1 din %2 obiective rămase</translation>
+        <translation>%1 de %2 alvos restantes</translation>
     </message>
     <message>
         <location filename="../src/board.cpp" line="778"/>
         <source>Success</source>
-        <translation>Succes</translation>
+        <translation>Sucesso</translation>
     </message>
     <message>
         <location filename="../src/board.cpp" line="795"/>
         <source>Paused</source>
-        <translation>În pauză</translation>
+        <translation>Em pausa</translation>
     </message>
 </context>
 <context>
@@ -69,12 +69,12 @@
     <message>
         <location filename="../src/settings.cpp" line="136"/>
         <source>Windows</source>
-        <translation>Fereastră</translation>
+        <translation>Janelas</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="141"/>
         <source>Command</source>
-        <translation>Comandă</translation>
+        <translation>Comando</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="144"/>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../src/settings.cpp" line="147"/>
         <source>Option</source>
-        <translation>Opţiuni</translation>
+        <translation>Opções</translation>
     </message>
 </context>
 <context>
@@ -92,22 +92,22 @@
     <message>
         <location filename="../src/locale_dialog.cpp" line="50"/>
         <source>Select application language:</source>
-        <translation>Selectaţi limba aplicaţiei:</translation>
+        <translation>Selecione o idioma do aplicativo:</translation>
     </message>
     <message>
         <location filename="../src/locale_dialog.cpp" line="53"/>
         <source>&lt;System Language&gt;</source>
-        <translation>&lt;Limbaj Sistem&gt;</translation>
+        <translation>&lt;Idioma do sistema&gt;</translation>
     </message>
     <message>
         <location filename="../src/locale_dialog.cpp" line="183"/>
         <source>Note</source>
-        <translation>Notă</translation>
+        <translation>Nota</translation>
     </message>
     <message>
         <location filename="../src/locale_dialog.cpp" line="183"/>
         <source>Please restart this application for the change in language to take effect.</source>
-        <translation>Vă rugăm reporniţi această aplicaţie pentru ca schimbarea limbii să aibă efect.</translation>
+        <translation>Por favor reinicie o aplicativo para que a alteração de idioma surta efeito.</translation>
     </message>
 </context>
 <context>
@@ -115,12 +115,12 @@
     <message>
         <location filename="../src/new_game_dialog.cpp" line="35"/>
         <source>New Game</source>
-        <translation>Joc nou</translation>
+        <translation>Novo jogo</translation>
     </message>
     <message>
         <location filename="../src/new_game_dialog.cpp" line="43"/>
         <source>Hunt and Kill</source>
-        <translation>Vînează şi omoară</translation>
+        <translation>Hunt and Kill</translation>
     </message>
     <message>
         <location filename="../src/new_game_dialog.cpp" line="44"/>
@@ -135,47 +135,47 @@
     <message>
         <location filename="../src/new_game_dialog.cpp" line="46"/>
         <source>Recursive Backtracker</source>
-        <translation>Backtracker recursiv</translation>
+        <translation>Backtracker recursivo</translation>
     </message>
     <message>
         <location filename="../src/new_game_dialog.cpp" line="47"/>
         <source>Stack</source>
-        <translation>Stivă</translation>
+        <translation>Stack</translation>
     </message>
     <message>
         <location filename="../src/new_game_dialog.cpp" line="48"/>
         <source>Stack 2</source>
-        <translation>Stivă 2</translation>
+        <translation>Stack 2</translation>
     </message>
     <message>
         <location filename="../src/new_game_dialog.cpp" line="49"/>
         <source>Stack 3</source>
-        <translation>Stivă 3</translation>
+        <translation>Stack 3</translation>
     </message>
     <message>
         <location filename="../src/new_game_dialog.cpp" line="50"/>
         <source>Stack 4</source>
-        <translation>Stivă 4</translation>
+        <translation>Stack 4</translation>
     </message>
     <message>
         <location filename="../src/new_game_dialog.cpp" line="51"/>
         <source>Stack 5</source>
-        <translation>Stivă 5</translation>
+        <translation>Stack 5</translation>
     </message>
     <message>
         <location filename="../src/new_game_dialog.cpp" line="73"/>
         <source>Algorithm:</source>
-        <translation>Algoritm:</translation>
+        <translation>Algoritmo:</translation>
     </message>
     <message>
         <location filename="../src/new_game_dialog.cpp" line="74"/>
         <source>Targets:</source>
-        <translation>Obiective:</translation>
+        <translation>Alvos:</translation>
     </message>
     <message>
         <location filename="../src/new_game_dialog.cpp" line="75"/>
         <source>Size:</source>
-        <translation>Mărime:</translation>
+        <translation>Tamanho:</translation>
     </message>
 </context>
 <context>
@@ -183,7 +183,7 @@
     <message>
         <location filename="../src/scores.cpp" line="77"/>
         <source>Hunt and Kill</source>
-        <translation>Vînează şi omoară</translation>
+        <translation>Hunt and Kill</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="78"/>
@@ -198,32 +198,32 @@
     <message>
         <location filename="../src/scores.cpp" line="80"/>
         <source>Recursive Backtracker</source>
-        <translation>Backtracker recursiv</translation>
+        <translation>Backtracker recursivo</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="81"/>
         <source>Stack</source>
-        <translation>Stivă</translation>
+        <translation>Stack</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="82"/>
         <source>Stack 2</source>
-        <translation>Stivă 2</translation>
+        <translation>Stack 2</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="83"/>
         <source>Stack 3</source>
-        <translation>Stivă 3</translation>
+        <translation>Stack 3</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="84"/>
         <source>Stack 4</source>
-        <translation>Stivă 4</translation>
+        <translation>Stack 4</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="85"/>
         <source>Stack 5</source>
-        <translation>Stivă 5</translation>
+        <translation>Stack 5</translation>
     </message>
 </context>
 <context>
@@ -231,49 +231,49 @@
     <message>
         <location filename="../src/scores.cpp" line="99"/>
         <source>CuteMaze Scores</source>
-        <translation>Scoruri CuteMaze</translation>
+        <translation>Pontuações do CuteMaze</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="108"/>
         <source>Name</source>
-        <translation>Nume</translation>
+        <translation>Nome</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="108"/>
         <source>Score</source>
-        <translation>Scor</translation>
+        <translation>Pontuação</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="108"/>
         <source>Time</source>
-        <translation>Timp</translation>
+        <translation>Tempo</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="108"/>
         <source>Steps</source>
-        <translation>Paşi</translation>
+        <translation>Passos</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="108"/>
         <source>Algorithm</source>
-        <translation>Algoritm</translation>
+        <translation>Algoritmo</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="108"/>
         <source>Size</source>
-        <translation>Mărime</translation>
+        <translation>Tamanho</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="160"/>
         <source>Congratulations!</source>
-        <translation>Felicitări!</translation>
+        <translation>Parabéns!</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="160"/>
         <source>Your score has made the top ten.
 Please enter your name:</source>
-        <translation>Scorul dvs. a intrat în top 10.
-Vă rugăm tastaţi numele dvs.:</translation>
+        <translation>Sua pontuação está entre as dez melhores.
+Por favor digite seu nome:</translation>
     </message>
 </context>
 <context>
@@ -281,114 +281,114 @@ Vă rugăm tastaţi numele dvs.:</translation>
     <message>
         <location filename="../src/settings.cpp" line="192"/>
         <source>Settings</source>
-        <translation>Setări</translation>
+        <translation>Configurações</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="209"/>
         <source>Game</source>
-        <translation>Joc</translation>
+        <translation>Jogo</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="211"/>
         <source>Show where you&apos;ve been</source>
-        <translation>Arată unde aţi fost</translation>
+        <translation>Mostrar trilha de onde passou</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="212"/>
         <source>Show number of steps taken</source>
-        <translation>Arată numărul de mutări făcute</translation>
+        <translation>Mostrar números de passos dados</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="213"/>
         <source>Show elapsed time</source>
-        <translation>Arată timpul scurs</translation>
+        <translation>Mostrar tempo decorrido</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="214"/>
         <source>Smooth movement</source>
-        <translation>Mişcări line</translation>
+        <translation>Movimento suave</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="225"/>
         <source>Controls</source>
-        <translation>Controale</translation>
+        <translation>Controles</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="234"/>
         <source>Move Up:</source>
-        <translation>Mută în sus:</translation>
+        <translation>Mover para cima:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="235"/>
         <source>Move Down:</source>
-        <translation>Mută în jos:</translation>
+        <translation>Mover para baixo:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="236"/>
         <source>Move Left:</source>
-        <translation>Mută la stînga:</translation>
+        <translation>Mover para a esquerda:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="237"/>
         <source>Move Right:</source>
-        <translation>Mută la dreapta:</translation>
+        <translation>Mover para a direita:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="238"/>
         <source>Toggle Flag:</source>
-        <translation>Comutare steguleţ:</translation>
+        <translation>Alternar sinalizador:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="243"/>
         <source>Themes</source>
-        <translation>Teme</translation>
+        <translation>Temas</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="254"/>
         <source>Add</source>
-        <translation>Adaugă</translation>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="256"/>
         <source>Remove</source>
-        <translation>Elimină</translation>
+        <translation>Remover</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="320"/>
         <source>Select Theme File</source>
-        <translation>Selectaţi fişierul temă</translation>
+        <translation>Selecionar arquivo de tema</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="330"/>
         <location filename="../src/settings.cpp" line="338"/>
         <location filename="../src/settings.cpp" line="371"/>
         <source>Sorry</source>
-        <translation>Scuze</translation>
+        <translation>Perdão</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="330"/>
         <source>Unable to create data folder.</source>
-        <translation>Nu s-a putut crea folder-ul datelor.</translation>
+        <translation>Não foi possível criar pasta de dados.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="338"/>
         <source>Unable to copy theme file.</source>
-        <translation>Nu s-a putut copia fişierul temă.</translation>
+        <translation>Não foi possível copiar arquivo de tema.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="367"/>
         <source>Question</source>
-        <translation>Întrebare</translation>
+        <translation>Pergunta</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="367"/>
         <source>Remove the selected theme?</source>
-        <translation>Eliminaţi tema selectată?</translation>
+        <translation>Deseja remover o tema selecionado?</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="371"/>
         <source>Unable to remove the selected theme.</source>
-        <translation>Nu s-a putut elimina tema selectată.</translation>
+        <translation>Não foi possível remover o tema selecionado.</translation>
     </message>
 </context>
 <context>
@@ -422,7 +422,7 @@ Vă rugăm tastaţi numele dvs.:</translation>
     <message>
         <location filename="../src/window.cpp" line="137"/>
         <source>View</source>
-        <translation>Vizualizare</translation>
+        <translation>Visão</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="138"/>
@@ -437,102 +437,102 @@ Vă rugăm tastaţi numele dvs.:</translation>
     <message>
         <location filename="../src/window.cpp" line="171"/>
         <source>About</source>
-        <translation>Despre</translation>
+        <translation>Sobre</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="149"/>
         <source>About &amp;Qt</source>
-        <translation>Despre &amp;Qt</translation>
+        <translation>Sobre &amp;Qt</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="127"/>
         <source>&amp;Game</source>
-        <translation>&amp;Joc</translation>
+        <translation>&amp;Jogo</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="128"/>
         <source>&amp;New</source>
-        <translation>&amp;Nou</translation>
+        <translation>&amp;Novo</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="129"/>
         <source>&amp;Pause</source>
-        <translation>&amp;Pauză</translation>
+        <translation>&amp;Pausar</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="131"/>
         <source>&amp;Hint</source>
-        <translation>Indiciu</translation>
+        <translation>&amp;Dica</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="133"/>
         <source>High &amp;Scores</source>
-        <translation>Scoruri &amp;record</translation>
+        <translation>Maiores po&amp;ntuações</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="135"/>
         <source>&amp;Quit</source>
-        <translation>&amp;Ieşire</translation>
+        <translation>&amp;Sair</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="138"/>
         <source>Zoom &amp;In</source>
-        <translation>&amp;Mărire</translation>
+        <translation>&amp;Ampliar</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="140"/>
         <source>Zoom &amp;Out</source>
-        <translation>M&amp;icşorare</translation>
+        <translation>&amp;Reduzir</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="143"/>
         <source>&amp;Settings</source>
-        <translation>&amp;Setări</translation>
+        <translation>&amp;Configurações</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="144"/>
         <source>Application &amp;Language...</source>
-        <translation>&amp;Limbă aplicaţie...</translation>
+        <translation>&amp;Idioma do aplicativo...</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="145"/>
         <source>&amp;Preferences...</source>
-        <translation>&amp;Preferinţe...</translation>
+        <translation>&amp;Preferências...</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="147"/>
         <source>&amp;Help</source>
-        <translation>&amp;Ajutor</translation>
+        <translation>A&amp;juda</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="148"/>
         <source>&amp;About</source>
-        <translation>&amp;Despre</translation>
+        <translation>&amp;Sobre</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="173"/>
         <source>A top-down maze game</source>
-        <translation>Un joc labirint sus-jos</translation>
+        <translation>Um jogo de labirinto de visão superior</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="174"/>
         <source>Copyright &amp;copy; 2007-%1 Graeme Gott</source>
-        <translation>Toate drepturile rezervate &amp;copy; 2007-%1 Graeme Gott</translation>
+        <translation>Copyright &amp;copy; 2007-%1 Graeme Gott</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="175"/>
         <source>Released under the &lt;a href=%1&gt;GPL 3&lt;/a&gt; license</source>
-        <translation>Lansat sub licenţă &lt;a href=%1&gt;GPL 3&lt;/a&gt;</translation>
+        <translation>Lançado sob a licença &lt;a href=%1&gt;GPL 3&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="176"/>
         <source>Icons are from the &lt;a href=%1&gt;Oxygen&lt;/a&gt; theme</source>
-        <translation>Icon-urile sînt din tema &lt;a href=%1&gt;Oxygen&lt;/a&gt;</translation>
+        <translation>Os ícones são do tema &lt;a href=%1&gt;Oxygen&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="177"/>
         <source>Used under the &lt;a href=%1&gt;LGPL 3&lt;/a&gt; license</source>
-        <translation>Folosit sub licenţă &lt;a href=%1&gt;LGPL 3&lt;/a&gt;</translation>
+        <translation>Usado sob a licença &lt;a href=%1&gt;LGPL 3&lt;/a&gt;</translation>
     </message>
 </context>
 </TS>
