@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007, 2008, 2009, 2012 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007, 2008, 2009, 2012, 2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -60,6 +60,7 @@ Board::Board(QMainWindow* parent)
 	m_hint_angle(0)
 {
 	setMinimumSize(448, 448);
+	setFocusPolicy(Qt::StrongFocus);
 
 	m_move_animation = new QTimeLine(100, this);
 	m_move_animation->setFrameRange(0, 3);
