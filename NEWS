@@ -1,0 +1,47 @@
+1.1.0
+=====
+- Added hint support.
+- Added zooming.
+- Improved background rendering.
+- Rewrote code for placing targets.
+- Bug fixes.
+
+1.0.2
+=====
+- Ported by Alessandro Briosi to Qtopia4.
+- Improved statusbar message layout.
+- Bug fixes.
+
+1.0.1
+=====
+- Relicensed to GPLv3.
+
+1.0.0
+=====
+- Added Mac support.
+- Minor bug fixes.
+
+0.9.4
+=====
+- Add and remove themes in game.
+
+0.9.3
+=====
+- Added Windows support.
+
+0.9.2
+=====
+- Faster maze rendering.
+- Faster maze creation.
+
+0.9.1
+=====
+- Fixed bugs with large numbers of targets.
+
+0.9
+===
+- Added option to show number of steps taken.
+- Added option to show time elapsed.
+- Added high score board.
+- Added algorithm previews.
+- Added smooth player movement.
