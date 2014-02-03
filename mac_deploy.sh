@@ -2,7 +2,7 @@
 
 APP='CuteMaze'
 BUNDLE="$APP.app"
-VERSION=$(git rev-parse --short HEAD)
+VERSION='1.1.1'
 
 # Remove any previous disk folder or DMG
 echo -n 'Preparing... '

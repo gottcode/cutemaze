@@ -1,3 +1,11 @@
+1.1.1
+=====
+- Added dialog to switch translation.
+- Added support for Qt 5.
+- Removed Qtopia support.
+- Translation updates: French, German, Hebrew, Polish, Portugese (Brazil),
+  Romanian, Russian, Spanish, Turkish.
+
 1.1.0
 =====
 - Added hint support.

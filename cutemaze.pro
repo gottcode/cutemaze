@@ -1,5 +1,5 @@
-lessThan(QT_VERSION, 4.4) {
-	error("FocusWriter requires Qt 4.4 or greater")
+lessThan(QT_VERSION, 4.6) {
+	error("FocusWriter requires Qt 4.6 or greater")
 }
 
 TEMPLATE = app
@@ -9,11 +9,8 @@ greaterThan(QT_MAJOR_VERSION, 4) {
 QT += svg
 CONFIG += warn_on
 
-VERSION = $$system(git rev-parse --short HEAD)
-isEmpty(VERSION) {
-	VERSION = 0
-}
-DEFINES += VERSIONSTR=\\\"git.$${VERSION}\\\"
+VERSION = 1.1.1
+DEFINES += VERSIONSTR=\\\"$${VERSION}\\\"
 
 unix: !macx {
 	TARGET = cutemaze
