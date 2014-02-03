@@ -1,16 +1,13 @@
+lessThan(QT_VERSION, 4.4) {
+	error("FocusWriter requires Qt 4.4 or greater")
+}
+
 TEMPLATE = app
 greaterThan(QT_MAJOR_VERSION, 4) {
 	QT += widgets
 }
 QT += svg
 CONFIG += warn_on
-macx {
-	CONFIG += x86_64
-}
-
-MOC_DIR = build
-OBJECTS_DIR = build
-RCC_DIR = build
 
 VERSION = $$system(git rev-parse --short HEAD)
 isEmpty(VERSION) {
