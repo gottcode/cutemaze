@@ -125,14 +125,15 @@ void Window::initActions()
 #endif
 
 	QMenu* game_menu = menuBar()->addMenu(tr("&Game"));
-	QAction* new_action = game_menu->addAction(fetchIcon("document-new"), tr("&New"), this, SLOT(newGame()), tr("Ctrl+N"));
+	QAction* new_action = game_menu->addAction(fetchIcon("document-new"), tr("&New"), this, SLOT(newGame()), QKeySequence::New);
 	m_pause_action = game_menu->addAction(fetchIcon("media-playback-pause"), tr("&Pause"));
 	m_pause_action->setShortcut(tr("P"));
 	m_hint_action = game_menu->addAction(fetchIcon("games-hint"), tr("&Hint"), m_board, SLOT(hint()), tr("H"));
 	game_menu->addSeparator();
 	game_menu->addAction(fetchIcon("games-highscores"), tr("High &Scores"), m_scores, SLOT(exec()));
 	game_menu->addSeparator();
-	game_menu->addAction(fetchIcon("application-exit"), tr("&Quit"), this, SLOT(close()), tr("Ctrl+Q"));
+	QAction* quit_action = game_menu->addAction(fetchIcon("application-exit"), tr("&Quit"), this, SLOT(close()), QKeySequence::Quit);
+	quit_action->setMenuRole(QAction::QuitRole);
 
 	QMenu* view_menu = menuBar()->addMenu(tr("View"));
 	QAction* zoom_in_action = view_menu->addAction(fetchIcon("zoom-in"), tr("Zoom &In"), m_board, SLOT(zoomIn()), tr("Ctrl++"));
@@ -145,8 +146,10 @@ void Window::initActions()
 	settings_menu->addAction(fetchIcon("games-config-options"), tr("&Preferences..."), this, SLOT(showSettings()));
 
 	QMenu* help_menu = menuBar()->addMenu(tr("&Help"));
-	help_menu->addAction(fetchIcon("help-about"), tr("&About"), this, SLOT(about()));
-	help_menu->addAction(QIcon(":/trolltech/qmessagebox/images/qtlogo-64.png"), tr("About &Qt"), qApp, SLOT(aboutQt()));
+	QAction* about_action = help_menu->addAction(fetchIcon("help-about"), tr("&About"), this, SLOT(about()));
+	about_action->setMenuRole(QAction::AboutRole);
+	about_action = help_menu->addAction(QIcon(":/trolltech/qmessagebox/images/qtlogo-64.png"), tr("About &Qt"), qApp, SLOT(aboutQt()));
+	about_action->setMenuRole(QAction::AboutQtRole);
 
 	// Create toolbar
 	QToolBar* toolbar = new QToolBar(this);

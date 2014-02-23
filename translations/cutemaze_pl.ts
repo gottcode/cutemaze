@@ -4,37 +4,37 @@
 <context>
     <name>Board</name>
     <message>
-        <location filename="../src/board.cpp" line="170"/>
+        <location filename="../src/board.cpp" line="171"/>
         <source>Sorry</source>
         <translation>Przepraszam</translation>
     </message>
     <message>
-        <location filename="../src/board.cpp" line="170"/>
+        <location filename="../src/board.cpp" line="171"/>
         <source>Unable to load previous game. A new game will be started.</source>
         <translation>Nie można załadować poprzedniej gry. Rozpoczęcie nowej gry.</translation>
     </message>
     <message>
-        <location filename="../src/board.cpp" line="445"/>
+        <location filename="../src/board.cpp" line="446"/>
         <source>%1 elapsed</source>
         <translation>%1 upłynęło</translation>
     </message>
     <message>
-        <location filename="../src/board.cpp" line="446"/>
+        <location filename="../src/board.cpp" line="447"/>
         <source>%1 steps taken</source>
         <translation>%1 podjętych kroków</translation>
     </message>
     <message>
-        <location filename="../src/board.cpp" line="447"/>
+        <location filename="../src/board.cpp" line="448"/>
         <source>%1 of %2 targets remain</source>
         <translation>%1 z %2 pozostałych celów</translation>
     </message>
     <message>
-        <location filename="../src/board.cpp" line="778"/>
+        <location filename="../src/board.cpp" line="779"/>
         <source>Success</source>
         <translation>Sukces</translation>
     </message>
     <message>
-        <location filename="../src/board.cpp" line="795"/>
+        <location filename="../src/board.cpp" line="796"/>
         <source>Paused</source>
         <translation>Wstrzymane</translation>
     </message>
@@ -395,14 +395,9 @@ Podaj swoje imię:</translation>
     <name>Window</name>
     <message>
         <location filename="../src/window.cpp" line="78"/>
-        <location filename="../src/window.cpp" line="172"/>
+        <location filename="../src/window.cpp" line="175"/>
         <source>CuteMaze</source>
         <translation>CuteMaze</translation>
-    </message>
-    <message>
-        <location filename="../src/window.cpp" line="128"/>
-        <source>Ctrl+N</source>
-        <translation>Ctrl+N</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="130"/>
@@ -415,32 +410,27 @@ Podaj swoje imię:</translation>
         <translation>H</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="135"/>
-        <source>Ctrl+Q</source>
-        <translation>Ctrl+Q</translation>
-    </message>
-    <message>
-        <location filename="../src/window.cpp" line="137"/>
+        <location filename="../src/window.cpp" line="138"/>
         <source>View</source>
         <translation>Widok</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="138"/>
+        <location filename="../src/window.cpp" line="139"/>
         <source>Ctrl++</source>
         <translation>Ctrl++</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="140"/>
+        <location filename="../src/window.cpp" line="141"/>
         <source>Ctrl+-</source>
         <translation>Ctrl+-</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="171"/>
+        <location filename="../src/window.cpp" line="174"/>
         <source>About</source>
         <translation>O</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="149"/>
+        <location filename="../src/window.cpp" line="151"/>
         <source>About &amp;Qt</source>
         <translation>O &amp;Qt</translation>
     </message>
@@ -475,62 +465,62 @@ Podaj swoje imię:</translation>
         <translation>&amp;Zakończ</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="138"/>
+        <location filename="../src/window.cpp" line="139"/>
         <source>Zoom &amp;In</source>
         <translation>Po&amp;większ</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="140"/>
+        <location filename="../src/window.cpp" line="141"/>
         <source>Zoom &amp;Out</source>
         <translation>Po&amp;mniejsz</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="143"/>
+        <location filename="../src/window.cpp" line="144"/>
         <source>&amp;Settings</source>
         <translation>&amp;Ustawienia</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="144"/>
+        <location filename="../src/window.cpp" line="145"/>
         <source>Application &amp;Language...</source>
         <translation>&amp;Język aplikacji...</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="145"/>
+        <location filename="../src/window.cpp" line="146"/>
         <source>&amp;Preferences...</source>
         <translation>&amp;Preferencje...</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="147"/>
+        <location filename="../src/window.cpp" line="148"/>
         <source>&amp;Help</source>
         <translation>&amp;Pomoc</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="148"/>
+        <location filename="../src/window.cpp" line="149"/>
         <source>&amp;About</source>
         <translation>&amp;O</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="173"/>
+        <location filename="../src/window.cpp" line="176"/>
         <source>A top-down maze game</source>
         <translation>Gra labiryntu z góry na dół</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="174"/>
+        <location filename="../src/window.cpp" line="177"/>
         <source>Copyright &amp;copy; 2007-%1 Graeme Gott</source>
         <translation>Prawo autorskie &amp;copy; 2007-%1 Graeme Gott</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="175"/>
+        <location filename="../src/window.cpp" line="178"/>
         <source>Released under the &lt;a href=%1&gt;GPL 3&lt;/a&gt; license</source>
         <translation>Wydano na licencji &lt;a href=%1&gt;GPL 3&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="176"/>
+        <location filename="../src/window.cpp" line="179"/>
         <source>Icons are from the &lt;a href=%1&gt;Oxygen&lt;/a&gt; theme</source>
         <translation>Ikony pochodzą z motywu &lt;a href=%1&gt;Oxygen&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="177"/>
+        <location filename="../src/window.cpp" line="180"/>
         <source>Used under the &lt;a href=%1&gt;LGPL 3&lt;/a&gt; license</source>
         <translation>Używany zgodnie z licencją &lt;a href=%1&gt;LGPL 3&lt;/a&gt;</translation>
     </message>

@@ -4,37 +4,37 @@
 <context>
     <name>Board</name>
     <message>
-        <location filename="../src/board.cpp" line="170"/>
+        <location filename="../src/board.cpp" line="171"/>
         <source>Sorry</source>
         <translation>צר לי</translation>
     </message>
     <message>
-        <location filename="../src/board.cpp" line="170"/>
+        <location filename="../src/board.cpp" line="171"/>
         <source>Unable to load previous game. A new game will be started.</source>
         <translation>לא ניתן להטעין משחק קודם. משחק חדש יוחל כעת.</translation>
     </message>
     <message>
-        <location filename="../src/board.cpp" line="445"/>
+        <location filename="../src/board.cpp" line="446"/>
         <source>%1 elapsed</source>
         <translation>%1 חלפו</translation>
     </message>
     <message>
-        <location filename="../src/board.cpp" line="446"/>
+        <location filename="../src/board.cpp" line="447"/>
         <source>%1 steps taken</source>
         <translation>נלקחו %1 צעדים</translation>
     </message>
     <message>
-        <location filename="../src/board.cpp" line="447"/>
+        <location filename="../src/board.cpp" line="448"/>
         <source>%1 of %2 targets remain</source>
         <translation>נותרו %1 מתוך %2 מטרות</translation>
     </message>
     <message>
-        <location filename="../src/board.cpp" line="778"/>
+        <location filename="../src/board.cpp" line="779"/>
         <source>Success</source>
         <translation>הצלחה</translation>
     </message>
     <message>
-        <location filename="../src/board.cpp" line="795"/>
+        <location filename="../src/board.cpp" line="796"/>
         <source>Paused</source>
         <translation>מושהה</translation>
     </message>
@@ -395,13 +395,8 @@ Please enter your name:</source>
     <name>Window</name>
     <message>
         <location filename="../src/window.cpp" line="78"/>
-        <location filename="../src/window.cpp" line="172"/>
+        <location filename="../src/window.cpp" line="175"/>
         <source>CuteMaze</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/window.cpp" line="128"/>
-        <source>Ctrl+N</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -415,32 +410,27 @@ Please enter your name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="135"/>
-        <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/window.cpp" line="137"/>
+        <location filename="../src/window.cpp" line="138"/>
         <source>View</source>
         <translation>תצוגה</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="138"/>
+        <location filename="../src/window.cpp" line="139"/>
         <source>Ctrl++</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="140"/>
+        <location filename="../src/window.cpp" line="141"/>
         <source>Ctrl+-</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="171"/>
+        <location filename="../src/window.cpp" line="174"/>
         <source>About</source>
         <translation>אודות</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="149"/>
+        <location filename="../src/window.cpp" line="151"/>
         <source>About &amp;Qt</source>
         <translation>אודות &amp;Qt</translation>
     </message>
@@ -475,62 +465,62 @@ Please enter your name:</source>
         <translation>י&amp;ציאה</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="138"/>
+        <location filename="../src/window.cpp" line="139"/>
         <source>Zoom &amp;In</source>
         <translation>זום &amp;פנימה</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="140"/>
+        <location filename="../src/window.cpp" line="141"/>
         <source>Zoom &amp;Out</source>
         <translation>זום ה&amp;חוצה</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="143"/>
+        <location filename="../src/window.cpp" line="144"/>
         <source>&amp;Settings</source>
         <translation>ה&amp;גדרות</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="144"/>
+        <location filename="../src/window.cpp" line="145"/>
         <source>Application &amp;Language...</source>
         <translation>&amp;שפת יישום...</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="145"/>
+        <location filename="../src/window.cpp" line="146"/>
         <source>&amp;Preferences...</source>
         <translation>ה&amp;עדפות...</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="147"/>
+        <location filename="../src/window.cpp" line="148"/>
         <source>&amp;Help</source>
         <translation>&amp;עזרה</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="148"/>
+        <location filename="../src/window.cpp" line="149"/>
         <source>&amp;About</source>
         <translation>&amp;אודות</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="173"/>
+        <location filename="../src/window.cpp" line="176"/>
         <source>A top-down maze game</source>
         <translation>משחק מבוך מעלה-מטה</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="174"/>
+        <location filename="../src/window.cpp" line="177"/>
         <source>Copyright &amp;copy; 2007-%1 Graeme Gott</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="175"/>
+        <location filename="../src/window.cpp" line="178"/>
         <source>Released under the &lt;a href=%1&gt;GPL 3&lt;/a&gt; license</source>
         <translation>משוחרר תחת הרשיון ‫&lt;a href=%1&gt;GPL 3&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="176"/>
+        <location filename="../src/window.cpp" line="179"/>
         <source>Icons are from the &lt;a href=%1&gt;Oxygen&lt;/a&gt; theme</source>
         <translation>הצלמיות נלקחו מן הפרויקט &lt;a href=%1&gt;Oxygen&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../src/window.cpp" line="177"/>
+        <location filename="../src/window.cpp" line="180"/>
         <source>Used under the &lt;a href=%1&gt;LGPL 3&lt;/a&gt; license</source>
         <translation>בשימוש תחת הרשיון &lt;a href=%1&gt;LGPL 3&lt;/a&gt;</translation>
     </message>
