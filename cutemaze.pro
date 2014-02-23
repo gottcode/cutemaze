@@ -48,12 +48,9 @@ TRANSLATIONS = $$files(translations/cutemaze_*.ts)
 RESOURCES = icons/icons.qrc themes/theme.qrc preview/preview.qrc
 macx {
 	ICON = icons/cutemaze.icns
-}
-win32 {
+} else:win32 {
 	RC_FILE = icons/icon.rc
-}
-
-unix: !macx {
+} else:unix {
 	isEmpty(PREFIX) {
 		PREFIX = /usr/local
 	}
@@ -72,5 +69,8 @@ unix: !macx {
 	qm.files = translations/*.qm
 	qm.path = $$PREFIX/share/cutemaze/translations
 
-	INSTALLS += target icon desktop qm
+	man.files = doc/cutemaze.6
+	man.path = $$PREFIX/share/man/man6
+
+	INSTALLS += target icon desktop qm man
 }
