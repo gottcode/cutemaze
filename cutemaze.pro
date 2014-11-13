@@ -1,5 +1,5 @@
 lessThan(QT_VERSION, 4.6) {
-	error("FocusWriter requires Qt 4.6 or greater")
+	error("CuteMaze requires Qt 4.6 or greater")
 }
 
 TEMPLATE = app
@@ -66,11 +66,14 @@ macx {
 	desktop.files = icons/cutemaze.desktop
 	desktop.path = $$PREFIX/share/applications/
 
+	appdata.files = resources/unix/focuswriter.appdata.xml
+	appdata.path = $$PREFIX/share/appdata/
+
 	qm.files = translations/*.qm
 	qm.path = $$PREFIX/share/cutemaze/translations
 
 	man.files = doc/cutemaze.6
 	man.path = $$PREFIX/share/man/man6
 
-	INSTALLS += target icon desktop qm man
+	INSTALLS += target icon desktop appdata qm man
 }
