@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="tr">
+<TS version="2.1" language="cs">
 <context>
     <name>Board</name>
     <message>
         <location filename="../src/board.cpp" line="171"/>
         <source>Sorry</source>
-        <translation>Üzgünüm</translation>
+        <translation>Promiňte</translation>
     </message>
     <message>
         <location filename="../src/board.cpp" line="171"/>
         <source>Unable to load previous game. A new game will be started.</source>
-        <translation>Önceki oyunu yüklemede hata. Yeni bir oyun başlatılacak.</translation>
+        <translation>Předchozí hru se nepodařilo nahrát. Bude spuštěna nová hra.</translation>
     </message>
     <message>
         <location filename="../src/board.cpp" line="446"/>
         <source>%1 elapsed</source>
-        <translation>Geçen süre: %1</translation>
+        <translation>%1 uplynulo</translation>
     </message>
     <message>
         <location filename="../src/board.cpp" line="447"/>
         <source>%1 steps taken</source>
-        <translation>%1 adım atıldı</translation>
+        <translation>%1 kroků učiněno</translation>
     </message>
     <message>
         <location filename="../src/board.cpp" line="448"/>
         <source>%1 of %2 targets remain</source>
-        <translation>%1/%2 hedef kaldı</translation>
+        <translation>%1 z %2 cílů zůstává</translation>
     </message>
     <message>
         <location filename="../src/board.cpp" line="779"/>
         <source>Success</source>
-        <translation>Başarılı</translation>
+        <translation>Úspěch</translation>
     </message>
     <message>
         <location filename="../src/board.cpp" line="796"/>
         <source>Paused</source>
-        <translation>Durdu</translation>
+        <translation>Pozastaveno</translation>
     </message>
 </context>
 <context>
@@ -64,27 +64,27 @@
     <message>
         <location filename="../src/settings.cpp" line="134"/>
         <source>Super</source>
-        <translation>Süper</translation>
+        <translation>Klávesa s oknem</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="136"/>
         <source>Windows</source>
-        <translation>Pencereler</translation>
+        <translation>Windows</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="141"/>
         <source>Command</source>
-        <translation>Komut</translation>
+        <translation>Příkaz</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="144"/>
         <source>Control</source>
-        <translation>Kontrol</translation>
+        <translation>Control</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="147"/>
         <source>Option</source>
-        <translation>Seçenek</translation>
+        <translation>Volba</translation>
     </message>
 </context>
 <context>
@@ -92,22 +92,22 @@
     <message>
         <location filename="../src/locale_dialog.cpp" line="50"/>
         <source>Select application language:</source>
-        <translation>Uygulama dilini seçin:</translation>
+        <translation>Vybrat jazyk programu:</translation>
     </message>
     <message>
         <location filename="../src/locale_dialog.cpp" line="53"/>
         <source>&lt;System Language&gt;</source>
-        <translation>&lt;Sistem Dili&gt;</translation>
+        <translation>&lt;Jazyk systému&gt;</translation>
     </message>
     <message>
         <location filename="../src/locale_dialog.cpp" line="183"/>
         <source>Note</source>
-        <translation>Önemli</translation>
+        <translation>Poznámka</translation>
     </message>
     <message>
         <location filename="../src/locale_dialog.cpp" line="183"/>
         <source>Please restart this application for the change in language to take effect.</source>
-        <translation>Değişikliklerin geçerli olabilmesi için bu uygulamayı tekrar başlatınız.</translation>
+        <translation>Spusťte tento program, prosím, znovu, aby se změna jazyka projevila..</translation>
     </message>
 </context>
 <context>
@@ -115,12 +115,12 @@
     <message>
         <location filename="../src/new_game_dialog.cpp" line="35"/>
         <source>New Game</source>
-        <translation>Yeni Oyun</translation>
+        <translation>Nová hra</translation>
     </message>
     <message>
         <location filename="../src/new_game_dialog.cpp" line="43"/>
         <source>Hunt and Kill</source>
-        <translation>Avla ve Öldür</translation>
+        <translation>Lovit a zabít</translation>
     </message>
     <message>
         <location filename="../src/new_game_dialog.cpp" line="44"/>
@@ -135,47 +135,47 @@
     <message>
         <location filename="../src/new_game_dialog.cpp" line="46"/>
         <source>Recursive Backtracker</source>
-        <translation>Recursive Backtracker</translation>
+        <translation>Recurzivní zpětné vyhledávání</translation>
     </message>
     <message>
         <location filename="../src/new_game_dialog.cpp" line="47"/>
         <source>Stack</source>
-        <translation>Yığın</translation>
+        <translation>Zásobník</translation>
     </message>
     <message>
         <location filename="../src/new_game_dialog.cpp" line="48"/>
         <source>Stack 2</source>
-        <translation>Yığın 2</translation>
+        <translation>Zásobník 2</translation>
     </message>
     <message>
         <location filename="../src/new_game_dialog.cpp" line="49"/>
         <source>Stack 3</source>
-        <translation>Yığın 3</translation>
+        <translation>Zásobník 3</translation>
     </message>
     <message>
         <location filename="../src/new_game_dialog.cpp" line="50"/>
         <source>Stack 4</source>
-        <translation>Yığın 4</translation>
+        <translation>Zásobník 4</translation>
     </message>
     <message>
         <location filename="../src/new_game_dialog.cpp" line="51"/>
         <source>Stack 5</source>
-        <translation>Yığın 5</translation>
+        <translation>Zásobník 5</translation>
     </message>
     <message>
         <location filename="../src/new_game_dialog.cpp" line="73"/>
         <source>Algorithm:</source>
-        <translation>Algoritma:</translation>
+        <translation>Algoritmus:</translation>
     </message>
     <message>
         <location filename="../src/new_game_dialog.cpp" line="74"/>
         <source>Targets:</source>
-        <translation>Hedefler:</translation>
+        <translation>Cíle:</translation>
     </message>
     <message>
         <location filename="../src/new_game_dialog.cpp" line="75"/>
         <source>Size:</source>
-        <translation>Boyut:</translation>
+        <translation>Velikost:</translation>
     </message>
 </context>
 <context>
@@ -183,7 +183,7 @@
     <message>
         <location filename="../src/scores.cpp" line="77"/>
         <source>Hunt and Kill</source>
-        <translation>Avla ve Öldür</translation>
+        <translation>Jage und Töte</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="78"/>
@@ -203,27 +203,27 @@
     <message>
         <location filename="../src/scores.cpp" line="81"/>
         <source>Stack</source>
-        <translation>Yığın</translation>
+        <translation>Zásobník</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="82"/>
         <source>Stack 2</source>
-        <translation>Yığın 2</translation>
+        <translation>Stapel 2</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="83"/>
         <source>Stack 3</source>
-        <translation>Yığın 3</translation>
+        <translation>Stapel 3</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="84"/>
         <source>Stack 4</source>
-        <translation>Yığın 4</translation>
+        <translation>Stapel 4</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="85"/>
         <source>Stack 5</source>
-        <translation>Yığın 5</translation>
+        <translation>Stapel 5</translation>
     </message>
 </context>
 <context>
@@ -231,49 +231,49 @@
     <message>
         <location filename="../src/scores.cpp" line="99"/>
         <source>CuteMaze Scores</source>
-        <translation>Skor Tablosu</translation>
+        <translation>Výsledky</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="108"/>
         <source>Name</source>
-        <translation>İsim</translation>
+        <translation>Název</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="108"/>
         <source>Score</source>
-        <translation>Skor</translation>
+        <translation>Výsledek</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="108"/>
         <source>Time</source>
-        <translation>Zaman</translation>
+        <translation>Čas</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="108"/>
         <source>Steps</source>
-        <translation>Adımlar</translation>
+        <translation>Kroky</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="108"/>
         <source>Algorithm</source>
-        <translation>Algoritma</translation>
+        <translation>Algoritmus</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="108"/>
         <source>Size</source>
-        <translation>Boyut</translation>
+        <translation>Velikost</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="160"/>
         <source>Congratulations!</source>
-        <translation>Tebrikler!</translation>
+        <translation>Blahopřání!</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="160"/>
         <source>Your score has made the top ten.
 Please enter your name:</source>
-        <translation>İlk 10&apos;a girdiniz.
-Lütfen adınızı girin:</translation>
+        <translation>Dostal jste se svým výsledkem mezi nejlepších deset.
+Zadejte, prosím, své jméno:</translation>
     </message>
 </context>
 <context>
@@ -281,114 +281,114 @@ Lütfen adınızı girin:</translation>
     <message>
         <location filename="../src/settings.cpp" line="192"/>
         <source>Settings</source>
-        <translation>Ayarlar</translation>
+        <translation>Nastavení</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="209"/>
         <source>Game</source>
-        <translation>Oyun</translation>
+        <translation>Hra</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="211"/>
         <source>Show where you&apos;ve been</source>
-        <translation>İzleri göster</translation>
+        <translation>Ukázat, kde jste byl</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="212"/>
         <source>Show number of steps taken</source>
-        <translation>Adım sayısını göster</translation>
+        <translation>Ukázat počet učiněných kroků</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="213"/>
         <source>Show elapsed time</source>
-        <translation>Geçen süreyi göster</translation>
+        <translation>Ukázat uplynulý čas</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="214"/>
         <source>Smooth movement</source>
-        <translation>Yumuşak ilerleme</translation>
+        <translation>Hladký pohyb</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="225"/>
         <source>Controls</source>
-        <translation>Kontroller</translation>
+        <translation>Ovládací prvky</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="234"/>
         <source>Move Up:</source>
-        <translation>Yukarı:</translation>
+        <translation>Posunout nahoru:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="235"/>
         <source>Move Down:</source>
-        <translation>Aşağı:</translation>
+        <translation>Posunout dolů:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="236"/>
         <source>Move Left:</source>
-        <translation>Sola:</translation>
+        <translation>Posunout vlevo:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="237"/>
         <source>Move Right:</source>
-        <translation>Sağa:</translation>
+        <translation>Posunout vpravo:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="238"/>
         <source>Toggle Flag:</source>
-        <translation>İz bayrağı:</translation>
+        <translation>Přepnout značení:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="243"/>
         <source>Themes</source>
-        <translation>Temalar</translation>
+        <translation>Témata vzhledu</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="254"/>
         <source>Add</source>
-        <translation>Ekle</translation>
+        <translation>Přidat</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="256"/>
         <source>Remove</source>
-        <translation>Çıkar</translation>
+        <translation>Odstranit</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="320"/>
         <source>Select Theme File</source>
-        <translation>Tema Dosyasını Seçin</translation>
+        <translation>Vybrat soubor s tématem vzhledu</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="330"/>
         <location filename="../src/settings.cpp" line="338"/>
         <location filename="../src/settings.cpp" line="371"/>
         <source>Sorry</source>
-        <translation>Üzgünüm</translation>
+        <translation>Promiňte</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="330"/>
         <source>Unable to create data folder.</source>
-        <translation>Veri klasörü oluşturulamıyor.</translation>
+        <translation>Nepodařilo se vytvořit složku s daty.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="338"/>
         <source>Unable to copy theme file.</source>
-        <translation>Tema dosyası kopyalanamıyor.</translation>
+        <translation>Nepodařilo se zkopírovat soubor s tématem vzhledu.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="367"/>
         <source>Question</source>
-        <translation>Soru</translation>
+        <translation>Otázka</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="367"/>
         <source>Remove the selected theme?</source>
-        <translation>Seçilen tema silinsin mi?</translation>
+        <translation>Odstranit vybrané téma vzhledu?</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="371"/>
         <source>Unable to remove the selected theme.</source>
-        <translation>Seçilen tema kaldırılamadı.</translation>
+        <translation>Vybrané téma vzhledu nelze odstranit.</translation>
     </message>
 </context>
 <context>
@@ -412,7 +412,7 @@ Lütfen adınızı girin:</translation>
     <message>
         <location filename="../src/window.cpp" line="138"/>
         <source>View</source>
-        <translation>Görünüm</translation>
+        <translation>Pohled</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="139"/>
@@ -427,102 +427,102 @@ Lütfen adınızı girin:</translation>
     <message>
         <location filename="../src/window.cpp" line="174"/>
         <source>About</source>
-        <translation>Hakkında</translation>
+        <translation>O programu</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="151"/>
         <source>About &amp;Qt</source>
-        <translation>&amp;Qt Hakkında</translation>
+        <translation>O &amp;Qt</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="127"/>
         <source>&amp;Game</source>
-        <translation>&amp;Oyun</translation>
+        <translation>&amp;Hra</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="128"/>
         <source>&amp;New</source>
-        <translation>&amp;Yeni</translation>
+        <translation>&amp;Nová</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="129"/>
         <source>&amp;Pause</source>
-        <translation>&amp;Durdur</translation>
+        <translation>&amp;Pozastavit</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="131"/>
         <source>&amp;Hint</source>
-        <translation>&amp;İpucu</translation>
+        <translation>&amp;Rada</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="133"/>
         <source>High &amp;Scores</source>
-        <translation>&amp;Yüksek Skorlar</translation>
+        <translation>Nejlepší &amp;výsledky</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="135"/>
         <source>&amp;Quit</source>
-        <translation>&amp;Çıkış</translation>
+        <translation>U&amp;končit</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="139"/>
         <source>Zoom &amp;In</source>
-        <translation>&amp;Yakınlaştır</translation>
+        <translation>&amp;Přiblížit</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="141"/>
         <source>Zoom &amp;Out</source>
-        <translation>&amp;Uzaklaştır</translation>
+        <translation>&amp;Oddálit</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="144"/>
         <source>&amp;Settings</source>
-        <translation>&amp;Ayarlar</translation>
+        <translation>&amp;Nastavení</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="145"/>
         <source>Application &amp;Language...</source>
-        <translation>&amp;Uygulama Dili...</translation>
+        <translation>J&amp;azyk programu...</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="146"/>
         <source>&amp;Preferences...</source>
-        <translation>&amp;Tercihler</translation>
+        <translation>Na&amp;stavení...</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="148"/>
         <source>&amp;Help</source>
-        <translation>&amp;Yardım</translation>
+        <translation>Nápo&amp;věda</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="149"/>
         <source>&amp;About</source>
-        <translation>&amp;Hakkında</translation>
+        <translation>&amp;O programu</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="176"/>
         <source>A top-down maze game</source>
-        <translation>Bir Labirent Oyunudur</translation>
+        <translation>Hra odehrávající se v bludišti, při které se pohybujete nahoru, dolů a do stran</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="177"/>
         <source>Copyright &amp;copy; 2007-%1 Graeme Gott</source>
-        <translation>Copyright &amp;copy; 2007-%1 Graeme Gott</translation>
+        <translation>Autorské právo 2007-%1 Graeme Gott</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="178"/>
         <source>Released under the &lt;a href=%1&gt;GPL 3&lt;/a&gt; license</source>
-        <translation>Sürüm &lt;a href=%1&gt;GPL 3&lt;/a&gt; lisansı altındadır.</translation>
+        <translation>Vydáno pod licencí &lt;a href=%1&gt;GPL 3&lt;/a&gt;</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="179"/>
         <source>Icons are from the &lt;a href=%1&gt;Oxygen&lt;/a&gt; theme</source>
-        <translation>İkonlar &lt;a href=%1&gt;Oxygen&lt;/a&gt; temasındandır</translation>
+        <translation>Ikony pocházejí z tématu &lt;a href=%1&gt;Oxygen&lt;/a&gt; </translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="180"/>
         <source>Used under the &lt;a href=%1&gt;LGPL 3&lt;/a&gt; license</source>
-        <translation>&lt;a href=%1&gt;LGPL 3&lt;/a&gt; lisansı altındadır</translation>
+        <translation>Použito pod licencí &lt;a href=%1&gt;GPL 3&lt;/a&gt;</translation>
     </message>
 </context>
 </TS>
