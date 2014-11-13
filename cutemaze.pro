@@ -66,7 +66,7 @@ macx {
 	desktop.files = icons/cutemaze.desktop
 	desktop.path = $$PREFIX/share/applications/
 
-	appdata.files = resources/unix/focuswriter.appdata.xml
+	appdata.files = icons/cutemaze.appdata.xml
 	appdata.path = $$PREFIX/share/appdata/
 
 	qm.files = translations/*.qm

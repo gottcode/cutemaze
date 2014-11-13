@@ -7,7 +7,7 @@
     <p>CuteMaze is a simple, top-down game in which mazes are randomly generated using one of a choice of several different algorithms. You move the character through the maze while hunting for targets (cheese, by default)—the game is won once all of these targets have been picked up.</p>
   </description>
   <screenshots>
-    <screenshot width="1280" type="default" height="720">http://gottcode.org/cutemaze/screenshots/appdata.png</screenshot>
+    <screenshot width="752" type="default" height="453">http://gottcode.org/cutemaze/screenshots/appdata.png</screenshot>
   </screenshots>
   <url type="homepage">http://gottcode.org/cutemaze/</url>
 </application>
