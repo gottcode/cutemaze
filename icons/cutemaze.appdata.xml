@@ -4,12 +4,22 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <name>CuteMaze</name>
+  <name xml:lang="cs">CuteMaze</name>
+  <name xml:lang="de">CuteMaze</name>
+  <name xml:lang="es">CuteMaze</name>
+  <name xml:lang="lt">CuteMaze</name>
+  <name xml:lang="nl">CuteMaze</name>
+  <name xml:lang="pl">CuteMaze</name>
+  <name xml:lang="pt_BR">CuteMaze</name>
+  <name xml:lang="ro">CuteMaze</name>
+  <name xml:lang="ru">CuteMaze</name>
+  <name xml:lang="tr">CuteMaze</name>
   <summary>Find targets in a maze</summary>
   <description>
     <p>CuteMaze is a simple, top-down game in which mazes are randomly generated using one of a choice of several different algorithms. You move the character through the maze while hunting for targets (cheese, by default)—the game is won once all of these targets have been picked up.</p>
   </description>
   <screenshots>
-    <screenshot width="752" type="default" height="453">
+    <screenshot type="default">
       <image>http://gottcode.org/cutemaze/screenshots/appdata.png</image>
     </screenshot>
   </screenshots>
