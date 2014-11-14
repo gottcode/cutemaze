@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<application>
-  <id type="desktop">cutemaze.desktop</id>
-  <licence>CC0</licence>
+<component type="desktop">
+  <id>cutemaze.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+  <name>CuteMaze</name>
   <summary>Find targets in a maze</summary>
   <description>
     <p>CuteMaze is a simple, top-down game in which mazes are randomly generated using one of a choice of several different algorithms. You move the character through the maze while hunting for targets (cheese, by default)—the game is won once all of these targets have been picked up.</p>
   </description>
   <screenshots>
-    <screenshot width="752" type="default" height="453">http://gottcode.org/cutemaze/screenshots/appdata.png</screenshot>
+    <screenshot width="752" type="default" height="453">
+      <image>http://gottcode.org/cutemaze/screenshots/appdata.png</image>
+    </screenshot>
   </screenshots>
   <url type="homepage">http://gottcode.org/cutemaze/</url>
-</application>
+  <url type="bugtracker">http://gottcode.org/cutemaze/bugs/</url>
+  <url type="donation">http://gottcode.org/tip/</url>
+  <developer_name>Graeme Gott</developer_name>
+  <updatecontact>graeme@gottcode.org</updatecontact>
+  <provides>
+    <binary>cutemaze</binary>
+  </provides>
+</component>
