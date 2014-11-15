@@ -154,7 +154,7 @@ void Window::initActions()
 	toolbar->setIconSize(QSize(22, 22));
 	toolbar->setFloatable(false);
 	toolbar->setMovable(false);
-	toolbar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+	toolbar->setToolButtonStyle(Qt::ToolButtonFollowStyle);
 	toolbar->addAction(new_action);
 	toolbar->addAction(m_pause_action);
 	toolbar->addAction(m_hint_action);
