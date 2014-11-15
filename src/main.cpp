@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007, 2008, 2012 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007, 2008, 2012, 2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,6 +29,9 @@ int main(int argc, char** argv)
 	app.setApplicationVersion(VERSIONSTR);
 	app.setOrganizationDomain("gottcode.org");
 	app.setOrganizationName("GottCode");
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
+	app.setWindowIcon(QIcon::fromTheme("cutemaze", QIcon(":/cutemaze.png")));
+#endif
 
 	LocaleDialog::loadTranslator("cutemaze_");
 

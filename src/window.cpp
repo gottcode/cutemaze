@@ -55,8 +55,6 @@ static QIcon fetchIcon(const QString& name)
 Window::Window()
 :	m_pause_action(0)
 {
-	setWindowIcon(QIcon(":/cutemaze.png"));
-
 	// Create game object
 	m_board = new Board(this);
 	setCentralWidget(m_board);
