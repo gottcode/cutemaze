@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2009 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2009, 2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -39,7 +39,7 @@ namespace
 Solver::Solver(Maze* maze, const QPoint& start, const QList<QPoint>& targets)
 :	m_maze(maze)
 {
-	foreach (const QPoint& target, targets) {
+	for (const QPoint& target : targets) {
 		m_paths.append(new Path(m_maze, start, target));
 	}
 	compare_start = start;

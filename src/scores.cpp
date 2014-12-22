@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2008, 2009, 2012 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2008, 2009, 2012, 2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -188,7 +188,7 @@ void Scores::addScore(int steps, int seconds, int algorithm, int size)
 void Scores::read()
 {
 	QStringList data = QSettings().value("Scores").toStringList();
-	foreach (const QString& s, data) {
+	for (const QString& s : data) {
 		QStringList values = s.split(':');
 		if (values.size() != 5) {
 			continue;

@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007, 2008, 2009, 2012 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007, 2008, 2009, 2012, 2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -151,7 +151,7 @@ void ControlButton::keyPressEvent(QKeyEvent* event)
 			control = QKeySequence(key).toString(QKeySequence::NativeText);
 			break;
 		};
-		foreach (ControlButton* button, controls) {
+		for (ControlButton* button : controls) {
 			if (button->text() == control) {
 				button->setText("");
 				button->key = 0;
@@ -289,7 +289,7 @@ void Settings::accept()
 	settings.setValue("Smooth Movement", m_gameplay_smooth->isChecked());
 
 	// Write control button settings to disk
-	foreach (ControlButton* button, controls) {
+	for (ControlButton* button : controls) {
 		settings.setValue("Controls/" + button->objectName().mid(8), button->key);
 	}
 
@@ -397,7 +397,7 @@ void Settings::loadSettings()
 	m_gameplay_smooth->setChecked(settings.value("Smooth Movement", true).toBool());
 
 	// Read control button settings from disk
-	foreach (ControlButton* button, controls) {
+	for (ControlButton* button : controls) {
 		button->key = settings.value("Controls/" + button->objectName().mid(8), button->default_key).toUInt();
 		button->setText(QKeySequence(button->key).toString());
 	}

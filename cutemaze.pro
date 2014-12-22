@@ -8,6 +8,7 @@ greaterThan(QT_MAJOR_VERSION, 4) {
 }
 QT += svg
 CONFIG += warn_on
+QMAKE_CXXFLAGS += -std=c++11
 
 VERSION = 1.1.1
 DEFINES += VERSIONSTR=\\\"$${VERSION}\\\"

@@ -297,7 +297,7 @@ void Board::loadSettings()
 	if ((m_zoom % 2) == 0) {
 		m_zoom--;
 	}
-	m_zoom = qMax(m_zoom, 5);
+	m_zoom = std::max(m_zoom, 5);
 
 	// Load gameplay settings
 	m_status_steps_message->setVisible(settings.value("Show Steps", true).toBool());
@@ -453,7 +453,7 @@ void Board::updateStatusMessage()
 void Board::scale()
 {
 	m_zoom_size = (m_zoom * 3) - 1;
-	m_unit = qMin(width(), height()) / m_zoom_size;
+	m_unit = std::min(width(), height()) / m_zoom_size;
 	m_theme->scale(m_unit);
 	renderBackground();
 	emit zoomOutAvailable(m_zoom < m_max_zoom);
@@ -472,7 +472,7 @@ void Board::generate(unsigned int seed)
 	if ((m_max_zoom % 2) == 0) {
 		m_max_zoom--;
 	}
-	m_zoom = qMin(m_zoom, m_max_zoom);
+	m_zoom = std::min(m_zoom, m_max_zoom);
 	scale();
 
 	// Create new maze
@@ -694,7 +694,7 @@ void Board::renderMaze()
 	}
 
 	// Draw targets
-	foreach (const QPoint& target, m_targets) {
+	for (const QPoint& target : m_targets) {
 		if (view.contains(target)) {
 			m_theme->draw(painter, target.x() - column, target.y() - row, Theme::Target);
 		}
@@ -737,8 +737,8 @@ void Board::renderDone()
 	int rows = m_maze->rows();
 
 	// Determine sizes
-	int mcr = qMin(columns, rows);
-	int cell_width = qMin(width(), height());
+	int mcr = std::min(columns, rows);
+	int cell_width = std::min(width(), height());
 	cell_width -= (mcr + 1);
 	cell_width /= mcr;
 	cell_width += 1;

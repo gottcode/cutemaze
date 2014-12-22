@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007, 2008, 2009, 2012 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007, 2008, 2009, 2012, 2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -107,7 +107,7 @@ QStringList Theme::available() const
 {
 	QSet<QString> files;
 	QDir dir("", "*.svg");
-	foreach (const QString& path, m_locations) {
+	for (const QString& path : m_locations) {
 		if (dir.cd(path)) {
 			files += dir.entryList(QDir::Files).toSet();
 		}
@@ -131,7 +131,7 @@ void Theme::load(const QString& name)
 	QString theme = name;
 
 	QFileInfo info;
-	foreach (const QString& location, m_locations) {
+	for (const QString& location : m_locations) {
 		info.setFile(location + '/' + name + ".svg");
 		if (info.exists()) {
 			theme = info.canonicalFilePath();
