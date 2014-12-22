@@ -117,9 +117,7 @@ void Board::newGame()
 
 	// Fetch new seed
 	std::random_device rd;
-	std::mt19937 gen(rd());
-	std::uniform_int_distribution<unsigned int> dis(0, UINT_MAX);
-	unsigned int seed = dis(gen);
+	unsigned int seed = rd();
 
 	// Set values for new game
 	QSettings settings;
