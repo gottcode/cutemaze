@@ -34,7 +34,7 @@
 #include <QTimer>
 
 #include <algorithm>
-#include <ctime>
+#include <random>
 
 // ============================================================================
 
@@ -116,8 +116,10 @@ void Board::newGame()
 	m_status_timer->stop();
 
 	// Fetch new seed
-	srand(time(0));
-	unsigned int seed = rand();
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<unsigned int> dis(0, UINT_MAX);
+	unsigned int seed = dis(gen);
 
 	// Set values for new game
 	QSettings settings;
@@ -477,7 +479,6 @@ void Board::generate(unsigned int seed)
 
 	// Create new maze
 	m_targets.clear();
-	srand(seed);
 	delete m_maze;
 	switch (QSettings().value("Current/Algorithm").toInt()) {
 	case 0:
@@ -509,7 +510,8 @@ void Board::generate(unsigned int seed)
 		m_maze = new StackMaze;
 		break;
 	}
-	m_maze->generate(size, size);
+	std::mt19937 gen(seed);
+	m_maze->generate(size, size, gen);
 
 	// Add player and targets
 	QList<QPoint> locations;
@@ -518,7 +520,7 @@ void Board::generate(unsigned int seed)
 			locations.append(QPoint(x,y));
 		}
 	}
-	std::random_shuffle(locations.begin(), locations.end());
+	std::shuffle(locations.begin(), locations.end(), gen);
 	m_player = m_start = locations.first();
 	m_targets = locations.mid(1, m_total_targets);
 

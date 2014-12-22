@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007, 2008, 2012 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007, 2008, 2012, 2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,6 +27,8 @@
 #include <QPoint>
 #include <QVector>
 
+#include <random>
+
 class Maze
 {
 public:
@@ -42,16 +44,25 @@ public:
 	Cell& cellMutable(int column, int row)
 		{ return m_cells[column][row]; }
 
-	void generate(int columns, int rows);
+	void generate(int columns, int row, std::mt19937& random);
 	bool load();
 	void save() const;
 
 protected:
 	void mergeCells(const QPoint& cell1, const QPoint& cell2);
 
+	std::uint_fast32_t randomInt(std::uint_fast32_t max)
+	{
+		std::uniform_int_distribution<std::uint_fast32_t> gen(0, max - 1);
+		return gen(m_random);
+	}
+
+	QPoint randomNeighbor(QVector<QVector<bool>>& visited, const QPoint& cell);
+
 private:
 	virtual void generate() = 0;
 
+	std::mt19937 m_random;
 	int m_columns;
 	int m_rows;
 	QVector< QVector<Cell> > m_cells;

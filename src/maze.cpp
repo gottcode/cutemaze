@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007, 2008, 2012 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007, 2008, 2012, 2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,55 +22,7 @@
 #include <QDataStream>
 #include <QSettings>
 
-namespace {
 // ============================================================================
-
-QPoint randomNeighbor(QVector< QVector<bool> >& visited, const QPoint& cell)
-{
-	// Find unvisited neighbors
-	QPoint neighbors[4];
-	int found = 0;
-	if (cell.x() > 0) {
-		QPoint n(cell.x() - 1, cell.y());
-		if (visited.at(n.x()).at(n.y()) == false) {
-			neighbors[found] = n;
-			found++;
-		}
-	}
-	if (cell.y() > 0) {
-		QPoint n(cell.x(), cell.y() - 1);
-		if (visited.at(n.x()).at(n.y()) == false) {
-			neighbors[found] = n;
-			found++;
-		}
-	}
-	if (cell.y() < visited.at(cell.x()).size() - 1) {
-		QPoint n(cell.x(), cell.y() + 1);
-		if (visited.at(n.x()).at(n.y()) == false) {
-			neighbors[found] = n;
-			found++;
-		}
-	}
-	if (cell.x() < visited.size() - 1) {
-		QPoint n(cell.x() + 1, cell.y());
-		if (visited.at(n.x()).at(n.y()) == false) {
-			neighbors[found] = n;
-			found++;
-		}
-	}
-
-	// Return random neighbor
-	if (found) {
-		const QPoint& n = neighbors[rand() % found];
-		visited[n.x()][n.y()] = true;
-		return n;
-	} else {
-		return QPoint(-1,-1);
-	}
-}
-
-// ============================================================================
-}
 
 // Hunt and Kill algorithm
 // ============================================================================
@@ -80,7 +32,7 @@ void HuntAndKillMaze::generate()
 	m_visited = QVector< QVector<bool> >(columns(), QVector<bool>(rows()));
 	m_unvisited = columns() * rows();
 
-	QPoint current(0, rand() % rows());
+	QPoint current(0, randomInt(rows()));
 	m_visited[current.x()][current.y()] = true;
 	m_unvisited--;
 
@@ -158,11 +110,11 @@ void KruskalMaze::generate()
 		Set* set1 = &m_sets.first();
 
 		// Find random cell
-		const QPoint& cell = set1->at(rand() % set1->size());
+		const QPoint& cell = set1->at(randomInt(set1->size()));
 
 		// Find random neighbor of cell
 		QPoint cell2(cell);
-		if (rand() % 2) {
+		if (randomInt(2)) {
 			cell2.rx()++;
 		} else {
 			cell2.ry()++;
@@ -202,13 +154,13 @@ void PrimMaze::generate()
 	m_regions = QVector< QVector<int> >(columns(), QVector<int>(rows(), 0));
 
 	// Move first cell
-	QPoint cell(0, rand() % columns());
+	QPoint cell(0, randomInt(columns()));
 	m_regions[0][cell.y()] = 2;
 	moveNeighbors(cell);
 
 	// Move remaining cells
 	while (!m_frontier.isEmpty()) {
-		cell = m_frontier.takeAt( rand() % m_frontier.size() );
+		cell = m_frontier.takeAt(randomInt(m_frontier.size()));
 		mergeRandomNeighbor(cell);
 		m_regions[cell.x()][cell.y()] = 2;
 		moveNeighbors(cell);
@@ -246,7 +198,7 @@ void PrimMaze::mergeRandomNeighbor(const QPoint& cell)
 		}
 	}
 
-	mergeCells( cell, cells.at(rand() % cells.size()) );
+	mergeCells( cell, cells.at(randomInt(cells.size())) );
 }
 
 // ============================================================================
@@ -278,7 +230,7 @@ void RecursiveBacktrackerMaze::generate()
 {
 	m_visited = QVector< QVector<bool> >(columns(), QVector<bool>(rows()));
 
-	QPoint start(0, rand() % rows());
+	QPoint start(0, randomInt(rows()));
 	m_visited[start.x()][start.y()] = true;
 	makePath(start);
 
@@ -308,7 +260,7 @@ void StackMaze::generate()
 	QList<QPoint> active;
 
 	// Start maze
-	QPoint start(0, rand() % rows());
+	QPoint start(0, randomInt(rows()));
 	m_visited[start.x()][start.y()] = true;
 	active.append(start);
 
@@ -341,10 +293,10 @@ int StackMaze::nextActive(int size)
 
 int Stack2Maze::nextActive(int size)
 {
-	if (rand() % 2 != 0) {
+	if (randomInt(2) != 0) {
 		return size - 1;
 	} else {
-		return rand() % (size);
+		return randomInt(size);
 	}
 }
 
@@ -352,7 +304,7 @@ int Stack2Maze::nextActive(int size)
 
 int Stack3Maze::nextActive(int size)
 {
-	return rand() % size;
+	return randomInt(size);
 }
 
 // ============================================================================
@@ -360,18 +312,18 @@ int Stack3Maze::nextActive(int size)
 int Stack4Maze::nextActive(int size)
 {
 	int recent = 3 < size ? 3 : size;
-	return size - (rand() % recent) - 1;
+	return size - (randomInt(recent)) - 1;
 }
 
 // ============================================================================
 
 int Stack5Maze::nextActive(int size)
 {
-	switch (rand() % 3) {
+	switch (randomInt(3)) {
 	case 0:
 		return 0;
 	case 1:
-		return rand() % size;
+		return randomInt(size);
 	case 2:
 	default:
 		return size - 1;
@@ -383,12 +335,14 @@ int Stack5Maze::nextActive(int size)
 // Maze class
 // ============================================================================
 
-void Maze::generate(int columns, int rows)
+void Maze::generate(int columns, int rows, std::mt19937& random)
 {
+	m_random = random;
 	m_columns = columns;
 	m_rows = rows;
 	m_cells = QVector< QVector<Cell> >(m_columns, QVector<Cell>(m_rows));
 	generate();
+	random = m_random;
 }
 
 // ============================================================================
@@ -467,6 +421,52 @@ void Maze::mergeCells(const QPoint& cell1, const QPoint& cell2)
 			m_cells[cell1.x()][cell1.y()].removeTopWall();
 			m_cells[cell2.x()][cell2.y()].removeBottomWall();
 		}
+	}
+}
+
+// ============================================================================
+
+QPoint Maze::randomNeighbor(QVector<QVector<bool>>& visited, const QPoint& cell)
+{
+	// Find unvisited neighbors
+	QPoint neighbors[4];
+	int found = 0;
+	if (cell.x() > 0) {
+		QPoint n(cell.x() - 1, cell.y());
+		if (visited.at(n.x()).at(n.y()) == false) {
+			neighbors[found] = n;
+			found++;
+		}
+	}
+	if (cell.y() > 0) {
+		QPoint n(cell.x(), cell.y() - 1);
+		if (visited.at(n.x()).at(n.y()) == false) {
+			neighbors[found] = n;
+			found++;
+		}
+	}
+	if (cell.y() < visited.at(cell.x()).size() - 1) {
+		QPoint n(cell.x(), cell.y() + 1);
+		if (visited.at(n.x()).at(n.y()) == false) {
+			neighbors[found] = n;
+			found++;
+		}
+	}
+	if (cell.x() < visited.size() - 1) {
+		QPoint n(cell.x() + 1, cell.y());
+		if (visited.at(n.x()).at(n.y()) == false) {
+			neighbors[found] = n;
+			found++;
+		}
+	}
+
+	// Return random neighbor
+	if (found) {
+		const QPoint& n = neighbors[randomInt(found)];
+		visited[n.x()][n.y()] = true;
+		return n;
+	} else {
+		return QPoint(-1,-1);
 	}
 }
 
