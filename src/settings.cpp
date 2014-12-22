@@ -194,8 +194,8 @@ Settings::Settings(QWidget* parent)
 
 	QTabWidget* tabs = new QTabWidget(this);
 	QDialogButtonBox* buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, Qt::Horizontal, this);
-	connect(buttons, SIGNAL(accepted()), this, SLOT(accept()));
-	connect(buttons, SIGNAL(rejected()), this, SLOT(reject()));
+	connect(buttons, &QDialogButtonBox::accepted, this, &Settings::accept);
+	connect(buttons, &QDialogButtonBox::rejected, this, &Settings::reject);
 
 	QVBoxLayout* layout = new QVBoxLayout(this);
 	layout->setMargin(10);
@@ -245,16 +245,16 @@ Settings::Settings(QWidget* parent)
 	m_themes_preview = new QLabel(themes_tab);
 
 	m_themes_selector = new QComboBox(themes_tab);
-	connect(m_themes_selector, SIGNAL(currentIndexChanged(const QString&)), this, SLOT(themeSelected(const QString&)));
+	connect(m_themes_selector, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), this, &Settings::themeSelected);
 
 	QHBoxLayout* themes_selector_layout = new QHBoxLayout;
 	themes_selector_layout->setMargin(0);
 	themes_selector_layout->addWidget(m_themes_selector, 1);
 
 	QPushButton* add_button = new QPushButton(tr("Add"), themes_tab);
-	connect(add_button, SIGNAL(clicked()), this, SLOT(addTheme()));
+	connect(add_button, &QPushButton::clicked, this, &Settings::addTheme);
 	m_themes_remove_button = new QPushButton(tr("Remove"), themes_tab);
-	connect(m_themes_remove_button, SIGNAL(clicked()), this, SLOT(removeTheme()));
+	connect(m_themes_remove_button, &QPushButton::clicked, this, &Settings::removeTheme);
 
 	themes_selector_layout->addWidget(add_button, 0);
 	themes_selector_layout->addWidget(m_themes_remove_button, 0);

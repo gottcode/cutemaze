@@ -62,15 +62,15 @@ Window::Window()
 
 	// Create scores window
 	m_scores = new Scores(this);
-	connect(m_board, SIGNAL(finished(int, int, int, int)), m_scores, SLOT(addScore(int, int, int, int)));
+	connect(m_board, &Board::finished, m_scores, &Scores::addScore);
 
 	// Create actions
 	initActions();
 	m_pause_action->setCheckable(true);
-	connect(m_pause_action, SIGNAL(toggled(bool)), m_board, SLOT(pauseGame(bool)));
-	connect(m_board, SIGNAL(pauseAvailable(bool)), m_pause_action, SLOT(setEnabled(bool)));
-	connect(m_board, SIGNAL(pauseChecked(bool)), m_pause_action, SLOT(setChecked(bool)));
-	connect(m_board, SIGNAL(hintAvailable(bool)), m_hint_action, SLOT(setEnabled(bool)));
+	connect(m_pause_action, &QAction::toggled, m_board, &Board::pauseGame);
+	connect(m_board, &Board::pauseAvailable, m_pause_action, &QAction::setEnabled);
+	connect(m_board, &Board::pauseChecked, m_pause_action, &QAction::setChecked);
+	connect(m_board, &Board::hintAvailable, m_hint_action, &QAction::setEnabled);
 
 	// Setup window
 	setWindowTitle(tr("CuteMaze"));
@@ -78,7 +78,7 @@ Window::Window()
 
 	// Create auto-save timer
 	QTimer *timer = new QTimer(this);
-	connect(timer, SIGNAL(timeout()), m_board, SLOT(saveGame()));
+	connect(timer, &QTimer::timeout, m_board, &Board::saveGame);
 	timer->start(300000);
 }
 
@@ -135,9 +135,9 @@ void Window::initActions()
 
 	QMenu* view_menu = menuBar()->addMenu(tr("View"));
 	QAction* zoom_in_action = view_menu->addAction(fetchIcon("zoom-in"), tr("Zoom &In"), m_board, SLOT(zoomIn()), tr("Ctrl++"));
-	connect(m_board, SIGNAL(zoomInAvailable(bool)), zoom_in_action, SLOT(setEnabled(bool)));
+	connect(m_board, &Board::zoomInAvailable, zoom_in_action, &QAction::setEnabled);
 	QAction* zoom_out_action = view_menu->addAction(fetchIcon("zoom-out"), tr("Zoom &Out"), m_board, SLOT(zoomOut()), tr("Ctrl+-"));
-	connect(m_board, SIGNAL(zoomOutAvailable(bool)), zoom_out_action, SLOT(setEnabled(bool)));
+	connect(m_board, &Board::zoomOutAvailable, zoom_out_action, &QAction::setEnabled);
 
 	QMenu* settings_menu = menuBar()->addMenu(tr("&Settings"));
 	settings_menu->addAction(fetchIcon("preferences-desktop-locale"), tr("Application &Language..."), this, SLOT(setLocale()));
@@ -194,7 +194,7 @@ void Window::newGame()
 void Window::showSettings()
 {
 	Settings settings(this);
-	connect(&settings, SIGNAL(settingsChanged()), m_board, SLOT(loadSettings()));
+	connect(&settings, &Settings::settingsChanged, m_board, &Board::loadSettings);
 	settings.exec();
 }
 

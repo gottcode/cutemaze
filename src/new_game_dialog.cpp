@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007, 2008, 2009, 2012 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007, 2008, 2009, 2012, 2014 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -39,7 +39,7 @@ NewGameDialog::NewGameDialog(QWidget* parent)
 
 	m_mazes_algorithm = new QComboBox(this);
 	m_mazes_algorithm->setInsertPolicy(QComboBox::InsertAlphabetically);
-	connect(m_mazes_algorithm, SIGNAL(currentIndexChanged(int)), this, SLOT(algorithmSelected(int)));
+	connect(m_mazes_algorithm, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &NewGameDialog::algorithmSelected);
 	m_mazes_algorithm->addItem(tr("Hunt and Kill"), 0);
 	m_mazes_algorithm->addItem(tr("Kruskal"), 1);
 	m_mazes_algorithm->addItem(tr("Prim"), 2);
@@ -57,8 +57,8 @@ NewGameDialog::NewGameDialog(QWidget* parent)
 	m_mazes_size->setRange(10, 99);
 
 	QDialogButtonBox* buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, Qt::Horizontal, this);
-	connect(buttons, SIGNAL(accepted()), this, SLOT(accept()));
-	connect(buttons, SIGNAL(rejected()), this, SLOT(reject()));
+	connect(buttons, &QDialogButtonBox::accepted, this, &NewGameDialog::accept);
+	connect(buttons, &QDialogButtonBox::rejected, this, &NewGameDialog::reject);
 
 	// Load settings
 	QSettings settings;

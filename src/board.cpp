@@ -66,7 +66,7 @@ Board::Board(QMainWindow* parent)
 	m_move_animation->setFrameRange(0, 3);
 	m_move_animation->setCurveShape(QTimeLine::LinearCurve);
 	m_move_animation->setUpdateInterval(25);
-	connect(m_move_animation, SIGNAL(frameChanged(int)), this, SLOT(repaint()));
+	connect(m_move_animation, &QTimeLine::frameChanged, this, static_cast<void (Board::*)()>(&Board::repaint));
 
 	// Create status messages
 	m_status_time_message = new QLabel;
@@ -83,7 +83,7 @@ Board::Board(QMainWindow* parent)
 
 	m_status_timer = new QTimer(this);
 	m_status_timer->setInterval(1000);
-	connect(m_status_timer, SIGNAL(timeout()), this, SLOT(updateStatusMessage()));
+	connect(m_status_timer, &QTimer::timeout, this, &Board::updateStatusMessage);
 
 	// Setup theme support
 	m_theme = new Theme;
