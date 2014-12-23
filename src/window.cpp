@@ -73,7 +73,6 @@ Window::Window()
 	connect(m_board, &Board::hintAvailable, m_hint_action, &QAction::setEnabled);
 
 	// Setup window
-	setWindowTitle(tr("CuteMaze"));
 	restoreGeometry(QSettings().value("Geometry").toByteArray());
 
 	// Create auto-save timer
