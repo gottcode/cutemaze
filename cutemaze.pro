@@ -6,15 +6,25 @@ TEMPLATE = app widgets
 QT += svg
 CONFIG += warn_on c++11
 
+# Allow in-tree builds
+!win32 {
+	MOC_DIR = build
+	OBJECTS_DIR = build
+	RCC_DIR = build
+}
+
+# Set program version
 VERSION = 1.1.1
 DEFINES += VERSIONSTR=\\\"$${VERSION}\\\"
 
+# Set program name
 unix: !macx {
 	TARGET = cutemaze
 } else {
 	TARGET = CuteMaze
 }
 
+# Specify program sources
 HEADERS = src/board.h \
 	src/cell.h \
 	src/locale_dialog.h \
@@ -40,8 +50,10 @@ SOURCES = src/board.cpp \
 	src/theme.cpp \
 	src/window.cpp
 
+# Allow for updating translations
 TRANSLATIONS = $$files(translations/cutemaze_*.ts)
 
+# Install program data
 RESOURCES = icons/icons.qrc themes/theme.qrc preview/preview.qrc
 macx {
 	ICON = icons/cutemaze.icns
