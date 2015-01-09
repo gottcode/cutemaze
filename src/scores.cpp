@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2008, 2009, 2012, 2014 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2008, 2009, 2012, 2014, 2015 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,7 +33,7 @@
 #include <pwd.h>
 #include <unistd.h>
 
-#elif defined(Q_OS_WIN32)
+#elif defined(Q_OS_WIN)
 #include <lmcons.h>
 #include <windows.h>
 
@@ -143,7 +143,7 @@ void Scores::addScore(int steps, int seconds, int algorithm, int size)
 			}
 		}
 	}
-#elif defined(Q_OS_WIN32)
+#elif defined(Q_OS_WIN)
 	{
 		WCHAR buffer[UNLEN + 1];
 		DWORD count = sizeof(buffer);

@@ -117,7 +117,7 @@ void ControlButton::keyPressEvent(QKeyEvent* event)
 			break;
 		case Qt::Key_Super_L:
 		case Qt::Key_Super_R:
-#ifndef Q_OS_WIN32
+#ifndef Q_OS_WIN
 			control = tr("Super");
 #else
 			control = tr("Windows");
