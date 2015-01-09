@@ -60,8 +60,9 @@ CornerType corners[15] = {
 
 // ============================================================================
 
-Theme::Theme()
-:	m_unit(32)
+Theme::Theme() :
+	m_unit(32),
+	m_ratio(1)
 {
 	m_renderer = new QSvgRenderer;
 
@@ -163,6 +164,14 @@ void Theme::scale(int unit)
 
 // ============================================================================
 
+void Theme::setDevicePixelRatio(int ratio)
+{
+	m_ratio = ratio;
+	scale(m_unit);
+}
+
+// ============================================================================
+
 void Theme::draw(QPainter& painter, int column, int row, enum Element element) const
 {
 	Q_ASSERT(element != TotalElements);
@@ -213,7 +222,8 @@ void Theme::drawWall(QPainter& painter, int column, int row, bool vertical) cons
 
 void Theme::cache(const QString& element, QPixmap& pixmap, const QRect& bounds, int angle) const
 {
-	pixmap = QPixmap(bounds.size());
+	pixmap = QPixmap(bounds.size() * m_ratio);
+	pixmap.setDevicePixelRatio(m_ratio);
 	pixmap.fill(QColor(255, 255, 255, 0));
 	QPainter painter(&pixmap);
 	m_renderer->render(&painter, element, bounds);
@@ -222,7 +232,8 @@ void Theme::cache(const QString& element, QPixmap& pixmap, const QRect& bounds, 
 	if (angle) {
 		Q_ASSERT(angle == 90 || angle == 180 || angle == 270);
 		painter.end();
-		pixmap = pixmap.transformed(QTransform().rotate(angle), Qt::SmoothTransformation);
+		pixmap = pixmap.transformed(QTransform().rotate(angle));
+		pixmap.setDevicePixelRatio(m_ratio);
 	}
 }
 

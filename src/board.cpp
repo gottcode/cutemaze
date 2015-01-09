@@ -88,6 +88,7 @@ Board::Board(QMainWindow* parent)
 
 	// Setup theme support
 	m_theme = new Theme;
+	m_theme->setDevicePixelRatio(devicePixelRatio());
 
 	loadSettings();
 
@@ -569,7 +570,9 @@ void Board::finish()
 void Board::renderBackground()
 {
 	int size = (m_zoom_size + 6) * m_unit;
-	m_back = QPixmap(size, size);
+	int ratio = devicePixelRatio();
+	m_back = QPixmap(QSize(size, size) * ratio);
+	m_back.setDevicePixelRatio(ratio);
 	QPainter painter(&m_back);
 	m_theme->drawBackground(painter);
 }
@@ -768,7 +771,7 @@ void Board::renderDone()
 			y1 = r  * cell_width;
 			y2 = y1 + cell_width;
 			if (cell.pathMarker()) {
-				painter.fillRect(x1 + 1, y1 + 1, cell_width, cell_width, Qt::lightGray);
+				painter.fillRect(x1, y1, cell_width, cell_width, Qt::lightGray);
 			}
 			if (cell.topWall()) {
 				painter.drawLine(x1, y1, x2, y1);

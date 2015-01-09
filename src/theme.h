@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007-2009 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007, 2008, 2009, 2015 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,6 +34,7 @@ public:
 	QStringList available() const;
 	void load(const QString& name);
 	void scale(int unit);
+	void setDevicePixelRatio(int ratio);
 
 	enum Element {
 		Background,
@@ -65,6 +66,7 @@ private:
 	QPixmap m_pixmap_corner[15];
 	QPixmap m_pixmap_wall[2];
 	int m_unit;
+	int m_ratio;
 };
 
 #endif // THEME_H
