@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007, 2008, 2009, 2012, 2014 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007, 2008, 2009, 2012, 2014, 2015 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,7 +23,6 @@
 
 #include <QCheckBox>
 #include <QComboBox>
-#include <QDesktopServices>
 #include <QDialogButtonBox>
 #include <QDir>
 #include <QFileDialog>
@@ -35,6 +34,7 @@
 #include <QPainter>
 #include <QPushButton>
 #include <QSettings>
+#include <QStandardPaths>
 #include <QTabWidget>
 #include <QVBoxLayout>
 
@@ -43,20 +43,7 @@ namespace {
 
 QString homeDataPath()
 {
-#if defined(Q_OS_MAC)
-	QString path = QDir::homePath() + "/Library/Application Support/GottCode/CuteMaze";
-#elif defined(Q_OS_UNIX)
-	QString path = qgetenv("XDG_DATA_HOME");
-	if (path.isEmpty()) {
-		path = QDir::homePath() + "/.local/share";
-	}
-	path += "/games/cutemaze";
-#elif defined(Q_OS_WIN32)
-	QString path = QDir::homePath() + "/Application Data/GottCode/CuteMaze";
-#else
-	QString path = QDesktopServices::storageLocation(QDesktopServices::DataLocation);
-#endif
-	return path;
+	return QStandardPaths::writableLocation(QStandardPaths::DataLocation);
 }
 
 // ============================================================================

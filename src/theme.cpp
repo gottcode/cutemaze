@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007, 2008, 2009, 2012, 2014 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007, 2008, 2009, 2012, 2014, 2015 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,13 +20,13 @@
 #include "theme.h"
 
 #include <QApplication>
-#include <QDesktopServices>
 #include <QDir>
 #include <QFileInfo>
 #include <QIcon>
 #include <QMainWindow>
 #include <QPainter>
 #include <QSet>
+#include <QStandardPaths>
 #include <QSvgRenderer>
 
 namespace {
@@ -67,29 +67,16 @@ Theme::Theme()
 
 	// Load theme locations
 #if defined(Q_OS_MAC)
-	m_locations.append(QDir::homePath() + "/Library/Application Support/GottCode/CuteMaze");
-	m_locations.append("/Library/Application Support/GottCode/CuteMaze");
+	m_locations = QStandardPaths::standardLocations(QStandardPaths::DataLocation);
 #elif defined(Q_OS_UNIX)
-	QString xdg;
-	xdg = qgetenv("$XDG_DATA_HOME");
-	if (xdg.isEmpty()) {
-		xdg = QDir::homePath() + "/.local/share/";
-	}
-	m_locations = xdg.split(':');
-	xdg = qgetenv("$XDG_DATA_DIRS");
-	if (xdg.isEmpty()) {
-		xdg = "/usr/local/share/:/usr/share/";
-	}
-	m_locations += xdg.split(':');
-	m_locations += QString(':');
+	m_locations = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
 	for (int i = 0; i < m_locations.size(); ++i) {
 		m_locations[i] += "/games/cutemaze";
 	}
-#elif defined(Q_OS_WIN32)
-	m_locations.append(QDir::homePath() + "/Application Data/GottCode/CuteMaze");
+	m_locations.prepend(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
+#elif defined(Q_OS_WIN)
+	m_locations = QStandardPaths::standardLocations(QStandardPaths::DataLocation);
 	m_locations.append(QCoreApplication::applicationDirPath() + "/Themes");
-#else
-	m_locations.append(QDesktopServices::storageLocation(QDesktopServices::DataLocation));
 #endif
 	m_locations.append(":/games/cutemaze");
 }
