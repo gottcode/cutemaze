@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007, 2008, 2009, 2012, 2014 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007, 2008, 2009, 2012, 2014, 2015 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,6 +34,7 @@
 #include <QTimer>
 
 #include <algorithm>
+#include <ctime>
 #include <random>
 
 // ============================================================================
@@ -116,8 +117,14 @@ void Board::newGame()
 	m_status_timer->stop();
 
 	// Fetch new seed
+#ifndef Q_OS_WIN
 	std::random_device rd;
 	unsigned int seed = rd();
+#else
+	std::mt19937 gen(time(0));
+	std::uniform_int_distribution<unsigned int> dist;
+	unsigned int seed = dist(gen);
+#endif
 
 	// Set values for new game
 	QSettings settings;
