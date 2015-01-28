@@ -23,5 +23,38 @@
 	<file>oxygen/22x22/preferences-desktop-locale.png</file>
 	<file>oxygen/22x22/zoom-in.png</file>
 	<file>oxygen/22x22/zoom-out.png</file>
+
+	<file>oxygen/32x32/application-exit.png</file>
+	<file>oxygen/32x32/document-new.png</file>
+	<file>oxygen/32x32/games-config-options.png</file>
+	<file>oxygen/32x32/games-highscores.png</file>
+	<file>oxygen/32x32/games-hint.png</file>
+	<file>oxygen/32x32/help-about.png</file>
+	<file>oxygen/32x32/media-playback-pause.png</file>
+	<file>oxygen/32x32/preferences-desktop-locale.png</file>
+	<file>oxygen/32x32/zoom-in.png</file>
+	<file>oxygen/32x32/zoom-out.png</file>
+
+	<file>oxygen/48x48/application-exit.png</file>
+	<file>oxygen/48x48/document-new.png</file>
+	<file>oxygen/48x48/games-config-options.png</file>
+	<file>oxygen/48x48/games-highscores.png</file>
+	<file>oxygen/48x48/games-hint.png</file>
+	<file>oxygen/48x48/help-about.png</file>
+	<file>oxygen/48x48/media-playback-pause.png</file>
+	<file>oxygen/48x48/preferences-desktop-locale.png</file>
+	<file>oxygen/48x48/zoom-in.png</file>
+	<file>oxygen/48x48/zoom-out.png</file>
+
+	<file>oxygen/64x64/application-exit.png</file>
+	<file>oxygen/64x64/document-new.png</file>
+	<file>oxygen/64x64/games-config-options.png</file>
+	<file>oxygen/64x64/games-highscores.png</file>
+	<file>oxygen/64x64/games-hint.png</file>
+	<file>oxygen/64x64/help-about.png</file>
+	<file>oxygen/64x64/media-playback-pause.png</file>
+	<file>oxygen/64x64/preferences-desktop-locale.png</file>
+	<file>oxygen/64x64/zoom-in.png</file>
+	<file>oxygen/64x64/zoom-out.png</file>
 </qresource>
 </RCC>

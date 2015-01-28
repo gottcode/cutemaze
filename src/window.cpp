@@ -45,7 +45,10 @@
 
 static QIcon fetchIcon(const QString& name)
 {
-	QIcon icon(QString(":/oxygen/22x22/%1.png").arg(name));
+	QIcon icon(QString(":/oxygen/64x64/%1.png").arg(name));
+	icon.addFile(QString(":/oxygen/48x48/%1.png").arg(name));
+	icon.addFile(QString(":/oxygen/32x32/%1.png").arg(name));
+	icon.addFile(QString(":/oxygen/22x22/%1.png").arg(name));
 	icon.addFile(QString(":/oxygen/16x16/%1.png").arg(name));
 	return QIcon::fromTheme(name, icon);
 }
@@ -65,6 +68,9 @@ Window::Window()
 	connect(m_board, &Board::finished, m_scores, &Scores::addScore);
 
 	// Create actions
+	if (iconSize().width() == 26) {
+		setIconSize(QSize(24, 24));
+	}
 	initActions();
 	m_pause_action->setCheckable(true);
 	connect(m_pause_action, &QAction::toggled, m_board, &Board::pauseGame);
@@ -145,12 +151,11 @@ void Window::initActions()
 	QMenu* help_menu = menuBar()->addMenu(tr("&Help"));
 	QAction* about_action = help_menu->addAction(fetchIcon("help-about"), tr("&About"), this, SLOT(about()));
 	about_action->setMenuRole(QAction::AboutRole);
-	about_action = help_menu->addAction(QIcon(":/trolltech/qmessagebox/images/qtlogo-64.png"), tr("About &Qt"), qApp, SLOT(aboutQt()));
+	about_action = help_menu->addAction(QIcon(":/qt-project.org/qmessagebox/images/qtlogo-64.png"), tr("About &Qt"), qApp, SLOT(aboutQt()));
 	about_action->setMenuRole(QAction::AboutQtRole);
 
 	// Create toolbar
 	QToolBar* toolbar = new QToolBar(this);
-	toolbar->setIconSize(QSize(22, 22));
 	toolbar->setFloatable(false);
 	toolbar->setMovable(false);
 	toolbar->setToolButtonStyle(Qt::ToolButtonFollowStyle);
