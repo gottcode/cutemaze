@@ -135,7 +135,6 @@ void Theme::load(const QString& name)
 
 void Theme::scale(int unit)
 {
-	Q_ASSERT(unit > 31);
 	m_unit = unit;
 
 	QRect bounds(0, 0, unit * 2, unit * 2);
