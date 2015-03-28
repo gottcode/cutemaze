@@ -11,7 +11,7 @@
     <message>
         <location filename="../src/board.cpp" line="171"/>
         <source>Unable to load previous game. A new game will be started.</source>
-        <translation>Het is niet mogelijk om het vorige spel te starten. Een nieuw spel wordt gestart</translation>
+        <translation>Het is niet mogelijk om het vorige spel te starten. Een nieuw spel wordt gestart.</translation>
     </message>
     <message>
         <location filename="../src/board.cpp" line="446"/>
@@ -97,7 +97,7 @@
     <message>
         <location filename="../src/locale_dialog.cpp" line="53"/>
         <source>&lt;System Language&gt;</source>
-        <translation>&lt;systeemtaal&gt;</translation>
+        <translation>&lt;Systeemtaal&gt;</translation>
     </message>
     <message>
         <location filename="../src/locale_dialog.cpp" line="183"/>
@@ -107,7 +107,7 @@
     <message>
         <location filename="../src/locale_dialog.cpp" line="183"/>
         <source>Please restart this application for the change in language to take effect.</source>
-        <translation>Herstart de applicatie om de taalwijziging door te voeren</translation>
+        <translation>Herstart de applicatie om de taalwijziging door te voeren.</translation>
     </message>
 </context>
 <context>
@@ -165,7 +165,7 @@
     <message>
         <location filename="../src/new_game_dialog.cpp" line="73"/>
         <source>Algorithm:</source>
-        <translation>Algorithme</translation>
+        <translation>Algoritme:</translation>
     </message>
     <message>
         <location filename="../src/new_game_dialog.cpp" line="74"/>
@@ -256,7 +256,7 @@
     <message>
         <location filename="../src/scores.cpp" line="108"/>
         <source>Algorithm</source>
-        <translation>Algorithme</translation>
+        <translation>Algoritme</translation>
     </message>
     <message>
         <location filename="../src/scores.cpp" line="108"/>
@@ -272,8 +272,8 @@
         <location filename="../src/scores.cpp" line="160"/>
         <source>Your score has made the top ten.
 Please enter your name:</source>
-        <translation>De score is goed genoeg voor de top 10
-Geef je naam in:</translation>
+        <translation>Je score heeft de top tien gehaald
+Voer je naam in:</translation>
     </message>
 </context>
 <context>
@@ -301,12 +301,12 @@ Geef je naam in:</translation>
     <message>
         <location filename="../src/settings.cpp" line="213"/>
         <source>Show elapsed time</source>
-        <translation>Laat de verlopen tijd zien</translation>
+        <translation>Laat de verstreken tijd zien</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="214"/>
         <source>Smooth movement</source>
-        <translation>Gladde beweging</translation>
+        <translation>Soepele beweging</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="225"/>
@@ -316,32 +316,32 @@ Geef je naam in:</translation>
     <message>
         <location filename="../src/settings.cpp" line="234"/>
         <source>Move Up:</source>
-        <translation>Omhoog</translation>
+        <translation>Omhoog:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="235"/>
         <source>Move Down:</source>
-        <translation>Naar beneden</translation>
+        <translation>Naar beneden:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="236"/>
         <source>Move Left:</source>
-        <translation>Naar links</translation>
+        <translation>Naar links:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="237"/>
         <source>Move Right:</source>
-        <translation>Naar rechts</translation>
+        <translation>Naar rechts:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="238"/>
         <source>Toggle Flag:</source>
-        <translation>Schakel flag</translation>
+        <translation>Omzetten vlag:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="243"/>
         <source>Themes</source>
-        <translation>Thema</translation>
+        <translation>Uiterlijk</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="254"/>
@@ -356,7 +356,7 @@ Geef je naam in:</translation>
     <message>
         <location filename="../src/settings.cpp" line="320"/>
         <source>Select Theme File</source>
-        <translation>Selecteer thema bestand</translation>
+        <translation>Selecteer uiterlijk bestand</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="330"/>
@@ -368,12 +368,12 @@ Geef je naam in:</translation>
     <message>
         <location filename="../src/settings.cpp" line="330"/>
         <source>Unable to create data folder.</source>
-        <translation>Aanmaken data folder faalde</translation>
+        <translation>Aanmaken data folder mislukt</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="338"/>
         <source>Unable to copy theme file.</source>
-        <translation>Kopiëren thema bestand faalde</translation>
+        <translation>Kopiëren uiterlijk bestand mislukt</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="367"/>
@@ -383,12 +383,12 @@ Geef je naam in:</translation>
     <message>
         <location filename="../src/settings.cpp" line="367"/>
         <source>Remove the selected theme?</source>
-        <translation>Verwijder het geselecteerde thema</translation>
+        <translation>Verwijder het geselecteerde uiterlijk?</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="371"/>
         <source>Unable to remove the selected theme.</source>
-        <translation>Verwijderen thema faalde</translation>
+        <translation>Verwijderen uiterlijk mislukt</translation>
     </message>
 </context>
 <context>
@@ -412,7 +412,7 @@ Geef je naam in:</translation>
     <message>
         <location filename="../src/window.cpp" line="138"/>
         <source>View</source>
-        <translation>Toon</translation>
+        <translation>Weergave</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="139"/>
@@ -447,7 +447,7 @@ Geef je naam in:</translation>
     <message>
         <location filename="../src/window.cpp" line="129"/>
         <source>&amp;Pause</source>
-        <translation>&amp;Pauzeer</translation>
+        <translation>&amp;Pauzeren</translation>
     </message>
     <message>
         <location filename="../src/window.cpp" line="131"/>
