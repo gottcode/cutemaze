@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007, 2008, 2009, 2012, 2014, 2015 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007, 2008, 2009, 2012, 2014, 2015, 2016 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -63,10 +63,10 @@ Board::Board(QMainWindow* parent)
 	setMinimumSize(448, 448);
 	setFocusPolicy(Qt::StrongFocus);
 
-	m_move_animation = new QTimeLine(100, this);
+	m_move_animation = new QTimeLine(60, this);
 	m_move_animation->setFrameRange(0, 3);
 	m_move_animation->setCurveShape(QTimeLine::LinearCurve);
-	m_move_animation->setUpdateInterval(25);
+	m_move_animation->setUpdateInterval(15);
 	connect(m_move_animation, &QTimeLine::frameChanged, this, static_cast<void (Board::*)()>(&Board::repaint));
 
 	// Create status messages
