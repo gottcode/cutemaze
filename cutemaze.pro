@@ -2,8 +2,8 @@ lessThan(QT_VERSION, 5.2) {
 	error("CuteMaze requires Qt 5.2 or greater")
 }
 
-TEMPLATE = app widgets
-QT += svg
+TEMPLATE = app
+QT += svg widgets
 CONFIG += warn_on c++11
 
 # Allow in-tree builds
