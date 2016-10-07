@@ -86,6 +86,7 @@ macx {
 
 	qm.files = translations/*.qm
 	qm.path = $$PREFIX/share/cutemaze/translations
+	qm.CONFIG += no_check_exist
 
 	man.files = doc/cutemaze.6
 	man.path = $$PREFIX/share/man/man6
