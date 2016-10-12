@@ -66,6 +66,8 @@ macx {
 } else:win32 {
 	RC_FILE = icons/icon.rc
 } else:unix {
+	RESOURCES += icons/icon.qrc
+
 	isEmpty(PREFIX) {
 		PREFIX = /usr/local
 	}
@@ -75,8 +77,11 @@ macx {
 
 	target.path = $$PREFIX/$$BINDIR/
 
-	icon.files = icons/cutemaze.png
-	icon.path = $$PREFIX/share/icons/hicolor/48x48/apps
+	pixmap.files = icons/cutemaze.xpm
+	pixmap.path = $$PREFIX/share/pixmaps/
+
+	icon.files = icons/hicolor/*
+	icon.path = $$PREFIX/share/icons/hicolor/
 
 	desktop.files = icons/cutemaze.desktop
 	desktop.path = $$PREFIX/share/applications/
@@ -91,5 +96,5 @@ macx {
 	man.files = doc/cutemaze.6
 	man.path = $$PREFIX/share/man/man6
 
-	INSTALLS += target icon desktop appdata qm man
+	INSTALLS += target pixmap icon desktop appdata qm man
 }

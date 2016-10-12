@@ -1,0 +1,5 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+	<file alias="cutemaze.png">hicolor/256x256/apps/cutemaze.png</file>
+</qresource>
+</RCC>

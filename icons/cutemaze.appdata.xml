@@ -41,6 +41,7 @@
   </provides>
 
   <kudos>
+    <kudo>HiDpiIcon</kudo>
     <kudo>ModernToolkit</kudo>
   </kudos>
 

@@ -1,7 +1,5 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource>
-	<file>cutemaze.png</file>
-
 	<file>oxygen/16x16/application-exit.png</file>
 	<file>oxygen/16x16/document-new.png</file>
 	<file>oxygen/16x16/games-config-options.png</file>
