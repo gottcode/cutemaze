@@ -1,3 +1,16 @@
+1.2.0
+-----
+* Added support for high DPI displays.
+* Increased speed of smooth movement.
+* Switched to Qt 5.
+* Improved Linux integration.
+* Generate binary translations at build time.
+* FIXED: Application layout did not respect RTL languages.
+* FIXED: Crash in debug mode when zooming.
+* FIXED: Was not properly loading Qt translations.
+* Translation updates: Czech, Dutch, Esperanto, Finnish, German, Hebrew,
+  Lithuanian, Romanian, Turkish.
+
 1.1.1
 -----
 * Added dialog to switch translation.
