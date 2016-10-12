@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# M T <michtrz@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: CuteMaze\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-14 20:40+0000\n"
-"PO-Revision-Date: 2014-11-13 16:22+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Polish (http://www.transifex.com/projects/p/cutemaze/language/"
+"PO-Revision-Date: 2015-10-25 19:26+0000\n"
+"Last-Translator: M T <michtrz@gmail.com>\n"
+"Language-Team: Polish (http://www.transifex.com/gottcode/cutemaze/language/"
 "pl/)\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +26,7 @@ msgstr "CuteMaze"
 
 #: ../cutemaze.appdata.xml.in.h:2 ../cutemaze.desktop.in.h:3
 msgid "Find targets in a maze"
-msgstr ""
+msgstr "Znajdź cele w labiryncie"
 
 #: ../cutemaze.appdata.xml.in.h:3
 msgid ""
@@ -34,6 +35,10 @@ msgid ""
 "character through the maze while hunting for targets (cheese, by default)—"
 "the game is won once all of these targets have been picked up."
 msgstr ""
+"CuteMaze to prosta, z góry na dół gra, w której losowo generowane są "
+"labirynty przy użyciu jednego z kilku różnych algorytmów. Poruszasz się "
+"postacią przez labirynt podczas zbierania celi (domyślnie jest to ser)—gra "
+"zostaje wygrana, gdy wszystkie te cele zostały zebrane."
 
 #: ../cutemaze.desktop.in.h:2
 msgid "Simple Maze Game"

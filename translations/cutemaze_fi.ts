@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="lt">
+<TS version="2.1" language="fi">
 <context>
     <name>Board</name>
     <message>
         <source>Sorry</source>
-        <translation>Atleiskite</translation>
+        <translation>Anteeksi</translation>
     </message>
     <message>
         <source>Unable to load previous game. A new game will be started.</source>
-        <translation>Neįmanoma įkelti ankstesnio žaidimo. Bus pradėtas naujas žaidimas.</translation>
+        <translation>Edellistä peliä ei pystytty lataamaan. Uusi peli aloitetaan.</translation>
     </message>
     <message>
         <source>%1 elapsed</source>
-        <translation>%1 praėjo</translation>
+        <translation>Aikaa mennyt %1</translation>
     </message>
     <message>
         <source>%1 steps taken</source>
-        <translation>%1 padaryti žingsniai</translation>
+        <translation>%1 askeleita otettu</translation>
     </message>
     <message>
         <source>%1 of %2 targets remain</source>
-        <translation>Liko %1 iš %2 objektų</translation>
+        <translation>%1/%2 kohdetta jäljellä</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation>Sėkmė</translation>
+        <translation>Onnistuit</translation>
     </message>
     <message>
         <source>Paused</source>
-        <translation>Pauzė</translation>
+        <translation>Pysäytetty</translation>
     </message>
 </context>
 <context>
@@ -68,88 +68,37 @@
     </message>
     <message>
         <source>Option</source>
-        <translation>Parinktis</translation>
+        <translation>Option</translation>
     </message>
 </context>
 <context>
     <name>LocaleDialog</name>
     <message>
         <source>Select application language:</source>
-        <translation>Pasirinkite programos kalbą:</translation>
+        <translation>Valitse ohjelman kieli:</translation>
     </message>
     <message>
         <source>&lt;System Language&gt;</source>
-        <translation>&lt;Sistemos kalba&gt;</translation>
+        <translation>&lt;Järjestelmän kieli&gt;</translation>
     </message>
     <message>
         <source>Note</source>
-        <translation>Pastaba</translation>
+        <translation>Merkintä</translation>
     </message>
     <message>
         <source>Please restart this application for the change in language to take effect.</source>
-        <translation>Kad įsigaliotų kalbos pakeitimai, prašome paleisti programą iš naujo.</translation>
+        <translation>Uudelleenkäynnistä ohjelma muuttaaksesi kielen.</translation>
     </message>
 </context>
 <context>
     <name>NewGameDialog</name>
     <message>
         <source>New Game</source>
-        <translation>Naujas žaidimas</translation>
+        <translation>Uusi peli</translation>
     </message>
     <message>
         <source>Hunt and Kill</source>
-        <translation>Medžioti ir užmušti</translation>
-    </message>
-    <message>
-        <source>Kruskal</source>
-        <translation>Kruskal</translation>
-    </message>
-    <message>
-        <source>Prim</source>
-        <translation>Skrupulingas</translation>
-    </message>
-    <message>
-        <source>Recursive Backtracker</source>
-        <translation>Pasikartojanti apylanka</translation>
-    </message>
-    <message>
-        <source>Stack</source>
-        <translation>Dėklas</translation>
-    </message>
-    <message>
-        <source>Stack 2</source>
-        <translation>2 Dėklas</translation>
-    </message>
-    <message>
-        <source>Stack 3</source>
-        <translation>3 Dėklas</translation>
-    </message>
-    <message>
-        <source>Stack 4</source>
-        <translation>4 Dėklas</translation>
-    </message>
-    <message>
-        <source>Stack 5</source>
-        <translation>5 Dėklas</translation>
-    </message>
-    <message>
-        <source>Algorithm:</source>
-        <translation>Algoritmas:</translation>
-    </message>
-    <message>
-        <source>Targets:</source>
-        <translation>Objektų:</translation>
-    </message>
-    <message>
-        <source>Size:</source>
-        <translation>Dydis:</translation>
-    </message>
-</context>
-<context>
-    <name>QLabel</name>
-    <message>
-        <source>Hunt and Kill</source>
-        <translation>Medžioti ir užmušti</translation>
+        <translation>Metsästä ja tapa</translation>
     </message>
     <message>
         <source>Kruskal</source>
@@ -161,159 +110,210 @@
     </message>
     <message>
         <source>Recursive Backtracker</source>
-        <translation>Pasikartojanti apylanka</translation>
+        <translation>Itseääntoistava jäljitin</translation>
     </message>
     <message>
         <source>Stack</source>
-        <translation>Dėklas</translation>
+        <translation>Pino</translation>
     </message>
     <message>
         <source>Stack 2</source>
-        <translation>2 Dėklas</translation>
+        <translation>Pino 2</translation>
     </message>
     <message>
         <source>Stack 3</source>
-        <translation>3 Dėklas</translation>
+        <translation>Pino 3</translation>
     </message>
     <message>
         <source>Stack 4</source>
-        <translation>4 Dėklas</translation>
+        <translation>Pino 4</translation>
     </message>
     <message>
         <source>Stack 5</source>
-        <translation>5 Dėklas</translation>
+        <translation>Pino 5</translation>
+    </message>
+    <message>
+        <source>Algorithm:</source>
+        <translation>Algoritmi:</translation>
+    </message>
+    <message>
+        <source>Targets:</source>
+        <translation>Kohteet:</translation>
+    </message>
+    <message>
+        <source>Size:</source>
+        <translation>Koko:</translation>
+    </message>
+</context>
+<context>
+    <name>QLabel</name>
+    <message>
+        <source>Hunt and Kill</source>
+        <translation>Metsästä ja tapa</translation>
+    </message>
+    <message>
+        <source>Kruskal</source>
+        <translation>Kruskal</translation>
+    </message>
+    <message>
+        <source>Prim</source>
+        <translation>Prim</translation>
+    </message>
+    <message>
+        <source>Recursive Backtracker</source>
+        <translation>Itseääntoistava jäljitin</translation>
+    </message>
+    <message>
+        <source>Stack</source>
+        <translation>Pino</translation>
+    </message>
+    <message>
+        <source>Stack 2</source>
+        <translation>Pino 2</translation>
+    </message>
+    <message>
+        <source>Stack 3</source>
+        <translation>Pino 3</translation>
+    </message>
+    <message>
+        <source>Stack 4</source>
+        <translation>Pino 4</translation>
+    </message>
+    <message>
+        <source>Stack 5</source>
+        <translation>Pino 5</translation>
     </message>
 </context>
 <context>
     <name>Scores</name>
     <message>
         <source>CuteMaze Scores</source>
-        <translation>CuteMaze taškai</translation>
+        <translation>CuteMaze pisteet</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Vardas</translation>
+        <translation>Nimi</translation>
     </message>
     <message>
         <source>Score</source>
-        <translation>Surinkta taškų</translation>
+        <translation>Pisteet</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation>Laikas</translation>
+        <translation>Aika</translation>
     </message>
     <message>
         <source>Steps</source>
-        <translation>Žingsnių</translation>
+        <translation>Askeleet</translation>
     </message>
     <message>
         <source>Algorithm</source>
-        <translation>Algoritmas</translation>
+        <translation>Algoritmi</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>Dydis</translation>
+        <translation>Koko</translation>
     </message>
     <message>
         <source>Congratulations!</source>
-        <translation>Sveikinimai!</translation>
+        <translation>Onnittelut!</translation>
     </message>
     <message>
         <source>Your score has made the top ten.
 Please enter your name:</source>
-        <translation>Dėl surinktų taškų skaičiaus, patekote į pirmą dešimtuką.
-Prašome įrašyti savo vardą:</translation>
+        <translation>Pääsit kymmenen parhaan joukkoon.
+Kirjoita nimesi:</translation>
     </message>
 </context>
 <context>
     <name>Settings</name>
     <message>
         <source>Settings</source>
-        <translation>Nustatymai</translation>
+        <translation>Asetukset</translation>
     </message>
     <message>
         <source>Game</source>
-        <translation>Žaidimas</translation>
+        <translation>Peli</translation>
     </message>
     <message>
         <source>Show where you&apos;ve been</source>
-        <translation>Rodyti kur esate buvę</translation>
+        <translation>Näytä, missä olet käynyt</translation>
     </message>
     <message>
         <source>Show number of steps taken</source>
-        <translation>Rodyti padarytų žingsnių skaičių</translation>
+        <translation>Näytä askeleiden määrä</translation>
     </message>
     <message>
         <source>Show elapsed time</source>
-        <translation>Rodyti prabėgusį laiką</translation>
+        <translation>Näytä kulunut aika</translation>
     </message>
     <message>
         <source>Smooth movement</source>
-        <translation>Glotnūs judesiai</translation>
+        <translation>Sujuva liikkuvuus</translation>
     </message>
     <message>
         <source>Controls</source>
-        <translation>Valdymas</translation>
+        <translation>Näppäimet</translation>
     </message>
     <message>
         <source>Move Up:</source>
-        <translation>Judėti aukštyn:</translation>
+        <translation>Liiku ylös:</translation>
     </message>
     <message>
         <source>Move Down:</source>
-        <translation>Judėti žemyn:</translation>
+        <translation>Liiku alas:</translation>
     </message>
     <message>
         <source>Move Left:</source>
-        <translation>Judėti kairėn:</translation>
+        <translation>Liiku vasemmalle:</translation>
     </message>
     <message>
         <source>Move Right:</source>
-        <translation>Judėti dešinėn:</translation>
+        <translation>Liiku oikealle:</translation>
     </message>
     <message>
         <source>Toggle Flag:</source>
-        <translation>Perjungti vėliavą:</translation>
+        <translation>Vaihda lippua:</translation>
     </message>
     <message>
         <source>Themes</source>
-        <translation>Temos</translation>
+        <translation>Teemat</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Pridėti</translation>
+        <translation>Lisää</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Šalinti</translation>
+        <translation>Poista</translation>
     </message>
     <message>
         <source>Select Theme File</source>
-        <translation>Pasirinkite temos failą</translation>
+        <translation>Valitse teematiedosto</translation>
     </message>
     <message>
         <source>Sorry</source>
-        <translation>Atleiskite</translation>
+        <translation>Anteeksi</translation>
     </message>
     <message>
         <source>Unable to create data folder.</source>
-        <translation>Nepavyko sukurti duomenų aplanko.</translation>
+        <translation>Data-kansiota ei voitu luoda.</translation>
     </message>
     <message>
         <source>Unable to copy theme file.</source>
-        <translation>Nepavyko nukopijuoti temos failo.</translation>
+        <translation>Teematiedostoa ei voitu kopioida.</translation>
     </message>
     <message>
         <source>Question</source>
-        <translation>Klausimas</translation>
+        <translation>Kysymys</translation>
     </message>
     <message>
         <source>Remove the selected theme?</source>
-        <translation>Šalinti pasirinktą temą?</translation>
+        <translation>Poista valittu teema?</translation>
     </message>
     <message>
         <source>Unable to remove the selected theme.</source>
-        <translation>Neįmanoma pašalinti pasirinktos temos.</translation>
+        <translation>Valittua teemaa ei voitu poistaa</translation>
     </message>
 </context>
 <context>
@@ -332,7 +332,7 @@ Prašome įrašyti savo vardą:</translation>
     </message>
     <message>
         <source>View</source>
-        <translation>Rodinys</translation>
+        <translation>Näytä</translation>
     </message>
     <message>
         <source>Ctrl++</source>
@@ -344,83 +344,83 @@ Prašome įrašyti savo vardą:</translation>
     </message>
     <message>
         <source>About</source>
-        <translation>Apie</translation>
+        <translation>Tietoa</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
-        <translation>Apie &amp;Qt</translation>
+        <translation>Tietoa &amp;Qt</translation>
     </message>
     <message>
         <source>&amp;Game</source>
-        <translation>Žai&amp;dimas</translation>
+        <translation>&amp;Game</translation>
     </message>
     <message>
         <source>&amp;New</source>
-        <translation>&amp;Naujas</translation>
+        <translation>&amp;New</translation>
     </message>
     <message>
         <source>&amp;Pause</source>
-        <translation>&amp;Pauzė</translation>
+        <translation>&amp;Pause</translation>
     </message>
     <message>
         <source>&amp;Hint</source>
-        <translation>&amp;Užuomina</translation>
+        <translation>&amp;Hint</translation>
     </message>
     <message>
         <source>High &amp;Scores</source>
-        <translation>Rekordai</translation>
+        <translation>High &amp;Scores</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation>&amp;Išeiti</translation>
+        <translation>&amp;Quit</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation>D&amp;idinti</translation>
+        <translation>Zoom &amp;In</translation>
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation>&amp;Mažinti</translation>
+        <translation>Zoom &amp;Out</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation>&amp;Nustatymai</translation>
+        <translation>&amp;Settings</translation>
     </message>
     <message>
         <source>Application &amp;Language...</source>
-        <translation>Programos ka&amp;lba</translation>
+        <translation>Application &amp;Language...</translation>
     </message>
     <message>
         <source>&amp;Preferences...</source>
-        <translation>Nuos&amp;tatos</translation>
+        <translation>&amp;Preferences...</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation>&amp;Pagalba</translation>
+        <translation>&amp;Help</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation>&amp;Apie</translation>
+        <translation>&amp;About</translation>
     </message>
     <message>
         <source>A top-down maze game</source>
-        <translation>Iš viršaus į apačią labirintų žaidimas</translation>
+        <translation>Ylhäältäkuvattu labyrinttipeli</translation>
     </message>
     <message>
         <source>Copyright &amp;copy; 2007-%1 Graeme Gott</source>
-        <translation>Autorių Teisės &amp;copy; 2007-%1 Graeme Gott</translation>
+        <translation>Copyright &amp;copy; 2007-%1 Graeme Gott</translation>
     </message>
     <message>
         <source>Released under the &lt;a href=%1&gt;GPL 3&lt;/a&gt; license</source>
-        <translation>Išleista pagal &lt;a href=%1&gt;GPL 3&lt;/a&gt; licenciją</translation>
+        <translation>Julkaistu &lt;a href=%1&gt;GPL 3&lt;/a&gt; lisenssin alla</translation>
     </message>
     <message>
         <source>Icons are from the &lt;a href=%1&gt;Oxygen&lt;/a&gt; theme</source>
-        <translation>Piktogramos yra iš &lt;a href=%1&gt;Oxygen&lt;/a&gt; temos</translation>
+        <translation>Ikonit ovat &lt;a href=%1&gt;Oxygen&lt;/a&gt; teemasta</translation>
     </message>
     <message>
         <source>Used under the &lt;a href=%1&gt;LGPL 3&lt;/a&gt; license</source>
-        <translation>Panaudota pagal &lt;a href=%1&gt;LGPL 3&lt;/a&gt; licenciją</translation>
+        <translation>Käytetään &lt;a href=%1&gt;LGPL 3&lt;/a&gt; lisenssin alla</translation>
     </message>
 </context>
 </TS>

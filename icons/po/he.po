@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# GenghisKhan <genghiskhan@gmx.ca>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: CuteMaze\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-14 20:40+0000\n"
-"PO-Revision-Date: 2014-11-13 16:22+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Hebrew (http://www.transifex.com/projects/p/cutemaze/language/"
+"PO-Revision-Date: 2015-09-14 14:22+0000\n"
+"Last-Translator: GenghisKhan <genghiskhan@gmx.ca>\n"
+"Language-Team: Hebrew (http://www.transifex.com/gottcode/cutemaze/language/"
 "he/)\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +25,7 @@ msgstr ""
 
 #: ../cutemaze.appdata.xml.in.h:2 ../cutemaze.desktop.in.h:3
 msgid "Find targets in a maze"
-msgstr ""
+msgstr "מצא מטרות בתוך מבוך"
 
 #: ../cutemaze.appdata.xml.in.h:3
 msgid ""
@@ -33,6 +34,9 @@ msgid ""
 "character through the maze while hunting for targets (cheese, by default)—"
 "the game is won once all of these targets have been picked up."
 msgstr ""
+"‏CuteMaze הינו משחק מעלה-מטה, פשוט אשר בו מבוכים מופקים אוטומטית באמצעות אחד "
+"מתוך מספר אלגוריתמים שונים. עליך להזיז את התו דרך המבוך בשעת צייד עבור מטרות "
+"(גבינה, באופן שגרתי)-המשחק מנוצח כאשר כל מטרות אלה הושגו."
 
 #: ../cutemaze.desktop.in.h:2
 msgid "Simple Maze Game"

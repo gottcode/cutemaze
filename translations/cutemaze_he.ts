@@ -5,7 +5,7 @@
     <name>Board</name>
     <message>
         <source>Sorry</source>
-        <translation>צר לי</translation>
+        <translation>מצטערים</translation>
     </message>
     <message>
         <source>Unable to load previous game. A new game will be started.</source>
@@ -416,7 +416,7 @@ Please enter your name:</source>
     </message>
     <message>
         <source>Icons are from the &lt;a href=%1&gt;Oxygen&lt;/a&gt; theme</source>
-        <translation>הצלמיות נלקחו מן הפרויקט &lt;a href=%1&gt;Oxygen&lt;/a&gt;</translation>
+        <translation>סמלים מתוך פרויקט &lt;a href=%1&gt;Oxygen&lt;/a&gt;</translation>
     </message>
     <message>
         <source>Used under the &lt;a href=%1&gt;LGPL 3&lt;/a&gt; license</source>

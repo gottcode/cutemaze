@@ -6,7 +6,9 @@
   <name>CuteMaze</name>
   <name xml:lang="cs">CuteMaze</name>
   <name xml:lang="de">CuteMaze</name>
+  <name xml:lang="eo">CuteMaze</name>
   <name xml:lang="es">CuteMaze</name>
+  <name xml:lang="fi">CuteMaze</name>
   <name xml:lang="lt">CuteMaze</name>
   <name xml:lang="nl">CuteMaze</name>
   <name xml:lang="pl">CuteMaze</name>
@@ -15,9 +17,27 @@
   <name xml:lang="ru">CuteMaze</name>
   <name xml:lang="tr">CuteMaze</name>
   <summary>Find targets in a maze</summary>
+  <summary xml:lang="cs">Hledání cílů v bludišti</summary>
+  <summary xml:lang="de">Suchen Sie Ziele in einem Labyrinth</summary>
+  <summary xml:lang="eo">Trovu celojn en labirinto</summary>
+  <summary xml:lang="fi">Etsi kohteet labyrintissä</summary>
+  <summary xml:lang="he">מצא מטרות בתוך מבוך</summary>
+  <summary xml:lang="lt">Raskite objektus labirinte</summary>
+  <summary xml:lang="nl">Vind doelen in een doolhof</summary>
+  <summary xml:lang="pl">Znajdź cele w labiryncie</summary>
+  <summary xml:lang="ro">Căutaţi ţintele într-un labirint</summary>
 
   <description>
     <p>CuteMaze is a simple, top-down game in which mazes are randomly generated using one of a choice of several different algorithms. You move the character through the maze while hunting for targets (cheese, by default)—the game is won once all of these targets have been picked up.</p>
+    <p xml:lang="cs">CuteMaze je jednoduchá hra ode zdi ke zdi, v níž jsou bludiště vytvářena náhodně pomocí jednoho z rozdílných algoritmů. Provázíte osobu skrz bludiště za současného nahánění cílů (typicky sýr). Hra je vyhrána, jakmile jsou všechny tyto cíle posbírány.</p>
+    <p xml:lang="de">CuteMaze ist ein einfaches, von oben nach unten Spiel, in dem, nach einem Zufallsprinzip Labyrinthe aus einer Auswahl von mehreren verschiedenen Algorithmen generiert werden. Sie bewegen den Charakter durch das Labyrinth, auf der Jagd nach den Zielen (standardmäßig ist das Käse)—das Spiel wird gewonnen, wenn Sie alle diese Ziele eingesammelt haben.</p>
+    <p xml:lang="eo">CuteMaze estas simpla desupra ludo, en kiu labirintoj generas hazarde per unu el elekto de multaj diversaj algoritmoj. Vi movas la personon tra la labirinto dum ĉasi celojn (defaŭlte fromaĝo)—oni venkas la ludon post kiam ĉiuj celoj estas kolektitaj.</p>
+    <p xml:lang="fi">CuteMaze on simppeli, ylhäältä kuvattu peli, missä labyrintit on satunnaisesti generoitu käyttäen yhtä useasta eri algoritmistä. Sinä liikutat pelihahmoa labyrintissä etsien erilaisia kohteita (juusto, vakioasetuksissa)—peli on voitettu kun kaikki nämä kohteet on kerätty.</p>
+    <p xml:lang="he">‏CuteMaze הינו משחק מעלה-מטה, פשוט אשר בו מבוכים מופקים אוטומטית באמצעות אחד מתוך מספר אלגוריתמים שונים. עליך להזיז את התו דרך המבוך בשעת צייד עבור מטרות (גבינה, באופן שגרתי)-המשחק מנוצח כאשר כל מטרות אלה הושגו.</p>
+    <p xml:lang="lt">CuteMaze yra paprastas, iš viršaus į apačią žaidimas, kuriame yra atsitiktinai kuriami labirintai pagal vieną iš pasirinktų skirtingų algoritmų. Jūs judate veikėju, per labirintą, medžiodami objektus (pagal numatymą, sūrį)—žaidimas yra laimėtas tuomet, kai surinkti visi objektai.</p>
+    <p xml:lang="nl">Cutemaze is een simpel, top-down spel waarin doolhoven willekeurig gegenereerd worden door een van de gekozen algoritmes. Je kunt je persoon door het doolhof bewegen terwijl je naar doelwitten (standaard kaas) jaagt. Je hebt gewonnen als je alle doelwitten hebt opgeraapt</p>
+    <p xml:lang="pl">CuteMaze to prosta, z góry na dół gra, w której losowo generowane są labirynty przy użyciu jednego z kilku różnych algorytmów. Poruszasz się postacią przez labirynt podczas zbierania celi (domyślnie jest to ser)—gra zostaje wygrana, gdy wszystkie te cele zostały zebrane.</p>
+    <p xml:lang="ro">CuteMaze este un joc simplu, de sus în jos, în care labirinturi sînt generate aleator folosind unul la alegere din mai multţi algoritmi diferiţi. Mutaţi personajul prin labirint în timp ce vânaţi obiective (brânză, implicit) — jocul este cîştigat după ce toate aceste obiective au fost adunate.</p>
   </description>
 
   <screenshots>
