@@ -16,6 +16,7 @@
   <name xml:lang="ro">CuteMaze</name>
   <name xml:lang="ru">CuteMaze</name>
   <name xml:lang="tr">CuteMaze</name>
+  <name xml:lang="zh">CuteMaze</name>
   <summary>Find targets in a maze</summary>
   <summary xml:lang="cs">Hledání cílů v bludišti</summary>
   <summary xml:lang="de">Suchen Sie Ziele in einem Labyrinth</summary>
@@ -26,6 +27,7 @@
   <summary xml:lang="nl">Vind doelen in een doolhof</summary>
   <summary xml:lang="pl">Znajdź cele w labiryncie</summary>
   <summary xml:lang="ro">Căutaţi ţintele într-un labirint</summary>
+  <summary xml:lang="zh">在迷宫中寻找目标物</summary>
 
   <description>
     <p>CuteMaze is a simple, top-down game in which mazes are randomly generated using one of a choice of several different algorithms. You move the character through the maze while hunting for targets (cheese, by default)—the game is won once all of these targets have been picked up.</p>
