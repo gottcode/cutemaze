@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2009, 2014 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2009, 2014, 2017 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,6 +21,8 @@
 
 #include "maze.h"
 #include "path.h"
+
+#include <algorithm>
 
 // ============================================================================
 
@@ -43,7 +45,7 @@ Solver::Solver(Maze* maze, const QPoint& start, const QList<QPoint>& targets)
 		m_paths.append(new Path(m_maze, start, target));
 	}
 	compare_start = start;
-	qSort(m_paths.begin(), m_paths.end(), pathShorter);
+	std::sort(m_paths.begin(), m_paths.end(), pathShorter);
 }
 
 // ============================================================================
@@ -59,7 +61,7 @@ QPoint Solver::hint(const QPoint& current)
 			delete m_paths.takeFirst();
 			m_paths.append(new Path(m_maze, current, target));
 			compare_start = current;
-			qSort(m_paths.begin(), m_paths.end(), pathShorter);
+			std::sort(m_paths.begin(), m_paths.end(), pathShorter);
 		}
 	}
 }
