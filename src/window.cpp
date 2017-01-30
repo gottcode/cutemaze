@@ -131,7 +131,7 @@ void Window::initActions()
 	QAction* new_action = game_menu->addAction(fetchIcon("document-new"), tr("&New"), this, SLOT(newGame()), QKeySequence::New);
 	m_pause_action = game_menu->addAction(fetchIcon("media-playback-pause"), tr("&Pause"));
 	m_pause_action->setShortcut(tr("P"));
-	m_hint_action = game_menu->addAction(fetchIcon("games-hint"), tr("&Hint"), m_board, SLOT(hint()), tr("H"));
+	m_hint_action = game_menu->addAction(fetchIcon("games-hint"), tr("&Hint"), m_board, SLOT(hint()));
 	game_menu->addSeparator();
 	game_menu->addAction(fetchIcon("games-highscores"), tr("High &Scores"), m_scores, SLOT(exec()));
 	game_menu->addSeparator();

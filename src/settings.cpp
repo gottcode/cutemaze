@@ -217,6 +217,7 @@ Settings::Settings(QWidget* parent)
 	controls.append(new ControlButton("Left", Qt::Key_Left, this));
 	controls.append(new ControlButton("Right", Qt::Key_Right, this));
 	controls.append(new ControlButton("Flag", Qt::Key_Space, this));
+	controls.append(new ControlButton("Hint", Qt::Key_H, this));
 
 	QFormLayout * controls_layout = new QFormLayout(controls_tab);
 	controls_layout->addRow(tr("Move Up:"), controls[0]);
@@ -224,6 +225,7 @@ Settings::Settings(QWidget* parent)
 	controls_layout->addRow(tr("Move Left:"), controls[2]);
 	controls_layout->addRow(tr("Move Right:"), controls[3]);
 	controls_layout->addRow(tr("Toggle Flag:"), controls[4]);
+	controls_layout->addRow(tr("Show Hint:"), controls[5]);
 
 
 	// Create Themes tab

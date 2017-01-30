@@ -110,6 +110,7 @@ private:
 	unsigned int m_controls_left;
 	unsigned int m_controls_right;
 	unsigned int m_controls_flag;
+	unsigned int m_controls_hint;
 	QPoint m_hint;
 	int m_hint_angle;
 };
