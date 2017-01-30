@@ -319,6 +319,7 @@ void Board::loadSettings()
 	m_controls_left = settings.value("Controls/Left", Qt::Key_Left).toUInt();
 	m_controls_right = settings.value("Controls/Right", Qt::Key_Right).toUInt();
 	m_controls_flag = settings.value("Controls/Flag", Qt::Key_Space).toUInt();
+	m_controls_hint = settings.value("Controls/Hint", Qt::Key_H).toUInt();
 
 	// Load theme
 	m_theme->load(settings.value("Theme", "Mouse").toString());
@@ -374,6 +375,8 @@ void Board::keyPressEvent(QKeyEvent* event)
 		}
 	} else if (keypress == m_controls_flag) {
 		m_maze->cellMutable(m_player.x(), m_player.y()).toggleFlag();
+	} else if (keypress == m_controls_hint) {
+		hint();
 	} else {
 		return;
 	}
