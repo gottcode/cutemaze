@@ -315,6 +315,10 @@ Prašome įrašyti savo vardą:</translation>
         <source>Unable to remove the selected theme.</source>
         <translation>Neįmanoma pašalinti pasirinktos temos.</translation>
     </message>
+    <message>
+        <source>Show Hint:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Window</name>
@@ -325,10 +329,6 @@ Prašome įrašyti savo vardą:</translation>
     <message>
         <source>P</source>
         <translation>P</translation>
-    </message>
-    <message>
-        <source>H</source>
-        <translation>H</translation>
     </message>
     <message>
         <source>View</source>

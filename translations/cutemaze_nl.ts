@@ -315,6 +315,10 @@ Geef je naam in:</translation>
         <source>Unable to remove the selected theme.</source>
         <translation>Verwijderen thema faalde</translation>
     </message>
+    <message>
+        <source>Show Hint:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Window</name>
@@ -325,10 +329,6 @@ Geef je naam in:</translation>
     <message>
         <source>P</source>
         <translation>P</translation>
-    </message>
-    <message>
-        <source>H</source>
-        <translation>H</translation>
     </message>
     <message>
         <source>View</source>

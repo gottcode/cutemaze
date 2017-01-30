@@ -315,6 +315,10 @@ Vă rugăm tastaţi numele dvs.:</translation>
         <source>Unable to remove the selected theme.</source>
         <translation>Nu s-a putut elimina tema selectată.</translation>
     </message>
+    <message>
+        <source>Show Hint:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Window</name>
@@ -325,10 +329,6 @@ Vă rugăm tastaţi numele dvs.:</translation>
     <message>
         <source>P</source>
         <translation>P</translation>
-    </message>
-    <message>
-        <source>H</source>
-        <translation>H</translation>
     </message>
     <message>
         <source>View</source>

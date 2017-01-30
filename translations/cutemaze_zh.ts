@@ -314,6 +314,10 @@ Please enter your name:</source>
         <source>Unable to remove the selected theme.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Show Hint:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Window</name>
@@ -323,10 +327,6 @@ Please enter your name:</source>
     </message>
     <message>
         <source>P</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>H</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

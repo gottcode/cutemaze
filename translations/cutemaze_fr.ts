@@ -315,6 +315,10 @@ Veuillez saisir votre nom :</translation>
         <source>Unable to remove the selected theme.</source>
         <translation>Impossible de supprimer le thème sélectionné.</translation>
     </message>
+    <message>
+        <source>Show Hint:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Window</name>
@@ -325,10 +329,6 @@ Veuillez saisir votre nom :</translation>
     <message>
         <source>P</source>
         <translation>P</translation>
-    </message>
-    <message>
-        <source>H</source>
-        <translation>H</translation>
     </message>
     <message>
         <source>View</source>

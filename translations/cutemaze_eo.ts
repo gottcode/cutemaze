@@ -315,6 +315,10 @@ Bonvolu enigi vian nomon:</translation>
         <source>Unable to remove the selected theme.</source>
         <translation>Neeblas forigi la elektitan etoson.</translation>
     </message>
+    <message>
+        <source>Show Hint:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Window</name>
@@ -325,10 +329,6 @@ Bonvolu enigi vian nomon:</translation>
     <message>
         <source>P</source>
         <translation>P</translation>
-    </message>
-    <message>
-        <source>H</source>
-        <translation>H</translation>
     </message>
     <message>
         <source>View</source>
