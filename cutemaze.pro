@@ -90,7 +90,7 @@ macx {
 	desktop.path = $$PREFIX/share/applications/
 
 	appdata.files = icons/cutemaze.appdata.xml
-	appdata.path = $$PREFIX/share/appdata/
+	appdata.path = $$PREFIX/share/metainfo/
 
 	qm.files = translations/*.qm
 	qm.path = $$PREFIX/share/cutemaze/translations
