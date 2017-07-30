@@ -1,3 +1,9 @@
+1.2.1
+-----
+* Added keyboard shortcut for Show Hint in settings.
+* FIXED: Did not always install translations in Linux.
+* Translation updates: Chinese, German, Lithuanian, Polish, Romanian.
+
 1.2.0
 -----
 * Added support for high DPI displays.
