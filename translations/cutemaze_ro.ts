@@ -317,7 +317,7 @@ Vă rugăm tastaţi numele dvs.:</translation>
     </message>
     <message>
         <source>Show Hint:</source>
-        <translation type="unfinished"></translation>
+        <translation>Arată indiciu:</translation>
     </message>
 </context>
 <context>

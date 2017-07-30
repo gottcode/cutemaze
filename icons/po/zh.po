@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# 高垚鑫 Gao Yaoxin, aka Felix Yaoxin Gao, 2016
+# 高垚鑫, 2017
+# 高垚鑫, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: CuteMaze\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-14 20:40+0000\n"
-"PO-Revision-Date: 2016-10-29 15:10+0000\n"
-"Last-Translator: 高垚鑫 Gao Yaoxin, aka Felix Yaoxin Gao\n"
+"PO-Revision-Date: 2017-04-22 07:50+0000\n"
+"Last-Translator: 高垚鑫\n"
 "Language-Team: Chinese (http://www.transifex.com/gottcode/cutemaze/language/"
 "zh/)\n"
 "Language: zh\n"
@@ -25,7 +26,7 @@ msgstr "CuteMaze"
 
 #: ../cutemaze.appdata.xml.in.h:2 ../cutemaze.desktop.in.h:3
 msgid "Find targets in a maze"
-msgstr "在迷宫中寻找目标物"
+msgstr "在迷宫中寻找目标"
 
 #: ../cutemaze.appdata.xml.in.h:3
 msgid ""
@@ -34,7 +35,9 @@ msgid ""
 "character through the maze while hunting for targets (cheese, by default)—"
 "the game is won once all of these targets have been picked up."
 msgstr ""
+"CuteMaze 是一个简洁的、空中视角的迷宫游戏。迷宫由不同算法随机产生。你需要移动"
+"人物来找到目标(默认设置为奶酪)。所有目标都找到即为赢得游戏。"
 
 #: ../cutemaze.desktop.in.h:2
 msgid "Simple Maze Game"
-msgstr "一个简洁的迷宫游戏"
+msgstr "简洁的迷宫游戏"

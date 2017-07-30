@@ -317,7 +317,7 @@ Bitte trege deinen Namen ein:</translation>
     </message>
     <message>
         <source>Show Hint:</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinweis anzeigen:</translation>
     </message>
 </context>
 <context>

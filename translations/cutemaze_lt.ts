@@ -317,7 +317,7 @@ Prašome įrašyti savo vardą:</translation>
     </message>
     <message>
         <source>Show Hint:</source>
-        <translation type="unfinished"></translation>
+        <translation>Rodyti užuominą:</translation>
     </message>
 </context>
 <context>

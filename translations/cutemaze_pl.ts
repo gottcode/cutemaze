@@ -317,7 +317,7 @@ Podaj swoje imię:</translation>
     </message>
     <message>
         <source>Show Hint:</source>
-        <translation type="unfinished"></translation>
+        <translation>Pokaż podpowiedź:</translation>
     </message>
 </context>
 <context>
