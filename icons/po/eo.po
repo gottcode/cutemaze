@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# synteq, 2015
+# Corey Mardix, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: CuteMaze\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-14 20:40+0000\n"
 "PO-Revision-Date: 2015-06-28 02:47+0000\n"
-"Last-Translator: synteq\n"
+"Last-Translator: Corey Mardix\n"
 "Language-Team: Esperanto (http://www.transifex.com/gottcode/cutemaze/"
 "language/eo/)\n"
 "Language: eo\n"
