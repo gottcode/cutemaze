@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007, 2008, 2009, 2012, 2014, 2015, 2016 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007, 2008, 2009, 2012, 2014, 2015, 2016, 2018 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -817,7 +817,7 @@ void Board::renderText(QPainter* painter, const QString& message) const
 	QFont f = font();
 	f.setPointSize(24);
 	QFontMetrics metrics(f);
-	int width = metrics.width(message);
+	int width = metrics.boundingRect(message).width();
 	int height = metrics.height();
 
 	painter->save();
