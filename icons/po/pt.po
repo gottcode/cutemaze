@@ -3,18 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Heimen Stoffels <vistausss@outlook.com>, 2018
-# RobertBorst <webmaster@fam-borst.nl>, 2016
+# Rui <xymarior@yandex.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: CuteMaze\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-14 20:40+0000\n"
-"PO-Revision-Date: 2018-04-19 09:03+0000\n"
-"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
-"Language-Team: Dutch (http://www.transifex.com/gottcode/cutemaze/language/"
-"nl/)\n"
-"Language: nl\n"
+"PO-Revision-Date: 2018-04-26 00:59+0000\n"
+"Last-Translator: Rui <xymarior@yandex.com>\n"
+"Language-Team: Portuguese (Portugal) (http://www.transifex.com/gottcode/"
+"cutemaze/language/pt_PT/)\n"
+"Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,7 +25,7 @@ msgstr "CuteMaze"
 
 #: ../cutemaze.appdata.xml.in.h:2 ../cutemaze.desktop.in.h:3
 msgid "Find targets in a maze"
-msgstr "Vind doelen in een doolhof"
+msgstr "Procura alvos num labirinto"
 
 #: ../cutemaze.appdata.xml.in.h:3
 msgid ""
@@ -35,11 +34,11 @@ msgid ""
 "character through the maze while hunting for targets (cheese, by default)—"
 "the game is won once all of these targets have been picked up."
 msgstr ""
-"Cutemaze is een eenvoudig top-down spel waarin doolhoven willekeurig "
-"gegenereerd worden door één van de gekozen algoritmes. Je kunt je personage "
-"door het doolhof verplaatsen terwijl je op doelwitten (standaard: kaas) "
-"jaagt. Je hebt gewonnen als je alle doelwitten hebt opgeraapt."
+"O CuteMaze é um jogo simples de labirinto visto de cima e cujos labirintos "
+"são gerados aleatoriamente utilizando um dos vários algoritmos. Move-se o "
+"personagem no labirinto enquanto se caça alvos (por padrão é o queijo). O "
+"jogo é ganho assim que se pegar os alvos todos."
 
 #: ../cutemaze.desktop.in.h:2
 msgid "Simple Maze Game"
-msgstr "Eenvoudig doolhofspel"
+msgstr "Jogo Simples de Quebra-Cabeças"

@@ -13,11 +13,11 @@
     </message>
     <message>
         <source>%1 elapsed</source>
-        <translation>已消耗 %1 </translation>
+        <translation>已用时 %1 </translation>
     </message>
     <message>
         <source>%1 steps taken</source>
-        <translation>已消耗 %1 步</translation>
+        <translation>已走 %1 步</translation>
     </message>
     <message>
         <source>%1 of %2 targets remain</source>
@@ -75,7 +75,7 @@
     <name>LocaleDialog</name>
     <message>
         <source>Select application language:</source>
-        <translation>选择本游戏的语言</translation>
+        <translation>选择本游戏的语言:</translation>
     </message>
     <message>
         <source>&lt;System Language&gt;</source>
@@ -87,7 +87,7 @@
     </message>
     <message>
         <source>Please restart this application for the change in language to take effect.</source>
-        <translation>请重启本程序使语言设置生效</translation>
+        <translation>请重启本程序使语言设置生效。</translation>
     </message>
 </context>
 <context>
@@ -188,7 +188,7 @@
     <name>Scores</name>
     <message>
         <source>CuteMaze Scores</source>
-        <translation>CuteMaze 分数</translation>
+        <translation>CuteMaze 分数榜</translation>
     </message>
     <message>
         <source>Name</source>
@@ -196,7 +196,7 @@
     </message>
     <message>
         <source>Score</source>
-        <translation>成绩</translation>
+        <translation>分数</translation>
     </message>
     <message>
         <source>Time</source>
@@ -221,7 +221,7 @@
     <message>
         <source>Your score has made the top ten.
 Please enter your name:</source>
-        <translation>您的成绩进入前十。
+        <translation>您的分数进入前十。
 请输入尊姓大名：</translation>
     </message>
 </context>
@@ -368,7 +368,7 @@ Please enter your name:</source>
     </message>
     <message>
         <source>High &amp;Scores</source>
-        <translation> &amp;最高分</translation>
+        <translation> &amp;高分榜</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
