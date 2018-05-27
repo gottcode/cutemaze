@@ -93,8 +93,22 @@ macx {
 	icon.files = icons/hicolor/*
 	icon.path = $$PREFIX/share/icons/hicolor/
 
+	DESKTOPFILE = icons/cutemaze.desktop.in
+	updatedesktop.input = DESKTOPFILE
+	updatedesktop.output = ${QMAKE_FILE_PATH}/cutemaze.desktop
+	updatedesktop.commands = msgfmt --desktop -d ${QMAKE_FILE_PATH}/po --template ${QMAKE_FILE_IN} -o ${QMAKE_FILE_OUT}
+	updatedesktop.CONFIG += no_link target_predeps
+	QMAKE_EXTRA_COMPILERS += updatedesktop
+
 	desktop.files = icons/cutemaze.desktop
 	desktop.path = $$PREFIX/share/applications/
+
+	APPDATAFILE = icons/cutemaze.appdata.xml.in
+	updateappdata.input = APPDATAFILE
+	updateappdata.output = ${QMAKE_FILE_PATH}/cutemaze.appdata.xml
+	updateappdata.commands = msgfmt --xml -d ${QMAKE_FILE_PATH}/po --template ${QMAKE_FILE_IN} -o ${QMAKE_FILE_OUT}
+	updateappdata.CONFIG += no_link target_predeps
+	QMAKE_EXTRA_COMPILERS += updateappdata
 
 	appdata.files = icons/cutemaze.appdata.xml
 	appdata.path = $$PREFIX/share/metainfo/

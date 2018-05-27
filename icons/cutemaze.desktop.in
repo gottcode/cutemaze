@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=CuteMaze
+GenericName=Simple Maze Game
+Comment=Find targets in a maze
+Exec=cutemaze
+Icon=cutemaze
+Terminal=false
+Type=Application
+Categories=Qt;Game;LogicGame;
+Keywords=game;logic;

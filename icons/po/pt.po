@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Graeme Gott
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the CuteMaze package.
 #
 # Translators:
 # Rui <xymarior@yandex.com>, 2018
@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CuteMaze\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-14 20:40+0000\n"
-"PO-Revision-Date: 2018-04-26 00:59+0000\n"
-"Last-Translator: Rui <xymarior@yandex.com>\n"
+"POT-Creation-Date: 2018-05-27 19:05-0400\n"
+"PO-Revision-Date: 2018-05-27 23:14+0000\n"
+"Last-Translator: Graeme Gott <graeme@gottcode.org>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/gottcode/"
 "cutemaze/language/pt_PT/)\n"
 "Language: pt_PT\n"
@@ -19,15 +19,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../cutemaze.appdata.xml.in.h:1 ../cutemaze.desktop.in.h:1
+#: ../cutemaze.appdata.xml.in:6 ../cutemaze.desktop.in:3
 msgid "CuteMaze"
 msgstr "CuteMaze"
 
-#: ../cutemaze.appdata.xml.in.h:2 ../cutemaze.desktop.in.h:3
+#: ../cutemaze.appdata.xml.in:7 ../cutemaze.desktop.in:5
 msgid "Find targets in a maze"
 msgstr "Procura alvos num labirinto"
 
-#: ../cutemaze.appdata.xml.in.h:3
+#: ../cutemaze.appdata.xml.in:10
 msgid ""
 "CuteMaze is a simple, top-down game in which mazes are randomly generated "
 "using one of a choice of several different algorithms. You move the "
@@ -39,6 +39,6 @@ msgstr ""
 "personagem no labirinto enquanto se caça alvos (por padrão é o queijo). O "
 "jogo é ganho assim que se pegar os alvos todos."
 
-#: ../cutemaze.desktop.in.h:2
+#: ../cutemaze.desktop.in:4
 msgid "Simple Maze Game"
 msgstr "Jogo Simples de Quebra-Cabeças"

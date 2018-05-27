@@ -1,17 +1,18 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Graeme Gott
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the CuteMaze package.
 #
 # Translators:
+# 高垚鑫, 2016-2017
 # 高垚鑫, 2017
 # 高垚鑫, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: CuteMaze\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-14 20:40+0000\n"
-"PO-Revision-Date: 2017-04-22 07:50+0000\n"
-"Last-Translator: 高垚鑫\n"
+"POT-Creation-Date: 2018-05-27 19:05-0400\n"
+"PO-Revision-Date: 2018-05-27 23:12+0000\n"
+"Last-Translator: Graeme Gott <graeme@gottcode.org>\n"
 "Language-Team: Chinese (http://www.transifex.com/gottcode/cutemaze/language/"
 "zh/)\n"
 "Language: zh\n"
@@ -20,15 +21,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../cutemaze.appdata.xml.in.h:1 ../cutemaze.desktop.in.h:1
+#: ../cutemaze.appdata.xml.in:6 ../cutemaze.desktop.in:3
 msgid "CuteMaze"
 msgstr "CuteMaze"
 
-#: ../cutemaze.appdata.xml.in.h:2 ../cutemaze.desktop.in.h:3
+#: ../cutemaze.appdata.xml.in:7 ../cutemaze.desktop.in:5
 msgid "Find targets in a maze"
 msgstr "在迷宫中寻找目标"
 
-#: ../cutemaze.appdata.xml.in.h:3
+#: ../cutemaze.appdata.xml.in:10
 msgid ""
 "CuteMaze is a simple, top-down game in which mazes are randomly generated "
 "using one of a choice of several different algorithms. You move the "
@@ -38,6 +39,6 @@ msgstr ""
 "CuteMaze 是一个简洁的、空中视角的迷宫游戏。迷宫由不同算法随机产生。你需要移动"
 "人物来找到目标(默认设置为奶酪)。所有目标都找到即为赢得游戏。"
 
-#: ../cutemaze.desktop.in.h:2
+#: ../cutemaze.desktop.in:4
 msgid "Simple Maze Game"
 msgstr "简洁的迷宫游戏"

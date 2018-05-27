@@ -1,16 +1,17 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Graeme Gott
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the CuteMaze package.
 #
 # Translators:
+# Corey Mardix, 2015
 # Corey Mardix, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: CuteMaze\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-14 20:40+0000\n"
-"PO-Revision-Date: 2015-06-28 02:47+0000\n"
-"Last-Translator: Corey Mardix\n"
+"POT-Creation-Date: 2018-05-27 19:05-0400\n"
+"PO-Revision-Date: 2018-05-27 23:12+0000\n"
+"Last-Translator: Graeme Gott <graeme@gottcode.org>\n"
 "Language-Team: Esperanto (http://www.transifex.com/gottcode/cutemaze/"
 "language/eo/)\n"
 "Language: eo\n"
@@ -19,15 +20,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../cutemaze.appdata.xml.in.h:1 ../cutemaze.desktop.in.h:1
+#: ../cutemaze.appdata.xml.in:6 ../cutemaze.desktop.in:3
 msgid "CuteMaze"
 msgstr "CuteMaze"
 
-#: ../cutemaze.appdata.xml.in.h:2 ../cutemaze.desktop.in.h:3
+#: ../cutemaze.appdata.xml.in:7 ../cutemaze.desktop.in:5
 msgid "Find targets in a maze"
 msgstr "Trovu celojn en labirinto"
 
-#: ../cutemaze.appdata.xml.in.h:3
+#: ../cutemaze.appdata.xml.in:10
 msgid ""
 "CuteMaze is a simple, top-down game in which mazes are randomly generated "
 "using one of a choice of several different algorithms. You move the "
@@ -39,6 +40,6 @@ msgstr ""
 "labirinto dum ĉasi celojn (defaŭlte fromaĝo)—oni venkas la ludon post kiam "
 "ĉiuj celoj estas kolektitaj."
 
-#: ../cutemaze.desktop.in.h:2
+#: ../cutemaze.desktop.in:4
 msgid "Simple Maze Game"
 msgstr "Simpla Labirintludo"

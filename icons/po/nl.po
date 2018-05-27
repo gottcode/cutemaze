@@ -1,17 +1,18 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Graeme Gott
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the CuteMaze package.
 #
 # Translators:
 # Heimen Stoffels <vistausss@outlook.com>, 2018
+# RobertBorst <webmaster@fam-borst.nl>, 2016
 # RobertBorst <webmaster@fam-borst.nl>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: CuteMaze\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-14 20:40+0000\n"
-"PO-Revision-Date: 2018-04-19 09:03+0000\n"
-"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"POT-Creation-Date: 2018-05-27 19:05-0400\n"
+"PO-Revision-Date: 2018-05-27 23:12+0000\n"
+"Last-Translator: Graeme Gott <graeme@gottcode.org>\n"
 "Language-Team: Dutch (http://www.transifex.com/gottcode/cutemaze/language/"
 "nl/)\n"
 "Language: nl\n"
@@ -20,15 +21,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../cutemaze.appdata.xml.in.h:1 ../cutemaze.desktop.in.h:1
+#: ../cutemaze.appdata.xml.in:6 ../cutemaze.desktop.in:3
 msgid "CuteMaze"
 msgstr "CuteMaze"
 
-#: ../cutemaze.appdata.xml.in.h:2 ../cutemaze.desktop.in.h:3
+#: ../cutemaze.appdata.xml.in:7 ../cutemaze.desktop.in:5
 msgid "Find targets in a maze"
 msgstr "Vind doelen in een doolhof"
 
-#: ../cutemaze.appdata.xml.in.h:3
+#: ../cutemaze.appdata.xml.in:10
 msgid ""
 "CuteMaze is a simple, top-down game in which mazes are randomly generated "
 "using one of a choice of several different algorithms. You move the "
@@ -40,6 +41,6 @@ msgstr ""
 "door het doolhof verplaatsen terwijl je op doelwitten (standaard: kaas) "
 "jaagt. Je hebt gewonnen als je alle doelwitten hebt opgeraapt."
 
-#: ../cutemaze.desktop.in.h:2
+#: ../cutemaze.desktop.in:4
 msgid "Simple Maze Game"
 msgstr "Eenvoudig doolhofspel"

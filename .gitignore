@@ -2,4 +2,6 @@ Makefile
 build
 cutemaze
 *.qm
+*.appdata.xml
+*.desktop
 *~
