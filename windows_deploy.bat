@@ -3,7 +3,7 @@
 @ECHO OFF
 
 SET APP=CuteMaze
-SET VERSION=1.2.2
+SET VERSION=1.2.3
 
 ECHO Copying executable
 MKDIR %APP%
