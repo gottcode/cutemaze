@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the CuteMaze package.
 #
 # Translators:
-# Oprea Nicolae <jaff2002@yahoo.com>, 2014
+# Oprea Nicolae <jaff2002@yahoo.com>, 2014,2018
 msgid ""
 msgstr ""
 "Project-Id-Version: CuteMaze\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-27 19:05-0400\n"
-"PO-Revision-Date: 2018-05-27 23:14+0000\n"
-"Last-Translator: Graeme Gott <graeme@gottcode.org>\n"
+"PO-Revision-Date: 2018-05-29 00:38+0000\n"
+"Last-Translator: Oprea Nicolae <jaff2002@yahoo.com>\n"
 "Language-Team: Romanian (http://www.transifex.com/gottcode/cutemaze/language/"
 "ro/)\n"
 "Language: ro\n"
@@ -35,11 +35,10 @@ msgid ""
 "character through the maze while hunting for targets (cheese, by default)—"
 "the game is won once all of these targets have been picked up."
 msgstr ""
-"CuteMaze este un joc simplu, de sus în jos, în care labirinturi sînt "
-"generate aleator folosind unul la alegere din mai multţi algoritmi diferiţi. "
-"Mutaţi personajul prin labirint în timp ce vânaţi obiective (brânză, "
-"implicit) — jocul este cîştigat după ce toate aceste obiective au fost "
-"adunate."
+"CuteMaze este un joc simplu, de sus-jos, în care labirinturile sînt generate "
+"aleator folosind, la alegere, unul din mai mulţi algoritmi diferiţi. Mutaţi "
+"personajul prin labirint în timp ce vînaţi obiective (brânză, implicit) — "
+"jocul este cîştigat după ce toate aceste obiective au fost adunate."
 
 #: ../cutemaze.desktop.in:4
 msgid "Simple Maze Game"

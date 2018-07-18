@@ -45,7 +45,7 @@
     <p xml:lang="nl">Cutemaze is een eenvoudig top-down spel waarin doolhoven willekeurig gegenereerd worden door één van de gekozen algoritmes. Je kunt je personage door het doolhof verplaatsen terwijl je op doelwitten (standaard: kaas) jaagt. Je hebt gewonnen als je alle doelwitten hebt opgeraapt.</p>
     <p xml:lang="pl">CuteMaze to prosta, z góry na dół gra, w której losowo generowane są labirynty przy użyciu jednego z kilku różnych algorytmów. Poruszasz się postacią przez labirynt podczas zbierania celi (domyślnie jest to ser)—gra zostaje wygrana, gdy wszystkie te cele zostały zebrane.</p>
     <p xml:lang="pt">O CuteMaze é um jogo simples de labirinto visto de cima e cujos labirintos são gerados aleatoriamente utilizando um dos vários algoritmos. Move-se o personagem no labirinto enquanto se caça alvos (por padrão é o queijo). O jogo é ganho assim que se pegar os alvos todos.</p>
-    <p xml:lang="ro">CuteMaze este un joc simplu, de sus în jos, în care labirinturi sînt generate aleator folosind unul la alegere din mai multţi algoritmi diferiţi. Mutaţi personajul prin labirint în timp ce vânaţi obiective (brânză, implicit) — jocul este cîştigat după ce toate aceste obiective au fost adunate.</p>
+    <p xml:lang="ro">CuteMaze este un joc simplu, de sus-jos, în care labirinturile sînt generate aleator folosind, la alegere, unul din mai mulţi algoritmi diferiţi. Mutaţi personajul prin labirint în timp ce vînaţi obiective (brânză, implicit) — jocul este cîştigat după ce toate aceste obiective au fost adunate.</p>
     <p xml:lang="zh">CuteMaze 是一个简洁的、空中视角的迷宫游戏。迷宫由不同算法随机产生。你需要移动人物来找到目标(默认设置为奶酪)。所有目标都找到即为赢得游戏。</p>
   </description>
 

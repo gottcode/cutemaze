@@ -75,7 +75,7 @@
     <name>LocaleDialog</name>
     <message>
         <source>Select application language:</source>
-        <translation>Wähle eine Sprache</translation>
+        <translation>Sprache wählen:</translation>
     </message>
     <message>
         <source>&lt;System Language&gt;</source>
@@ -83,11 +83,11 @@
     </message>
     <message>
         <source>Note</source>
-        <translation>Notiz</translation>
+        <translation>Hinweis</translation>
     </message>
     <message>
         <source>Please restart this application for the change in language to take effect.</source>
-        <translation>Bitte starte die Anwendung neu damit die Änderungen wirksam werden.</translation>
+        <translation>Bitte starten Sie die Anwendung neu, damit die Änderungen wirksam werden.</translation>
     </message>
 </context>
 <context>
@@ -208,7 +208,7 @@
     </message>
     <message>
         <source>Algorithm</source>
-        <translation>Algorithmen</translation>
+        <translation>Algorithmus</translation>
     </message>
     <message>
         <source>Size</source>
@@ -222,7 +222,7 @@
         <source>Your score has made the top ten.
 Please enter your name:</source>
         <translation>Du hast es in die Top 10 geschafft.
-Bitte trege deinen Namen ein:</translation>
+Bitte trage deinen Namen ein:</translation>
     </message>
 </context>
 <context>
@@ -249,7 +249,7 @@ Bitte trege deinen Namen ein:</translation>
     </message>
     <message>
         <source>Smooth movement</source>
-        <translation>sanfte Bewegung</translation>
+        <translation>Sanfte Bewegung</translation>
     </message>
     <message>
         <source>Controls</source>
@@ -289,7 +289,7 @@ Bitte trege deinen Namen ein:</translation>
     </message>
     <message>
         <source>Select Theme File</source>
-        <translation>Wähle Theme</translation>
+        <translation>Theme-Datei wählen</translation>
     </message>
     <message>
         <source>Sorry</source>
@@ -388,7 +388,7 @@ Bitte trege deinen Namen ein:</translation>
     </message>
     <message>
         <source>Application &amp;Language...</source>
-        <translation>Programm &amp;Sprache</translation>
+        <translation>Programm&amp;sprache</translation>
     </message>
     <message>
         <source>&amp;Preferences...</source>
@@ -412,11 +412,11 @@ Bitte trege deinen Namen ein:</translation>
     </message>
     <message>
         <source>Released under the &lt;a href=%1&gt;GPL 3&lt;/a&gt; license</source>
-        <translation>Veröffentlicht unter der &lt;a href=%1&gt;GPL 3&lt;/a&gt; Lizenz</translation>
+        <translation>Veröffentlicht unter der &lt;a href=%1&gt;GPL 3&lt;/a&gt;-Lizenz</translation>
     </message>
     <message>
         <source>Icons are from the &lt;a href=%1&gt;Oxygen&lt;/a&gt; theme</source>
-        <translation>Icons entstammen dem &lt;a href=%1&gt;Oxygen&lt;/a&gt; Theme</translation>
+        <translation>Icons entstammen dem &lt;a href=%1&gt;Oxygen&lt;/a&gt;-Theme</translation>
     </message>
     <message>
         <source>Used under the &lt;a href=%1&gt;LGPL 3&lt;/a&gt; license</source>
