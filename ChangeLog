@@ -1,3 +1,8 @@
+1.2.4
+-----
+* FIXED: Automatic high DPI support.
+* Translation updates: German, Romanian.
+
 1.2.3
 -----
 * Replaced deprecated code.

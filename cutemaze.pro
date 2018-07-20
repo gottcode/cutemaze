@@ -24,7 +24,7 @@ CONFIG(debug, debug|release) {
 }
 
 # Set program version
-VERSION = 1.2.3
+VERSION = 1.2.4
 DEFINES += VERSIONSTR=\\\"$${VERSION}\\\"
 
 # Set program name
