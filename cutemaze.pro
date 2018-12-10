@@ -74,7 +74,9 @@ RESOURCES = icons/icons.qrc themes/theme.qrc preview/preview.qrc
 macx {
 	ICON = icons/cutemaze.icns
 } else:win32 {
-	RC_FILE = icons/icon.rc
+	RC_ICONS = icons/cutemaze.ico
+	QMAKE_TARGET_DESCRIPTION = "Simple maze game"
+	QMAKE_TARGET_COPYRIGHT = "Copyright (C) 2018 Graeme Gott"
 } else:unix {
 	RESOURCES += icons/icon.qrc
 
