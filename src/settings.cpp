@@ -186,7 +186,7 @@ Settings::Settings(QWidget* parent)
 	connect(buttons, &QDialogButtonBox::rejected, this, &Settings::reject);
 
 	QVBoxLayout* layout = new QVBoxLayout(this);
-	layout->setMargin(10);
+	layout->setContentsMargins(10, 10, 10, 10);
 	layout->setSpacing(18);
 	layout->addWidget(tabs);
 	layout->addWidget(buttons);
@@ -235,10 +235,10 @@ Settings::Settings(QWidget* parent)
 	m_themes_preview = new QLabel(themes_tab);
 
 	m_themes_selector = new QComboBox(themes_tab);
-	connect(m_themes_selector, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), this, &Settings::themeSelected);
+	connect(m_themes_selector, &QComboBox::currentTextChanged, this, &Settings::themeSelected);
 
 	QHBoxLayout* themes_selector_layout = new QHBoxLayout;
-	themes_selector_layout->setMargin(0);
+	themes_selector_layout->setContentsMargins(0, 0, 0, 0);
 	themes_selector_layout->addWidget(m_themes_selector, 1);
 
 	QPushButton* add_button = new QPushButton(tr("Add"), themes_tab);
