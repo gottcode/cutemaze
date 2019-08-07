@@ -1,3 +1,10 @@
+1.2.5
+-----
+* FIXED: Window icon didn't work in Wayland.
+* Improved loading locales.
+* Improved Windows deployment.
+* Replaced deprecated code.
+
 1.2.4
 -----
 * FIXED: Automatic high DPI support.
