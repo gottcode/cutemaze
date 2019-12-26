@@ -110,7 +110,7 @@ bool Window::event(QEvent* event)
 
 void Window::wheelEvent(QWheelEvent* event)
 {
-	if (event->delta() > 0) {
+	if (event->angleDelta().y() > 0) {
 		m_board->zoomIn();
 	} else {
 		m_board->zoomOut();

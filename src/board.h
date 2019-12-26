@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007-2009 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007-2009, 2019 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
 #ifndef BOARD_H
 #define BOARD_H
 
-#include <QTime>
+#include <QElapsedTimer>
 #include <QWidget>
 class QLabel;
 class QMainWindow;
@@ -103,7 +103,7 @@ private:
 	QPoint m_player;
 	int m_player_angle;
 	int m_player_steps;
-	QTime m_player_time;
+	QElapsedTimer m_player_time;
 	int m_player_total_time;
 	unsigned int m_controls_up;
 	unsigned int m_controls_down;
