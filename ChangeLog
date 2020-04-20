@@ -1,3 +1,10 @@
+1.2.6
+-----
+* FIXED: Did not load locales with underscores.
+* Improved Windows deployment.
+* Replaced deprecated code.
+* Translation updates: Chinese.
+
 1.2.5
 -----
 * FIXED: Window icon didn't work in Wayland.
