@@ -221,7 +221,7 @@
     <message>
         <source>Your score has made the top ten.
 Please enter your name:</source>
-        <translation>您的分数进入前十。
+        <translation>您的分数已进入前十。
 请输入尊姓大名：</translation>
     </message>
 </context>
@@ -404,7 +404,7 @@ Please enter your name:</source>
     </message>
     <message>
         <source>A top-down maze game</source>
-        <translation>一个空中视角的迷宫游戏</translation>
+        <translation>一个俯视视角的迷宫游戏</translation>
     </message>
     <message>
         <source>Copyright &amp;copy; 2007-%1 Graeme Gott</source>
