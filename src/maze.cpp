@@ -101,13 +101,13 @@ void KruskalMaze::generate()
 	m_set_ids = QVector< QVector<Set*> >(columns(), QVector<Set*>(rows()));
 	for (int c = 0; c < columns(); ++c) {
 		for (int r = 0; r < rows(); ++r) {
-			m_sets.append(QList<QPoint>() << QPoint(c, r));
-			m_set_ids[c][r] = &m_sets.last();
+			m_sets.push_back(QList<QPoint>() << QPoint(c, r));
+			m_set_ids[c][r] = &m_sets.back();
 		}
 	}
 
 	while (m_sets.size() > 1) {
-		Set* set1 = &m_sets.first();
+		Set* set1 = &m_sets.front();
 
 		// Find random cell
 		const QPoint& cell = set1->at(randomInt(set1->size()));
@@ -135,7 +135,7 @@ void KruskalMaze::generate()
 				m_set_ids[cell3.x()][cell3.y()] = set2;
 			}
 			*set2 += *set1;
-			m_sets.removeFirst();
+			m_sets.pop_front();
 		}
 	}
 

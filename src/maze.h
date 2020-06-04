@@ -23,10 +23,10 @@
 #include "cell.h"
 
 #include <QList>
-#include <QLinkedList>
 #include <QPoint>
 #include <QVector>
 
+#include <list>
 #include <random>
 
 class Maze
@@ -86,7 +86,7 @@ private:
 	virtual void generate();
 
 	typedef QList<QPoint> Set;
-	QLinkedList<Set> m_sets;
+	std::list<Set> m_sets;
 	QVector< QVector<Set*> > m_set_ids;
 };
 
