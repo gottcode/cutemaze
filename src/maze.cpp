@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007, 2008, 2012, 2014 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007-2020 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -362,7 +362,11 @@ bool Maze::load()
 	}
 
 	// Deserialize data
+#if (QT_VERSION >= QT_VERSION_CHECK(6,0,0))
+	QDataStream stream(&data, QDataStream::ReadOnly);
+#else
 	QDataStream stream(&data, QIODevice::ReadOnly);
+#endif
 	stream.setVersion(QDataStream::Qt_4_3);
 	for (int c = 0; c < m_columns; ++c) {
 		for (int r = 0; r < m_rows; ++r) {
@@ -386,7 +390,11 @@ void Maze::save() const
 {
 	// Serialize data
 	QByteArray data;
+#if (QT_VERSION >= QT_VERSION_CHECK(6,0,0))
+	QDataStream stream(&data, QDataStream::WriteOnly);
+#else
 	QDataStream stream(&data, QIODevice::WriteOnly);
+#endif
 	stream.setVersion(QDataStream::Qt_4_3);
 	for (int c = 0; c < m_columns; ++c) {
 		for (int r = 0; r < m_rows; ++r) {

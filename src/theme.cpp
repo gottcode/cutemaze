@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007, 2008, 2009, 2012, 2014, 2015, 2019 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007-2020 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -68,15 +68,15 @@ Theme::Theme() :
 
 	// Load theme locations
 #if defined(Q_OS_MAC)
-	m_locations = QStandardPaths::standardLocations(QStandardPaths::DataLocation);
+	m_locations = QStandardPaths::standardLocations(QStandardPaths::AppDataLocation);
 #elif defined(Q_OS_UNIX)
 	m_locations = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
 	for (int i = 0; i < m_locations.size(); ++i) {
 		m_locations[i] += "/games/cutemaze";
 	}
-	m_locations.prepend(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
+	m_locations.prepend(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation));
 #elif defined(Q_OS_WIN)
-	m_locations = QStandardPaths::standardLocations(QStandardPaths::DataLocation);
+	m_locations = QStandardPaths::standardLocations(QStandardPaths::AppDataLocation);
 	m_locations.append(QCoreApplication::applicationDirPath() + "/Themes");
 #endif
 	m_locations.append(":/games/cutemaze");

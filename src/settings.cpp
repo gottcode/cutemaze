@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007, 2008, 2009, 2012, 2014, 2015 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007-2020 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -43,7 +43,7 @@ namespace {
 
 QString homeDataPath()
 {
-	return QStandardPaths::writableLocation(QStandardPaths::DataLocation);
+	return QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
 }
 
 // ============================================================================
