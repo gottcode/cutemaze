@@ -1,13 +1,15 @@
-@ECHO ON>windows\dirs.nsh
-@ECHO ON>windows\files.nsh
+@ECHO ON>..\cutemaze\windows\dirs.nsh
+@ECHO ON>..\cutemaze\windows\files.nsh
 @ECHO OFF
 
+SET SRCDIR=..\cutemaze
 SET APP=CuteMaze
 SET VERSION=1.2.6
 
 ECHO Copying executable
-MKDIR %APP%
-COPY release\%APP%.exe %APP% >nul
+MKDIR %SRCDIR%\%APP%
+COPY release\%APP%.exe %SRCDIR%\%APP% >nul
+CD %SRCDIR%
 
 ECHO Copying translations
 SET TRANSLATIONS=%APP%\translations
@@ -15,7 +17,7 @@ MKDIR %TRANSLATIONS%
 COPY translations\*.qm %TRANSLATIONS% >nul
 
 ECHO Copying Qt
-%QTDIR%\bin\windeployqt.exe --verbose 0 --no-angle --no-opengl-sw %APP%\%APP%.exe
+%QTDIR%\bin\windeployqt.exe --verbose 0 --no-opengl-sw --no-system-d3d-compiler %APP%\%APP%.exe
 RMDIR /S /Q %APP%\iconengines
 RMDIR /S /Q %APP%\imageformats
 
