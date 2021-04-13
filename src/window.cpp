@@ -43,7 +43,7 @@ static QIcon fetchIcon(const QString& name)
 //-----------------------------------------------------------------------------
 
 Window::Window()
-	: m_pause_action(0)
+	: m_pause_action(nullptr)
 {
 	// Create game object
 	m_board = new Board(this);

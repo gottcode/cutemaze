@@ -41,7 +41,7 @@ QString homeDataPath()
 class ControlButton : public QPushButton
 {
 public:
-	ControlButton(const QString& type, Qt::Key default_key_value, QWidget* parent = 0);
+	ControlButton(const QString& type, Qt::Key default_key_value, QWidget* parent = nullptr);
 
 	unsigned int key;
 	unsigned int default_key;
@@ -53,7 +53,7 @@ protected:
 };
 
 QList<ControlButton*> controls;
-ControlButton* active_control = 0;
+ControlButton* active_control = nullptr;
 
 //-----------------------------------------------------------------------------
 
@@ -75,7 +75,7 @@ ControlButton::ControlButton(const QString& type, Qt::Key default_key_value, QWi
 void ControlButton::hideEvent(QHideEvent* event)
 {
 	if (this == active_control) {
-		active_control = 0;
+		active_control = nullptr;
 		setChecked(false);
 	}
 	QPushButton::hideEvent(event);
@@ -133,7 +133,7 @@ void ControlButton::keyPressEvent(QKeyEvent* event)
 		}
 		setText(control);
 		setChecked(false);
-		active_control = 0;
+		active_control = nullptr;
 	} else {
 		QPushButton::keyPressEvent(event);
 	}
@@ -149,7 +149,7 @@ void ControlButton::mousePressEvent(QMouseEvent* event)
 		}
 		active_control = this;
 	} else {
-		active_control = 0;
+		active_control = nullptr;
 	}
 	QPushButton::mousePressEvent(event);
 }

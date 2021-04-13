@@ -19,7 +19,7 @@ class Settings : public QDialog
 	Q_OBJECT
 
 public:
-	Settings(QWidget* parent = 0);
+	Settings(QWidget* parent = nullptr);
 	~Settings();
 
 signals:
