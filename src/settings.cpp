@@ -67,7 +67,6 @@ ControlButton::ControlButton(const QString& type, Qt::Key default_key_value, QWi
 	setCheckable(true);
 	setAutoDefault(false);
 	setFocusPolicy(Qt::StrongFocus);
-	installEventFilter(this);
 }
 
 //-----------------------------------------------------------------------------
