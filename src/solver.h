@@ -17,8 +17,8 @@
  *
  ***********************************************************************/
 
-#ifndef SOLVER_H
-#define SOLVER_H
+#ifndef CUTEMAZE_SOLVER_H
+#define CUTEMAZE_SOLVER_H
 
 #include <QList>
 #include <QPoint>
@@ -38,4 +38,4 @@ private:
 	QList<Path*> m_paths;
 };
 
-#endif // SOLVER_H
+#endif // CUTEMAZE_SOLVER_H

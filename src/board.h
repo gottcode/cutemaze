@@ -17,8 +17,8 @@
  *
  ***********************************************************************/
 
-#ifndef BOARD_H
-#define BOARD_H
+#ifndef CUTEMAZE_BOARD_H
+#define CUTEMAZE_BOARD_H
 
 #include <QElapsedTimer>
 #include <QWidget>
@@ -117,4 +117,4 @@ private:
 	int m_hint_angle;
 };
 
-#endif // BOARD_H
+#endif // CUTEMAZE_BOARD_H

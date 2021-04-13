@@ -17,8 +17,8 @@
  *
  ***********************************************************************/
 
-#ifndef CELL_H
-#define CELL_H
+#ifndef CUTEMAZE_CELL_H
+#define CUTEMAZE_CELL_H
 
 class QDataStream;
 
@@ -100,4 +100,4 @@ private:
 	unsigned char m_path_marker;
 };
 
-#endif // CELL_H
+#endif // CUTEMAZE_CELL_H

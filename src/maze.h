@@ -17,8 +17,8 @@
  *
  ***********************************************************************/
 
-#ifndef MAZE_H
-#define MAZE_H
+#ifndef CUTEMAZE_MAZE_H
+#define CUTEMAZE_MAZE_H
 
 #include "cell.h"
 
@@ -169,4 +169,4 @@ private:
 	virtual int nextActive(int size);
 };
 
-#endif // MAZE_H
+#endif // CUTEMAZE_MAZE_H

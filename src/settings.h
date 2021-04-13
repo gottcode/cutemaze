@@ -17,8 +17,8 @@
  *
  ***********************************************************************/
 
-#ifndef SETTINGS_H
-#define SETTINGS_H
+#ifndef CUTEMAZE_SETTINGS_H
+#define CUTEMAZE_SETTINGS_H
 
 #include <QDialog>
 class QCheckBox;
@@ -62,4 +62,4 @@ private:
 	Theme* m_theme;
 };
 
-#endif // SETTINGS_H
+#endif // CUTEMAZE_SETTINGS_H

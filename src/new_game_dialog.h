@@ -17,8 +17,8 @@
  *
  ***********************************************************************/
 
-#ifndef NEW_GAME_DIALOG_H
-#define NEW_GAME_DIALOG_H
+#ifndef CUTEMAZE_NEW_GAME_DIALOG_H
+#define CUTEMAZE_NEW_GAME_DIALOG_H
 
 #include <QDialog>
 class QComboBox;
@@ -48,4 +48,4 @@ private:
 	QSpinBox* m_mazes_size;
 };
 
-#endif // NEW_GAME_DIALOG_H
+#endif // CUTEMAZE_NEW_GAME_DIALOG_H

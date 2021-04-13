@@ -17,8 +17,8 @@
  *
  ***********************************************************************/
 
-#ifndef PATH_H
-#define PATH_H
+#ifndef CUTEMAZE_PATH_H
+#define CUTEMAZE_PATH_H
 
 #include <QList>
 #include <QPoint>
@@ -60,4 +60,4 @@ private:
 	QList<QPoint> m_solution;
 };
 
-#endif // PATH_H
+#endif // CUTEMAZE_PATH_H

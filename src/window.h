@@ -17,8 +17,8 @@
  *
  ***********************************************************************/
 
-#ifndef WINDOW_H
-#define WINDOW_H
+#ifndef CUTEMAZE_WINDOW_H
+#define CUTEMAZE_WINDOW_H
 
 #include <QMainWindow>
 class Board;
@@ -53,4 +53,4 @@ private:
 	QAction* m_hint_action;
 };
 
-#endif // WINDOW_H
+#endif // CUTEMAZE_WINDOW_H

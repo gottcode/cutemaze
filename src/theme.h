@@ -17,8 +17,8 @@
  *
  ***********************************************************************/
 
-#ifndef THEME_H
-#define THEME_H
+#ifndef CUTEMAZE_THEME_H
+#define CUTEMAZE_THEME_H
 
 #include <QPixmap>
 #include <QString>
@@ -70,4 +70,4 @@ private:
 	int m_ratio;
 };
 
-#endif // THEME_H
+#endif // CUTEMAZE_THEME_H
