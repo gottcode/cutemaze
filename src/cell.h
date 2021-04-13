@@ -12,7 +12,7 @@ class QDataStream;
 class Cell
 {
 public:
-	Cell();
+	explicit Cell();
 
 	bool leftWall() const
 	{

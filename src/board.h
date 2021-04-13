@@ -22,7 +22,7 @@ class Board : public QWidget
 	Q_OBJECT
 
 public:
-	Board(QMainWindow* parent);
+	explicit Board(QMainWindow* parent);
 	~Board();
 
 signals:

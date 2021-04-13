@@ -18,7 +18,7 @@ class NewGameDialog : public QDialog
 	Q_OBJECT
 
 public:
-	NewGameDialog(QWidget* parent = nullptr);
+	explicit NewGameDialog(QWidget* parent = nullptr);
 
 	static QString algorithmString(int algorithm);
 

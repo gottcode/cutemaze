@@ -15,7 +15,7 @@ class QSvgRenderer;
 class Theme
 {
 public:
-	Theme();
+	explicit Theme();
 	~Theme();
 
 	QStringList available() const;
