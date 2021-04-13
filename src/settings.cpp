@@ -285,7 +285,7 @@ void Settings::themeSelected(const QString& theme)
 	if (!theme.isEmpty()) {
 		m_theme->load(theme);
 		generatePreview();
-		m_themes_remove_button->setEnabled(QFileInfo(homeDataPath() + '/' + theme + ".svg").exists());
+		m_themes_remove_button->setEnabled(QFileInfo::exists(homeDataPath() + '/' + theme + ".svg"));
 	}
 }
 
@@ -301,7 +301,7 @@ void Settings::addTheme()
 
 	// Create data folder if necessary
 	QString dirpath = homeDataPath();
-	if (!QFileInfo(dirpath).exists()) {
+	if (!QFileInfo::exists(dirpath)) {
 		QDir dir = QDir::home();
 		if (!dir.mkpath(dirpath)) {
 			QMessageBox::warning(this, tr("Sorry"), tr("Unable to create data folder."));
@@ -337,7 +337,7 @@ void Settings::removeTheme()
 	}
 	QString dirpath = homeDataPath();
 	QString file = m_themes_selector->currentText() + ".svg";
-	if (!QFileInfo(dirpath + '/' + file).exists()) {
+	if (!QFileInfo::exists(dirpath + '/' + file)) {
 		return;
 	}
 
