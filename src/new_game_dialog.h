@@ -23,7 +23,7 @@ public:
 	static QString algorithmString(int algorithm);
 
 public slots:
-	virtual void accept();
+	void accept() override;
 
 private slots:
 	void algorithmSelected(int index);

@@ -19,9 +19,9 @@ public:
 	Window();
 
 protected:
-	virtual void closeEvent(QCloseEvent* event);
-	virtual bool event(QEvent* event);
-	virtual void wheelEvent(QWheelEvent* event);
+	void closeEvent(QCloseEvent* event) override;
+	bool event(QEvent* event) override;
+	void wheelEvent(QWheelEvent* event) override;
 
 private slots:
 	void about();

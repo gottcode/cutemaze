@@ -26,7 +26,7 @@ signals:
 	void settingsChanged();
 
 public slots:
-	virtual void accept();
+	void accept() override;
 
 private slots:
 	void themeSelected(const QString& theme);

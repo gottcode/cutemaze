@@ -72,7 +72,7 @@ private:
 class HuntAndKillMaze : public Maze
 {
 private:
-	virtual void generate();
+	void generate() override;
 	QPoint hunt();
 
 private:
@@ -84,7 +84,7 @@ private:
 class KruskalMaze : public Maze
 {
 private:
-	virtual void generate();
+	void generate() override;
 
 private:
 	typedef QList<QPoint> Set;
@@ -96,7 +96,7 @@ private:
 class PrimMaze : public Maze
 {
 private:
-	virtual void generate();
+	void generate() override;
 	void moveNeighbors(const QPoint& cell);
 	void mergeRandomNeighbor(const QPoint& cell);
 	QList<QPoint> neighbors(const QPoint& cell);
@@ -110,7 +110,7 @@ private:
 class RecursiveBacktrackerMaze : public Maze
 {
 private:
-	virtual void generate();
+	void generate() override;
 	void makePath(const QPoint& current);
 
 private:
@@ -121,7 +121,7 @@ private:
 class StackMaze : public Maze
 {
 private:
-	virtual void generate();
+	void generate() override;
 	virtual int nextActive(int size);
 
 private:
@@ -132,28 +132,28 @@ private:
 class Stack2Maze : public StackMaze
 {
 private:
-	virtual int nextActive(int size);
+	int nextActive(int size) override;
 };
 
 
 class Stack3Maze : public StackMaze
 {
 private:
-	virtual int nextActive(int size);
+	int nextActive(int size) override;
 };
 
 
 class Stack4Maze : public StackMaze
 {
 private:
-	virtual int nextActive(int size);
+	int nextActive(int size) override;
 };
 
 
 class Stack5Maze : public StackMaze
 {
 private:
-	virtual int nextActive(int size);
+	int nextActive(int size) override;
 };
 
 #endif // CUTEMAZE_MAZE_H

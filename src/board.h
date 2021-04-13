@@ -44,9 +44,9 @@ public slots:
 	void loadSettings();
 
 protected:
-	virtual void keyPressEvent(QKeyEvent* event);
-	virtual void paintEvent(QPaintEvent*);
-	virtual void resizeEvent(QResizeEvent*);
+	void keyPressEvent(QKeyEvent* event) override;
+	void paintEvent(QPaintEvent*) override;
+	void resizeEvent(QResizeEvent*) override;
 
 private slots:
 	void updateStatusMessage();

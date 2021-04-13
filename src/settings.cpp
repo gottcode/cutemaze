@@ -47,9 +47,9 @@ public:
 	unsigned int default_key;
 
 protected:
-	virtual void hideEvent(QHideEvent* event);
-	virtual void keyPressEvent(QKeyEvent* event);
-	virtual void mousePressEvent(QMouseEvent* event);
+	void hideEvent(QHideEvent* event) override;
+	void keyPressEvent(QKeyEvent* event) override;
+	void mousePressEvent(QMouseEvent* event) override;
 };
 
 QList<ControlButton*> controls;
