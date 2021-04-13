@@ -87,7 +87,7 @@
     </message>
     <message>
         <source>Please restart this application for the change in language to take effect.</source>
-        <translation>Herstart de applicatie om de taalwijziging toe te passen.</translation>
+        <translation>Herstart het programma om de taalwijziging toe te passen.</translation>
     </message>
 </context>
 <context>
@@ -297,7 +297,7 @@ Voer je naam in:</translation>
     </message>
     <message>
         <source>Unable to create data folder.</source>
-        <translation>Het creëren van de gegevensmap is mislukt.</translation>
+        <translation>Het aanmaken van de gegevensmap is mislukt.</translation>
     </message>
     <message>
         <source>Unable to copy theme file.</source>
@@ -317,7 +317,7 @@ Voer je naam in:</translation>
     </message>
     <message>
         <source>Show Hint:</source>
-        <translation>Hint weergeven:</translation>
+        <translation>Hint tonen:</translation>
     </message>
 </context>
 <context>
@@ -388,11 +388,11 @@ Voer je naam in:</translation>
     </message>
     <message>
         <source>Application &amp;Language...</source>
-        <translation>Applicatietaa&amp;l...</translation>
+        <translation>Programmataa&amp;l...</translation>
     </message>
     <message>
         <source>&amp;Preferences...</source>
-        <translation>&amp;Voorkeuren...</translation>
+        <translation>&amp;Instellingen…</translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -404,7 +404,7 @@ Voer je naam in:</translation>
     </message>
     <message>
         <source>A top-down maze game</source>
-        <translation>Een &apos;top-down&apos; doolhofspel</translation>
+        <translation>Een doolhofspel, van bovenaf gezien</translation>
     </message>
     <message>
         <source>Copyright &amp;copy; 2007-%1 Graeme Gott</source>
