@@ -421,6 +421,16 @@ void Board::keyPressEvent(QKeyEvent* event)
 
 //-----------------------------------------------------------------------------
 
+void Board::mousePressEvent(QMouseEvent* event)
+{
+	if (m_paused) {
+		emit pauseChecked(false);
+	}
+	QWidget::mousePressEvent(event);
+}
+
+//-----------------------------------------------------------------------------
+
 void Board::paintEvent(QPaintEvent*)
 {
 	if (!m_paused) {

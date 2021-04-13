@@ -47,6 +47,7 @@ public slots:
 protected:
 	void focusOutEvent(QFocusEvent* event) override;
 	void keyPressEvent(QKeyEvent* event) override;
+	void mousePressEvent(QMouseEvent* event) override;
 	void paintEvent(QPaintEvent*) override;
 	void resizeEvent(QResizeEvent*) override;
 
