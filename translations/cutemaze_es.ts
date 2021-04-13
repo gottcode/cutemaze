@@ -146,50 +146,7 @@
     </message>
 </context>
 <context>
-    <name>QLabel</name>
-    <message>
-        <source>Hunt and Kill</source>
-        <translation>Hunt-and-Kill</translation>
-    </message>
-    <message>
-        <source>Kruskal</source>
-        <translation>Kruskal</translation>
-    </message>
-    <message>
-        <source>Prim</source>
-        <translation>Prim</translation>
-    </message>
-    <message>
-        <source>Recursive Backtracker</source>
-        <translation>Vuelta atrás recursiva</translation>
-    </message>
-    <message>
-        <source>Stack</source>
-        <translation>Pila</translation>
-    </message>
-    <message>
-        <source>Stack 2</source>
-        <translation>Pila 2</translation>
-    </message>
-    <message>
-        <source>Stack 3</source>
-        <translation>Pila 3</translation>
-    </message>
-    <message>
-        <source>Stack 4</source>
-        <translation>Pila 4</translation>
-    </message>
-    <message>
-        <source>Stack 5</source>
-        <translation>Pila 5</translation>
-    </message>
-</context>
-<context>
-    <name>Scores</name>
-    <message>
-        <source>CuteMaze Scores</source>
-        <translation>Puntuaciones de CuteMaze</translation>
-    </message>
+    <name>ScoresDialog</name>
     <message>
         <source>Name</source>
         <translation>Nombre</translation>
@@ -219,10 +176,28 @@
         <translation>¡Felicidades!</translation>
     </message>
     <message>
-        <source>Your score has made the top ten.
-Please enter your name:</source>
-        <translation>Su puntuación está entre las diez mejores.
-Escriba su nombre:</translation>
+        <source>High Scores</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rank</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>#%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You beat your top score!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Well done!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have a new high score!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -421,6 +396,10 @@ Escriba su nombre:</translation>
     <message>
         <source>Used under the &lt;a href=%1&gt;LGPL 3&lt;/a&gt; license</source>
         <translation>Utilizado bajo la licencia &lt;a href=%1&gt;LGPL 3&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <source>Ctrl+H</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

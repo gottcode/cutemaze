@@ -146,50 +146,7 @@
     </message>
 </context>
 <context>
-    <name>QLabel</name>
-    <message>
-        <source>Hunt and Kill</source>
-        <translation>Metsästä ja tapa</translation>
-    </message>
-    <message>
-        <source>Kruskal</source>
-        <translation>Kruskal</translation>
-    </message>
-    <message>
-        <source>Prim</source>
-        <translation>Prim</translation>
-    </message>
-    <message>
-        <source>Recursive Backtracker</source>
-        <translation>Itseääntoistava jäljitin</translation>
-    </message>
-    <message>
-        <source>Stack</source>
-        <translation>Pino</translation>
-    </message>
-    <message>
-        <source>Stack 2</source>
-        <translation>Pino 2</translation>
-    </message>
-    <message>
-        <source>Stack 3</source>
-        <translation>Pino 3</translation>
-    </message>
-    <message>
-        <source>Stack 4</source>
-        <translation>Pino 4</translation>
-    </message>
-    <message>
-        <source>Stack 5</source>
-        <translation>Pino 5</translation>
-    </message>
-</context>
-<context>
-    <name>Scores</name>
-    <message>
-        <source>CuteMaze Scores</source>
-        <translation>CuteMaze pisteet</translation>
-    </message>
+    <name>ScoresDialog</name>
     <message>
         <source>Name</source>
         <translation>Nimi</translation>
@@ -219,10 +176,28 @@
         <translation>Onnittelut!</translation>
     </message>
     <message>
-        <source>Your score has made the top ten.
-Please enter your name:</source>
-        <translation>Pääsit kymmenen parhaan joukkoon.
-Kirjoita nimesi:</translation>
+        <source>High Scores</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rank</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>#%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You beat your top score!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Well done!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have a new high score!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -421,6 +396,10 @@ Kirjoita nimesi:</translation>
     <message>
         <source>Used under the &lt;a href=%1&gt;LGPL 3&lt;/a&gt; license</source>
         <translation>Käytetään &lt;a href=%1&gt;LGPL 3&lt;/a&gt; lisenssin alla</translation>
+    </message>
+    <message>
+        <source>Ctrl+H</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

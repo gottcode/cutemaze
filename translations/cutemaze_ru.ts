@@ -146,50 +146,7 @@
     </message>
 </context>
 <context>
-    <name>QLabel</name>
-    <message>
-        <source>Hunt and Kill</source>
-        <translation>Охота и убийство</translation>
-    </message>
-    <message>
-        <source>Kruskal</source>
-        <translation>Краскал</translation>
-    </message>
-    <message>
-        <source>Prim</source>
-        <translation>Прим</translation>
-    </message>
-    <message>
-        <source>Recursive Backtracker</source>
-        <translation>Рекурсивный обход</translation>
-    </message>
-    <message>
-        <source>Stack</source>
-        <translation>Стек</translation>
-    </message>
-    <message>
-        <source>Stack 2</source>
-        <translation> Стек 2</translation>
-    </message>
-    <message>
-        <source>Stack 3</source>
-        <translation>Стек 3</translation>
-    </message>
-    <message>
-        <source>Stack 4</source>
-        <translation>Стек 4</translation>
-    </message>
-    <message>
-        <source>Stack 5</source>
-        <translation>Стек 5</translation>
-    </message>
-</context>
-<context>
-    <name>Scores</name>
-    <message>
-        <source>CuteMaze Scores</source>
-        <translation>Очки CuteMaze</translation>
-    </message>
+    <name>ScoresDialog</name>
     <message>
         <source>Name</source>
         <translation>Имя</translation>
@@ -219,10 +176,28 @@
         <translation>Поздравляем!</translation>
     </message>
     <message>
-        <source>Your score has made the top ten.
-Please enter your name:</source>
-        <translation>Вы попали в десятку лучших.
-Пожалуйста. введите свое имя:</translation>
+        <source>High Scores</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rank</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>#%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You beat your top score!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Well done!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have a new high score!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -421,6 +396,10 @@ Please enter your name:</source>
     <message>
         <source>Used under the &lt;a href=%1&gt;LGPL 3&lt;/a&gt; license</source>
         <translation>Используются под лицензией &lt;a href=%1&gt;LGPL 3&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <source>Ctrl+H</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

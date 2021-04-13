@@ -146,50 +146,7 @@
     </message>
 </context>
 <context>
-    <name>QLabel</name>
-    <message>
-        <source>Hunt and Kill</source>
-        <translation>Avla ve Öldür</translation>
-    </message>
-    <message>
-        <source>Kruskal</source>
-        <translation>Kruskal</translation>
-    </message>
-    <message>
-        <source>Prim</source>
-        <translation>Prim</translation>
-    </message>
-    <message>
-        <source>Recursive Backtracker</source>
-        <translation>Recursive Backtracker</translation>
-    </message>
-    <message>
-        <source>Stack</source>
-        <translation>Yığın</translation>
-    </message>
-    <message>
-        <source>Stack 2</source>
-        <translation>Yığın 2</translation>
-    </message>
-    <message>
-        <source>Stack 3</source>
-        <translation>Yığın 3</translation>
-    </message>
-    <message>
-        <source>Stack 4</source>
-        <translation>Yığın 4</translation>
-    </message>
-    <message>
-        <source>Stack 5</source>
-        <translation>Yığın 5</translation>
-    </message>
-</context>
-<context>
-    <name>Scores</name>
-    <message>
-        <source>CuteMaze Scores</source>
-        <translation>Skor Tablosu</translation>
-    </message>
+    <name>ScoresDialog</name>
     <message>
         <source>Name</source>
         <translation>İsim</translation>
@@ -219,10 +176,28 @@
         <translation>Tebrikler!</translation>
     </message>
     <message>
-        <source>Your score has made the top ten.
-Please enter your name:</source>
-        <translation>İlk 10&apos;a girdiniz.
-Lütfen adınızı girin:</translation>
+        <source>High Scores</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rank</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>#%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You beat your top score!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Well done!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have a new high score!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -421,6 +396,10 @@ Lütfen adınızı girin:</translation>
     <message>
         <source>Used under the &lt;a href=%1&gt;LGPL 3&lt;/a&gt; license</source>
         <translation>&lt;a href=%1&gt;LGPL 3&lt;/a&gt; lisansı altındadır</translation>
+    </message>
+    <message>
+        <source>Ctrl+H</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -146,50 +146,7 @@
     </message>
 </context>
 <context>
-    <name>QLabel</name>
-    <message>
-        <source>Hunt and Kill</source>
-        <translation>Ĉaso kaj Mortigo</translation>
-    </message>
-    <message>
-        <source>Kruskal</source>
-        <translation>Kruskal</translation>
-    </message>
-    <message>
-        <source>Prim</source>
-        <translation>Prim</translation>
-    </message>
-    <message>
-        <source>Recursive Backtracker</source>
-        <translation>Rikura Malavanco</translation>
-    </message>
-    <message>
-        <source>Stack</source>
-        <translation>Pilo</translation>
-    </message>
-    <message>
-        <source>Stack 2</source>
-        <translation>Pilo 2</translation>
-    </message>
-    <message>
-        <source>Stack 3</source>
-        <translation>Pilo 34</translation>
-    </message>
-    <message>
-        <source>Stack 4</source>
-        <translation>Pilo 4</translation>
-    </message>
-    <message>
-        <source>Stack 5</source>
-        <translation>Pilo 5</translation>
-    </message>
-</context>
-<context>
-    <name>Scores</name>
-    <message>
-        <source>CuteMaze Scores</source>
-        <translation>Poentaroj de CuteMaze</translation>
-    </message>
+    <name>ScoresDialog</name>
     <message>
         <source>Name</source>
         <translation>Nomo</translation>
@@ -219,10 +176,28 @@
         <translation>Gratulon!</translation>
     </message>
     <message>
-        <source>Your score has made the top ten.
-Please enter your name:</source>
-        <translation>Via poentaro estas inter la dek plej.
-Bonvolu enigi vian nomon:</translation>
+        <source>High Scores</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rank</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>#%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You beat your top score!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Well done!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have a new high score!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -421,6 +396,10 @@ Bonvolu enigi vian nomon:</translation>
     <message>
         <source>Used under the &lt;a href=%1&gt;LGPL 3&lt;/a&gt; license</source>
         <translation>Uzata per la &lt;a href=%1&gt;LGPL 3&lt;/a&gt; permesilo</translation>
+    </message>
+    <message>
+        <source>Ctrl+H</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

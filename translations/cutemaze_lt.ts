@@ -146,50 +146,7 @@
     </message>
 </context>
 <context>
-    <name>QLabel</name>
-    <message>
-        <source>Hunt and Kill</source>
-        <translation>Medžioti ir užmušti</translation>
-    </message>
-    <message>
-        <source>Kruskal</source>
-        <translation>Kruskal</translation>
-    </message>
-    <message>
-        <source>Prim</source>
-        <translation>Prim</translation>
-    </message>
-    <message>
-        <source>Recursive Backtracker</source>
-        <translation>Pasikartojanti apylanka</translation>
-    </message>
-    <message>
-        <source>Stack</source>
-        <translation>Dėklas</translation>
-    </message>
-    <message>
-        <source>Stack 2</source>
-        <translation>2 Dėklas</translation>
-    </message>
-    <message>
-        <source>Stack 3</source>
-        <translation>3 Dėklas</translation>
-    </message>
-    <message>
-        <source>Stack 4</source>
-        <translation>4 Dėklas</translation>
-    </message>
-    <message>
-        <source>Stack 5</source>
-        <translation>5 Dėklas</translation>
-    </message>
-</context>
-<context>
-    <name>Scores</name>
-    <message>
-        <source>CuteMaze Scores</source>
-        <translation>CuteMaze taškai</translation>
-    </message>
+    <name>ScoresDialog</name>
     <message>
         <source>Name</source>
         <translation>Vardas</translation>
@@ -219,10 +176,28 @@
         <translation>Sveikinimai!</translation>
     </message>
     <message>
-        <source>Your score has made the top ten.
-Please enter your name:</source>
-        <translation>Dėl surinktų taškų skaičiaus, patekote į pirmą dešimtuką.
-Prašome įrašyti savo vardą:</translation>
+        <source>High Scores</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rank</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>#%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You beat your top score!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Well done!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have a new high score!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -421,6 +396,10 @@ Prašome įrašyti savo vardą:</translation>
     <message>
         <source>Used under the &lt;a href=%1&gt;LGPL 3&lt;/a&gt; license</source>
         <translation>Panaudota pagal &lt;a href=%1&gt;LGPL 3&lt;/a&gt; licenciją</translation>
+    </message>
+    <message>
+        <source>Ctrl+H</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
