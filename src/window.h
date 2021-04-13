@@ -21,7 +21,6 @@ public:
 
 protected:
 	void closeEvent(QCloseEvent* event) override;
-	bool event(QEvent* event) override;
 	void wheelEvent(QWheelEvent* event) override;
 
 private slots:

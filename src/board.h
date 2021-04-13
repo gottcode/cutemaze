@@ -1,5 +1,5 @@
 /*
-	SPDX-FileCopyrightText: 2007-2019 Graeme Gott <graeme@gottcode.org>
+	SPDX-FileCopyrightText: 2007-2021 Graeme Gott <graeme@gottcode.org>
 
 	SPDX-License-Identifier: GPL-3.0-or-later
 */
@@ -45,6 +45,7 @@ public slots:
 	void loadSettings();
 
 protected:
+	void focusOutEvent(QFocusEvent* event) override;
 	void keyPressEvent(QKeyEvent* event) override;
 	void paintEvent(QPaintEvent*) override;
 	void resizeEvent(QResizeEvent*) override;

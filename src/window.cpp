@@ -82,16 +82,6 @@ void Window::closeEvent(QCloseEvent* event)
 
 //-----------------------------------------------------------------------------
 
-bool Window::event(QEvent* event)
-{
-	if ((event->type() == QEvent::WindowBlocked || event->type() == QEvent::WindowDeactivate) && m_pause_action && m_pause_action->isEnabled()) {
-		m_pause_action->setChecked(true);
-	}
-	return QMainWindow::event(event);
-}
-
-//-----------------------------------------------------------------------------
-
 void Window::wheelEvent(QWheelEvent* event)
 {
 	if (event->angleDelta().y() > 0) {

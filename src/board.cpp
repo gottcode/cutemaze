@@ -1,5 +1,5 @@
 /*
-	SPDX-FileCopyrightText: 2007-2020 Graeme Gott <graeme@gottcode.org>
+	SPDX-FileCopyrightText: 2007-2021 Graeme Gott <graeme@gottcode.org>
 
 	SPDX-License-Identifier: GPL-3.0-or-later
 */
@@ -316,6 +316,14 @@ void Board::loadSettings()
 	// Show
 	update();
 	updateStatusMessage();
+}
+
+//-----------------------------------------------------------------------------
+
+void Board::focusOutEvent(QFocusEvent* event)
+{
+	emit pauseChecked(true);
+	QWidget::focusOutEvent(event);
 }
 
 //-----------------------------------------------------------------------------
