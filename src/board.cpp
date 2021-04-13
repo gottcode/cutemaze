@@ -15,6 +15,7 @@
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QPainter>
+#include <QRandomGenerator>
 #include <QSettings>
 #include <QStatusBar>
 #include <QTimeLine>
@@ -22,7 +23,6 @@
 #include <QTimer>
 
 #include <algorithm>
-#include <ctime>
 #include <random>
 
 //-----------------------------------------------------------------------------
@@ -106,14 +106,7 @@ void Board::newGame()
 	m_status_timer->stop();
 
 	// Fetch new seed
-#ifndef Q_OS_WIN
-	std::random_device rd;
-	unsigned int seed = rd();
-#else
-	std::mt19937 gen(time(0));
-	std::uniform_int_distribution<unsigned int> dist;
-	unsigned int seed = dist(gen);
-#endif
+	const unsigned int seed = QRandomGenerator::global()->generate();
 
 	// Set values for new game
 	QSettings settings;
