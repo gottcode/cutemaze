@@ -24,7 +24,7 @@
 
 #include <algorithm>
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 namespace
 {
@@ -36,10 +36,10 @@ namespace
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 Solver::Solver(Maze* maze, const QPoint& start, const QList<QPoint>& targets)
-:	m_maze(maze)
+	: m_maze(maze)
 {
 	for (const QPoint& target : targets) {
 		m_paths.append(new Path(m_maze, start, target));
@@ -48,7 +48,7 @@ Solver::Solver(Maze* maze, const QPoint& start, const QList<QPoint>& targets)
 	std::sort(m_paths.begin(), m_paths.end(), pathShorter);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 QPoint Solver::hint(const QPoint& current)
 {
@@ -66,7 +66,7 @@ QPoint Solver::hint(const QPoint& current)
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 void Solver::removeTarget(const QPoint& target)
 {
@@ -78,4 +78,4 @@ void Solver::removeTarget(const QPoint& target)
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------

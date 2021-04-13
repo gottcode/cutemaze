@@ -59,6 +59,7 @@ private:
 	void cache(const QString& element, QPixmap& pixmap, const QRect& bounds, int angle = 0) const;
 	QString findFile(const QString& theme, const QString& file) const;
 
+private:
 	QStringList m_locations;
 	QSvgRenderer* m_renderer;
 	QPixmap m_pixmap[TotalElements];

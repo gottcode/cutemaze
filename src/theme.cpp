@@ -30,7 +30,7 @@
 #include <QSvgRenderer>
 
 namespace {
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 struct CornerType
 {
@@ -55,14 +55,14 @@ CornerType corners[15] = {
 	{0, 0}
 };
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
-Theme::Theme() :
-	m_unit(32),
-	m_ratio(1)
+Theme::Theme()
+	: m_unit(32)
+	, m_ratio(1)
 {
 	m_renderer = new QSvgRenderer;
 
@@ -82,14 +82,14 @@ Theme::Theme() :
 	m_locations.append(":/games/cutemaze");
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 Theme::~Theme()
 {
 	delete m_renderer;
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 QStringList Theme::available() const
 {
@@ -121,7 +121,7 @@ QStringList Theme::available() const
 	return list;
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 void Theme::load(const QString& name)
 {
@@ -140,7 +140,7 @@ void Theme::load(const QString& name)
 	scale(m_unit);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 void Theme::scale(int unit)
 {
@@ -170,7 +170,7 @@ void Theme::scale(int unit)
 	cache("background", m_pixmap[Background], bounds);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 void Theme::setDevicePixelRatio(int ratio)
 {
@@ -178,7 +178,7 @@ void Theme::setDevicePixelRatio(int ratio)
 	scale(m_unit);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 void Theme::draw(QPainter& painter, int column, int row, enum Element element) const
 {
@@ -186,7 +186,7 @@ void Theme::draw(QPainter& painter, int column, int row, enum Element element) c
 	painter.drawPixmap(column * 3 * m_unit, row * 3 * m_unit, m_pixmap[element]);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 void Theme::draw(QPainter& painter, int column, int row, enum RotatedElement element, int angle) const
 {
@@ -199,14 +199,14 @@ void Theme::draw(QPainter& painter, int column, int row, enum RotatedElement ele
 	painter.drawPixmap(column * 3 * m_unit, row * 3 * m_unit, m_pixmap_rotated[element][angle]);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 void Theme::drawBackground(QPainter& painter) const
 {
 	painter.fillRect(0, 0, painter.device()->width(), painter.device()->height(), m_pixmap[Background]);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 void Theme::drawCorner(QPainter& painter, int column, int row, unsigned char walls) const
 {
@@ -215,7 +215,7 @@ void Theme::drawCorner(QPainter& painter, int column, int row, unsigned char wal
 	painter.drawPixmap((column * 3 * m_unit) - m_unit, (row * 3 * m_unit) - m_unit, m_pixmap_corner[walls - 1]);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 void Theme::drawWall(QPainter& painter, int column, int row, bool vertical) const
 {
@@ -226,7 +226,7 @@ void Theme::drawWall(QPainter& painter, int column, int row, bool vertical) cons
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 void Theme::cache(const QString& element, QPixmap& pixmap, const QRect& bounds, int angle) const
 {
@@ -245,4 +245,4 @@ void Theme::cache(const QString& element, QPixmap& pixmap, const QRect& bounds, 
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------

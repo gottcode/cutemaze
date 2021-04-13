@@ -28,30 +28,65 @@ public:
 	Cell();
 
 	bool leftWall() const
-		{ return m_left_wall; }
+	{
+		return m_left_wall;
+	}
+
 	bool rightWall() const
-		{ return m_right_wall; }
+	{
+		return m_right_wall;
+	}
+
 	bool topWall() const
-		{ return m_top_wall; }
+	{
+		return m_top_wall;
+	}
+
 	bool bottomWall() const
-		{ return m_bottom_wall; }
+	{
+		return m_bottom_wall;
+	}
+
+
 	void removeLeftWall()
-		{ m_left_wall = false; }
+	{
+		m_left_wall = false;
+	}
+
 	void removeRightWall()
-		{ m_right_wall = false; }
+	{
+		m_right_wall = false;
+	}
+
 	void removeTopWall()
-		{ m_top_wall = false; }
+	{
+		m_top_wall = false;
+	}
+
 	void removeBottomWall()
-		{ m_bottom_wall = false; }
+	{
+		m_bottom_wall = false;
+	}
+
 
 	int pathMarker() const
-		{ return m_path_marker * 90; }
+	{
+		return m_path_marker * 90;
+	}
+
 	void setPathMarker(int angle);
 
+
 	bool flag() const
-		{ return m_flag; }
+	{
+		return m_flag;
+	}
+
 	void toggleFlag()
-		{ m_flag = !m_flag; }
+	{
+		m_flag = !m_flag;
+	}
+
 
     friend QDataStream& operator<<(QDataStream&, const Cell&);
     friend QDataStream& operator>>(QDataStream&, Cell&);

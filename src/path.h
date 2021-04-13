@@ -32,7 +32,9 @@ public:
 	Path(Maze* maze, const QPoint& start, const QPoint& end);
 
 	QPoint end() const
-		{ return m_end; }
+	{
+		return m_end;
+	}
 
 	QPoint hint(const QPoint& cell) const;
 
@@ -44,9 +46,13 @@ private:
 	bool rightWall(const QPoint& pos) const;
 	bool topWall(const QPoint& pos) const;
 	bool bottomWall(const QPoint& pos) const;
-	int cellWalls(const QPoint& pos) const
-		{ return leftWall(pos) + rightWall(pos) + topWall(pos) + bottomWall(pos); }
 
+	int cellWalls(const QPoint& pos) const
+	{
+		return leftWall(pos) + rightWall(pos) + topWall(pos) + bottomWall(pos);
+	}
+
+private:
 	Maze* m_maze;
 	QPoint m_start;
 	QPoint m_end;

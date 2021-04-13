@@ -33,6 +33,7 @@ class Theme;
 class Board : public QWidget
 {
 	Q_OBJECT
+
 public:
 	Board(QMainWindow* parent);
 	~Board();
@@ -73,6 +74,7 @@ private:
 	void renderPause();
 	void renderText(QPainter* painter, const QString& message) const;
 
+private:
 	bool m_done;
 	bool m_paused;
 

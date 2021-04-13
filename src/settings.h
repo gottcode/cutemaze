@@ -30,6 +30,7 @@ class Theme;
 class Settings : public QDialog
 {
 	Q_OBJECT
+
 public:
 	Settings(QWidget* parent = 0);
 	~Settings();
@@ -49,6 +50,7 @@ private:
 	void loadSettings();
 	void generatePreview();
 
+private:
 	QCheckBox* m_gameplay_path;
 	QCheckBox* m_gameplay_steps;
 	QCheckBox* m_gameplay_time;

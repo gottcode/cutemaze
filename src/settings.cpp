@@ -39,17 +39,17 @@
 #include <QVBoxLayout>
 
 namespace {
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 QString homeDataPath()
 {
 	return QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 // ControlButton class
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 class ControlButton : public QPushButton
 {
@@ -68,12 +68,12 @@ protected:
 QList<ControlButton*> controls;
 ControlButton* active_control = 0;
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 ControlButton::ControlButton(const QString& type, Qt::Key default_key_value, QWidget* parent)
-:	QPushButton(parent),
-	key(default_key_value),
-	default_key(default_key_value)
+	: QPushButton(parent)
+	, key(default_key_value)
+	, default_key(default_key_value)
 {
 	setObjectName("control_" + type);
 	setText(QKeySequence(key).toString());
@@ -83,7 +83,7 @@ ControlButton::ControlButton(const QString& type, Qt::Key default_key_value, QWi
 	installEventFilter(this);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 void ControlButton::hideEvent(QHideEvent* event)
 {
@@ -94,7 +94,7 @@ void ControlButton::hideEvent(QHideEvent* event)
 	QPushButton::hideEvent(event);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 void ControlButton::keyPressEvent(QKeyEvent* event)
 {
@@ -152,7 +152,7 @@ void ControlButton::keyPressEvent(QKeyEvent* event)
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 void ControlButton::mousePressEvent(QMouseEvent* event)
 {
@@ -167,14 +167,14 @@ void ControlButton::mousePressEvent(QMouseEvent* event)
 	QPushButton::mousePressEvent(event);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 }
 
 // Settings class
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 Settings::Settings(QWidget* parent)
-:	QDialog(parent)
+	: QDialog(parent)
 {
 	setWindowTitle(tr("Settings"));
 	m_theme = new Theme;
@@ -258,7 +258,7 @@ Settings::Settings(QWidget* parent)
 	loadSettings();
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 Settings::~Settings()
 {
@@ -266,7 +266,7 @@ Settings::~Settings()
 	delete m_theme;
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 void Settings::accept()
 {
@@ -291,7 +291,7 @@ void Settings::accept()
 	QDialog::accept();
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 void Settings::themeSelected(const QString& theme)
 {
@@ -302,7 +302,7 @@ void Settings::themeSelected(const QString& theme)
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 void Settings::addTheme()
 {
@@ -340,7 +340,7 @@ void Settings::addTheme()
 	m_themes_selector->setCurrentIndex(theme);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 void Settings::removeTheme()
 {
@@ -374,7 +374,7 @@ void Settings::removeTheme()
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 void Settings::loadSettings()
 {
@@ -403,7 +403,7 @@ void Settings::loadSettings()
 	m_themes_selector->setCurrentIndex(theme);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 void Settings::generatePreview()
 {
@@ -449,4 +449,4 @@ void Settings::generatePreview()
 	m_themes_preview->setPixmap(pixmap);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------

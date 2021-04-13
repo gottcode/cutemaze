@@ -21,13 +21,13 @@
 
 #include "maze.h"
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 Path::Path(Maze* maze, const QPoint& start, const QPoint& end)
-:	m_maze(maze),
-	m_start(start),
-	m_end(end),
-	m_cells(maze->columns(), QVector<bool>(maze->rows(), false))
+	: m_maze(maze)
+	, m_start(start)
+	, m_end(end)
+	, m_cells(maze->columns(), QVector<bool>(maze->rows(), false))
 {
 	// Fill in dead ends
 	for (int r = 0; r < m_maze->rows(); ++r) {
@@ -51,7 +51,7 @@ Path::Path(Maze* maze, const QPoint& start, const QPoint& end)
 	m_solution.append(pos);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 QPoint Path::hint(const QPoint& cell) const
 {
@@ -63,7 +63,7 @@ QPoint Path::hint(const QPoint& cell) const
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 int Path::length(const QPoint& start) const
 {
@@ -75,7 +75,7 @@ int Path::length(const QPoint& start) const
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 void Path::findNextCell(QPoint& pos)
 {
@@ -90,32 +90,32 @@ void Path::findNextCell(QPoint& pos)
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 bool Path::leftWall(const QPoint& pos) const
 {
 	return (m_maze->cell(pos.x(), pos.y()).leftWall() || (pos.x() > 0 && m_cells[pos.x() - 1][pos.y()] == true));
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 bool Path::rightWall(const QPoint& pos) const
 {
 	return (m_maze->cell(pos.x(), pos.y()).rightWall() || (pos.x() < m_maze->columns() - 1 && m_cells[pos.x() + 1][pos.y()] == true));
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 bool Path::topWall(const QPoint& pos) const
 {
 	return (m_maze->cell(pos.x(), pos.y()).topWall() || (pos.y() > 0 && m_cells[pos.x()][pos.y() - 1] == true));
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 bool Path::bottomWall(const QPoint& pos) const
 {
 	return (m_maze->cell(pos.x(), pos.y()).bottomWall() || (pos.y() < m_maze->rows() - 1 && m_cells[pos.x()][pos.y() + 1] == true));
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------

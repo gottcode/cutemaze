@@ -27,10 +27,10 @@
 #include <QSpinBox>
 #include <QVBoxLayout>
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 NewGameDialog::NewGameDialog(QWidget* parent)
-:	QDialog(parent)
+	: QDialog(parent)
 {
 	setWindowTitle(tr("New Game"));
 
@@ -73,7 +73,7 @@ NewGameDialog::NewGameDialog(QWidget* parent)
 	layout->addWidget(buttons);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 QString NewGameDialog::algorithmString(int algorithm)
 {
@@ -90,7 +90,7 @@ QString NewGameDialog::algorithmString(int algorithm)
 	return algorithms.value(algorithm);
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 void NewGameDialog::accept()
 {
@@ -103,7 +103,7 @@ void NewGameDialog::accept()
 	QDialog::accept();
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------
 
 void NewGameDialog::algorithmSelected(int index)
 {
@@ -112,4 +112,4 @@ void NewGameDialog::algorithmSelected(int index)
 	}
 }
 
-// ============================================================================
+//-----------------------------------------------------------------------------

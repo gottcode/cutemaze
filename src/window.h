@@ -27,6 +27,7 @@ class QAction;
 class Window : public QMainWindow
 {
 	Q_OBJECT
+
 public:
 	Window();
 
@@ -46,6 +47,7 @@ private slots:
 private:
 	void initActions();
 
+private:
 	Board* m_board;
 	QAction* m_pause_action;
 	QAction* m_hint_action;
