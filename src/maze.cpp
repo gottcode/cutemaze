@@ -354,7 +354,7 @@ bool Maze::load()
 #else
 	QDataStream stream(&data, QIODevice::ReadOnly);
 #endif
-	stream.setVersion(QDataStream::Qt_4_3);
+	stream.setVersion(QDataStream::Qt_5_12);
 	for (int c = 0; c < m_columns; ++c) {
 		for (int r = 0; r < m_rows; ++r) {
 			stream >> m_cells[c][r];
@@ -382,7 +382,7 @@ void Maze::save() const
 #else
 	QDataStream stream(&data, QIODevice::WriteOnly);
 #endif
-	stream.setVersion(QDataStream::Qt_4_3);
+	stream.setVersion(QDataStream::Qt_5_12);
 	for (int c = 0; c < m_columns; ++c) {
 		for (int r = 0; r < m_rows; ++r) {
 			stream << m_cells[c][r];
