@@ -65,7 +65,7 @@ private:
 	std::mt19937 m_random;
 	int m_columns;
 	int m_rows;
-	QVector< QVector<Cell> > m_cells;
+	QVector<QVector<Cell>> m_cells;
 };
 
 
@@ -76,7 +76,7 @@ private:
 	QPoint hunt();
 
 private:
-	QVector< QVector<bool> > m_visited;
+	QVector<QVector<bool>> m_visited;
 	int m_unvisited;
 };
 
@@ -89,7 +89,7 @@ private:
 private:
 	typedef QList<QPoint> Set;
 	std::list<Set> m_sets;
-	QVector< QVector<Set*> > m_set_ids;
+	QVector<QVector<Set*>> m_set_ids;
 };
 
 
@@ -103,7 +103,7 @@ private:
 
 private:
 	QList<QPoint> m_frontier;
-	QVector< QVector<int> > m_regions;
+	QVector<QVector<int>> m_regions;
 };
 
 
@@ -114,7 +114,7 @@ private:
 	void makePath(const QPoint& current);
 
 private:
-	QVector< QVector<bool> > m_visited;
+	QVector<QVector<bool>> m_visited;
 };
 
 
@@ -125,7 +125,7 @@ private:
 	virtual int nextActive(int size);
 
 private:
-	QVector< QVector<bool> > m_visited;
+	QVector<QVector<bool>> m_visited;
 };
 
 

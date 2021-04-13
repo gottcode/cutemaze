@@ -43,7 +43,7 @@ private:
 	Maze* m_maze;
 	QPoint m_start;
 	QPoint m_end;
-	QVector< QVector<bool> > m_cells;
+	QVector<QVector<bool>> m_cells;
 	QList<QPoint> m_solution;
 };
 
