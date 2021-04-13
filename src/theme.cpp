@@ -115,7 +115,7 @@ void Theme::load(const QString& name)
 	QString theme = name;
 
 	QFileInfo info;
-	for (const QString& location : m_locations) {
+	for (const QString& location : qAsConst(m_locations)) {
 		info.setFile(location + '/' + name + ".svg");
 		if (info.exists()) {
 			theme = info.canonicalFilePath();
