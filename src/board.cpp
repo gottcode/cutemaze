@@ -566,7 +566,7 @@ void Board::finish()
 	update();
 
 	// Add high score
-	emit finished(m_player_steps, seconds, algorithm, size);
+	emit finished(seconds, m_player_steps, algorithm, size);
 }
 
 // ============================================================================

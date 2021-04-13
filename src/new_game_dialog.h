@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007-2009 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007-2021 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,12 +24,15 @@
 class QComboBox;
 class QLabel;
 class QSpinBox;
+class QString;
 
 class NewGameDialog : public QDialog
 {
 	Q_OBJECT
 public:
 	NewGameDialog(QWidget* parent = 0);
+
+	static QString algorithmString(int algorithm);
 
 public slots:
 	virtual void accept();

@@ -22,7 +22,7 @@
 #include "board.h"
 #include "locale_dialog.h"
 #include "new_game_dialog.h"
-#include "scores.h"
+#include "scores_dialog.h"
 #include "settings.h"
 
 #include <QAction>
@@ -62,10 +62,7 @@ Window::Window()
 	m_board = new Board(this);
 	setCentralWidget(m_board);
 	m_board->setFocus();
-
-	// Create scores window
-	m_scores = new Scores(this);
-	connect(m_board, &Board::finished, m_scores, &Scores::addScore);
+	connect(m_board, &Board::finished, this, &Window::gameFinished);
 
 	// Create actions
 	if (iconSize().width() == 26) {
@@ -133,7 +130,7 @@ void Window::initActions()
 	m_pause_action->setShortcut(tr("P"));
 	m_hint_action = game_menu->addAction(fetchIcon("games-hint"), tr("&Hint"), m_board, SLOT(hint()));
 	game_menu->addSeparator();
-	game_menu->addAction(fetchIcon("games-highscores"), tr("High &Scores"), m_scores, SLOT(exec()));
+	game_menu->addAction(fetchIcon("games-highscores"), tr("High &Scores"), this, &Window::showScores, tr("Ctrl+H"));
 	game_menu->addSeparator();
 	QAction* quit_action = game_menu->addAction(fetchIcon("application-exit"), tr("&Quit"), this, SLOT(close()), QKeySequence::Quit);
 	quit_action->setMenuRole(QAction::QuitRole);
@@ -191,6 +188,24 @@ void Window::newGame()
 	if (dialog.exec() == QDialog::Accepted) {
 		m_board->newGame();
 	}
+}
+
+// ============================================================================
+
+void Window::gameFinished(int seconds, int steps, int algorithm, int size)
+{
+	ScoresDialog scores(this);
+	if (scores.addScore(seconds, steps, algorithm, size)) {
+		scores.exec();
+	}
+}
+
+// ============================================================================
+
+void Window::showScores()
+{
+	ScoresDialog scores(this);
+	scores.exec();
 }
 
 // ============================================================================

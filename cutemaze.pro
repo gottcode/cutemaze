@@ -36,7 +36,7 @@ HEADERS = src/board.h \
 	src/maze.h \
 	src/new_game_dialog.h \
 	src/path.h \
-	src/scores.h \
+	src/scores_dialog.h \
 	src/settings.h \
 	src/solver.h \
 	src/theme.h \
@@ -49,7 +49,7 @@ SOURCES = src/board.cpp \
 	src/maze.cpp \
 	src/new_game_dialog.cpp \
 	src/path.cpp \
-	src/scores.cpp \
+	src/scores_dialog.cpp \
 	src/settings.cpp \
 	src/solver.cpp \
 	src/theme.cpp \

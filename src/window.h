@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007,2008, 2009, 2012 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007-2021 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,7 +22,6 @@
 
 #include <QMainWindow>
 class Board;
-class Scores;
 class QAction;
 
 class Window : public QMainWindow
@@ -39,6 +38,8 @@ protected:
 private slots:
 	void about();
 	void newGame();
+	void gameFinished(int seconds, int steps, int algorithm, int size);
+	void showScores();
 	void showSettings();
 	void setLocale();
 
@@ -46,7 +47,6 @@ private:
 	void initActions();
 
 	Board* m_board;
-	Scores* m_scores;
 	QAction* m_pause_action;
 	QAction* m_hint_action;
 };

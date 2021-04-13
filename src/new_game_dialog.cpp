@@ -1,6 +1,6 @@
 /***********************************************************************
  *
- * Copyright (C) 2007, 2008, 2009, 2012, 2014 Graeme Gott <graeme@gottcode.org>
+ * Copyright (C) 2007-2021 Graeme Gott <graeme@gottcode.org>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -40,15 +40,9 @@ NewGameDialog::NewGameDialog(QWidget* parent)
 	m_mazes_algorithm = new QComboBox(this);
 	m_mazes_algorithm->setInsertPolicy(QComboBox::InsertAlphabetically);
 	connect(m_mazes_algorithm, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &NewGameDialog::algorithmSelected);
-	m_mazes_algorithm->addItem(tr("Hunt and Kill"), 0);
-	m_mazes_algorithm->addItem(tr("Kruskal"), 1);
-	m_mazes_algorithm->addItem(tr("Prim"), 2);
-	m_mazes_algorithm->addItem(tr("Recursive Backtracker"), 3);
-	m_mazes_algorithm->addItem(tr("Stack"), 4);
-	m_mazes_algorithm->addItem(tr("Stack 2"), 5);
-	m_mazes_algorithm->addItem(tr("Stack 3"), 6);
-	m_mazes_algorithm->addItem(tr("Stack 4"), 7);
-	m_mazes_algorithm->addItem(tr("Stack 5"), 8);
+	for (int i = 0; i < 9; ++i) {
+		m_mazes_algorithm->addItem(algorithmString(i), i);
+	}
 
 	m_mazes_targets = new QSpinBox(this);
 	m_mazes_targets->setRange(1, 99);
@@ -77,6 +71,23 @@ NewGameDialog::NewGameDialog(QWidget* parent)
 	QVBoxLayout* layout = new QVBoxLayout(this);
 	layout->addLayout(contents_layout);
 	layout->addWidget(buttons);
+}
+
+// ============================================================================
+
+QString NewGameDialog::algorithmString(int algorithm)
+{
+	static const QStringList algorithms = QStringList()
+			<< tr("Hunt and Kill")
+			<< tr("Kruskal")
+			<< tr("Prim")
+			<< tr("Recursive Backtracker")
+			<< tr("Stack")
+			<< tr("Stack 2")
+			<< tr("Stack 3")
+			<< tr("Stack 4")
+			<< tr("Stack 5");
+	return algorithms.value(algorithm);
 }
 
 // ============================================================================
