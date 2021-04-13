@@ -26,7 +26,7 @@ NewGameDialog::NewGameDialog(QWidget* parent)
 
 	m_mazes_algorithm = new QComboBox(this);
 	m_mazes_algorithm->setInsertPolicy(QComboBox::InsertAlphabetically);
-	connect(m_mazes_algorithm, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &NewGameDialog::algorithmSelected);
+	connect(m_mazes_algorithm, qOverload<int>(&QComboBox::currentIndexChanged), this, &NewGameDialog::algorithmSelected);
 	for (int i = 0; i < 9; ++i) {
 		m_mazes_algorithm->addItem(algorithmString(i), i);
 	}

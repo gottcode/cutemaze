@@ -55,7 +55,7 @@ Board::Board(QMainWindow* parent)
 	m_move_animation->setFrameRange(0, 3);
 	m_move_animation->setEasingCurve(QEasingCurve::Linear);
 	m_move_animation->setUpdateInterval(15);
-	connect(m_move_animation, &QTimeLine::frameChanged, this, static_cast<void (Board::*)()>(&Board::repaint));
+	connect(m_move_animation, &QTimeLine::frameChanged, this, qOverload<>(&Board::repaint));
 
 	// Create status messages
 	m_status_time_message = new QLabel;

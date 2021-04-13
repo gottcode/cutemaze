@@ -112,30 +112,30 @@ void Window::initActions()
 #endif
 
 	QMenu* game_menu = menuBar()->addMenu(tr("&Game"));
-	QAction* new_action = game_menu->addAction(fetchIcon("document-new"), tr("&New"), this, SLOT(newGame()), QKeySequence::New);
+	QAction* new_action = game_menu->addAction(fetchIcon("document-new"), tr("&New"), this, &Window::newGame, QKeySequence::New);
 	m_pause_action = game_menu->addAction(fetchIcon("media-playback-pause"), tr("&Pause"));
 	m_pause_action->setShortcut(tr("P"));
-	m_hint_action = game_menu->addAction(fetchIcon("games-hint"), tr("&Hint"), m_board, SLOT(hint()));
+	m_hint_action = game_menu->addAction(fetchIcon("games-hint"), tr("&Hint"), m_board, &Board::hint);
 	game_menu->addSeparator();
 	game_menu->addAction(fetchIcon("games-highscores"), tr("High &Scores"), this, &Window::showScores, tr("Ctrl+H"));
 	game_menu->addSeparator();
-	QAction* quit_action = game_menu->addAction(fetchIcon("application-exit"), tr("&Quit"), this, SLOT(close()), QKeySequence::Quit);
+	QAction* quit_action = game_menu->addAction(fetchIcon("application-exit"), tr("&Quit"), this, &Window::close, QKeySequence::Quit);
 	quit_action->setMenuRole(QAction::QuitRole);
 
 	QMenu* view_menu = menuBar()->addMenu(tr("View"));
-	QAction* zoom_in_action = view_menu->addAction(fetchIcon("zoom-in"), tr("Zoom &In"), m_board, SLOT(zoomIn()), tr("Ctrl++"));
+	QAction* zoom_in_action = view_menu->addAction(fetchIcon("zoom-in"), tr("Zoom &In"), m_board, &Board::zoomIn, tr("Ctrl++"));
 	connect(m_board, &Board::zoomInAvailable, zoom_in_action, &QAction::setEnabled);
-	QAction* zoom_out_action = view_menu->addAction(fetchIcon("zoom-out"), tr("Zoom &Out"), m_board, SLOT(zoomOut()), tr("Ctrl+-"));
+	QAction* zoom_out_action = view_menu->addAction(fetchIcon("zoom-out"), tr("Zoom &Out"), m_board, &Board::zoomOut, tr("Ctrl+-"));
 	connect(m_board, &Board::zoomOutAvailable, zoom_out_action, &QAction::setEnabled);
 
 	QMenu* settings_menu = menuBar()->addMenu(tr("&Settings"));
-	settings_menu->addAction(fetchIcon("preferences-desktop-locale"), tr("Application &Language..."), this, SLOT(setLocale()));
-	settings_menu->addAction(fetchIcon("games-config-options"), tr("&Preferences..."), this, SLOT(showSettings()));
+	settings_menu->addAction(fetchIcon("preferences-desktop-locale"), tr("Application &Language..."), this, &Window::setLocale);
+	settings_menu->addAction(fetchIcon("games-config-options"), tr("&Preferences..."), this, &Window::showSettings);
 
 	QMenu* help_menu = menuBar()->addMenu(tr("&Help"));
-	QAction* about_action = help_menu->addAction(fetchIcon("help-about"), tr("&About"), this, SLOT(about()));
+	QAction* about_action = help_menu->addAction(fetchIcon("help-about"), tr("&About"), this, &Window::about);
 	about_action->setMenuRole(QAction::AboutRole);
-	about_action = help_menu->addAction(QIcon(":/qt-project.org/qmessagebox/images/qtlogo-64.png"), tr("About &Qt"), qApp, SLOT(aboutQt()));
+	about_action = help_menu->addAction(QIcon(":/qt-project.org/qmessagebox/images/qtlogo-64.png"), tr("About &Qt"), qApp, &QApplication::aboutQt);
 	about_action->setMenuRole(QAction::AboutQtRole);
 
 	// Create toolbar
