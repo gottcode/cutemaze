@@ -7,12 +7,13 @@
 #ifndef CUTEMAZE_SETTINGS_H
 #define CUTEMAZE_SETTINGS_H
 
+class Theme;
+
 #include <QDialog>
 class QCheckBox;
 class QComboBox;
 class QLabel;
 class QPushButton;
-class Theme;
 
 class Settings : public QDialog
 {

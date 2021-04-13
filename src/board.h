@@ -7,15 +7,16 @@
 #ifndef CUTEMAZE_BOARD_H
 #define CUTEMAZE_BOARD_H
 
+class Maze;
+class Solver;
+class Theme;
+
 #include <QElapsedTimer>
 #include <QWidget>
 class QLabel;
 class QMainWindow;
 class QTimeLine;
 class QTimer;
-class Maze;
-class Solver;
-class Theme;
 
 class Board : public QWidget
 {

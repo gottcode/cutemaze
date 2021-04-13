@@ -7,8 +7,9 @@
 #ifndef CUTEMAZE_WINDOW_H
 #define CUTEMAZE_WINDOW_H
 
-#include <QMainWindow>
 class Board;
+
+#include <QMainWindow>
 class QAction;
 
 class Window : public QMainWindow

@@ -7,11 +7,12 @@
 #ifndef CUTEMAZE_PATH_H
 #define CUTEMAZE_PATH_H
 
+class Cell;
+class Maze;
+
 #include <QList>
 #include <QPoint>
 #include <QVector>
-class Cell;
-class Maze;
 
 class Path
 {

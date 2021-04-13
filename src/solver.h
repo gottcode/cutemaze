@@ -7,10 +7,11 @@
 #ifndef CUTEMAZE_SOLVER_H
 #define CUTEMAZE_SOLVER_H
 
-#include <QList>
-#include <QPoint>
 class Maze;
 class Path;
+
+#include <QList>
+#include <QPoint>
 
 class Solver
 {
