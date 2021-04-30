@@ -161,7 +161,7 @@
     </message>
     <message>
         <source>Steps</source>
-        <translation>Stappen</translation>
+        <translation>Aantal stappen</translation>
     </message>
     <message>
         <source>Algorithm</source>
@@ -177,27 +177,27 @@
     </message>
     <message>
         <source>High Scores</source>
-        <translation type="unfinished"></translation>
+        <translation>Topscores</translation>
     </message>
     <message>
         <source>Rank</source>
-        <translation type="unfinished"></translation>
+        <translation>Rang</translation>
     </message>
     <message>
         <source>#%1</source>
-        <translation type="unfinished"></translation>
+        <translation>#%1</translation>
     </message>
     <message>
         <source>You beat your top score!</source>
-        <translation type="unfinished"></translation>
+        <translation>Je hebt je persoonlijk record verbroken!</translation>
     </message>
     <message>
         <source>Well done!</source>
-        <translation type="unfinished"></translation>
+        <translation>Goed gedaan!</translation>
     </message>
     <message>
         <source>You have a new high score!</source>
-        <translation type="unfinished"></translation>
+        <translation>Je hebt een nieuwe topscore behaald!</translation>
     </message>
 </context>
 <context>
@@ -216,11 +216,11 @@
     </message>
     <message>
         <source>Show number of steps taken</source>
-        <translation>Laat het aantal stappen zien</translation>
+        <translation>Aantal stappen tonen</translation>
     </message>
     <message>
         <source>Show elapsed time</source>
-        <translation>Laat de verstreken tijd zien</translation>
+        <translation>Verstreken tijd tonen</translation>
     </message>
     <message>
         <source>Smooth movement</source>
@@ -248,7 +248,7 @@
     </message>
     <message>
         <source>Toggle Flag:</source>
-        <translation>Schakel flag:</translation>
+        <translation>Vlag tonen/verbergen:</translation>
     </message>
     <message>
         <source>Themes</source>
@@ -264,7 +264,7 @@
     </message>
     <message>
         <source>Select Theme File</source>
-        <translation>Selecteer themabestand</translation>
+        <translation>Kies een themabestand</translation>
     </message>
     <message>
         <source>Sorry</source>
@@ -355,7 +355,7 @@
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation>&amp;Uitzoomen</translation>
+        <translation>Uitz&amp;oomen</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
@@ -399,7 +399,7 @@
     </message>
     <message>
         <source>Ctrl+H</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+H</translation>
     </message>
 </context>
 </TS>
