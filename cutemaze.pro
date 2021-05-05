@@ -84,9 +84,6 @@ macx {
 
 	target.path = $$PREFIX/$$BINDIR/
 
-	pixmap.files = icons/cutemaze.xpm
-	pixmap.path = $$PREFIX/share/pixmaps/
-
 	icon.files = icons/hicolor/*
 	icon.path = $$PREFIX/share/icons/hicolor/
 
@@ -103,5 +100,5 @@ macx {
 	man.files = doc/cutemaze.6
 	man.path = $$PREFIX/share/man/man6
 
-	INSTALLS += target pixmap icon desktop appdata qm man
+	INSTALLS += target icon desktop appdata qm man
 }
