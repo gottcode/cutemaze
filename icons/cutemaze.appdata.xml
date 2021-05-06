@@ -77,6 +77,19 @@
   <content_rating type="oars-1.1"/>
 
   <releases>
+    <release version="1.3.0" date="2021-05-06">
+      <description>
+        <ul>
+          <li>Added pausing when menus are shown</li>
+          <li>Added resuming by clicking on game</li>
+          <li>Added support for Qt 6</li>
+          <li>Improved high scores dialog</li>
+          <li>Refactored code</li>
+          <li>Removed XPM icon</li>
+          <li>Translation updates: Dutch, Lithuanian, Romanian</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.2.6" date="2020-04-20">
       <description>
         <ul>
