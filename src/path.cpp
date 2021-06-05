@@ -14,7 +14,7 @@ Path::Path(Maze* maze, const QPoint& start, const QPoint& end)
 	: m_maze(maze)
 	, m_start(start)
 	, m_end(end)
-	, m_cells(maze->columns(), QVector<bool>(maze->rows(), false))
+	, m_cells(maze->columns(), QList<bool>(maze->rows(), false))
 {
 	// Fill in dead ends
 	for (int r = 0; r < m_maze->rows(); ++r) {

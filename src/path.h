@@ -12,7 +12,6 @@ class Maze;
 
 #include <QList>
 #include <QPoint>
-#include <QVector>
 
 class Path
 {
@@ -44,7 +43,7 @@ private:
 	Maze* m_maze;
 	QPoint m_start;
 	QPoint m_end;
-	QVector<QVector<bool>> m_cells;
+	QList<QList<bool>> m_cells;
 	QList<QPoint> m_solution;
 };
 

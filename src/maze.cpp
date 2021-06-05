@@ -16,7 +16,7 @@
 
 void HuntAndKillMaze::generate()
 {
-	m_visited = QVector<QVector<bool>>(columns(), QVector<bool>(rows()));
+	m_visited = QList<QList<bool>>(columns(), QList<bool>(rows()));
 	m_unvisited = columns() * rows();
 
 	QPoint current(0, randomInt(rows()));
@@ -85,7 +85,7 @@ QPoint HuntAndKillMaze::hunt()
 void KruskalMaze::generate()
 {
 	// Generate sets
-	m_set_ids = QVector<QVector<Set*>>(columns(), QVector<Set*>(rows()));
+	m_set_ids = QList<QList<Set*>>(columns(), QList<Set*>(rows()));
 	for (int c = 0; c < columns(); ++c) {
 		for (int r = 0; r < rows(); ++r) {
 			m_sets.push_back(QList<QPoint>() << QPoint(c, r));
@@ -138,7 +138,7 @@ void KruskalMaze::generate()
 void PrimMaze::generate()
 {
 	// Generate cell lists
-	m_regions = QVector<QVector<int>>(columns(), QVector<int>(rows(), 0));
+	m_regions = QList<QList<int>>(columns(), QList<int>(rows(), 0));
 
 	// Move first cell
 	QPoint cell(0, randomInt(columns()));
@@ -215,7 +215,7 @@ QList<QPoint> PrimMaze::neighbors(const QPoint& cell)
 
 void RecursiveBacktrackerMaze::generate()
 {
-	m_visited = QVector<QVector<bool>>(columns(), QVector<bool>(rows()));
+	m_visited = QList<QList<bool>>(columns(), QList<bool>(rows()));
 
 	QPoint start(0, randomInt(rows()));
 	m_visited[start.x()][start.y()] = true;
@@ -243,7 +243,7 @@ void RecursiveBacktrackerMaze::makePath(const QPoint& current)
 void StackMaze::generate()
 {
 	// Generate cell lists
-	m_visited = QVector<QVector<bool>>(columns(), QVector<bool>(rows()));
+	m_visited = QList<QList<bool>>(columns(), QList<bool>(rows()));
 	QList<QPoint> active;
 
 	// Start maze
@@ -327,7 +327,7 @@ void Maze::generate(int columns, int rows, std::mt19937& random)
 	m_random = random;
 	m_columns = columns;
 	m_rows = rows;
-	m_cells = QVector<QVector<Cell>>(m_columns, QVector<Cell>(m_rows));
+	m_cells = QList<QList<Cell>>(m_columns, QList<Cell>(m_rows));
 	generate();
 	random = m_random;
 }
@@ -413,7 +413,7 @@ void Maze::mergeCells(const QPoint& cell1, const QPoint& cell2)
 
 //-----------------------------------------------------------------------------
 
-QPoint Maze::randomNeighbor(QVector<QVector<bool>>& visited, const QPoint& cell)
+QPoint Maze::randomNeighbor(QList<QList<bool>>& visited, const QPoint& cell)
 {
 	// Find unvisited neighbors
 	QPoint neighbors[4];

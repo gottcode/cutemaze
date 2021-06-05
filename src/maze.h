@@ -11,7 +11,6 @@
 
 #include <QList>
 #include <QPoint>
-#include <QVector>
 
 #include <list>
 #include <random>
@@ -56,7 +55,7 @@ protected:
 		return gen(m_random);
 	}
 
-	QPoint randomNeighbor(QVector<QVector<bool>>& visited, const QPoint& cell);
+	QPoint randomNeighbor(QList<QList<bool>>& visited, const QPoint& cell);
 
 private:
 	virtual void generate() = 0;
@@ -65,7 +64,7 @@ private:
 	std::mt19937 m_random;
 	int m_columns;
 	int m_rows;
-	QVector<QVector<Cell>> m_cells;
+	QList<QList<Cell>> m_cells;
 };
 
 
@@ -76,7 +75,7 @@ private:
 	QPoint hunt();
 
 private:
-	QVector<QVector<bool>> m_visited;
+	QList<QList<bool>> m_visited;
 	int m_unvisited;
 };
 
@@ -89,7 +88,7 @@ private:
 private:
 	typedef QList<QPoint> Set;
 	std::list<Set> m_sets;
-	QVector<QVector<Set*>> m_set_ids;
+	QList<QList<Set*>> m_set_ids;
 };
 
 
@@ -103,7 +102,7 @@ private:
 
 private:
 	QList<QPoint> m_frontier;
-	QVector<QVector<int>> m_regions;
+	QList<QList<int>> m_regions;
 };
 
 
@@ -114,7 +113,7 @@ private:
 	void makePath(const QPoint& current);
 
 private:
-	QVector<QVector<bool>> m_visited;
+	QList<QList<bool>> m_visited;
 };
 
 
@@ -125,7 +124,7 @@ private:
 	virtual int nextActive(int size);
 
 private:
-	QVector<QVector<bool>> m_visited;
+	QList<QList<bool>> m_visited;
 };
 
 
