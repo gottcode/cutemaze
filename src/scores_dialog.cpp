@@ -161,11 +161,7 @@ void ScoresDialog::migrate()
 	settings.beginWriteArray("Scores_Cutemaze");
 	int index = 0;
 	for (const QString& score : scores) {
-#if (QT_VERSION >= QT_VERSION_CHECK(5,14,0))
 		const QStringList values = score.split(":", Qt::SkipEmptyParts);
-#else
-		const QStringList values = score.split(":", QString::SkipEmptyParts);
-#endif
 		if (values.size() != 5) {
 			continue;
 		}
