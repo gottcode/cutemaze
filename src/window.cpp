@@ -1,5 +1,5 @@
 /*
-	SPDX-FileCopyrightText: 2007-2021 Graeme Gott <graeme@gottcode.org>
+// 	SPDX-FileCopyrightText: 2007-2022 Graeme Gott <graeme@gottcode.org>
 
 	SPDX-License-Identifier: GPL-3.0-or-later
 */
@@ -150,7 +150,7 @@ void Window::about()
 	QMessageBox::about(this, tr("About"), QString("<p><center><big><b>%1 %2</b></big><br/>%3<br/><small>%4<br/>%5</small></center></p><p><center>%6<br/><small>%7</small></center></p>")
 		.arg(tr("CuteMaze"), QCoreApplication::applicationVersion(),
 			tr("A top-down maze game"),
-			tr("Copyright &copy; 2007-%1 Graeme Gott").arg("2021"),
+			tr("Copyright &copy; 2007-%1 Graeme Gott").arg("2022"),
 			tr("Released under the <a href=%1>GPL 3</a> license").arg("\"http://www.gnu.org/licenses/gpl.html\""),
 			tr("Icons are from the <a href=%1>Oxygen</a> theme").arg("\"http://www.oxygen-icons.org/\""),
 			tr("Used under the <a href=%1>LGPL 3</a> license").arg("\"http://www.gnu.org/licenses/lgpl.html\""))
