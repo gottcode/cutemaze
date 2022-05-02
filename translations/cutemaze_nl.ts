@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>Unable to load previous game. A new game will be started.</source>
-        <translation>Het vorige spel kan niet worden gestart; er zal een nieuw spel worden gestart.</translation>
+        <translation>Het vorige spel kan niet worden gestart - er zal een nieuw spel worden gestart.</translation>
     </message>
     <message>
         <source>%1 elapsed</source>
@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>%1 steps taken</source>
-        <translation>%1 genomen stappen</translation>
+        <translation>%1 stappen genomen</translation>
     </message>
     <message>
         <source>%1 of %2 targets remain</source>
@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Paused</source>
-        <translation>Gepauzeerd</translation>
+        <translation>Onderbroken</translation>
     </message>
 </context>
 <context>
@@ -75,7 +75,7 @@
     <name>LocaleDialog</name>
     <message>
         <source>Select application language:</source>
-        <translation>Selecteer de applicatietaal:</translation>
+        <translation>Kies de programmataal:</translation>
     </message>
     <message>
         <source>&lt;System Language&gt;</source>
@@ -212,7 +212,7 @@
     </message>
     <message>
         <source>Show where you&apos;ve been</source>
-        <translation>Laat zien waar je geweest bent</translation>
+        <translation>Genomen route tonen</translation>
     </message>
     <message>
         <source>Show number of steps taken</source>
@@ -335,7 +335,7 @@
     </message>
     <message>
         <source>&amp;Pause</source>
-        <translation>&amp;Pauzeren</translation>
+        <translation>&amp;Onderbreken</translation>
     </message>
     <message>
         <source>&amp;Hint</source>
@@ -363,7 +363,7 @@
     </message>
     <message>
         <source>Application &amp;Language...</source>
-        <translation>Programmataa&amp;l...</translation>
+        <translation>Programmataa&amp;l…</translation>
     </message>
     <message>
         <source>&amp;Preferences...</source>
@@ -395,7 +395,7 @@
     </message>
     <message>
         <source>Used under the &lt;a href=%1&gt;LGPL 3&lt;/a&gt; license</source>
-        <translation>Gebruikt onder de &lt;a href=%1&gt;LGPL 3&lt;/a&gt; licentie</translation>
+        <translation>Gebruikt onder de &lt;a href=%1&gt;LGPL 3&lt;/a&gt;-licentie</translation>
     </message>
     <message>
         <source>Ctrl+H</source>

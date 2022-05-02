@@ -44,6 +44,7 @@ Comment[nl]=Vind doelen in een doolhof
 Comment[pl]=Znajdź cele w labiryncie
 Comment[pt]=Procura alvos num labirinto
 Comment[ro]=Căutaţi ţintele într-un labirint
+Comment[tr]=Labirentte hedefleri bul
 Comment[zh]=在迷宫中寻找目标
 TryExec=cutemaze
 Exec=cutemaze

@@ -83,7 +83,7 @@
     </message>
     <message>
         <source>Note</source>
-        <translation>Önemli</translation>
+        <translation>Not</translation>
     </message>
     <message>
         <source>Please restart this application for the change in language to take effect.</source>

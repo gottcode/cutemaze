@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the CuteMaze package.
 #
 # Translators:
+# Cuneyt Oktay <cuneytoktay@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: CuteMaze\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-27 19:05-0400\n"
-"PO-Revision-Date: 2018-05-27 23:15+0000\n"
-"Last-Translator: Graeme Gott <graeme@gottcode.org>\n"
+"PO-Revision-Date: 2014-11-13 16:22+0000\n"
+"Last-Translator: Cuneyt Oktay <cuneytoktay@gmail.com>, 2021\n"
 "Language-Team: Turkish (http://www.transifex.com/gottcode/cutemaze/language/"
 "tr/)\n"
 "Language: tr\n"
@@ -24,7 +25,7 @@ msgstr "CuteMaze"
 
 #: ../cutemaze.appdata.xml.in:7 ../cutemaze.desktop.in:5
 msgid "Find targets in a maze"
-msgstr ""
+msgstr "Labirentte hedefleri bul"
 
 #: ../cutemaze.appdata.xml.in:10
 msgid ""
