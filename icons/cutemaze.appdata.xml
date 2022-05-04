@@ -69,6 +69,7 @@
   <provides>
     <binary>cutemaze</binary>
   </provides>
+  <launchable type="desktop-id">cutemaze.desktop</launchable>
 
   <kudos>
     <kudo>HiDpiIcon</kudo>
