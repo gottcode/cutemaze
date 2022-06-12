@@ -272,7 +272,7 @@ void Settings::accept()
 	// Write theme to disk
 	settings.setValue("Theme", m_themes_selector->currentText());
 
-	emit settingsChanged();
+	Q_EMIT settingsChanged();
 
 	QDialog::accept();
 }
@@ -356,7 +356,7 @@ void Settings::removeTheme()
 		// Force change to next theme in list
 		themeSelected(m_themes_selector->currentText());
 		QSettings().setValue("Theme", m_themes_selector->currentText());
-		emit settingsChanged();
+		Q_EMIT settingsChanged();
 	}
 }
 

@@ -22,10 +22,10 @@ public:
 
 	static QString algorithmString(int algorithm);
 
-public slots:
+public Q_SLOTS:
 	void accept() override;
 
-private slots:
+private Q_SLOTS:
 	void algorithmSelected(int index);
 
 private:

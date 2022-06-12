@@ -39,7 +39,7 @@ Solver::Solver(Maze* maze, const QPoint& start, const QList<QPoint>& targets)
 
 QPoint Solver::hint(const QPoint& current)
 {
-	forever {
+	Q_FOREVER {
 		QPoint result = m_paths.first()->hint(current);
 		if (result.x() != -1) {
 			return result;

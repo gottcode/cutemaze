@@ -23,13 +23,13 @@ public:
 	explicit Settings(QWidget* parent = nullptr);
 	~Settings();
 
-signals:
+Q_SIGNALS:
 	void settingsChanged();
 
-public slots:
+public Q_SLOTS:
 	void accept() override;
 
-private slots:
+private Q_SLOTS:
 	void themeSelected(const QString& theme);
 	void addTheme();
 	void removeTheme();

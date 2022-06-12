@@ -23,7 +23,7 @@ protected:
 	void closeEvent(QCloseEvent* event) override;
 	void wheelEvent(QWheelEvent* event) override;
 
-private slots:
+private Q_SLOTS:
 	void about();
 	void newGame();
 	void gameFinished(int seconds, int steps, int algorithm, int size);

@@ -135,9 +135,9 @@ void Board::newGame()
 	m_status_remain_message->setVisible(true);
 
 	m_paused = false;
-	emit pauseAvailable(true);
-	emit hintAvailable(true);
-	emit pauseChecked(false);
+	Q_EMIT pauseAvailable(true);
+	Q_EMIT hintAvailable(true);
+	Q_EMIT pauseChecked(false);
 }
 
 //-----------------------------------------------------------------------------
@@ -227,7 +227,7 @@ void Board::pauseGame(bool paused)
 		updateStatusMessage();
 	}
 	update();
-	emit hintAvailable(!m_paused);
+	Q_EMIT hintAvailable(!m_paused);
 }
 
 //-----------------------------------------------------------------------------
@@ -315,7 +315,7 @@ void Board::loadSettings()
 
 void Board::focusOutEvent(QFocusEvent* event)
 {
-	emit pauseChecked(true);
+	Q_EMIT pauseChecked(true);
 	QWidget::focusOutEvent(event);
 }
 
@@ -417,7 +417,7 @@ void Board::keyPressEvent(QKeyEvent* event)
 void Board::mousePressEvent(QMouseEvent* event)
 {
 	if (m_paused) {
-		emit pauseChecked(false);
+		Q_EMIT pauseChecked(false);
 	}
 	QWidget::mousePressEvent(event);
 }
@@ -466,8 +466,8 @@ void Board::scale()
 	m_unit = std::min(width(), height()) / m_zoom_size;
 	m_theme->scale(m_unit);
 	renderBackground();
-	emit zoomOutAvailable(m_zoom < m_max_zoom);
-	emit zoomInAvailable(m_zoom > 5);
+	Q_EMIT zoomOutAvailable(m_zoom < m_max_zoom);
+	Q_EMIT zoomInAvailable(m_zoom > 5);
 	QSettings().setValue("Zoom", m_zoom);
 }
 
@@ -542,8 +542,8 @@ void Board::generate(unsigned int seed)
 
 void Board::finish()
 {
-	emit hintAvailable(false);
-	emit pauseAvailable(false);
+	Q_EMIT hintAvailable(false);
+	Q_EMIT pauseAvailable(false);
 	m_move_animation->stop();
 	m_move_animation->setCurrentTime(m_move_animation->duration());
 
@@ -564,7 +564,7 @@ void Board::finish()
 	update();
 
 	// Add high score
-	emit finished(seconds, m_player_steps, algorithm, size);
+	Q_EMIT finished(seconds, m_player_steps, algorithm, size);
 }
 
 //-----------------------------------------------------------------------------

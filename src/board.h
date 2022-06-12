@@ -26,7 +26,7 @@ public:
 	explicit Board(QMainWindow* parent);
 	~Board();
 
-signals:
+Q_SIGNALS:
 	void hintAvailable(bool available);
 	void pauseChecked(bool checked);
 	void pauseAvailable(bool run);
@@ -34,7 +34,7 @@ signals:
 	void zoomOutAvailable(bool available);
 	void finished(int seconds, int steps, int algorithm, int size);
 
-public slots:
+public Q_SLOTS:
 	void newGame();
 	void loadGame();
 	void saveGame();
@@ -51,7 +51,7 @@ protected:
 	void paintEvent(QPaintEvent*) override;
 	void resizeEvent(QResizeEvent*) override;
 
-private slots:
+private Q_SLOTS:
 	void updateStatusMessage();
 
 private:
