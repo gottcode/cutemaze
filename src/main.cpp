@@ -1,5 +1,5 @@
 /*
-	SPDX-FileCopyrightText: 2007-2021 Graeme Gott <graeme@gottcode.org>
+	SPDX-FileCopyrightText: 2007-2022 Graeme Gott <graeme@gottcode.org>
 
 	SPDX-License-Identifier: GPL-3.0-or-later
 */
@@ -24,7 +24,19 @@ int main(int argc, char** argv)
 	app.setDesktopFileName("cutemaze");
 #endif
 
-	LocaleDialog::loadTranslator("cutemaze_");
+	const QString appdir = app.applicationDirPath();
+	const QStringList datadirs{
+#if defined(Q_OS_MAC)
+		appdir + "/../Resources"
+#elif defined(Q_OS_UNIX)
+		DATADIR,
+		appdir + "/../share/cutemaze"
+#else
+		appdir
+#endif
+	};
+
+	LocaleDialog::loadTranslator("cutemaze_", datadirs);
 
 	ScoresDialog::migrate();
 

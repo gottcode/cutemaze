@@ -86,6 +86,8 @@ endif()
 
 # Install
 if(UNIX AND NOT APPLE)
+	target_compile_definitions(cutemaze PRIVATE DATADIR="${CMAKE_INSTALL_FULL_DATADIR}/cutemaze")
+
 	target_sources(cutemaze PRIVATE icons/icon.qrc)
 
 	install(TARGETS cutemaze RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
