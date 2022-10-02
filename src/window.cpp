@@ -102,20 +102,25 @@ void Window::initActions()
 #endif
 
 	QMenu* game_menu = menuBar()->addMenu(tr("&Game"));
-	QAction* new_action = game_menu->addAction(fetchIcon("document-new"), tr("&New"), this, &Window::newGame, QKeySequence::New);
+	QAction* new_action = game_menu->addAction(fetchIcon("document-new"), tr("&New"), this, &Window::newGame);
+	new_action->setShortcut(QKeySequence::New);
 	m_pause_action = game_menu->addAction(fetchIcon("media-playback-pause"), tr("&Pause"));
 	m_pause_action->setShortcut(tr("P"));
 	m_hint_action = game_menu->addAction(fetchIcon("games-hint"), tr("&Hint"), m_board, &Board::hint);
 	game_menu->addSeparator();
-	game_menu->addAction(fetchIcon("games-highscores"), tr("High &Scores"), this, &Window::showScores, tr("Ctrl+H"));
+	QAction* scores_action = game_menu->addAction(fetchIcon("games-highscores"), tr("High &Scores"), this, &Window::showScores);
+	scores_action->setShortcut(tr("Ctrl+H"));
 	game_menu->addSeparator();
-	QAction* quit_action = game_menu->addAction(fetchIcon("application-exit"), tr("&Quit"), this, &Window::close, QKeySequence::Quit);
+	QAction* quit_action = game_menu->addAction(fetchIcon("application-exit"), tr("&Quit"), this, &Window::close);
+	quit_action->setShortcut(QKeySequence::Quit);
 	quit_action->setMenuRole(QAction::QuitRole);
 
 	QMenu* view_menu = menuBar()->addMenu(tr("View"));
-	QAction* zoom_in_action = view_menu->addAction(fetchIcon("zoom-in"), tr("Zoom &In"), m_board, &Board::zoomIn, tr("Ctrl++"));
+	QAction* zoom_in_action = view_menu->addAction(fetchIcon("zoom-in"), tr("Zoom &In"), m_board, &Board::zoomIn);
+	zoom_in_action->setShortcut(tr("Ctrl++"));
 	connect(m_board, &Board::zoomInAvailable, zoom_in_action, &QAction::setEnabled);
-	QAction* zoom_out_action = view_menu->addAction(fetchIcon("zoom-out"), tr("Zoom &Out"), m_board, &Board::zoomOut, tr("Ctrl+-"));
+	QAction* zoom_out_action = view_menu->addAction(fetchIcon("zoom-out"), tr("Zoom &Out"), m_board, &Board::zoomOut);
+	zoom_out_action->setShortcut(tr("Ctrl+-"));
 	connect(m_board, &Board::zoomOutAvailable, zoom_out_action, &QAction::setEnabled);
 
 	QMenu* settings_menu = menuBar()->addMenu(tr("&Settings"));
