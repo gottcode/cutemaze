@@ -2,7 +2,7 @@
 
 APP='CuteMaze'
 BUNDLE="$APP.app"
-VERSION='1.3.1'
+VERSION='1.3.2'
 
 # Locate deployment script
 BIN_DIR=$(pwd)

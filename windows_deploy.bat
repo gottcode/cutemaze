@@ -4,7 +4,7 @@
 
 SET SRCDIR=..\cutemaze
 SET APP=CuteMaze
-SET VERSION=1.3.1
+SET VERSION=1.3.2
 
 ECHO Copying executable
 MKDIR %SRCDIR%\%APP%
