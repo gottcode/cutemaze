@@ -706,7 +706,7 @@ void Board::renderMaze()
 	}
 
 	// Draw targets
-	for (const QPoint& target : qAsConst(m_targets)) {
+	for (const QPoint& target : std::as_const(m_targets)) {
 		if (view.contains(target)) {
 			m_theme->draw(painter, target.x() - column, target.y() - row, Theme::Target);
 		}

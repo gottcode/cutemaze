@@ -124,7 +124,7 @@ void ControlButton::keyPressEvent(QKeyEvent* event)
 			control = QKeySequence(key).toString(QKeySequence::NativeText);
 			break;
 		};
-		for (ControlButton* button : qAsConst(controls)) {
+		for (ControlButton* button : std::as_const(controls)) {
 			if (button->text() == control) {
 				button->setText("");
 				button->key = 0;
@@ -265,7 +265,7 @@ void Settings::accept()
 	settings.setValue("Smooth Movement", m_gameplay_smooth->isChecked());
 
 	// Write control button settings to disk
-	for (ControlButton* button : qAsConst(controls)) {
+	for (ControlButton* button : std::as_const(controls)) {
 		settings.setValue("Controls/" + button->objectName().mid(8), button->key);
 	}
 
@@ -373,7 +373,7 @@ void Settings::loadSettings()
 	m_gameplay_smooth->setChecked(settings.value("Smooth Movement", true).toBool());
 
 	// Read control button settings from disk
-	for (ControlButton* button : qAsConst(controls)) {
+	for (ControlButton* button : std::as_const(controls)) {
 		button->key = settings.value("Controls/" + button->objectName().mid(8), button->default_key).toUInt();
 		button->setText(QKeySequence(button->key).toString());
 	}
