@@ -10,6 +10,7 @@
   <name xml:lang="eo">CuteMaze</name>
   <name xml:lang="es">CuteMaze</name>
   <name xml:lang="fi">CuteMaze</name>
+  <name xml:lang="it">CuteMaze</name>
   <name xml:lang="lt">CuteMaze</name>
   <name xml:lang="nl">CuteMaze</name>
   <name xml:lang="pl">CuteMaze</name>
@@ -26,6 +27,7 @@
   <summary xml:lang="eo">Trovu celojn en labirinto</summary>
   <summary xml:lang="fi">Etsi kohteet labyrintissä</summary>
   <summary xml:lang="he">מצא מטרות בתוך מבוך</summary>
+  <summary xml:lang="it">Trova obiettivi in un labirinto</summary>
   <summary xml:lang="lt">Raskite objektus labirinte</summary>
   <summary xml:lang="nl">Vind doelen in een doolhof</summary>
   <summary xml:lang="pl">Znajdź cele w labiryncie</summary>
@@ -42,6 +44,7 @@
     <p xml:lang="eo">CuteMaze estas simpla desupra ludo, en kiu labirintoj generas hazarde per unu el elekto de multaj diversaj algoritmoj. Vi movas la personon tra la labirinto dum ĉasi celojn (defaŭlte fromaĝo)—oni venkas la ludon post kiam ĉiuj celoj estas kolektitaj.</p>
     <p xml:lang="fi">CuteMaze on simppeli, ylhäältä kuvattu peli, missä labyrintit on satunnaisesti generoitu käyttäen yhtä useasta eri algoritmistä. Sinä liikutat pelihahmoa labyrintissä etsien erilaisia kohteita (juusto, vakioasetuksissa)—peli on voitettu kun kaikki nämä kohteet on kerätty.</p>
     <p xml:lang="he">‏CuteMaze הינו משחק מעלה-מטה, פשוט אשר בו מבוכים מופקים אוטומטית באמצעות אחד מתוך מספר אלגוריתמים שונים. עליך להזיז את התו דרך המבוך בשעת צייד עבור מטרות (גבינה, באופן שגרתי)-המשחק מנוצח כאשר כל מטרות אלה הושגו.</p>
+    <p xml:lang="it">CuteMaze è un semplice gioco dall'alto verso il basso in cui i labirinti vengono generati casualmente utilizzando una scelta tra diversi algoritmi. Muovi il personaggio attraverso il labirinto mentre cerchi i tuoi target (formaggio, per impostazione predefinita): il gioco viene vinto una volta che tutti questi obiettivi sono stati raccolti.</p>
     <p xml:lang="lt">CuteMaze yra paprastas, iš viršaus į apačią žaidimas, kuriame yra atsitiktinai kuriami labirintai pagal vieną iš pasirinktų skirtingų algoritmų. Jūs judate veikėju, per labirintą, medžiodami objektus (pagal numatymą, sūrį)—žaidimas yra laimėtas tuomet, kai surinkti visi objektai.</p>
     <p xml:lang="nl">Cutemaze is een eenvoudig top-down spel waarin doolhoven willekeurig gegenereerd worden door één van de gekozen algoritmes. Je kunt je personage door het doolhof verplaatsen terwijl je op doelwitten (standaard: kaas) jaagt. Je hebt gewonnen als je alle doelwitten hebt opgeraapt.</p>
     <p xml:lang="pl">CuteMaze to prosta, z góry na dół gra, w której losowo generowane są labirynty przy użyciu jednego z kilku różnych algorytmów. Poruszasz się postacią przez labirynt podczas zbierania celi (domyślnie jest to ser)—gra zostaje wygrana, gdy wszystkie te cele zostały zebrane.</p>
