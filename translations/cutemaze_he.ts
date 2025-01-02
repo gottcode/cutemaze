@@ -48,7 +48,7 @@
     </message>
     <message>
         <source>Alt</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt</translation>
     </message>
     <message>
         <source>Super</source>
@@ -56,7 +56,7 @@
     </message>
     <message>
         <source>Windows</source>
-        <translation type="unfinished"></translation>
+        <translation>Windows</translation>
     </message>
     <message>
         <source>Command</source>
@@ -173,31 +173,31 @@
     </message>
     <message>
         <source>Congratulations!</source>
-        <translation>ברכותיי!</translation>
+        <translation>ברכות!</translation>
     </message>
     <message>
         <source>High Scores</source>
-        <translation type="unfinished"></translation>
+        <translation>שיאי ניקוד</translation>
     </message>
     <message>
         <source>Rank</source>
-        <translation type="unfinished"></translation>
+        <translation>דרגה</translation>
     </message>
     <message>
         <source>#%1</source>
-        <translation type="unfinished"></translation>
+        <translation>#%1</translation>
     </message>
     <message>
         <source>You beat your top score!</source>
-        <translation type="unfinished"></translation>
+        <translation>ניצחת את הציון הגבוה שלך!</translation>
     </message>
     <message>
         <source>Well done!</source>
-        <translation type="unfinished"></translation>
+        <translation>כל הכבוד!</translation>
     </message>
     <message>
         <source>You have a new high score!</source>
-        <translation type="unfinished"></translation>
+        <translation>יש לך שיא חדש!</translation>
     </message>
 </context>
 <context>
@@ -292,18 +292,18 @@
     </message>
     <message>
         <source>Show Hint:</source>
-        <translation type="unfinished"></translation>
+        <translation>הצג רמז:</translation>
     </message>
 </context>
 <context>
     <name>Window</name>
     <message>
         <source>CuteMaze</source>
-        <translation type="unfinished"></translation>
+        <translation>CuteMaze</translation>
     </message>
     <message>
         <source>P</source>
-        <translation type="unfinished"></translation>
+        <translation>פ</translation>
     </message>
     <message>
         <source>View</source>
@@ -311,11 +311,11 @@
     </message>
     <message>
         <source>Ctrl++</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl++</translation>
     </message>
     <message>
         <source>Ctrl+-</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+-</translation>
     </message>
     <message>
         <source>About</source>
@@ -335,7 +335,7 @@
     </message>
     <message>
         <source>&amp;Pause</source>
-        <translation>ה&amp;שהה</translation>
+        <translation>&amp;השהה</translation>
     </message>
     <message>
         <source>&amp;Hint</source>
@@ -347,7 +347,7 @@
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation>י&amp;ציאה</translation>
+        <translation>%יציאה</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
@@ -355,11 +355,11 @@
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation>זום ה&amp;חוצה</translation>
+        <translation>זום &amp;החוצה</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation>ה&amp;גדרות</translation>
+        <translation>&amp;הגדרות</translation>
     </message>
     <message>
         <source>Application &amp;Language...</source>
@@ -367,7 +367,7 @@
     </message>
     <message>
         <source>&amp;Preferences...</source>
-        <translation>ה&amp;עדפות...</translation>
+        <translation>&amp;העדפות...</translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -383,7 +383,7 @@
     </message>
     <message>
         <source>Copyright &amp;copy; 2007-%1 Graeme Gott</source>
-        <translation type="unfinished"></translation>
+        <translation>Copyright &amp;copy; 2007-%1 Graeme Gott</translation>
     </message>
     <message>
         <source>Released under the &lt;a href=%1&gt;GPL 3&lt;/a&gt; license</source>
@@ -399,7 +399,7 @@
     </message>
     <message>
         <source>Ctrl+H</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+י</translation>
     </message>
 </context>
 </TS>
