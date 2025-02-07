@@ -1,5 +1,5 @@
 /*
-	SPDX-FileCopyrightText: 2009-2021 Graeme Gott <graeme@gottcode.org>
+	SPDX-FileCopyrightText: 2009-2025 Graeme Gott <graeme@gottcode.org>
 
 	SPDX-License-Identifier: GPL-3.0-or-later
 */
@@ -45,6 +45,35 @@ class ScoresDialog : public QDialog
 		int steps; /**< how many steps the player took */
 		int algorithm; /**< which algorithm was used to generate the maze */
 		int size; /**< how big was the board */
+
+		/**
+		 * Constructs a score.
+		 * @param n the player's name
+		 * @param s the value of the score
+		 * @param sc how long it took to play the game
+		 * @param stp how many steps the player took
+		 * @param alg which algorithm was used to generate the maze
+		 * @param sz the the size of the board
+		 */
+		Score(const QString& n = QString(), int s = 0, int sc = 0, int stp = 0, int alg = 0, int sz = 0)
+			: score(s)
+			, seconds(sc)
+			, steps(stp)
+			, algorithm(alg)
+			, size(sz)
+		{
+			setName(n);
+		}
+
+		/**
+		 * Sets the player name for the score.
+		 * @param text the player name
+		 */
+		void setName(const QString& text)
+		{
+			name = text.simplified();
+			name.remove('\0');
+		}
 	};
 
 public:

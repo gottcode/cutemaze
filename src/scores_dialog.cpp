@@ -1,5 +1,5 @@
 /*
-	SPDX-FileCopyrightText: 2009-2021 Graeme Gott <graeme@gottcode.org>
+	SPDX-FileCopyrightText: 2009-2025 Graeme Gott <graeme@gottcode.org>
 
 	SPDX-License-Identifier: GPL-3.0-or-later
 */
@@ -207,7 +207,7 @@ void ScoresDialog::editingFinished()
 	Q_ASSERT(m_row != -1);
 
 	// Set player name
-	m_scores[m_row].name = m_username->text();
+	m_scores[m_row].setName(m_username->text());
 	m_score_labels[m_row][1]->setText("<b>" + m_scores[m_row].name + "</b>");
 
 	// Hide lineedit
@@ -220,7 +220,7 @@ void ScoresDialog::editingFinished()
 
 	// Save scores
 	QSettings settings;
-	settings.setValue("Scores/DefaultName", m_username->text());
+	settings.setValue("Scores/DefaultName", m_scores[m_row].name);
 	settings.beginWriteArray("Scores_Cutemaze");
 	for (int r = 0, size = m_scores.size(); r < size; ++r) {
 		const Score& score = m_scores[r];
@@ -257,8 +257,7 @@ bool ScoresDialog::addScore(const QString& name, int seconds, int steps, int alg
 		return false;
 	}
 
-	Score s = { name, score, seconds, steps, algorithm, size };
-	m_scores.insert(m_row, s);
+	m_scores.insert(m_row, Score(name, score, seconds, steps, algorithm, size));
 	if (m_scores.size() == 11) {
 		m_scores.removeLast();
 	}
