@@ -31,6 +31,19 @@ add_version_compile_definition(src/main.cpp VERSIONSTR)
 
 # Create program
 qt_add_executable(cutemaze
+	# Headers
+	src/board.h
+	src/cell.h
+	src/locale_dialog.h
+	src/maze.h
+	src/new_game_dialog.h
+	src/path.h
+	src/scores_dialog.h
+	src/settings.h
+	src/solver.h
+	src/theme.h
+	src/window.h
+	# Sources
 	src/board.cpp
 	src/cell.cpp
 	src/locale_dialog.cpp
@@ -43,6 +56,7 @@ qt_add_executable(cutemaze
 	src/solver.cpp
 	src/theme.cpp
 	src/window.cpp
+	# Resources
 	icons/icons.qrc
 	themes/theme.qrc
 	preview/preview.qrc
