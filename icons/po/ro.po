@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Graeme Gott
 # This file is distributed under the same license as the CuteMaze package.
-#
+# 
 # Translators:
 # Oprea Nicolae <jaff2002@yahoo.com>, 2014,2018
 msgid ""
@@ -9,16 +9,14 @@ msgstr ""
 "Project-Id-Version: CuteMaze\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-27 19:05-0400\n"
-"PO-Revision-Date: 2018-05-29 00:38+0000\n"
-"Last-Translator: Oprea Nicolae <jaff2002@yahoo.com>\n"
-"Language-Team: Romanian (http://www.transifex.com/gottcode/cutemaze/language/"
-"ro/)\n"
-"Language: ro\n"
+"PO-Revision-Date: 2014-11-13 16:22+0000\n"
+"Last-Translator: Oprea Nicolae <jaff2002@yahoo.com>, 2014,2018\n"
+"Language-Team: Romanian (http://app.transifex.com/gottcode/cutemaze/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
-"2:1));\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 #: ../cutemaze.appdata.xml.in:6 ../cutemaze.desktop.in:3
 msgid "CuteMaze"
@@ -32,13 +30,9 @@ msgstr "Căutaţi ţintele într-un labirint"
 msgid ""
 "CuteMaze is a simple, top-down game in which mazes are randomly generated "
 "using one of a choice of several different algorithms. You move the "
-"character through the maze while hunting for targets (cheese, by default)—"
-"the game is won once all of these targets have been picked up."
-msgstr ""
-"CuteMaze este un joc simplu, de sus-jos, în care labirinturile sînt generate "
-"aleator folosind, la alegere, unul din mai mulţi algoritmi diferiţi. Mutaţi "
-"personajul prin labirint în timp ce vînaţi obiective (brânză, implicit) — "
-"jocul este cîştigat după ce toate aceste obiective au fost adunate."
+"character through the maze while hunting for targets (cheese, by "
+"default)—the game is won once all of these targets have been picked up."
+msgstr "CuteMaze este un joc simplu, de sus-jos, în care labirinturile sînt generate aleator folosind, la alegere, unul din mai mulţi algoritmi diferiţi. Mutaţi personajul prin labirint în timp ce vînaţi obiective (brânză, implicit) — jocul este cîştigat după ce toate aceste obiective au fost adunate."
 
 #: ../cutemaze.desktop.in:4
 msgid "Simple Maze Game"

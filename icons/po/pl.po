@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Graeme Gott
 # This file is distributed under the same license as the CuteMaze package.
-#
+# 
 # Translators:
 # Michał Trzebiatowski <michtrz@gmail.com>, 2015
 msgid ""
@@ -9,17 +9,14 @@ msgstr ""
 "Project-Id-Version: CuteMaze\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-27 19:05-0400\n"
-"PO-Revision-Date: 2018-05-27 23:14+0000\n"
-"Last-Translator: Graeme Gott <graeme@gottcode.org>\n"
-"Language-Team: Polish (http://www.transifex.com/gottcode/cutemaze/language/"
-"pl/)\n"
-"Language: pl\n"
+"PO-Revision-Date: 2014-11-13 16:22+0000\n"
+"Last-Translator: Michał Trzebiatowski <michtrz@gmail.com>, 2015\n"
+"Language-Team: Polish (http://app.transifex.com/gottcode/cutemaze/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
-"%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
-"%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 #: ../cutemaze.appdata.xml.in:6 ../cutemaze.desktop.in:3
 msgid "CuteMaze"
@@ -33,13 +30,9 @@ msgstr "Znajdź cele w labiryncie"
 msgid ""
 "CuteMaze is a simple, top-down game in which mazes are randomly generated "
 "using one of a choice of several different algorithms. You move the "
-"character through the maze while hunting for targets (cheese, by default)—"
-"the game is won once all of these targets have been picked up."
-msgstr ""
-"CuteMaze to prosta, z góry na dół gra, w której losowo generowane są "
-"labirynty przy użyciu jednego z kilku różnych algorytmów. Poruszasz się "
-"postacią przez labirynt podczas zbierania celi (domyślnie jest to ser)—gra "
-"zostaje wygrana, gdy wszystkie te cele zostały zebrane."
+"character through the maze while hunting for targets (cheese, by "
+"default)—the game is won once all of these targets have been picked up."
+msgstr "CuteMaze to prosta, z góry na dół gra, w której losowo generowane są labirynty przy użyciu jednego z kilku różnych algorytmów. Poruszasz się postacią przez labirynt podczas zbierania celi (domyślnie jest to ser)—gra zostaje wygrana, gdy wszystkie te cele zostały zebrane."
 
 #: ../cutemaze.desktop.in:4
 msgid "Simple Maze Game"

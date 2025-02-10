@@ -1,9 +1,9 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Graeme Gott
 # This file is distributed under the same license as the CuteMaze package.
-#
+# 
 # Translators:
-# Heimen Stoffels <vistausss@outlook.com>, 2018
+# Heimen Stoffels <vistausss@fastmail.com>, 2018
 # RobertBorst <webmaster@fam-borst.nl>, 2016
 # RobertBorst <webmaster@fam-borst.nl>, 2016
 msgid ""
@@ -11,14 +11,13 @@ msgstr ""
 "Project-Id-Version: CuteMaze\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-27 19:05-0400\n"
-"PO-Revision-Date: 2018-09-26 19:18+0000\n"
-"Last-Translator: RobertBorst <webmaster@fam-borst.nl>\n"
-"Language-Team: Dutch (http://www.transifex.com/gottcode/cutemaze/language/"
-"nl/)\n"
-"Language: nl\n"
+"PO-Revision-Date: 2014-11-13 16:22+0000\n"
+"Last-Translator: RobertBorst <webmaster@fam-borst.nl>, 2016\n"
+"Language-Team: Dutch (http://app.transifex.com/gottcode/cutemaze/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../cutemaze.appdata.xml.in:6 ../cutemaze.desktop.in:3
@@ -33,13 +32,9 @@ msgstr "Vind doelen in een doolhof"
 msgid ""
 "CuteMaze is a simple, top-down game in which mazes are randomly generated "
 "using one of a choice of several different algorithms. You move the "
-"character through the maze while hunting for targets (cheese, by default)—"
-"the game is won once all of these targets have been picked up."
-msgstr ""
-"Cutemaze is een eenvoudig top-down spel waarin doolhoven willekeurig "
-"gegenereerd worden door één van de gekozen algoritmes. Je kunt je personage "
-"door het doolhof verplaatsen terwijl je op doelwitten (standaard: kaas) "
-"jaagt. Je hebt gewonnen als je alle doelwitten hebt opgeraapt."
+"character through the maze while hunting for targets (cheese, by "
+"default)—the game is won once all of these targets have been picked up."
+msgstr "Cutemaze is een eenvoudig top-down spel waarin doolhoven willekeurig gegenereerd worden door één van de gekozen algoritmes. Je kunt je personage door het doolhof verplaatsen terwijl je op doelwitten (standaard: kaas) jaagt. Je hebt gewonnen als je alle doelwitten hebt opgeraapt."
 
 #: ../cutemaze.desktop.in:4
 msgid "Simple Maze Game"
