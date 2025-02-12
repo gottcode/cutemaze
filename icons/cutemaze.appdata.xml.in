@@ -32,12 +32,6 @@
     <binary>cutemaze</binary>
   </provides>
   <launchable type="desktop-id">cutemaze.desktop</launchable>
-  <icon type="stock">cutemaze</icon>
-
-  <categories>
-    <category>Game</category>
-    <category>LogicGame</category>
-  </categories>
 
   <kudos>
     <kudo>HiDpiIcon</kudo>
