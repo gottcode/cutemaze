@@ -5,7 +5,7 @@
 cmake_minimum_required(VERSION 3.16)
 
 # Configure project
-project(cutemaze VERSION 1.3.4 LANGUAGES CXX)
+project(cutemaze VERSION 1.3.5 LANGUAGES CXX)
 
 set(project_copyright "2007-2025 Graeme Gott")
 
