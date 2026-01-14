@@ -269,8 +269,8 @@ bool ScoresDialog::addScore(const QString& name, int seconds, int steps, int alg
 
 void ScoresDialog::load(QSettings& settings)
 {
-	const int size = std::min(settings.beginReadArray("Scores_Cutemaze"), 10);
-	for (int r = 0; r < size; ++r) {
+	const int rows = std::min(settings.beginReadArray("Scores_Cutemaze"), 10);
+	for (int r = 0; r < rows; ++r) {
 		settings.setArrayIndex(r);
 		const QString name = settings.value("Name", m_default_name).toString();
 		const int seconds = settings.value("Seconds").toInt();
