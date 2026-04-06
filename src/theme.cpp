@@ -151,10 +151,16 @@ void Theme::scale(int unit)
 
 //-----------------------------------------------------------------------------
 
-void Theme::setDevicePixelRatio(int ratio)
+bool Theme::setDevicePixelRatio(qreal ratio)
 {
+	if (m_ratio == ratio) {
+		return false;
+	}
+
 	m_ratio = ratio;
 	scale(m_unit);
+
+	return true;
 }
 
 //-----------------------------------------------------------------------------

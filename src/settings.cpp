@@ -164,7 +164,7 @@ Settings::Settings(QWidget* parent)
 {
 	setWindowTitle(tr("Settings"));
 	m_theme = new Theme;
-	m_theme->setDevicePixelRatio(devicePixelRatio());
+	m_theme->setDevicePixelRatio(devicePixelRatioF());
 
 	QTabWidget* tabs = new QTabWidget(this);
 	QDialogButtonBox* buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, Qt::Horizontal, this);
@@ -393,7 +393,7 @@ void Settings::loadSettings()
 
 void Settings::generatePreview()
 {
-	int ratio = devicePixelRatio();
+	const qreal ratio = devicePixelRatioF();
 	QPixmap pixmap(QSize(192, 192) * ratio);
 	pixmap.setDevicePixelRatio(ratio);
 	pixmap.fill(Qt::white);

@@ -76,7 +76,6 @@ Board::Board(QMainWindow* parent)
 
 	// Setup theme support
 	m_theme = new Theme;
-	m_theme->setDevicePixelRatio(devicePixelRatio());
 
 	loadSettings();
 
@@ -571,8 +570,8 @@ void Board::finish()
 
 void Board::renderBackground()
 {
-	int size = (m_zoom_size + 6) * m_unit;
-	int ratio = devicePixelRatio();
+	const int size = (m_zoom_size + 6) * m_unit;
+	const qreal ratio = devicePixelRatioF();
 	m_back = QPixmap(QSize(size, size) * ratio);
 	m_back.setDevicePixelRatio(ratio);
 	QPainter painter(&m_back);
@@ -583,6 +582,10 @@ void Board::renderBackground()
 
 void Board::renderMaze()
 {
+	if (m_theme->setDevicePixelRatio(devicePixelRatioF())) {
+		renderBackground();
+	}
+
 	int frame = m_smooth_movement ? m_move_animation->currentFrame() : 3;
 	Q_ASSERT(frame > -1);
 	Q_ASSERT(frame < 5);

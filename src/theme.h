@@ -21,7 +21,7 @@ public:
 	QStringList available() const;
 	void load(const QString& name);
 	void scale(int unit);
-	void setDevicePixelRatio(int ratio);
+	bool setDevicePixelRatio(qreal ratio);
 
 	enum Element {
 		Background,
@@ -54,7 +54,7 @@ private:
 	QPixmap m_pixmap_corner[15];
 	QPixmap m_pixmap_wall[2];
 	int m_unit;
-	int m_ratio;
+	qreal m_ratio;
 };
 
 #endif // CUTEMAZE_THEME_H
