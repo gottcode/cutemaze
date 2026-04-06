@@ -303,12 +303,28 @@ void Board::loadSettings()
 
 	// Load theme
 	m_theme->load(settings.value("Theme", "Mouse").toString());
+#if (QT_VERSION >= QT_VERSION_CHECK(6,6,0))
+	m_theme->setDevicePixelRatio(devicePixelRatioF());
+#endif
 	renderBackground();
 
 	// Show
 	update();
 	updateStatusMessage();
 }
+
+//-----------------------------------------------------------------------------
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6,6,0))
+bool Board::event(QEvent* event)
+{
+	if (event->type() == QEvent::DevicePixelRatioChange) {
+		m_theme->setDevicePixelRatio(devicePixelRatioF());
+		renderBackground();
+	}
+	return QWidget::event(event);
+}
+#endif
 
 //-----------------------------------------------------------------------------
 
@@ -582,9 +598,11 @@ void Board::renderBackground()
 
 void Board::renderMaze()
 {
+#if (QT_VERSION < QT_VERSION_CHECK(6,6,0))
 	if (m_theme->setDevicePixelRatio(devicePixelRatioF())) {
 		renderBackground();
 	}
+#endif
 
 	int frame = m_smooth_movement ? m_move_animation->currentFrame() : 3;
 	Q_ASSERT(frame > -1);

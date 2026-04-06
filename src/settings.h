@@ -29,6 +29,11 @@ Q_SIGNALS:
 public Q_SLOTS:
 	void accept() override;
 
+protected:
+#if (QT_VERSION >= QT_VERSION_CHECK(6,6,0))
+	bool event(QEvent* event) override;
+#endif
+
 private Q_SLOTS:
 	void themeSelected(const QString& theme);
 	void addTheme();

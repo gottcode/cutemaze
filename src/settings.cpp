@@ -279,6 +279,19 @@ void Settings::accept()
 
 //-----------------------------------------------------------------------------
 
+#if (QT_VERSION >= QT_VERSION_CHECK(6,6,0))
+bool Settings::event(QEvent* event)
+{
+	if (event->type() == QEvent::DevicePixelRatioChange) {
+		m_theme->setDevicePixelRatio(devicePixelRatioF());
+		generatePreview();
+	}
+	return QDialog::event(event);
+}
+#endif
+
+//-----------------------------------------------------------------------------
+
 void Settings::themeSelected(const QString& theme)
 {
 	if (!theme.isEmpty()) {
