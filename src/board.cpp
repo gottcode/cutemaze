@@ -76,6 +76,7 @@ Board::Board(QMainWindow* parent)
 
 	// Setup theme support
 	m_theme = new Theme;
+	m_theme->setDevicePixelRatio(devicePixelRatio());
 
 	loadSettings();
 
@@ -303,9 +304,6 @@ void Board::loadSettings()
 
 	// Load theme
 	m_theme->load(settings.value("Theme", "Mouse").toString());
-#if (QT_VERSION >= QT_VERSION_CHECK(6,6,0))
-	m_theme->setDevicePixelRatio(devicePixelRatioF());
-#endif
 	renderBackground();
 
 	// Show
