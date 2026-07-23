@@ -1,3 +1,9 @@
+1.3.7
+-----
+* FIXED: Did not handle fractional HiDPI scaling.
+* Document policy prohibiting the use of AI.
+* Use strict mode to disable unsafe Qt APIs.
+
 1.3.6
 -----
 * Replaced shadowed variable names.

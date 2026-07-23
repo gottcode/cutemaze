@@ -4,7 +4,7 @@
 !define APPNAME "CuteMaze"
 !define VERSIONMAJOR 1
 !define VERSIONMINOR 3
-!define VERSIONPATCH 6
+!define VERSIONPATCH 7
 !define APPVERSION "${VERSIONMAJOR}.${VERSIONMINOR}.${VERSIONPATCH}"
 !define ABOUTURL "https://gottcode.org/cutemaze/"
 
