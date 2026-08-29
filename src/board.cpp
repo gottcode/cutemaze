@@ -857,3 +857,5 @@ void Board::renderText(QPainter* painter, const QString& message) const
 }
 
 //-----------------------------------------------------------------------------
+
+#include "moc_board.cpp"

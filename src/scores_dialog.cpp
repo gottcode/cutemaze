@@ -330,3 +330,5 @@ void ScoresDialog::updateItems()
 }
 
 //-----------------------------------------------------------------------------
+
+#include "moc_scores_dialog.cpp"

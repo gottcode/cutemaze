@@ -100,3 +100,5 @@ void NewGameDialog::algorithmSelected(int index)
 }
 
 //-----------------------------------------------------------------------------
+
+#include "moc_new_game_dialog.cpp"

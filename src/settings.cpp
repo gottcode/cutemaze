@@ -449,3 +449,5 @@ void Settings::generatePreview()
 }
 
 //-----------------------------------------------------------------------------
+
+#include "moc_settings.cpp"
